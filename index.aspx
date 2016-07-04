@@ -139,9 +139,7 @@
 						  </div>
 						</div>
 					</div>
-</div>
-</div>
-<div id="recomendado">
+					<div id="recomendado">
 <div class="col l3 s6">
 <div class="card">
 <a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
@@ -173,4 +171,7 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+
 </asp:Content>
