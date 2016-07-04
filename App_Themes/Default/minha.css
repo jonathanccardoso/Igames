@@ -4,7 +4,10 @@
 nav{
 	background:#003366;
 }
-footer.page-footer{
+.page-footer{
+	background:#003366;
+}
+.footer-copyright{
 	background:#003366;
 }
 .card{text-align: center;}
