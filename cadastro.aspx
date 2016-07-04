@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
         <div class="nav-wrapper">
-        <a href="index.aspx" class="brand-logo">Logo</a>
+        <a href="index.aspx" class="brand-logo center">Logo</a>
         </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
