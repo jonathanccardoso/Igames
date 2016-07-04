@@ -39,7 +39,7 @@
 									<label for="last_name">Confirmar senha</label>
 								</div>
 								<div class="col l7 offset-l6 m3 offset-m5 s7 offset-s1">
-                                    <asp:Button ID="btncadastro" class="waves-effect waves-light btn yellow darken-1" runat="server" OnClick="btncadastro_Click"/>
+                                    <asp:Button Text="Cadastre-se" ID="btncadastro" class="waves-effect waves-light btn yellow darken-1" runat="server" OnClick="btncadastro_Click"/>
 
                                 </div>
                             </form>
