@@ -16,12 +16,10 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <nav>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    <nav><asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
         </asp:ContentPlaceHolder>
-	</nav>
-    <main>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </nav>
+    <main><asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </main>
         <footer class="page-footer">
