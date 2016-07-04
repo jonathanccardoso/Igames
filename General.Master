@@ -29,13 +29,9 @@
             <div class="row">
               <div class="col l6 s12">
                 <h5 class="white-text">Siga-nos em nossas redes sociais</h5>
-                <div class="col l1">
+                <div class="col l3">
 	           <img src="facebook.png">
-	        </div>
-	        <div class="col l1 offset-l1">
 	           <img src="twitter.png">
-	        </div>
-	        <div class="col l1 offset-l1">
 	           <img src="instagram.png">
                 </div>
               </div>
