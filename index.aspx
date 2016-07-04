@@ -72,7 +72,7 @@
 				</ul>
 			</div>
 			<!---MENU--> 
-            <br><div class="row">
+            		    <div class="row">
 				<div class="col s12 m12 l12">
 					<ul class="tabs flow-text">
 						<li class="tab col s3"><a href="#nalinha">Online</a></li>
@@ -140,36 +140,36 @@
 						</div>
 					</div>
 					<div id="recomendado">
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste03</p>
-</div>
-</div>
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"><br>
-<b>Título do Jogo</b></a>
-<p>teste03</p>
-</div>
-</div>
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"><br>
-<b>Título do Jogo</b></a>
-<p>teste03</p>
-</div>
-</div>
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste03</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+						<div class="col l3 s6">
+							<div class="card">
+								<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+								<b>Título do Jogo</b></a>
+								<p>teste03</p>
+							</div>
+						</div>
+						<div class="col l3 s6">
+							<div class="card">
+								<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"><br>
+								<b>Título do Jogo</b></a>
+								<p>teste03</p>
+							</div>
+						</div>
+						<div class="col l3 s6">
+							<div class="card">
+								<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"><br>
+								<b>Título do Jogo</b></a>
+								<p>teste03</p>
+							</div>
+						</div>
+						<div class="col l3 s6">
+							<div class="card">
+								<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+								<b>Título do Jogo</b></a>
+								<p>teste03</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 </asp:Content>
