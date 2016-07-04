@@ -33,9 +33,10 @@
                                     <asp:TextBox ID="confsenha" runat="server" type="password" required="required"></asp:TextBox>
 									<label for="last_name">Confirmar senha</label>
 								</div>
-								<div class="col l7 offset-l6 m3 offset-m5 s7 offset-s5">
-                                    <asp:Button Text="Cadastre-se" ID="btncadastro" class="waves-effect waves-light btn yellow darken-1" runat="server" OnClick="btncadastro_Click"/>
-
+								<div class="col l7 offset-l7 m4 offset-m9 s7 offset-s6">
+								<asp:LinkButton ID="btnlogin" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="btncadastro_Click">
+									<i class="material-icons right"></i>Submit
+								</asp:LinkButton>
                                 </div>
                             </form>
 						</div>
