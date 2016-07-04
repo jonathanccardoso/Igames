@@ -2261,6 +2261,7 @@ html {
  */
 body {
   margin: 0;
+  background-color:#EEE;
 }
 
 /* HTML5 display definitions
@@ -2983,7 +2984,7 @@ footer.page-footer .footer-copyright {
   height: 50px;
   line-height: 50px;
   color: rgba(255, 255, 255, 0.8);
-  background-color: #122954;
+  background-color: #00264d;
 }
 
 table, th, td {
