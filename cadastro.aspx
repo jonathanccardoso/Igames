@@ -16,14 +16,6 @@
                                     <asp:TextBox ID="nome" runat="server" type="text" required="required"></asp:TextBox>
 
 									<label for="last_name">Nome</label></div>
-								<div class="input-field"> 
-                                     <asp:TextBox ID="sobrenome" runat="server" type="text" required="required"></asp:TextBox>
-									<label for="last_name">Sobrenome</label>
-								</div>
-								<div class="input-field"> 
-                                     <asp:TextBox ID="cidade" runat="server" type="text" required="required"></asp:TextBox>
-									<label for="last_name">Cidade</label>
-								</div>
 								<div class="input-field">
 									 <!---<input id="email" type="email" class="validate" required="required">  -->
                                      <asp:TextBox ID="email" runat="server" type="email" required="required"></asp:TextBox>
