@@ -35,7 +35,7 @@
 								</div>
 								<div class="col l7 offset-l7 m4 offset-m9 s7 offset-s6">
 								<asp:LinkButton ID="btnlogin" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="btncadastro_Click">
-									<i class="material-icons right"></i>Submit
+									<i class="material-icons right">assignment_ind</i>Cadastrar
 								</asp:LinkButton>
                                 </div>
                             </form>
