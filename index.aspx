@@ -150,14 +150,14 @@
 						</div>
 						<div class="col l3 s6">
 							<div class="card">
-								<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"><br>
+								<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
 								<b>Título do Jogo</b></a>
 								<p>teste03</p>
 							</div>
 						</div>
 						<div class="col l3 s6">
 							<div class="card">
-								<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"><br>
+								<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
 								<b>Título do Jogo</b></a>
 								<p>teste03</p>
 							</div>
