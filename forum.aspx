@@ -41,7 +41,7 @@
     <div class="card">
                 <div class="card-content">
                    <div class="row">
-                        <div class="col l1 s1">
+                        <div class="col l1 s1 left">
                             <img align="left" src="http://lorempixel.com/100/100/" class="circle">
                         </div>
                         <div class="col l3 s6 offset-s2">
