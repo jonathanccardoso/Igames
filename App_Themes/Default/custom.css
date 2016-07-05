@@ -4,9 +4,15 @@
     flex-direction: column;
     width:100vw
   }
+nav{
+    width:100vw
+}
 main {
     flex: 1 0 auto;
   }
+footer{
+    width:100vw
+}
 .search-desktop {
     width:450px;
     height:64px;
