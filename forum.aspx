@@ -41,10 +41,10 @@
     <div class="card">
                 <div class="card-content">
                    <div class="row">
-                        <div class="col l1 s1 pic" style="padding-left: 0">
-                            <img src="http://lorempixel.com/100/100/" class="circle">
+                        <div class="col l1 s1">
+                            <img align="left" src="http://lorempixel.com/100/100/" class="circle">
                         </div>
-                        <div class="col l3 s6 offset-s3">
+                        <div class="col l3 s6 offset-s2">
                             <b>Nome de usuário para teste</b><br>
                             <i>18:09</i>
                         </div>
