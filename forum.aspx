@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="row coment">
-                        <div class="col l9 offset-l1 s10 offset-s1">
+                        <div class="col l9 offset-l1 s11">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur dapibus urna non dignissim. Ut pretium tempor pulvinar. Aliquam sit amet mauris laoreet, fringilla risus at, dignissim ante. Nulla turpis tellus, interdum sit amet congue lobortis, molestie et elit. In.</p>   
                         </div>  
                     </div>
