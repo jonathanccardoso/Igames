@@ -48,12 +48,12 @@
                             <b>Nome de usuário para teste</b><br>
                             <i>18:09</i>
                         </div>
-                        <div class="col l1 offset-l7 s2">
+                        <div class="col l1 offset-l7 s1">
                             <h6 class="right-align">12/04</h6>    
                         </div>
                     </div>
                     <div class="row coment">
-                        <div class="col l9 offset-l1 s11">
+                        <div class="col l9 offset-l1 s12">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur dapibus urna non dignissim. Ut pretium tempor pulvinar. Aliquam sit amet mauris laoreet, fringilla risus at, dignissim ante. Nulla turpis tellus, interdum sit amet congue lobortis, molestie et elit. In.</p>   
                         </div>  
                     </div>
