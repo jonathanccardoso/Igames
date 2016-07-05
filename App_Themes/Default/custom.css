@@ -13,6 +13,9 @@ main {
 footer{
     width:100vw
 }
+.circle{
+    margin-left:0;
+}
 .search-desktop {
     width:450px;
     height:64px;
