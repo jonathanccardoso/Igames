@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" Theme="Default" CodeBehind="categorias.aspx.cs" Inherits="ProjetoIntegrador.categorias" %>
+﻿<%@ Page Title="Categorias" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" Theme="Default" CodeBehind="categorias.aspx.cs" Inherits="ProjetoIntegrador.categorias" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -218,6 +218,41 @@
 		</li>
 		<li>
 		  <div class="collapsible-header">Educacional</div>
+		  <div class="collapsible-body">
+			<div class="row">
+				<div class="col l3 s6">
+					<div class="card">
+						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+						<b>Título do Jogo</b></a>
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</div>
+				<div class="col l3 s6">
+					<div class="card">
+						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+						<b>Título do Jogo</b></a>
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</div>
+				<div class="col l3 s6">
+					<div class="card">
+						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+						<b>Título do Jogo</b></a>
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</div>
+				<div class="col l3 s6">
+					<div class="card">
+						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+						<b>Título do Jogo</b></a>
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</div>
+			</div>
+		  </div>
+		</li>
+		<li>
+		  <div class="collapsible-header">Download</div>
 		  <div class="collapsible-body">
 			<div class="row">
 				<div class="col l3 s6">
