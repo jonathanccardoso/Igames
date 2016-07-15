@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="theme-color" content="#003366">
     <meta name="msapplication-navbutton-color" content="#003366">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -62,7 +62,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                ©2016 Copyright Os ursinhos carinhosos
+                &copy; 2016 Copyright Os ursinhos carinhosos
             </div>
         </div>
     </footer>
