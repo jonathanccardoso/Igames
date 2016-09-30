@@ -1,0 +1,74 @@
+﻿body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+main {
+    flex: 1 0 auto;
+  }
+.search-desktop {
+    width:450px;
+    height:64px;
+}
+.search-mobile {
+    height:60px;
+}
+.mobile-search {
+    margin-top: 15px !important;
+}
+.usericon {
+    margin-top: 1vh;
+    width:3vw;
+    height:6vh;
+}
+.toolbar {
+    width:100%;
+    background-color: #0f0;
+    height:18vh;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+::-webkit-scrollbar {display:none}
+@media only screen and (max-width: 435px){
+    .usericon{
+        margin-top: 2vh;
+        margin-left: 2vh;
+        width:12vw;
+        height:7vh;
+    }
+    .igicon {
+        margin-top: 4vh;
+        margin-left: 10vh;
+        width:18vw;
+        height:10vh;
+    }
+}
+@media only screen and (min-width: 993px){
+    .usericon{
+        margin-top: 1vh;
+        width:3vw;
+        height:6vh;
+}
+    .brand-logo{
+        margin-left: 30px; /*Aumente aqui pra afastar a logo*/
+    }
+}
+.card.large.register {
+    margin-top: 0;
+    height: 550px;
+}
+.coment {
+    margin-bottom: 0;
+}
+.message{
+    padding-right: 50px;
+}
+.pic {
+    padding: 0 !important;
+}
+.like {
+    vertical-align:bottom;
+}
+.chat {
+    margin-left: 20px;
+    vertical-align:bottom;
+}
