@@ -19,7 +19,7 @@ namespace IGames.Public
 
         protected void Cadastrar_Click(object sender, EventArgs e)
         {
-            if (nome.Text != null && senha.Text != null && email.Text != null) {
+            if (nome.Text != null && senha.Text != null && email.Text != null && confsenha.Text != null) {
                 string UserName = nome.Text,
                        Password = senha.Text,
                        Email = email.Text;

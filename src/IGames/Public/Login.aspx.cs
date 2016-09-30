@@ -17,15 +17,20 @@ namespace IGames.Public
 
         protected void login_Click(object sender, EventArgs e)
         {
-            if (Membership.ValidateUser(Membership.GetUserNameByEmail(email.Text), senha.Text))
+            if (email.Text == senha.Text != false)
             {
-                FormsAuthentication.SetAuthCookie(email.Text, true);
-                Session["id"] = Membership.GetUser(Membership.GetUserNameByEmail(email.Text)).ProviderUserKey;
-                if (Roles.IsUserInRole(Membership.GetUserNameByEmail(email.Text), "Administrador")){
-                    Response.Redirect("~/Administrador/Index.aspx");
-                }
-                else {
-                    Response.Redirect("~/User/Index.aspx");
+                if (Membership.ValidateUser(Membership.GetUserNameByEmail(email.Text), senha.Text))
+                {
+                    FormsAuthentication.SetAuthCookie(email.Text, true);
+                    Session["id"] = Membership.GetUser(Membership.GetUserNameByEmail(email.Text)).ProviderUserKey;
+                    if (Roles.IsUserInRole(Membership.GetUserNameByEmail(email.Text), "Administrador"))
+                    {
+                        Response.Redirect("~/Administrador/Index.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/User/Index.aspx");
+                    }
                 }
             }
         }

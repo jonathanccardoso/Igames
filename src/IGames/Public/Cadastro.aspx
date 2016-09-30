@@ -17,22 +17,20 @@
 <asp:TextBox ID="nome" runat="server"></asp:TextBox>
 <label for="last_name">Nome</label>
 </div>
-<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Insira seu nome" ValidationGroup="Validators" ControlToValidate="nome"></asp:RequiredFieldValidator>
 <div class="input-field">
 <asp:TextBox ID="email" runat="server" TextMode="Email"></asp:TextBox>
 <label for="last_name">Email</label>
 </div>
-<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Insira seu email" ValidationGroup="Validators" ControlToValidate="email"></asp:RequiredFieldValidator>
+<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Inclua um endereço de email válido" ControlToValidate="email" ValidationExpression="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"></asp:RegularExpressionValidator>
 <div class="input-field">
 <asp:TextBox ID="senha" runat="server" TextMode="Password"></asp:TextBox>
 <label for="last_name">Senha</label>
 </div>
-<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Insira sua senha" ValidationGroup="Validators" ControlToValidate="senha"></asp:RequiredFieldValidator>
 <div class="input-field">
 <asp:TextBox ID="confsenha" runat="server" TextMode="Password"></asp:TextBox>
 <label for="last_name">Confirmar senha</label>
 </div>
-<asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToValidate="confsenha" ControlToCompare="senha"></asp:CompareValidator>
+<asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="As senhas não correspondem" ControlToValidate="confsenha" ControlToCompare="senha"></asp:CompareValidator>
 <div class="col l7 offset-l7 m3 offset-m5 s7 offset-s1">
 <asp:LinkButton ID="Cadastrar" runat="server" CssClass="waves-effect waves-light btn yellow darken-1" OnClick="Cadastrar_Click">Cadastrar</asp:LinkButton>
 </div>
