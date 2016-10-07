@@ -7,5 +7,5 @@
 ### BUG FIXES
 
 - Search bar
-- Color of the Footer
+- Color of the footer
 - Redirection of the buttons in login page
