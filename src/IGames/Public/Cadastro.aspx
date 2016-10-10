@@ -7,12 +7,21 @@
 </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+<form id="form1" runat="server">
+<div id="modal" class="modal">
+<div class="modal-content">
+<h4>Confirmação</h4>
+<p>Cadastro realizado com sucesso</p>
+</div>
+<div class="modal-footer" class="center-align">
+<asp:LinkButton ID="LinkButton1" runat="server" CssClass="modal-close waves-effect waves-green btn-flat btn" OnClick="Cadastrar_Click">OK</asp:LinkButton>
+</div>
+</div>
 <div class="row">
 <div class="card large register">
 <div class="col l6 offset-l3 s12">
 <div class="card-content center-align">
 <h3>Cadastre-se</h3>
-<form id="form1" runat="server">
 <div class="input-field">
 <asp:TextBox ID="nome" runat="server"></asp:TextBox>
 <label for="last_name">Nome</label>
@@ -32,11 +41,11 @@
 </div>
 <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="As senhas não correspondem" ControlToValidate="confsenha" ControlToCompare="senha"></asp:CompareValidator>
 <div class="col l7 offset-l7 m3 offset-m5 s7 offset-s1">
-<asp:LinkButton ID="Cadastrar" runat="server" CssClass="waves-effect waves-light btn yellow darken-1" OnClick="Cadastrar_Click">Cadastrar</asp:LinkButton>
+<a class="waves-effect waves-light btn modal-trigger btn yellow darken-1" id="modal1" href="#modal">Cadastrar</a>
+</div>
+</div>
+</div>
+</div>
 </div>
 </form>
-</div>
-</div>
-</div>
-</div>
 </asp:Content>

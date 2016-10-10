@@ -63,6 +63,7 @@
     <Content Include="App_Themes\Default\minha.css" />
     <Content Include="App_Themes\fonts\material-design-icons\LICENSE.txt" />
     <Content Include="App_Themes\fonts\material-design-icons\Material-Design-Icons.svg" />
+    <Content Include="Images\user.png" />
     <Content Include="js\custom.js" />
     <Content Include="js\jquery-2.1.1.min.js" />
     <Content Include="js\materialize.min.js" />

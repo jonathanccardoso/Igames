@@ -17,12 +17,13 @@ namespace IGames.Public
 
         protected void login_Click(object sender, EventArgs e)
         {
-            if (email.Text == senha.Text != false)
+            if (email.Text != "" && senha.Text != "")
             {
                 if (Membership.ValidateUser(Membership.GetUserNameByEmail(email.Text), senha.Text))
                 {
                     FormsAuthentication.SetAuthCookie(email.Text, true);
                     Session["id"] = Membership.GetUser(Membership.GetUserNameByEmail(email.Text)).ProviderUserKey;
+                    Session["email"] = email.Text;
                     if (Roles.IsUserInRole(Membership.GetUserNameByEmail(email.Text), "Administrador"))
                     {
                         Response.Redirect("~/Administrador/Index.aspx");

@@ -4,20 +4,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div class="nav-wrapper">  
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+<form runat="server">
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
 <li> 
-<form> 
 <div class="input-field search-desktop">
 <input id="search" type="search">
 <label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
 </div>
-</form>
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
 <li>
-<asp:ImageButton ID="perfilDesktop" runat="server" CssClass="circle usericon" ImageUrl="imagens/download.png" PostBackUrl="~/User/Perfil.aspx" />
+<asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="../Images/user.png" PostBackUrl="~/User/Perfil.aspx" Width="50" Height="45" />
 <asp:Label ID="Label1" runat="server" Text="Usuário" Font-Bold="True"></asp:Label>
 </li>
 </ul>
@@ -30,18 +29,17 @@
 </li>
 <li><a class="search"><i class="material-icons left">search</i>Pesquisar</a></li>
 <li>
-<form>
 <div class="input-field search-mobile">
 <asp:TextBox ID="TextBox1" runat="server" CssClass="mobileSearch"></asp:TextBox>
 <label for="ContentPlaceholder2_mobileSearch"><i class="material-icons">search</i></label>
 <i class="material-icons mobile-close">close</i>
 </div>
-</form>
 </li>
 <li><a href="categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
 <li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="login.aspx"><i class="material-icons left">fingerprint</i>Login</a></li>
 </ul>
+</form>
 <a href="index.aspx" class="brand-logo">Logo</a>
 </div>
 </asp:Content>

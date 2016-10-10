@@ -1,4 +1,10 @@
 ﻿$(document).ready(function () {
+    $('#modal1').click(function () {
+        $('#modal').openModal();
+    });
+    $('.modal-close').click(function () {
+        $('.modal').closeModal();
+    });
     $('.slider').slider('start');
     $('.slider').slider({ full_width: true });
     $('ul.tabs').tabs();

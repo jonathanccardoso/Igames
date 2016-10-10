@@ -13,13 +13,13 @@ namespace IGames.User {
     public partial class Index {
         
         /// <summary>
-        /// perfilDesktop control.
+        /// ImageButton3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton perfilDesktop;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton3;
         
         /// <summary>
         /// Label1 control.
