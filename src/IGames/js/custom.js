@@ -10,7 +10,8 @@
     $('ul.tabs').tabs();
     $(".button-collapse").sideNav();
     $(".search-desktop").hide();
-    $(".inputy").hide();
+    $(".search-mobile").hide();
+    $(".mobileSearch").hide();
     $(".show-search").click(function () {
         $(this).hide();
         $(".search-desktop").show(1200);
@@ -20,10 +21,10 @@
         $(".search-desktop").hide(1200);
         $(".show-search").show(2000);
     });
-    $(".button-collapse").click(function () {
-        $(".inputy").show();
-        $(".inp").focus();
-    })
+    $(".search").click(function () {
+        $(".search-mobile").fadeIn(2000).focus();
+        $(".mobileSearch").show();
+    });
     $("#search").focusout(function () {
         $(".search-desktop").hide(1200);
         $(".show-search").show(2000);
