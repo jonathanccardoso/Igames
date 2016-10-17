@@ -35,15 +35,14 @@
 <li>
 <div class="input-field search-mobile">
 <asp:TextBox ID="TextBox1" runat="server" CssClass="mobileSearch"></asp:TextBox>
-<label for="ContentPlaceholder2_mobileSearch"><i class="material-icons">search</i></label>
-<i class="material-icons mobile-close">close</i>
+<label for="ContentPlaceholder2_mobileSearch"><i class="material-icons">search</i></label><i class="material-icons mobile-close">close</i>
 </div>
 </li>
 <li><a href="categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
 <li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 </ul>
 </form>
-<a href="index.aspx" class="brand-logo">Logo</a>
+<a href="#" class="brand-logo">Logo</a>
 </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">

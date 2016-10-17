@@ -30,6 +30,13 @@ main {
 .mobile-search {
     margin-top: 15px !important;
 }
+.mobile-close {
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 2px;
+}
 .usericon {
     margin-top: 1vh;
     width:3vw;
@@ -92,4 +99,7 @@ main {
 #ContentPlaceHolder1_Label2 {
     margin-top: -1.6vh;
     margin-left: 4vw;
+}
+.mobileSearch {
+    background-color: rgba(0,0,0,0.35);
 }

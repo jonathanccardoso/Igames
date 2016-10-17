@@ -22,7 +22,7 @@
 <asp:TextBox ID="senha" runat="server" TextMode="Password"></asp:TextBox>
 <label for="senha">Senha</label>
 </div>
-<div class="col l7 offset-l6 m3 offset-m5 s7 offset-s1">
+<div class="col l7 offset-l6 m3 offset-m5 s7 offset-s2">
 <asp:LinkButton ID="cadastro" runat="server" CssClass="waves-effect waves-light btn yellow darken-1" OnClick="cadastro_Click">Cadastre-se</asp:LinkButton>
 <asp:LinkButton ID="login" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="login_Click">Entrar</asp:LinkButton>
 </div>
