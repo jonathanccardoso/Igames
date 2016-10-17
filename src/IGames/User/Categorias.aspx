@@ -46,7 +46,7 @@
 			<div class="row">
 				<div class="col l3 s6">
 					<div class="card">
-						<a href="jogos.aspx"><img class="responsive-img" src="img_jogos/jogo1.jpg"> <br>
+						<a href="Jogo.aspx"><img class="responsive-img" src="img_jogos/jogo1.jpg"> <br>
 						<b>Jogo</b></a>
 						<p>Jogo legal......</p>
 					</div>

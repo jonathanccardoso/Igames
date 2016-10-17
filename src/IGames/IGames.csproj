@@ -71,10 +71,12 @@
     <Content Include="Public\Categorias.aspx" />
     <Content Include="Public\Forum.aspx" />
     <Content Include="Public\Index.aspx" />
+    <Content Include="Public\Jogo.aspx" />
     <Content Include="Public\Login.aspx" />
     <Content Include="User\Categorias.aspx" />
     <Content Include="User\Forum.aspx" />
     <Content Include="User\Index.aspx" />
+    <Content Include="User\Jogo.aspx" />
     <Content Include="User\Perfil.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -122,6 +124,13 @@
     <Compile Include="Public\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Public\Jogo.aspx.cs">
+      <DependentUpon>Jogo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public\Jogo.aspx.designer.cs">
+      <DependentUpon>Jogo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Public\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -149,6 +158,13 @@
     </Compile>
     <Compile Include="User\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Jogo.aspx.cs">
+      <DependentUpon>Jogo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Jogo.aspx.designer.cs">
+      <DependentUpon>Jogo.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>

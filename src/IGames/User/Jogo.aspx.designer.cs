@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IGames.Public {
+namespace IGames.User {
     
     
     public partial class Jogo {
