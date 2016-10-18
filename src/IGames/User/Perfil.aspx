@@ -29,7 +29,9 @@
 <li><a class="search"><i class="material-icons left">search</i>Pesquisar</a></li>
 <li>
 <div class="input-field search-mobile">
-<asp:TextBox ID="TextBox1" runat="server" CssClass="mobileSearch"></asp:TextBox>
+       <form runat="server">
+        <asp:TextBox ID="TextBox1" runat="server" CssClass="mobileSearch"></asp:TextBox>
+       </form>
 <label for="ContentPlaceholder2_mobileSearch"><i class="material-icons">search</i></label><i class="material-icons mobile-close">close</i>
 </div>
 </li>
@@ -40,4 +42,22 @@
 </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    
+    <h3><asp:Label ID="NomeJogo" runat="server" Text="Editar perfil"></asp:Label></h3>
+    <div class="row center-align">
+        <div class="col s5 offset-s3 m7 offset-m3">
+          <div class="card white">
+               <div class="card-content" id="card">
+                <div class="estrelas">
+                    Nome:<asp:Label ID="Nome_user" runat="server" Text=""></asp:Label><br />
+                    Usuário:<asp:Label ID="Usuario_user" runat="server" Text=""></asp:Label><br />
+                    E-mail:<asp:Label ID="email_user" runat="server" Text=""></asp:Label><br />
+                    Senha:<asp:Label ID="senha_user" runat="server" Text=""></asp:Label><br /><br />
+                  <%--<asp:LinkButton ID="EditaPerfil" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="EditarPerfil_Click">Editar</asp:LinkButton>--%>
+                </div>
+            </div> 
+          </div>
+        </div>
+     </div>
+    
 </asp:Content>
