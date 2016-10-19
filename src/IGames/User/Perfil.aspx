@@ -14,7 +14,7 @@
 </div>
 </form>
 </li>
-<li><a href="categorias.aspx">Categorias</a></li>
+<li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="#">Fórum</a></li>
 </ul>
 <ul class="side-nav" id="mobile-demo">
@@ -42,19 +42,16 @@
 </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    
-    <h3><asp:Label ID="NomeJogo" runat="server" Text="Editar perfil"></asp:Label></h3>
-    <div class="row center-align">
-        <div class="col s5 offset-s3 m7 offset-m3">
+    <h3 class="center-align"><asp:Label ID="NomeJogo" runat="server" Text="Editar perfil"></asp:Label></h3>
+    <div class="row">
+        <div class="col l6 offset-l3 s12 m10 offset-m1">
           <div class="card white">
-               <div class="card-content" id="card">
-                <div class="estrelas">
+               <div class="card-content">
                     Nome:<asp:Label ID="Nome_user" runat="server" Text=""></asp:Label><br />
                     Usuário:<asp:Label ID="Usuario_user" runat="server" Text=""></asp:Label><br />
                     E-mail:<asp:Label ID="email_user" runat="server" Text=""></asp:Label><br />
                     Senha:<asp:Label ID="senha_user" runat="server" Text=""></asp:Label><br /><br />
                   <%--<asp:LinkButton ID="EditaPerfil" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="EditarPerfil_Click">Editar</asp:LinkButton>--%>
-                </div>
             </div> 
           </div>
         </div>
