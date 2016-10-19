@@ -2287,9 +2287,8 @@ menu,
 nav,
 section,
 summary {
-  display: block;
+  display: table-cell;
 }
-
 /**
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
@@ -3429,6 +3428,7 @@ input[type=range] + .thumb {
   -webkit-font-feature-settings: 'liga';
      -moz-font-feature-settings: 'liga';
           font-feature-settings: 'liga';
+          font-size: 2.5rem;
 }
 
 .container {

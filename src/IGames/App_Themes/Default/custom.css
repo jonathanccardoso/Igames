@@ -6,6 +6,11 @@
 main {
     flex: 1 0 auto;
   }
+aside {
+    position: absolute;
+    margin-left: 1.5vw;
+    margin-top: 20vh;
+}
 .search-desktop {
     width:450px;
     height:64px;
