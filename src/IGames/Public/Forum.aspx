@@ -39,7 +39,6 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 <div class="card">
-    <a href="../Properties/">../Properties/</a>
     <div class="card-content">
         <div class="row coment">
         <aside class="col l1 s1 pic left">
