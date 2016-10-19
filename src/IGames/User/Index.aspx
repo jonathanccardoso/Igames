@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="IGames.User.Index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" Theme="Default" CodeBehind="Index.aspx.cs" Inherits="IGames.User.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -16,31 +16,33 @@
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
 <li>
-<asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="../Images/user.png" PostBackUrl="~/User/Perfil.aspx" Width="50" Height="45" />
-<asp:Label ID="Label1" runat="server" Text="Usuário" Font-Bold="True"></asp:Label>
+<a href="Perfil.aspx" class="perfil-desktop">
+<asp:Image ID="Image1" runat="server" ImageUrl="~/Images/user.png" Width="50" Height="45" CssClass="circle" />
+<asp:Label ID="Label1" runat="server" Text="Usuário" Font-Bold="true"></asp:Label>
+</a>
 </li>
 </ul>
 <ul class="side-nav" id="mobile-demo">
 <li>
 <div class="toolbar">
-<asp:ImageButton ID="ImageButton1" runat="server" CssClass="circle usericon" ImageUrl="imagens/download.png"/>
-<asp:ImageButton ID="ImageButton2" runat="server" CssClass="circle igicon" ImageUrl="imagens/download.png"/>
+<a href="Perfil.aspx" class="perfil-mobile">
+<asp:Image ID="Image2" runat="server" ImageUrl="~/Images/user.png" CssClass="circle usericon" />
+<asp:Label ID="Label2" runat="server" Text="Usuário" Font-Bold="true"></asp:Label>
+</a>
 </div>
 </li>
 <li><a class="search"><i class="material-icons left">search</i>Pesquisar</a></li>
 <li>
 <div class="input-field search-mobile">
 <asp:TextBox ID="TextBox1" runat="server" CssClass="mobileSearch"></asp:TextBox>
-<label for="ContentPlaceholder2_mobileSearch"><i class="material-icons">search</i></label>
-<i class="material-icons mobile-close">close</i>
+<label for="ContentPlaceholder2_mobileSearch"><i class="material-icons">search</i></label><i class="material-icons mobile-close">close</i>
 </div>
 </li>
 <li><a href="categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
 <li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
-<li><a href="login.aspx"><i class="material-icons left">fingerprint</i>Login</a></li>
 </ul>
 </form>
-<a href="index.aspx" class="brand-logo">Logo</a>
+<a href="#" class="brand-logo">Logo</a>
 </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
