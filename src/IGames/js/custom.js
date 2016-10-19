@@ -26,7 +26,9 @@
     });
     $(".search").click(function () {
         $(this).hide();
-        $(".search-mobile").fadeIn(1000).focus();
+        $(".search-mobile").fadeIn(500, function () {
+            $(".mobileSearch").focus();
+        });
     });
     $(".mobile-close").click(function () {
         $(".search-mobile").hide();
