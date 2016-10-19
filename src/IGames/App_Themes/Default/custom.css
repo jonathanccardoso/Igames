@@ -16,9 +16,14 @@ main {
     height:14.3vh;
     padding: 0;
 }
-.side-nav a.perfil-mobile:hover {
-    background-color: transparent;
-    padding: 0;
+    .side-nav a.perfil-mobile:hover {
+        background-color: transparent;
+        padding: 0;
+    }
+aside {
+    position: absolute;
+    margin-left: 1.5vw;
+    margin-top: 20vh;
 }
 .search-desktop {
     width:450px;

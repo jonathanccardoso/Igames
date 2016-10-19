@@ -9,3 +9,12 @@ nav{
 .slider{
 	margin-top: 10px;
 }
+.from {
+  height: 498px;
+  background: #65878F;
+  border-radius: 5px;  
+  color: #b9becd;
+  border-radius: 2%; 
+  float: none; 
+  width: 740px;
+ }

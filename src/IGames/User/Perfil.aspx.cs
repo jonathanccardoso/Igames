@@ -12,6 +12,7 @@ namespace IGames.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (Session["email"] != null)
             {
                 //seções de usuario...
@@ -22,6 +23,11 @@ namespace IGames.User
             else {
                 Response.Redirect("~/Public/Login.aspx");
             }
+=======
+            //seções de usuario...
+            email_user.Text = Session["email"].ToString();
+            Membership.GetUserNameByEmail(email_user.Text); //Usuario
+>>>>>>> master
         }
         protected void EditarPerfil_Click(object sender, EventArgs e)
         {

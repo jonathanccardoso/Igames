@@ -13,75 +13,132 @@ namespace IGames.User {
     public partial class Perfil {
         
         /// <summary>
+<<<<<<< HEAD
         /// Image2 control.
+=======
+        /// Form1 control.
+>>>>>>> master
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Image Image2;
         
         /// <summary>
         /// Label2 control.
+=======
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        
+        /// <summary>
+        /// NomeJogo control.
+>>>>>>> master
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
         /// TextBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
-        /// <summary>
-        /// NomeJogo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+=======
         protected global::System.Web.UI.WebControls.Label NomeJogo;
         
         /// <summary>
         /// Nome_user control.
+>>>>>>> master
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        
+        /// <summary>
+        /// NomeJogo control.
+=======
         protected global::System.Web.UI.WebControls.Label Nome_user;
         
         /// <summary>
         /// Usuario_user control.
+>>>>>>> master
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.Label NomeJogo;
+        
+        /// <summary>
+        /// Nome_user control.
+=======
         protected global::System.Web.UI.WebControls.Label Usuario_user;
         
         /// <summary>
         /// email_user control.
+>>>>>>> master
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.Label Nome_user;
+        
+        /// <summary>
+        /// Usuario_user control.
+=======
+        protected global::System.Web.UI.WebControls.Label email_user;
+        
+        /// <summary>
+        /// ChangePassword1 control.
+>>>>>>> master
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.Label Usuario_user;
+        
+        /// <summary>
+        /// email_user control.
+=======
+        protected global::System.Web.UI.WebControls.ChangePassword ChangePassword1;
+        
+        /// <summary>
+        /// senha_user control.
+>>>>>>> master
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label email_user;
         
         /// <summary>
         /// senha_user control.
+=======
+        protected global::System.Web.UI.WebControls.Label senha_user;
+        
+        /// <summary>
+        /// EditaPerfil control.
+>>>>>>> master
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label senha_user;
+=======
+        protected global::System.Web.UI.WebControls.LinkButton EditaPerfil;
+>>>>>>> master
     }
 }
