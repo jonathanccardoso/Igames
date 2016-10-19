@@ -15,7 +15,7 @@
 </form>
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
-<li><a href="#">Fórum</a></li>
+<li><a href="Forum.aspx">Fórum</a></li>
 </ul>
 <ul class="side-nav" id="mobile-demo">
 <li>
