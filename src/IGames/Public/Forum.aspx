@@ -39,18 +39,19 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 <div class="card">
-<div class="card-content">
-<div class="row coment">
-<aside class="col l1 s1 pic left">
-<img src="http://lorempixel.com/100/100/" class="circle">
-</aside>
-<div class="col l11 s6 offset-s3 left-align">
-<b>Nome de usuário para teste</b>
-<h6 class="right">12/04</h6><br />
-<i>18:09</i><br />
-<h6 class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur dapibus urna non dignissim. Ut pretium tempor pulvinar. Aliquam sit amet mauris laoreet, fringilla risus at, dignissim ante. Nulla turpis tellus, interdum sit amet congue lobortis, molestie et elit. In.</h6>
-</div>
-</div>
-</div>
+    <a href="../Properties/">../Properties/</a>
+    <div class="card-content">
+        <div class="row coment">
+        <aside class="col l1 s1 pic left">
+        <img src="http://lorempixel.com/100/100/" class="circle">
+        </aside>
+        <div class="col l11 s6 offset-s3 left-align">
+        <b>Nome de usuário para teste</b>
+        <h6 class="right">12/04</h6><br />
+        <i>18:09</i><br />
+        <h6 class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur dapibus urna non dignissim. Ut pretium tempor pulvinar. Aliquam sit amet mauris laoreet, fringilla risus at, dignissim ante. Nulla turpis tellus, interdum sit amet congue lobortis, molestie et elit. In.</h6>
+        </div>
+        </div>
+    </div>
 </div>
 </asp:Content>

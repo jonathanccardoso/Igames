@@ -47,9 +47,9 @@
 			<div class="row">
 				<div class="col l3 s6">
 					<div class="card">
-						<a href="../Public/Jogo.aspx"><img class="responsive-img" src="img_jogos/jogo1.jpg"> <br>
-						<b>Jogo</b></a>
-						<p>Jogo legal......</p>
+						<a href="../Public/Jogo.aspx"><img class="responsive-img" src="../Images/user.jpg"> <br>
+						<b>Jogo Teste</b></a>
+						<p>Jogo Teste...</p>
 					</div>
 				</div>
 				<div class="col l3 s6">
@@ -245,6 +245,41 @@
 					<div class="card">
 						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
 						<b>Título do Jogo</b></a>
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</div>
+			</div>
+		  </div>
+		</li>
+        <li>
+		  <div class="collapsible-header">Jogos para Downloads</div>
+		  <div class="collapsible-body">
+			<div class="row">
+				<div class="col l3 s6">
+					<div class="card">
+						<a href="../JogosDown/ameliescafe_setup.exe"><img class="responsive-img" src="../Images/ameliescafe.jpg"> <br>
+						<b>Amelie's Cafe</b></a>
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</div>
+				<div class="col l3 s6">
+					<div class="card">
+					    <a href="../JogosDown/aroundtheworld_setup.exe"><img class="responsive-img" src="../Images/80days.jpg"> <br>
+						<b>Around The World in 80 Days</b></a>
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</div>
+				<div class="col l3 s6">
+					<div class="card">
+						<a href="../JogosDown/artistcolony_setup.exe"><img class="responsive-img" src="../Images/artistcolony.jpg"> <br>
+						<b>Artist Colony</b></a>
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</div>
+				<div class="col l3 s6">
+					<div class="card">
+					    <a href="../JogosDown/ashleyclark_setup.exe"><img class="responsive-img" src="../Images/ashleyclark.jpg"> <br>
+						<b>Ashley Clark_ Secret of the Ruby</b></a>
 						<p>Lorem ipsum dolor sit amet.</p>
 					</div>
 				</div>
