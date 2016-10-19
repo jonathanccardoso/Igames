@@ -69,6 +69,12 @@
 <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
 </div>
 </li>
+<li>
+<img src="../Images/browserQuest.jpg">
+<div class="caption center-align">
+<h3>Browser Quest</h3>
+</div>
+</li>
 </ul>
 </div>
 <!---MENU--> 
@@ -83,9 +89,9 @@
 <div id="nalinha">
 <div class="col l3 s6">
 <div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste01</p>
+<a href="Jogo.aspx"><img class="responsive-img" src="../Images/browserQuest.jpg"> <br>
+<b>Browser Quest</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
 </div>
 </div>
 <div class="col l3 s6">
