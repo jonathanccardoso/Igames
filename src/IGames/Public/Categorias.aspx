@@ -54,7 +54,7 @@
 				</div>
 				<div class="col l3 s6">
 					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+						<a href="Jogo.aspx"><img class="responsive-img" src="../Images/browserQuest.jpg"> <br>
 						<b>Título do Jogo</b></a>
 						<p>Lorem ipsum dolor sit amet.</p>
 					</div>

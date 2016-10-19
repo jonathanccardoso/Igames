@@ -33,3 +33,8 @@ C:\Users\Jonathan Cardoso\Documents\GitHub\Igames\src\IGames\bin\IGames.pdb
 C:\Users\Jonathan Cardoso\Documents\GitHub\Igames\src\IGames\obj\Debug\IGames.csprojResolveAssemblyReference.cache
 C:\Users\Jonathan Cardoso\Documents\GitHub\Igames\src\IGames\obj\Debug\IGames.dll
 C:\Users\Jonathan Cardoso\Documents\GitHub\Igames\src\IGames\obj\Debug\IGames.pdb
+C:\Users\aluno\Documents\GitHub\Igames\src\IGames\bin\IGames.dll
+C:\Users\aluno\Documents\GitHub\Igames\src\IGames\bin\IGames.pdb
+C:\Users\aluno\Documents\GitHub\Igames\src\IGames\obj\Debug\IGames.csprojResolveAssemblyReference.cache
+C:\Users\aluno\Documents\GitHub\Igames\src\IGames\obj\Debug\IGames.dll
+C:\Users\aluno\Documents\GitHub\Igames\src\IGames\obj\Debug\IGames.pdb

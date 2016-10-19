@@ -11,7 +11,7 @@ namespace IGames.Public
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Post)
         }
     }
 }
