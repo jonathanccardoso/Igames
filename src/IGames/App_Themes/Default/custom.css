@@ -108,3 +108,6 @@ aside {
 .mobileSearch {
     background-color: rgba(0,0,0,0.35);
 }
+.btn i, .btn-flat i {
+    font-size:2.5rem;
+}

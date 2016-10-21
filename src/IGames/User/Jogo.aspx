@@ -46,7 +46,7 @@
 <aside>
 <i class="material-icons">favorite</i><br />
 <i class="material-icons">info</i><br />
-<i class="material-icons">help</i>
+<i class="material-icons">help</i><br />
 </aside>
 </div>
 <div class="center-align">

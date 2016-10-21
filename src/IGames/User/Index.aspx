@@ -15,11 +15,11 @@
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
-<li>
-<a href="Perfil.aspx" class="perfil-desktop">
+<li><asp:LinkButton ID="login" runat="server"  OnClick="Sair_Click">Sair</asp:LinkButton>
+<%--<a href="Perfil.aspx" class="perfil-desktop">
 <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/user.png" Width="50" Height="45" CssClass="circle" />
 <asp:Label ID="Label1" runat="server" Text="Usuário" Font-Bold="true"></asp:Label>
-</a>
+</a>--%>
 </li>
 </ul>
 <ul class="side-nav" id="mobile-demo">
