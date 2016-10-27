@@ -4895,7 +4895,7 @@ small {
 .btn-floating i,
 .btn-large i,
 .btn-flat i {
-  font-size: 1.3rem;
+  font-size: 2.5rem;
   line-height: inherit;
 }
 
@@ -5254,7 +5254,6 @@ a.waves-effect .waves-ripple {
 }
 
 .modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-flat {
-  float: right;
   margin: 6px 0;
 }
 
@@ -8183,4 +8182,16 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .picker--time .picker__box {
     margin-bottom: 5em;
   }
+}
+
+/*Estrelas*/
+.estrelas input[type=radio] {
+  display: none;
+}
+.estrelas label i.fa:before {
+  content:'\f005';
+  color: #FC0;
+}
+.estrelas input[type=radio]:checked ~ label i.fa:before {
+  color: #CCC;
 }
