@@ -105,6 +105,8 @@
     <Compile Include="Administrador\Jogo.aspx.designer.cs">
       <DependentUpon>Jogo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DAL.cs" />
+    <Compile Include="DAL\DALUsers.cs" />
     <Compile Include="General.Master.cs">
       <DependentUpon>General.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -112,6 +114,7 @@
     <Compile Include="General.Master.designer.cs">
       <DependentUpon>General.Master</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Public\Cadastro.aspx.cs">
       <DependentUpon>Cadastro.aspx</DependentUpon>

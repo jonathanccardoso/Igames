@@ -22,7 +22,7 @@ namespace IGames.Administrador
             SqlConnection aSQLCon = new SqlConnection(aSQLConecStr);
             aSQLCon.Open();
             SqlCommand aSQL = new SqlCommand("Delete from Usuario(UserName, email, iconeUrl, administrador, id) VALUES(@username, @email, @caminho, " + 0 + ", @id)", aSQLCon);
-            aSQL.Parameters.AddWithValue("@username", );
+            aSQL.Parameters.AddWithValue("@username", "");
             aSQL.ExecuteNonQuery();
         }
     }
