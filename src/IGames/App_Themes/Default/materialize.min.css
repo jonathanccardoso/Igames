@@ -8195,3 +8195,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .estrelas input[type=radio]:checked ~ label i.fa:before {
   color: #CCC;
 }
+
+input[name=fb] {
+    display:none;
+}
