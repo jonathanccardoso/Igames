@@ -177,4 +177,32 @@
 </div>
 </div>
 </div>
+<div class="row">
+<a class="col s12 btn modal-jogo" href="#modal-jogo">Adicionar Jogos</a>
+<a class="col l1 offset-l9 s12 btn" href="Usuarios.aspx">Usuários</a>
+</div>
+<div id="modal-jogo" class="modal">
+<div class="modal-content center-align">
+<h4>Escolha o tipo:</h4>
+<form action="#">
+<div class="row">
+<%--<asp:RadioButton ID="RadioButton1" runat="server" />--%>
+<div class="col l1 offset-l4">
+<input id="online" type="radio" name="escolha"/>
+<label for="online">Online</label>
+</div>
+<%--<asp:RadioButton ID="RadioButton2" runat="server" />--%>
+<div class="col l1 offset-l1">
+<input id="download" type="radio" name="escolha"/>
+<label for="download">Download</label>
+</div>
+</div>
+</form>
+</div>
+<div class="modal-footer center-align">
+<%--<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" >Confirmar</a>--%>
+<%--<asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button1" runat="server" OnClick="Confirmar_Click" Text="Confirmar" />--%>
+<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+</div>
+</div>
 </asp:Content>

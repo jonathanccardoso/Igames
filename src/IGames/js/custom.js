@@ -3,6 +3,12 @@
         $('#modal').openModal();
     });
     $('.modal-close').click(function () {
+        $('#modal').closeModal();
+    });
+    $('.modal-jogo').click(function () {
+        $('.modal').openModal();
+    });
+    $('.modal-close').click(function () {
         $('.modal').closeModal();
     });
     $('.slider').slider('start');
