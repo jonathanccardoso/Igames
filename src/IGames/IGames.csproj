@@ -58,8 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administrador\Categorias.aspx" />
+    <Content Include="Administrador\Download.aspx" />
     <Content Include="Administrador\Index.aspx" />
     <Content Include="Administrador\Jogo.aspx" />
+    <Content Include="Administrador\Online.aspx" />
     <Content Include="App_Themes\Default\custom.css" />
     <Content Include="App_Themes\Default\materialize.min.css" />
     <Content Include="App_Themes\Default\minha.css" />
@@ -91,6 +93,13 @@
     <Compile Include="Administrador\Categorias.aspx.designer.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\Download.aspx.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Download.aspx.designer.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -104,6 +113,13 @@
     </Compile>
     <Compile Include="Administrador\Jogo.aspx.designer.cs">
       <DependentUpon>Jogo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Online.aspx.cs">
+      <DependentUpon>Online.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Online.aspx.designer.cs">
+      <DependentUpon>Online.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\DAL.cs" />
     <Compile Include="DAL\DALUsers.cs" />

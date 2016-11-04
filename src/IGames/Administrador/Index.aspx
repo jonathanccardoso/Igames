@@ -6,28 +6,24 @@
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
-<li> 
-<form> 
+<li>
 <div class="input-field search-desktop">
 <input id="search" type="search">
 <label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
 </div>
-</form>
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
-<li><form id="Form1" runat="server"><asp:LinkButton ID="login" runat="server"  OnClick="Sair_Click">Sair</asp:LinkButton></form></li>
+<%--<li><form id="Form1" runat="server"><asp:LinkButton ID="login" runat="server"  OnClick="Sair_Click">Sair</asp:LinkButton></form></li>--%>
 </ul>
 <ul class="side-nav" id="mobile-demo">
 <li>
 <div class="card grey lighten-1 search-mobile">
-<form>
 <div class="input-field inputy">
 <input type="search" class="inp">
 <label for="searc"><i class="material-icons">search</i></label>
 <i class="material-icons clos">close</i>
 </div>
-</form>
 </div>
 </li>
 <li><a href="categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
@@ -182,27 +178,24 @@
 <a class="col l1 offset-l9 s12 btn" href="Usuarios.aspx">Usuários</a>
 </div>
 <div id="modal-jogo" class="modal">
+<form id="Form1" runat="server">
 <div class="modal-content center-align">
 <h4>Escolha o tipo:</h4>
-<form action="#">
 <div class="row">
-<%--<asp:RadioButton ID="RadioButton1" runat="server" />--%>
 <div class="col l1 offset-l4">
-<input id="online" type="radio" name="escolha"/>
-<label for="online">Online</label>
+<asp:RadioButton ID="online" runat="server" GroupName="escolha" />
+<label for="ContentPlaceHolder2_online">Online</label>
 </div>
-<%--<asp:RadioButton ID="RadioButton2" runat="server" />--%>
 <div class="col l1 offset-l1">
-<input id="download" type="radio" name="escolha"/>
-<label for="download">Download</label>
+<asp:RadioButton ID="download" runat="server" GroupName="escolha" />
+<label for="ContentPlaceHolder2_download">Download</label>
 </div>
 </div>
-</form>
 </div>
 <div class="modal-footer center-align">
-<%--<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" >Confirmar</a>--%>
-<%--<asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button1" runat="server" OnClick="Confirmar_Click" Text="Confirmar" />--%>
-<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+<asp:Button CssClass="modal-action modal-close waves-effect waves-green btn-flat" ID="Button1" runat="server" OnClick="Confirmar_Click" Text="Confirmar" />
+<a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
 </div>
+</form>
 </div>
 </asp:Content>

@@ -22,8 +22,6 @@ namespace IGames.Administrador
             Session["id"] = null;
             Session["email"] = null;
             Response.Redirect("~/Public/Index.aspx");
-
-
             //if (email.Text != "" && senha.Text != "")
             //{
             //    if (Membership.ValidateUser(Membership.GetUserNameByEmail(email.Text), senha.Text))
@@ -41,6 +39,9 @@ namespace IGames.Administrador
             //        }
             //    }
             //}
+        }
+        protected void Confirmar_Click(object sender, EventArgs e)
+        {
         }
     }
 }
