@@ -42,6 +42,7 @@ namespace IGames.Administrador
         }
         protected void Confirmar_Click(object sender, EventArgs e)
         {
+            Response.Redirect("~/Administrador/" + (online.Checked ? "Online" : ((download.Checked) ? "Download" : "Index")) + ".aspx");
         }
     }
 }
