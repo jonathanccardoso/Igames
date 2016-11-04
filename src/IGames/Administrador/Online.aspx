@@ -39,8 +39,8 @@
 Jogo: <asp:FileUpload ID="UploadGame" runat="server" />
 Descrição:  <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
 Imagem: <asp:FileUpload ID="UploadImage" runat="server" />
-Nome:
-Categoria:
+Nome: <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+Categoria: <asp:DropDownList ID="Categorias" runat="server"></asp:DropDownList>
 </div>
 </div>
 </asp:Content>

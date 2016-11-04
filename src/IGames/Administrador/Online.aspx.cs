@@ -11,7 +11,8 @@ namespace IGames.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.DropDownList1.DataTextField = "TechnologyName";
+            this.DropDownList1.DataValueField = "Description";
         }
     }
 }
