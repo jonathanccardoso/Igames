@@ -34,7 +34,7 @@ namespace IGames.DAL
                         {
                             while (drCategorias.Read())
                             {
-                                string idCategoria = (string)drCategorias["id"];
+                                int idCategoria = (int)drCategorias["id"];
                                 string descricaoCategoria = (string)drCategorias["descricao"];
 
                                 categoria = new Modelo.Categoria(idCategoria, descricaoCategoria);
