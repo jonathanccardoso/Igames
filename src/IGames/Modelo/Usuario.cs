@@ -11,19 +11,19 @@ namespace IGames.Modelo
 
         public string Email { get; set; }
 
-        public string iconeUrl { get; set; }
+        public string IconeUrl { get; set; }
 
-        public int Administrador { get; set; }
+        public int Adm { get; set; }
 
-        public string id { get; set; }
+        public string Id { get; set; }
 
-        public Usuario(string userName, string email, string url_icone, int adm, string usuario_id)
+        public Usuario(string UserName, string Email, string IconeUrl, int Adm, string Id)
         {
-            userName = UserName;
-            email = Email;
-            url_icone = iconeUrl;
-            adm = Administrador;
-            usuario_id = id;
+            this.UserName = UserName;
+            this.Email = Email;
+            this.IconeUrl = IconeUrl;
+            this.Adm = Adm;
+            this.Id = Id;
         }
     }
 }
