@@ -17,7 +17,7 @@ namespace IGames.Modelo
 
         public string Id { get; set; }
 
-        public Usuario(string UserName, string Email, string IconeUrl, int Adm, string Id)
+        public Usuario(string Id, string UserName, string Email, string IconeUrl, int Adm)
         {
             this.UserName = UserName;
             this.Email = Email;
