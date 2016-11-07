@@ -15,6 +15,7 @@
     $('.slider').slider({ full_width: true });
     $('ul.tabs').tabs();
     $(".button-collapse").sideNav();
+    $('select').material_select();
     $(".search-desktop").hide();
     $(".search-mobile").hide();
     $(".show-search").click(function () {

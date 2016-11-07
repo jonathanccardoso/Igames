@@ -24,7 +24,7 @@ namespace IGames.DAL
                 using (connection)
                 {
                     connection.Open();
-                    string sqlUsuarios = "SELECT * FROM Carrinhos";
+                    string sqlUsuarios = "SELECT * FROM Usuario";
                     SqlCommand cmdUsuarios = new SqlCommand(sqlUsuarios, connection);
                     SqlDataReader drUsuarios;
 
