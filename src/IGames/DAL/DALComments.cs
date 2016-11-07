@@ -13,36 +13,33 @@ namespace IGames.DAL
         public DALComments() : base() {}
 
         //Método SelectAll
-        /*[DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Usuario> SelectAll()
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.Comentario> SelectAll()
         {
-            Modelo.Usuario usuario;
-            List<Modelo.Usuario> usuarios = new List<Modelo.Usuario>();
+            Modelo.Comentario comentario;
+            List<Modelo.Comentario> comentarios = new List<Modelo.Comentario>();
 
             try
             {
                 using (connection)
                 {
                     connection.Open();
-                    string sqlUsuarios = "SELECT * FROM Usuario";
-                    SqlCommand cmdUsuarios = new SqlCommand(sqlUsuarios, connection);
-                    SqlDataReader drUsuarios;
+                    string sqlComentarios = "SELECT * FROM Comentario";
+                    SqlCommand cmdComentarios = new SqlCommand(sqlComentarios, connection);
+                    SqlDataReader drComentarios;
 
-                    using (drUsuarios = cmdUsuarios.ExecuteReader())
+                    using (drComentarios = cmdComentarios.ExecuteReader())
                     {
-                        if (drUsuarios.HasRows)
+                        if (drComentarios.HasRows)
                         {
-                            while (drUsuarios.Read())
+                            while (drComentarios.Read())
                             {
-                                int idUsuario = Convert.ToInt32(drCarrinhos["Usuario_id"]);
-                                double precoTotal = Convert.ToDouble(drCarrinhos["precoTotal"]);
-                                List<Modelo.itemCarrinho> itensCarrinho;
+                                int idComentario = (int)drComentarios["id"];
+                                string descricaoComentario = (string)drComentarios["descricao"];
+                                string idUsuario = (string)drComentarios["usuarioId"];
 
-                                DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
-                                itensCarrinho = dalItemCarrinho.SelectFromCarrinho(idUsuario);
-
-                                carrinho = new Modelo.Carrinho(itensCarrinho, precoTotal, idUsuario);
-                                
+                                comentario = new Modelo.Comentario(idComentario, descricaoComentario, idUsuario);
+                                comentarios.Add(comentario);
                             }
                         }
                     }
@@ -52,38 +49,35 @@ namespace IGames.DAL
             {
                 throw;
             }
-
-            return usuarios;
-        }*/
+            return comentarios;
+        }
 
         //Método Select
-        /*[DataObjectMethod(DataObjectMethodType.Select)]
-         public Modelo.Usuario Select(string usuario_id)
+        [DataObjectMethod(DataObjectMethodType.Select)]
+         public Modelo.Comentario Select(int Comentario_id)
          {
-             //instancia um novo usuario
-             Modelo.Usuario usuario = null;
+             Modelo.Comentario Comentario = null;
              try
              {
                  using (connection)
                  {
-                     //abre a conexão
                      connection.Open();
-                     string sqlUsuario = "SELECT * FROM Usuario WHERE Usuario_id = @id";
-                     SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                     cmdUsuario.Parameters.Add("@id", SqlDbType.UniqueIdentifier).Value = usuario_id;
-                     SqlDataReader drCarrinhos;
-                     using (drCarrinhos = cmdUsuario.ExecuteReader())
+                     string sqlComentario = "SELECT * FROM Comentario WHERE Comentario_id = @id";
+                     SqlCommand cmdComentario = new SqlCommand(sqlComentario, connection);
+                     cmdComentario.Parameters.Add("@id", Comentario_id);
+                     SqlDataReader drComentarios;
+
+                     using (drComentarios = cmdComentario.ExecuteReader())
                      {
-                         if (drCarrinhos.HasRows)
+                         if (drComentarios.HasRows)
                          {
-                             //lê os resultados
-                             while (drCarrinhos.Read())
+                             while (drComentarios.Read())
                              {
-                                 string UserName = drCarrinhos["UserName"].ToString();
-                                 string Email = drCarrinhos["email"].ToString();
-                                 string iconeUrl = drCarrinhos["iconeUrl"].ToString();
-                                 int adm = int.Parse(drCarrinhos["administrador"].ToString());
-                                 usuario = new Modelo.Usuario(UserName, Email, iconeUrl, adm, usuario_id);
+                                 int idComentario = (int)drComentarios["id"];
+                                 string descricao = (string)drComentarios["descricao"];
+                                 string UsuarioId = (string)drComentarios["usuarioId"];
+
+                                 Comentario = new Modelo.Comentario(idComentario, descricao, UsuarioId);
                              }
                          }
                      }
@@ -93,57 +87,54 @@ namespace IGames.DAL
              {
                  throw;
              }
-             return usuario;
-         }*/
+             return Comentario;
+         }
 
         //Método Insert
-        /*[DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Usuario usuario)
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public void Insert(Modelo.Comentario comentario)
         {
             try
             {
-                if (this.Select(usuario.id) == null)
+                if (this.Select(comentario.Id) == null)
                 {
                     using (connection)
                     {
                         connection.Open();
-                        string sqlUsuario = "INSERT INTO Usuario(UserName, email, iconeUrl, administrador, id) VALUES (@userName, @email, @iconeUrl, @administrador, @id)";
-                        SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                        cmdUsuario.Parameters.AddWithValue("@userName", usuario.UserName);
-                        cmdUsuario.Parameters.AddWithValue("@email", usuario.Email);
-                        cmdUsuario.Parameters.AddWithValue("@iconeUrl", usuario.iconeUrl);
-                        cmdUsuario.Parameters.AddWithValue("@administrador", usuario.Administrador);
-                        cmdUsuario.Parameters.AddWithValue("@id", usuario.id);
-                        cmdUsuario.ExecuteNonQuery();
+                        string sqlComentario = "INSERT INTO Comentario(descricao, usuarioId) VALUES (@descricao, @usuarioId)";
+                        SqlCommand cmdComentario = new SqlCommand(sqlComentario, connection);
+                        cmdComentario.Parameters.Add("@descricao", comentario.Descricao);
+                        cmdComentario.Parameters.Add("@usuarioId", SqlDbType.UniqueIdentifier).Value = comentario.UsuarioId;
+                        cmdComentario.ExecuteNonQuery();
                     }
                 }
                 else
                 {
-                    this.Update(usuario);
+                    this.Update(comentario);
                 }
             }
             catch (SystemException)
             {
                 throw;
             }
-        }*/
+        }
 
         //Método Update
-        /*[DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Usuario usuario)
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public void Update(Modelo.Comentario comentario)
         {
             try
             {
                 using (connection)
                 {
                     connection.Open();
-                    if (Select(usuario.id) != usuario)
+                    if (Select(comentario.Id) != comentario)
                     {
-                        string sqlUsuario = "UPDATE Carrinho SET precoTotal = @preco WHERE Usuario_id = @id";
-                        SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                        //cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
-                        //cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = carrinho.Usuario_id;
-                        cmdUsuario.ExecuteNonQuery();
+                        string sqlComentario = "UPDATE Comentario SET descricao = @descricao WHERE id = @id";
+                        SqlCommand cmdComentario = new SqlCommand(sqlComentario, connection);
+                        cmdComentario.Parameters.Add("@descricao", comentario.Descricao);
+                        cmdComentario.Parameters.Add("@id", comentario.Id);
+                        cmdComentario.ExecuteNonQuery();
                     }
                 }
             }
@@ -151,28 +142,27 @@ namespace IGames.DAL
             {
                 throw;
             }
-        }*/
+        }
 
         //Método Delete
-        /*[DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Usuario usuario)
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public void Delete(Modelo.Comentario comentario)
         {
-            int id = Convert.ToInt32(usuario.id);
             try
             {
                 using (connection)
                 {
                     connection.Open();
-                    string sqlUsuario = "DELETE FROM Carrinho WHERE id = @id";
-                    SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                    //cmdUsuario.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                    cmdUsuario.ExecuteNonQuery();
+                    string sqlComentario = "DELETE FROM Comentario WHERE id = @id";
+                    SqlCommand cmdComentario = new SqlCommand(sqlComentario, connection);
+                    cmdComentario.Parameters.Add("@id", comentario.Id);
+                    cmdComentario.ExecuteNonQuery();
                 }
             }
             catch (SystemException)
             {
                 throw;
             }
-        }*/
+        }
     }
 }
