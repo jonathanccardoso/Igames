@@ -8,9 +8,9 @@ using System.Web;
 
 namespace IGames.DAL
 {
-    public class DALUsers : DAL
+    public class DALCategory : DAL
     {
-        public DALUsers() : base() {}
+        public DALCategory() : base() {}
 
         //Método SelectAll
         /*[DataObjectMethod(DataObjectMethodType.Select)]
@@ -57,44 +57,44 @@ namespace IGames.DAL
         }*/
 
         //Método Select
-        /*[DataObjectMethod(DataObjectMethodType.Select)]
-         public Modelo.Usuario Select(string usuario_id)
-         {
-             //instancia um novo usuario
-             Modelo.Usuario usuario = null;
-             try
-             {
-                 using (connection)
-                 {
-                     //abre a conexão
-                     connection.Open();
-                     string sqlUsuario = "SELECT * FROM Usuario WHERE Usuario_id = @id";
-                     SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                     cmdUsuario.Parameters.Add("@id", SqlDbType.UniqueIdentifier).Value = usuario_id;
-                     SqlDataReader drCarrinhos;
-                     using (drCarrinhos = cmdUsuario.ExecuteReader())
-                     {
-                         if (drCarrinhos.HasRows)
-                         {
-                             //lê os resultados
-                             while (drCarrinhos.Read())
-                             {
-                                 string UserName = drCarrinhos["UserName"].ToString();
-                                 string Email = drCarrinhos["email"].ToString();
-                                 string iconeUrl = drCarrinhos["iconeUrl"].ToString();
-                                 int adm = int.Parse(drCarrinhos["administrador"].ToString());
-                                 usuario = new Modelo.Usuario(UserName, Email, iconeUrl, adm, usuario_id);
-                             }
-                         }
-                     }
-                 }
-             }
-             catch (SystemException)
-             {
-                 throw;
-             }
-             return usuario;
-         }*/
+       /*[DataObjectMethod(DataObjectMethodType.Select)]
+        public Modelo.Usuario Select(string usuario_id)
+        {
+            //instancia um novo usuario
+            Modelo.Usuario usuario = null;
+            try
+            {
+                using (connection)
+                {
+                    //abre a conexão
+                    connection.Open();
+                    string sqlUsuario = "SELECT * FROM Usuario WHERE Usuario_id = @id";
+                    SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
+                    cmdUsuario.Parameters.Add("@id", SqlDbType.UniqueIdentifier).Value = usuario_id;
+                    SqlDataReader drCarrinhos;
+                    using (drCarrinhos = cmdUsuario.ExecuteReader())
+                    {
+                        if (drCarrinhos.HasRows)
+                        {
+                            //lê os resultados
+                            while (drCarrinhos.Read())
+                            {
+                                string UserName = drCarrinhos["UserName"].ToString();
+                                string Email = drCarrinhos["email"].ToString();
+                                string iconeUrl = drCarrinhos["iconeUrl"].ToString();
+                                int adm = int.Parse(drCarrinhos["administrador"].ToString());
+                                usuario = new Modelo.Usuario(UserName, Email, iconeUrl, adm, usuario_id);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return usuario;
+        }*/
 
         //Método Insert
         /*[DataObjectMethod(DataObjectMethodType.Insert)]
