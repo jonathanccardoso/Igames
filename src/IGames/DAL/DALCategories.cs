@@ -48,7 +48,6 @@ namespace IGames.DAL
             {
                 throw;
             }
-
             return categorias;
         }
 
@@ -56,7 +55,7 @@ namespace IGames.DAL
         [DataObjectMethod(DataObjectMethodType.Select)]
         public Modelo.Categoria Select(string Categoria_id)
         {
-            Modelo.Categoria categoria;
+            Modelo.Categoria categoria = null;
             try
             {
                 using (connection)
@@ -65,13 +64,13 @@ namespace IGames.DAL
                     string sqlCategoria = "SELECT * FROM Categoria WHERE Categoria_id = @id";
                     SqlCommand cmdCategoria = new SqlCommand(sqlCategoria, connection);
                     cmdCategoria.Parameters.Add("@id", SqlDbType.UniqueIdentifier).Value = Categoria_id;
-                    SqlDataReader drCarrinhos;
+                    SqlDataReader drCategorias;
 
-                    using (drCarrinhos = cmdCategoria.ExecuteReader())
+                    using (drCategorias = cmdCategoria.ExecuteReader())
                     {
-                        if (drCarrinhos.HasRows)
+                        if (drCategorias.HasRows)
                         {
-                            while (drCarrinhos.Read())
+                            while (drCategorias.Read())
                             {
                                 string idCategoria = (string)drCategorias["id"];
                                 string descricaoCategoria = (string)drCategorias["descricao"];
@@ -95,11 +94,10 @@ namespace IGames.DAL
         {
             try
             {
-                if (this.Select(categoria.id) == null)
+                if (this.Select(categoria.Id) == null)
                 {
                     using (connection)
                     {
-
                         connection.Open();
                         string sqlCategoria = "INSERT INTO Categoria(descricao) VALUES (@descricao)";
                         SqlCommand cmdCategoria = new SqlCommand(sqlCategoria, connection);
@@ -144,7 +142,6 @@ namespace IGames.DAL
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Delete(Modelo.Categoria categoria)
         {
-            int id = Convert.ToInt32(Categoria.id);
             try
             {
                 using (connection)
