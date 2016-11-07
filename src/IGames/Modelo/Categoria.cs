@@ -7,11 +7,11 @@ namespace IGames.Modelo
 {
     public class Categoria
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string Descricao { get; set; }
 
-        public Categoria(string Descricao, string Id)
+        public Categoria(int Id, string Descricao)
         {
             this.Descricao = Descricao;
             this.Id = Id;
