@@ -141,6 +141,7 @@
       <DependentUpon>General.Master</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Categoria.cs" />
+    <Compile Include="Modelo\Comentario.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Public\Cadastro.aspx.cs">
