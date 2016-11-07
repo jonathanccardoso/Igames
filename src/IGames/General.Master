@@ -43,33 +43,33 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-<nav>
-<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-</asp:ContentPlaceHolder>
-</nav>
-<main>
-<asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-</asp:ContentPlaceHolder>
-</main>
-<footer class="page-footer">
-<div class="container">
-<div class="row">
-<div class="col l6 s12">
-<h5 class="white-text">Siga-nos em nossas redes sociais</h5>
-<div class="col l3">
-<img src="../images/facebook.png">
-<img src="../images/twitter.png">
-<img src="../images/instagram.png">
-</div>
-</div>
-</div>
-</div>
-<div class="footer-copyright">
-<div class="container">
-&copy; 2016 Copyright Os ursinhos carinhosos
-</div>
-</div>
-</footer>
+        <nav>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        </nav>
+        <main>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        </asp:ContentPlaceHolder>
+        </main>
+        <footer class="page-footer">
+        <div class="container">
+        <div class="row">
+        <div class="col l6 s12">
+        <h5 class="white-text">Siga-nos em nossas redes sociais</h5>
+        <div class="col l3">
+        <img src="../images/facebook.png">
+        <img src="../images/twitter.png">
+        <img src="../images/instagram.png">
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="footer-copyright">
+        <div class="container">
+        &copy; 2016 Copyright Os ursinhos carinhosos
+        </div>
+        </div>
+        </footer>
 </body>
 <script src="../js/jquery-2.1.1.min.js"></script>
 <script src="../js/materialize.min.js"></script>

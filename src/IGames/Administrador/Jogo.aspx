@@ -62,7 +62,7 @@
                 </div>
                 <div class="modal-footer  center-align">
                 <%--  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" >Confirmar</a>--%>
-                    <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button1" runat="server" OnClick="Confirmar_Click" Text="Confirmar" />
+                    <%--<asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button1" runat="server" OnClick="Confirmar_Click" Text="Confirmar" />--%>
                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
                 </div>
               </div>

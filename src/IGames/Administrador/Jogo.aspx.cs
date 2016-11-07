@@ -13,17 +13,22 @@ namespace IGames.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
         protected void Confirmar_Click(object sender, EventArgs e)
         {
+            string jogo = Request.QueryString["jogo"];//nome jogo
+
             string aSQLConecStr;
             aSQLConecStr = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
             SqlConnection aSQLCon = new SqlConnection(aSQLConecStr);
             aSQLCon.Open();
-            SqlCommand aSQL = new SqlCommand("Delete from Usuario(UserName, email, iconeUrl, administrador, id) VALUES(@username, @email, @caminho, " + 0 + ", @id)", aSQLCon);
-            aSQL.Parameters.AddWithValue("@username", "");
+
+            SqlCommand aSQL = new SqlCommand("DELETE FROM Jogo WHERE nome = '@NomeJogo'", aSQLCon);
+            aSQL.Parameters.AddWithValue("@NomeJogo", jogo);
             aSQL.ExecuteNonQuery();
+
+            Response.Redirect("Index.aspx");
         }
     }
 }
