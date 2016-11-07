@@ -42,14 +42,14 @@
 <div class="slider">
 <ul class="slides">
 <li>
-<img src="http://www.mudandoparamarte.com/wp-content/uploads/2015/04/kids-games-banner.jpg"> 
+<img src="../Images/img01.jpeg"> 
 <div class="caption center-align">
 <h3>Os jogos mais legais estão aqui!</h3>
 <h5 class="light grey-text text-lighten-3">Crie sua conta!</h5>
 </div>
 </li>
 <li>
-<img src="https://gamedesignunesp.files.wordpress.com/2012/06/cropped-game-design-banner.jpg">
+<img src="../Images/img02.jpeg">
 <div class="caption left-align">
 <h3></h3>
 <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
