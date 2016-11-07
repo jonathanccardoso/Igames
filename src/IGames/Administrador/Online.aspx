@@ -33,14 +33,48 @@
 </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-<form runat="server"></form>
+<form runat="server">
 <div class="row">
-<div class="col l8 offset-l2">
-Jogo: <asp:FileUpload ID="UploadGame" runat="server" />
-Descrição:  <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-Imagem: <asp:FileUpload ID="UploadImage" runat="server" />
-Nome: <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-Categoria: <asp:DropDownList ID="Categorias" runat="server"></asp:DropDownList>
+<div class="col l10 offset-l1">
+<div class="card">
+<h2 class="card-title center">Online</h2>
+<div class="row">
+<div class="col l10 offset-l1">
+<div class="file-field input-field">
+<div class="btn">
+<span>Jogo</span>
+<asp:FileUpload ID="UploadGame" runat="server" />
+</div>
+<div class="file-path-wrapper">
+<input class="file-path validate" type="text">
 </div>
 </div>
+<div class="input-field">
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+<label for="ContentPlaceholder2_TextBox1">Descrição</label>
+</div>
+<div class="file-field input-field">
+<div class="btn">
+<span>Imagem</span>
+<asp:FileUpload ID="UploadImage" runat="server" />
+</div>
+<div class="file-path-wrapper">
+<input class="file-path validate" type="text">
+</div>
+</div>
+<div class="input-field">
+<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+<label for="ContentPlaceholder2_TextBox2">Nome</label>
+</div>
+<div class="input-field">
+<asp:DropDownList ID="Categorias" Width="200" runat="server"></asp:DropDownList>
+<label>Teste</label>
+</div>
+<asp:Button ID="addGame" runat="server" Text="Adicionar" CssClass="btn right" OnClick="addGame_Click" />
+</div>
+</div>
+</div> 
+</div>
+</div>
+</form>
 </asp:Content>
