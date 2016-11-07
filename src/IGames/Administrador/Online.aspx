@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="nav-wrapper">  
+<div class="nav-wrapper"> 
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
@@ -68,7 +68,7 @@
 </div>
 <div class="input-field">
 <asp:DropDownList ID="Categorias" Width="200" runat="server"></asp:DropDownList>
-<label>Teste</label>
+<label>Categoria</label>
 </div>
 <asp:Button ID="addGame" runat="server" Text="Adicionar" CssClass="btn right" OnClick="addGame_Click" />
 </div>
