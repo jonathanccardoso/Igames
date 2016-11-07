@@ -119,3 +119,6 @@ input[name=fb] {
     width: 200px !important;
     margin-left: 30px !important;
 }
+#ContentPlaceHolder2_addGame {
+    margin-bottom: 18px;
+}
