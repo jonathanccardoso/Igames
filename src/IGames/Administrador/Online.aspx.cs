@@ -13,6 +13,16 @@ namespace IGames.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            getCategories();
+        }
+
+        protected void addGame_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void getCategories()
+        {
             string aSQLConecStr;
             aSQLConecStr = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
             SqlConnection aSQLCon = new SqlConnection(aSQLConecStr);
@@ -49,11 +59,6 @@ namespace IGames.Administrador
             {
                 aSQLCon.Close();
             }
-        }
-
-        protected void addGame_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
