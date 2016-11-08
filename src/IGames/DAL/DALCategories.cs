@@ -53,7 +53,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Categoria Select(string Categoria_id)
+        public Modelo.Categoria Select(int Categoria_id)
         {
             Modelo.Categoria categoria = null;
             try
@@ -72,7 +72,7 @@ namespace IGames.DAL
                         {
                             while (drCategorias.Read())
                             {
-                                string idCategoria = (string)drCategorias["id"];
+                                int idCategoria = (int)drCategorias["id"];
                                 string descricaoCategoria = (string)drCategorias["descricao"];
 
                                 categoria = new Modelo.Categoria(idCategoria, descricaoCategoria);
@@ -127,8 +127,8 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlCategoria = "UPDATE Categoria SET descricao = @descricao WHERE id = @id";
                     SqlCommand cmdCategoria = new SqlCommand(sqlCategoria, connection);
-                    cmdCategoria.Parameters.Add("@id", categoria.Id);
-                    cmdCategoria.Parameters.Add("@descricao", categoria.Descricao);
+                    cmdCategoria.Parameters.AddWithValue("@id", categoria.Id);
+                    cmdCategoria.Parameters.AddWithValue("@descricao", categoria.Descricao);
                     cmdCategoria.ExecuteNonQuery();
                 }
             }
@@ -149,7 +149,7 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlCategoria = "DELETE FROM Categoria WHERE id = @id";
                     SqlCommand cmdCategoria = new SqlCommand(sqlCategoria, connection);
-                    cmdCategoria.Parameters.Add("@id", categoria.Id);
+                    cmdCategoria.Parameters.AddWithValue("@id", categoria.Id);
                     cmdCategoria.ExecuteNonQuery();
                 }
             }
