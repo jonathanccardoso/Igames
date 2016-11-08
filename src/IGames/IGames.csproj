@@ -126,7 +126,6 @@
     <Compile Include="DAL\DAL.cs" />
     <Compile Include="DAL\DALCategories.cs" />
     <Compile Include="DAL\DALComments.cs" />
-    <Compile Include="DAL\DALFavorites.cs" />
     <Compile Include="DAL\DALForum.cs" />
     <Compile Include="DAL\DALGames.cs" />
     <Compile Include="DAL\DALIcons.cs" />
@@ -140,8 +139,13 @@
     <Compile Include="General.Master.designer.cs">
       <DependentUpon>General.Master</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Avaliacao.cs" />
     <Compile Include="Modelo\Categoria.cs" />
     <Compile Include="Modelo\Comentario.cs" />
+    <Compile Include="Modelo\Forum.cs" />
+    <Compile Include="Modelo\Icone.cs" />
+    <Compile Include="Modelo\Jogo.cs" />
+    <Compile Include="Modelo\Postagem.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Public\Cadastro.aspx.cs">

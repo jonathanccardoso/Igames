@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -10,36 +13,35 @@ namespace IGames.DAL
         public DALForum() : base() {}
 
         //Método SelectAll
-        /*[DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Usuario> SelectAll()
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.Forum> SelectAll()
         {
-            Modelo.Usuario usuario;
-            List<Modelo.Usuario> usuarios = new List<Modelo.Usuario>();
+            Modelo.Forum forum;
+            List<Modelo.Forum> foruns = new List<Modelo.Forum>();
 
             try
             {
                 using (connection)
                 {
                     connection.Open();
-                    string sqlUsuarios = "SELECT * FROM Usuario";
-                    SqlCommand cmdUsuarios = new SqlCommand(sqlUsuarios, connection);
-                    SqlDataReader drUsuarios;
+                    string sqlForuns = "SELECT * FROM Forum";
+                    SqlCommand cmdForuns = new SqlCommand(sqlForuns, connection);
+                    SqlDataReader drForuns;
 
-                    using (drUsuarios = cmdUsuarios.ExecuteReader())
+                    using (drForuns = cmdForuns.ExecuteReader())
                     {
-                        if (drUsuarios.HasRows)
+                        if (drForuns.HasRows)
                         {
-                            while (drUsuarios.Read())
+                            while (drForuns.Read())
                             {
-                                int idUsuario = Convert.ToInt32(drCarrinhos["Usuario_id"]);
-                                double precoTotal = Convert.ToDouble(drCarrinhos["precoTotal"]);
-                                List<Modelo.itemCarrinho> itensCarrinho;
-
-                                DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
-                                itensCarrinho = dalItemCarrinho.SelectFromCarrinho(idUsuario);
-
-                                carrinho = new Modelo.Carrinho(itensCarrinho, precoTotal, idUsuario);
-                                
+                                int idForum = (int)drForuns["id"];
+                                string descricao = (string)drForuns["descricao"];
+                                string data = (string)drForuns["data"];
+                                string hora = (string)drForuns["hora"];
+                                string usuarioId = (string)drForuns["Usuario_id"];
+                                int idPostagem = (int)drForuns["Postagem_id"];
+                                forum = new Modelo.Forum(idForum, descricao, data, hora, usuarioId, idPostagem);
+                                foruns.Add(forum);
                             }
                         }
                     }
@@ -49,38 +51,38 @@ namespace IGames.DAL
             {
                 throw;
             }
-
-            return usuarios;
-        }*/
+            return foruns;
+        }
 
         //Método Select
-        /*[DataObjectMethod(DataObjectMethodType.Select)]
-         public Modelo.Usuario Select(string usuario_id)
+        [DataObjectMethod(DataObjectMethodType.Select)]
+         public Modelo.Forum Select(int forum_id)
          {
-             //instancia um novo usuario
-             Modelo.Usuario usuario = null;
+             //instancia um novo Forum
+             Modelo.Forum forum = null;
              try
              {
                  using (connection)
                  {
                      //abre a conexão
                      connection.Open();
-                     string sqlUsuario = "SELECT * FROM Usuario WHERE Usuario_id = @id";
-                     SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                     cmdUsuario.Parameters.Add("@id", SqlDbType.UniqueIdentifier).Value = usuario_id;
-                     SqlDataReader drCarrinhos;
-                     using (drCarrinhos = cmdUsuario.ExecuteReader())
+                     string sqlForum = "SELECT * FROM Forum WHERE id = @id";
+                     SqlCommand cmdForum = new SqlCommand(sqlForum, connection);
+                     cmdForum.Parameters.AddWithValue("@id", forum_id);
+                     SqlDataReader drForum;
+                     using (drForum = cmdForum.ExecuteReader())
                      {
-                         if (drCarrinhos.HasRows)
+                         if (drForum.HasRows)
                          {
-                             //lê os resultados
-                             while (drCarrinhos.Read())
+                             while (drForum.Read())
                              {
-                                 string UserName = drCarrinhos["UserName"].ToString();
-                                 string Email = drCarrinhos["email"].ToString();
-                                 string iconeUrl = drCarrinhos["iconeUrl"].ToString();
-                                 int adm = int.Parse(drCarrinhos["administrador"].ToString());
-                                 usuario = new Modelo.Usuario(UserName, Email, iconeUrl, adm, usuario_id);
+                                 int idForum = (int)drForum["id"];
+                                 string descricao = (string)drForum["descricao"];
+                                 string data = (string)drForum["data"];
+                                 string hora = (string)drForum["hora"];
+                                 string usuarioId = (string)drForum["Usuario_id"];
+                                 int idPostagem = (int)drForum["Postagem_id"];
+                                 forum = new Modelo.Forum(idForum, descricao, data, hora, usuarioId, idPostagem);
                              }
                          }
                      }
@@ -90,57 +92,59 @@ namespace IGames.DAL
              {
                  throw;
              }
-             return usuario;
-         }*/
+             return forum;
+         }
 
         //Método Insert
-        /*[DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Usuario usuario)
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public void Insert(Modelo.Forum forum)
         {
             try
             {
-                if (this.Select(usuario.id) == null)
+                if (this.Select(forum.Id) == null)
                 {
                     using (connection)
                     {
                         connection.Open();
-                        string sqlUsuario = "INSERT INTO Usuario(UserName, email, iconeUrl, administrador, id) VALUES (@userName, @email, @iconeUrl, @administrador, @id)";
-                        SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                        cmdUsuario.Parameters.AddWithValue("@userName", usuario.UserName);
-                        cmdUsuario.Parameters.AddWithValue("@email", usuario.Email);
-                        cmdUsuario.Parameters.AddWithValue("@iconeUrl", usuario.iconeUrl);
-                        cmdUsuario.Parameters.AddWithValue("@administrador", usuario.Administrador);
-                        cmdUsuario.Parameters.AddWithValue("@id", usuario.id);
-                        cmdUsuario.ExecuteNonQuery();
+                        string sqlforum = "INSERT INTO Forum(descricao, data, hora, Usuario_id, Postagem_id) VALUES (@descricao, @data, @hora, @usuarioId, @postagemId)";
+                        SqlCommand cmdforum = new SqlCommand(sqlforum, connection);
+                        cmdforum.Parameters.AddWithValue("@descricao", forum.Descricao);
+                        cmdforum.Parameters.AddWithValue("@data", SqlDbType.Date).Value = forum.Data.ToString("yyyy-MM-dd");
+                        cmdforum.Parameters.AddWithValue("@hora", forum.Hora);
+                        cmdforum.Parameters.AddWithValue("@usuarioId", forum.UsuarioId);
+                        cmdforum.Parameters.AddWithValue("@postagemId", forum.PostagemId);
+                        cmdforum.ExecuteNonQuery();
                     }
                 }
                 else
                 {
-                    this.Update(usuario);
+                    this.Update(forum);
                 }
             }
             catch (SystemException)
             {
                 throw;
             }
-        }*/
+        }
 
         //Método Update
-        /*[DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Usuario usuario)
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public void Update(Modelo.Forum forum)
         {
             try
             {
                 using (connection)
                 {
                     connection.Open();
-                    if (Select(usuario.id) != usuario)
+                    if (Select(forum.Id) != forum)
                     {
-                        string sqlUsuario = "UPDATE Carrinho SET precoTotal = @preco WHERE Usuario_id = @id";
-                        SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                        //cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
-                        //cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = carrinho.Usuario_id;
-                        cmdUsuario.ExecuteNonQuery();
+                        string sqlForum = "UPDATE Forum SET descricao = @descricao, data = @data, hora = @hora WHERE id = @id";
+                        SqlCommand cmdForum = new SqlCommand(sqlForum, connection);
+                        cmdForum.Parameters.AddWithValue("@descricao", forum.Descricao);
+                        cmdForum.Parameters.AddWithValue("@data", forum.Data);
+                        cmdForum.Parameters.AddWithValue("@hora", forum.Hora);
+                        cmdForum.Parameters.AddWithValue("@id", forum.Id);
+                        cmdForum.ExecuteNonQuery();
                     }
                 }
             }
@@ -148,28 +152,27 @@ namespace IGames.DAL
             {
                 throw;
             }
-        }*/
+        }
 
         //Método Delete
-        /*[DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Usuario usuario)
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public void Delete(Modelo.Forum forum)
         {
-            int id = Convert.ToInt32(usuario.id);
             try
             {
                 using (connection)
                 {
                     connection.Open();
-                    string sqlUsuario = "DELETE FROM Carrinho WHERE id = @id";
-                    SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                    //cmdUsuario.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                    cmdUsuario.ExecuteNonQuery();
+                    string sqlForum = "DELETE FROM Forum WHERE id = @id";
+                    SqlCommand cmdForum = new SqlCommand(sqlForum, connection);
+                    cmdForum.Parameters.AddWithValue("@id", forum.Id);
+                    cmdForum.ExecuteNonQuery();
                 }
             }
             catch (SystemException)
             {
                 throw;
             }
-        }*/
+        }
     }
 }
