@@ -64,7 +64,7 @@ namespace IGames.DAL
                      connection.Open();
                      string sqlComentario = "SELECT * FROM Comentario WHERE Comentario_id = @id";
                      SqlCommand cmdComentario = new SqlCommand(sqlComentario, connection);
-                     cmdComentario.Parameters.Add("@id", Comentario_id);
+                     cmdComentario.Parameters.AddWithValue("@id", Comentario_id);
                      SqlDataReader drComentarios;
 
                      using (drComentarios = cmdComentario.ExecuteReader())
@@ -103,8 +103,8 @@ namespace IGames.DAL
                         connection.Open();
                         string sqlComentario = "INSERT INTO Comentario(descricao, usuarioId) VALUES (@descricao, @usuarioId)";
                         SqlCommand cmdComentario = new SqlCommand(sqlComentario, connection);
-                        cmdComentario.Parameters.Add("@descricao", comentario.Descricao);
-                        cmdComentario.Parameters.Add("@usuarioId", SqlDbType.UniqueIdentifier).Value = comentario.UsuarioId;
+                        cmdComentario.Parameters.AddWithValue("@descricao", comentario.Descricao);
+                        cmdComentario.Parameters.AddWithValue("@usuarioId", SqlDbType.UniqueIdentifier).Value = comentario.UsuarioId;
                         cmdComentario.ExecuteNonQuery();
                     }
                 }
@@ -132,8 +132,8 @@ namespace IGames.DAL
                     {
                         string sqlComentario = "UPDATE Comentario SET descricao = @descricao WHERE id = @id";
                         SqlCommand cmdComentario = new SqlCommand(sqlComentario, connection);
-                        cmdComentario.Parameters.Add("@descricao", comentario.Descricao);
-                        cmdComentario.Parameters.Add("@id", comentario.Id);
+                        cmdComentario.Parameters.AddWithValue("@descricao", comentario.Descricao);
+                        cmdComentario.Parameters.AddWithValue("@id", comentario.Id);
                         cmdComentario.ExecuteNonQuery();
                     }
                 }
@@ -155,7 +155,7 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlComentario = "DELETE FROM Comentario WHERE id = @id";
                     SqlCommand cmdComentario = new SqlCommand(sqlComentario, connection);
-                    cmdComentario.Parameters.Add("@id", comentario.Id);
+                    cmdComentario.Parameters.AddWithValue("@id", comentario.Id);
                     cmdComentario.ExecuteNonQuery();
                 }
             }
