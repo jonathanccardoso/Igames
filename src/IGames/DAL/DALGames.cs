@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -10,36 +13,34 @@ namespace IGames.DAL
         public DALGames() : base() {}
 
         //Método SelectAll
-        /*[DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Usuario> SelectAll()
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.Jogo> SelectAll()
         {
-            Modelo.Usuario usuario;
-            List<Modelo.Usuario> usuarios = new List<Modelo.Usuario>();
+            Modelo.Jogo jogo;
+            List<Modelo.Jogo> jogos = new List<Modelo.Jogo>();
 
             try
             {
                 using (connection)
                 {
                     connection.Open();
-                    string sqlUsuarios = "SELECT * FROM Usuario";
-                    SqlCommand cmdUsuarios = new SqlCommand(sqlUsuarios, connection);
-                    SqlDataReader drUsuarios;
+                    string sqlJogos = "SELECT * FROM Jogo";
+                    SqlCommand cmdJogos = new SqlCommand(sqlJogos, connection);
+                    SqlDataReader drJogos;
 
-                    using (drUsuarios = cmdUsuarios.ExecuteReader())
+                    using (drJogos = cmdJogos.ExecuteReader())
                     {
-                        if (drUsuarios.HasRows)
+                        if (drJogos.HasRows)
                         {
-                            while (drUsuarios.Read())
+                            while (drJogos.Read())
                             {
-                                int idUsuario = Convert.ToInt32(drCarrinhos["Usuario_id"]);
-                                double precoTotal = Convert.ToDouble(drCarrinhos["precoTotal"]);
-                                List<Modelo.itemCarrinho> itensCarrinho;
-
-                                DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
-                                itensCarrinho = dalItemCarrinho.SelectFromCarrinho(idUsuario);
-
-                                carrinho = new Modelo.Carrinho(itensCarrinho, precoTotal, idUsuario);
-                                
+                                int idJogo = (int)drJogos["id"];
+                                string jogoUrl = (string)drJogos["jogoUrl"];
+                                string descricao = (string)drJogos["descricao"];
+                                string imagemUrl = (string)drJogos["imagemUrl"];
+                                string nome = (string)drJogos["nome"];
+                                int tipo = (int)drJogos["tipo"];
+                                jogo = new Modelo.Jogo(idJogo, jogoUrl, descricao, imagemUrl, nome, tipo);
                             }
                         }
                     }
@@ -50,37 +51,39 @@ namespace IGames.DAL
                 throw;
             }
 
-            return usuarios;
-        }*/
+            return jogos;
+        }
 
         //Método Select
-        /*[DataObjectMethod(DataObjectMethodType.Select)]
-         public Modelo.Usuario Select(string usuario_id)
+        [DataObjectMethod(DataObjectMethodType.Select)]
+         public Modelo.Jogo Select(int jogo_id)
          {
              //instancia um novo usuario
-             Modelo.Usuario usuario = null;
+             Modelo.Jogo jogo = null;
              try
              {
                  using (connection)
                  {
                      //abre a conexão
                      connection.Open();
-                     string sqlUsuario = "SELECT * FROM Usuario WHERE Usuario_id = @id";
-                     SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                     cmdUsuario.Parameters.Add("@id", SqlDbType.UniqueIdentifier).Value = usuario_id;
-                     SqlDataReader drCarrinhos;
-                     using (drCarrinhos = cmdUsuario.ExecuteReader())
+                     string sqlJogo = "SELECT * FROM Jogo WHERE id = @id";
+                     SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
+                     cmdJogo.Parameters.AddWithValue("@id", jogo_id);
+                     SqlDataReader drJogo;
+                     using (drJogo = cmdJogo.ExecuteReader())
                      {
-                         if (drCarrinhos.HasRows)
+                         if (drJogo.HasRows)
                          {
                              //lê os resultados
-                             while (drCarrinhos.Read())
+                             while (drJogo.Read())
                              {
-                                 string UserName = drCarrinhos["UserName"].ToString();
-                                 string Email = drCarrinhos["email"].ToString();
-                                 string iconeUrl = drCarrinhos["iconeUrl"].ToString();
-                                 int adm = int.Parse(drCarrinhos["administrador"].ToString());
-                                 usuario = new Modelo.Usuario(UserName, Email, iconeUrl, adm, usuario_id);
+                                 int idJogo = (int)drJogo["id"];
+                                 string jogoUrl = (string)drJogo["jogoUrl"];
+                                 string descricao = (string)drJogo["descricao"];
+                                 string imagemUrl = (string)drJogo["imagemUrl"];
+                                 string nome = (string)drJogo["nome"];
+                                 int tipo = (int)drJogo["tipo"];
+                                 jogo = new Modelo.Jogo(idJogo, jogoUrl, descricao, imagemUrl, nome, tipo);
                              }
                          }
                      }
@@ -90,57 +93,61 @@ namespace IGames.DAL
              {
                  throw;
              }
-             return usuario;
-         }*/
+             return jogo;
+         }
 
         //Método Insert
-        /*[DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Usuario usuario)
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public void Insert(Modelo.Jogo jogo)
         {
             try
             {
-                if (this.Select(usuario.id) == null)
+                if (this.Select(jogo.Id) == null)
                 {
                     using (connection)
                     {
                         connection.Open();
-                        string sqlUsuario = "INSERT INTO Usuario(UserName, email, iconeUrl, administrador, id) VALUES (@userName, @email, @iconeUrl, @administrador, @id)";
-                        SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                        cmdUsuario.Parameters.AddWithValue("@userName", usuario.UserName);
-                        cmdUsuario.Parameters.AddWithValue("@email", usuario.Email);
-                        cmdUsuario.Parameters.AddWithValue("@iconeUrl", usuario.iconeUrl);
-                        cmdUsuario.Parameters.AddWithValue("@administrador", usuario.Administrador);
-                        cmdUsuario.Parameters.AddWithValue("@id", usuario.id);
-                        cmdUsuario.ExecuteNonQuery();
+                        string sqlJogo = "INSERT INTO Jogo(jogoUrl, descricao, imagemUrl, nome, tipo, avaliacaoId, comentarioId) VALUES (@jogoUrl, @descricao, @imagemUrl, @nome, @tipo, @avaliacaoId, @comentarioId)";
+                        SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
+                        cmdJogo.Parameters.AddWithValue("@jogoUrl", jogo.JogoUrl);
+                        cmdJogo.Parameters.AddWithValue("@descricao", jogo.Descricao);
+                        cmdJogo.Parameters.AddWithValue("@imagemUrl", jogo.ImagemUrl);
+                        cmdJogo.Parameters.AddWithValue("@nome", jogo.Nome);
+                        cmdJogo.Parameters.AddWithValue("@tipo", jogo.Tipo);
+                        cmdJogo.Parameters.AddWithValue("@avaliacaoId", jogo.AvaliacaoId);
+                        cmdJogo.Parameters.AddWithValue("@comentarioId", jogo.ComentarioId);
+                        cmdJogo.ExecuteNonQuery();
                     }
                 }
                 else
                 {
-                    this.Update(usuario);
+                    this.Update(jogo);
                 }
             }
             catch (SystemException)
             {
                 throw;
             }
-        }*/
+        }
 
         //Método Update
-        /*[DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Usuario usuario)
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public void Update(Modelo.Jogo jogo)
         {
             try
             {
                 using (connection)
                 {
                     connection.Open();
-                    if (Select(usuario.id) != usuario)
+                    if (Select(jogo.Id) != jogo)
                     {
-                        string sqlUsuario = "UPDATE Carrinho SET precoTotal = @preco WHERE Usuario_id = @id";
-                        SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                        //cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
-                        //cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = carrinho.Usuario_id;
-                        cmdUsuario.ExecuteNonQuery();
+                        string sqlJogo = "UPDATE Carrinho SET descricao = @descricao, nome = @nome, imagemUrl = @imagemUrl WHERE id = @id";
+                        SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
+                        cmdJogo.Parameters.AddWithValue("@descricao", jogo.Descricao);
+                        cmdJogo.Parameters.AddWithValue("@nome", jogo.Nome);
+                        cmdJogo.Parameters.AddWithValue("@imagemUrl", jogo.ImagemUrl);
+                        cmdJogo.Parameters.AddWithValue("@id", jogo.Id);
+                        cmdJogo.ExecuteNonQuery();
                     }
                 }
             }
@@ -148,28 +155,27 @@ namespace IGames.DAL
             {
                 throw;
             }
-        }*/
+        }
 
         //Método Delete
-        /*[DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Usuario usuario)
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public void Delete(Modelo.Jogo jogo)
         {
-            int id = Convert.ToInt32(usuario.id);
             try
             {
                 using (connection)
                 {
                     connection.Open();
-                    string sqlUsuario = "DELETE FROM Carrinho WHERE id = @id";
-                    SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                    //cmdUsuario.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                    cmdUsuario.ExecuteNonQuery();
+                    string sqlJogo = "DELETE FROM Jogo WHERE id = @id";
+                    SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
+                    cmdJogo.Parameters.AddWithValue("@id", jogo.Id);
+                    cmdJogo.ExecuteNonQuery();
                 }
             }
             catch (SystemException)
             {
                 throw;
             }
-        }*/
+        }
     }
 }
