@@ -11,7 +11,13 @@ namespace IGames.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+           
+        }
+        protected void Sair_Click(object sender, EventArgs e)
+        {
+            Session["id"] = null;
+            Session["email"] = null;
+            Response.Redirect("~/Public/Index.aspx");
         }
     }
 }
