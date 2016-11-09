@@ -21,14 +21,14 @@ namespace IGames.Modelo
 
         public int ForumId { get; set; }
 
-        public Postagem(int Id, string Texto, string Data, string Hora, string UsuarioId, int? PostagemCitada = null, int ForumId)
+        public Postagem(int Id, string Texto, string Data, string Hora, string UsuarioId, int ForumId, int? PostagemCitada = null)
         {
             this.Id = Id;
             this.Texto = Texto;
             this.Data = Data;
             this.Hora = Hora;
             this.UsuarioId = UsuarioId;
-            this.PostagemCitada = PostagemCitada;
+            this.PostagemCitada = (PostagemCitada != null) ? PostagemCitada : null;
             this.ForumId = ForumId;
         }
     }
