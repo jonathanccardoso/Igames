@@ -69,7 +69,7 @@ namespace IGames.DAL
                      connection.Open();
                      string sqlPostagem = "SELECT * FROM Postagem WHERE id = @id";
                      SqlCommand cmdPostagem = new SqlCommand(sqlPostagem, connection);
-                     cmdPostagem.Parameters.Add("@id", postagem_id);
+                     cmdPostagem.Parameters.AddWithValue("@id", postagem_id);
                      SqlDataReader drPostagem;
                      using (drPostagem = cmdPostagem.ExecuteReader())
                      {

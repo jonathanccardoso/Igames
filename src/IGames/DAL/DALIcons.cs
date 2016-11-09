@@ -64,7 +64,7 @@ namespace IGames.DAL
                      connection.Open();
                      string sqlIcone = "SELECT * FROM Icone WHERE id = @id";
                      SqlCommand cmdIcone = new SqlCommand(sqlIcone, connection);
-                     cmdIcone.Parameters.Add("@id", icone_id);
+                     cmdIcone.Parameters.AddWithValue("@id", icone_id);
                      SqlDataReader drIcones;
                      using (drIcones = cmdIcone.ExecuteReader())
                      {
@@ -129,8 +129,8 @@ namespace IGames.DAL
                     {
                         string sqlUsuario = "UPDATE Icone SET IconeUrl = @iconeUrl WHERE id = @id";
                         SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                        cmdUsuario.Parameters.Add("@iconeUrl", icone.IconeUrl);
-                        cmdUsuario.Parameters.Add("@id", icone.Id);
+                        cmdUsuario.Parameters.AddWithValue("@iconeUrl", icone.IconeUrl);
+                        cmdUsuario.Parameters.AddWithValue("@id", icone.Id);
                         cmdUsuario.ExecuteNonQuery();
                     }
                 }

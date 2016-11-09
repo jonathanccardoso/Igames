@@ -66,7 +66,7 @@ namespace IGames.DAL
                      connection.Open();
                      string sqlAvaliacao = "SELECT * FROM Usuario WHERE Usuario_id = @id";
                      SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
-                     cmdAvaliacao.Parameters.Add("@id", avaliacao_id);
+                     cmdAvaliacao.Parameters.AddWithValue("@id", avaliacao_id);
                      SqlDataReader drAvaliacao;
                      using (drAvaliacao = cmdAvaliacao.ExecuteReader())
                      {
@@ -104,8 +104,8 @@ namespace IGames.DAL
                         connection.Open();
                         string sqlAvaliacao = "INSERT INTO Usuario(numeroEstrelas, UsuarioId) VALUES (@numeroEstrelas, @UsuarioId)";
                         SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
-                        cmdAvaliacao.Parameters.AddWithValue("@userName", usuario.UserName);
-                        cmdAvaliacao.Parameters.AddWithValue("@email", usuario.Email);
+                        cmdAvaliacao.Parameters.AddWithValue("@numeroEstrelas", avaliacao.NumeroEstrelas);
+                        cmdAvaliacao.Parameters.AddWithValue("@UsuarioId", avaliacao.UsuarioId);
                         cmdAvaliacao.ExecuteNonQuery();
                     }
                 }
@@ -133,8 +133,8 @@ namespace IGames.DAL
                     {
                         string sqlAvaliacao = "UPDATE Avaliação SET numeroEstrelas = @numeroEstrelas WHERE id = @id";
                         SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
-                        cmdAvaliacao.Parameters.Add("@numeroEstrelas", avaliacao.NumeroEstrelas);
-                        cmdAvaliacao.Parameters.Add("@id", avaliacao.Id);
+                        cmdAvaliacao.Parameters.AddWithValue("@numeroEstrelas", avaliacao.NumeroEstrelas);
+                        cmdAvaliacao.Parameters.AddWithValue("@id", avaliacao.Id);
                         cmdAvaliacao.ExecuteNonQuery();
                     }
                 }
@@ -156,7 +156,7 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlAvaliacao = "DELETE FROM Avaliação WHERE id = @id";
                     SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
-                    cmdAvaliacao.Parameters.Add("@id", avaliacao.Id);
+                    cmdAvaliacao.Parameters.AddWithValue("@id", avaliacao.Id);
                     cmdAvaliacao.ExecuteNonQuery();
                 }
             }
