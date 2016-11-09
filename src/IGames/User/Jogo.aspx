@@ -42,7 +42,8 @@
 <div class="card white">
 <div class="left-align">
 <aside>
-<i class="material-icons">favorite</i><br />
+<%--falta tabela no banco de dados--%>
+<%--<asp:LinkButton ID="cadastro" runat="server" OnClick="favoritar_Click"><i class="material-icons">favorite</i></asp:LinkButton><br />--%>
 <i class="material-icons">info</i><br />
 <i class="material-icons">help</i><br />
 </aside>

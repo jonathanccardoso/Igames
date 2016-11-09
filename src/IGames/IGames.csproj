@@ -62,6 +62,7 @@
     <Content Include="Administrador\Index.aspx" />
     <Content Include="Administrador\Jogo.aspx" />
     <Content Include="Administrador\Online.aspx" />
+    <Content Include="Administrador\Usuarios.aspx" />
     <Content Include="App_Themes\Default\custom.css" />
     <Content Include="App_Themes\Default\materialize.min.css" />
     <Content Include="App_Themes\Default\minha.css" />
@@ -122,6 +123,13 @@
     </Compile>
     <Compile Include="Administrador\Online.aspx.designer.cs">
       <DependentUpon>Online.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\DAL.cs" />
     <Compile Include="DAL\DALCategories.cs" />
