@@ -43,7 +43,7 @@
 <div class="file-field input-field">
 <div class="btn">
 <span>Jogo</span>
-<asp:FileUpload ID="UploadGame" runat="server" />
+<asp:FileUpload ID="UploadGame" runat="server" AllowMultiple="True" webkitdirectory mozdirectory directory/>
 </div>
 <div class="file-path-wrapper">
 <input class="file-path validate" type="text">

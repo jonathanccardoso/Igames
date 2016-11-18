@@ -18,7 +18,6 @@ namespace IGames.Administrador
 
         protected void addGame_Click(object sender, EventArgs e)
         {
-            //<input type="file" webkitdirectory mozdirectory directory multiple></input>
             uploadGame();
             uploadImage();
             DAL.DALGames jogo = new DAL.DALGames();
