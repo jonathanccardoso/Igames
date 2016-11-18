@@ -96,6 +96,37 @@ namespace IGames.DAL
             return jogo;
         }
 
+        //Add method to get the last game
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public int? SelectLast()
+        {
+            int? idLast = null;
+            try
+            {
+                using (connection)
+                {
+                    connection.Open();
+                    SqlCommand cmdJogo = new SqlCommand("SELECT LAST(id) FROM Jogo", connection);
+                    SqlDataReader drJogo;
+                    using (drJogo = cmdJogo.ExecuteReader())
+                    {
+                        if (drJogo.HasRows)
+                        {
+                            while (drJogo.Read())
+                            {
+                                idLast = (int)drJogo["id"];
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return idLast;
+        }
+
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Insert(Modelo.Jogo jogo)
