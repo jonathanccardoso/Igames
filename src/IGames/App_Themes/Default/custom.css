@@ -83,7 +83,8 @@ aside {
     padding-right: 50px;
 }
 .pic {
-    padding: 0 !important;
+    position: relative;
+    margin: 0;
 }
 .like {
     vertical-align:bottom;

@@ -14,6 +14,7 @@
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
+<%--<li><a onclick=""></a></li>--%>
 <%--<li><form id="Form1" runat="server"><asp:LinkButton ID="login" runat="server"  OnClick="Sair_Click">Sair</asp:LinkButton></form></li>--%>
 </ul>
 <ul class="side-nav" id="mobile-demo">

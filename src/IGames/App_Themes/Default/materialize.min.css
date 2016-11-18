@@ -3429,6 +3429,7 @@ input[type=range] + .thumb {
      -moz-font-feature-settings: 'liga';
           font-feature-settings: 'liga';
           font-size: 2.5rem;
+          
 }
 
 .container {

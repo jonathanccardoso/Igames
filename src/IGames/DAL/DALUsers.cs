@@ -68,23 +68,22 @@ namespace IGames.DAL
                 {
                     //abre a conexão
                     connection.Open();
-                    string sqlUsuario = "SELECT * FROM Usuario WHERE Usuario_id = @id";
+                    string sqlUsuario = "SELECT * FROM Usuario WHERE id = @id";
                     SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                    cmdUsuario.Parameters.Add("@id", SqlDbType.UniqueIdentifier).Value = usuario_id;
-                    SqlDataReader drCarrinhos;
-                    using (drCarrinhos = cmdUsuario.ExecuteReader())
+                    cmdUsuario.Parameters.AddWithValue("@id", usuario_id);
+                    SqlDataReader drUsuarios = cmdUsuario.ExecuteReader();
+                    using (drUsuarios)
                     {
-                        if (drCarrinhos.HasRows)
+                        if (drUsuarios.HasRows)
                         {
-                            //lê os resultados
-                            while (drCarrinhos.Read())
+                            while (drUsuarios.Read())
                             {
-                                string usuarioId = drCarrinhos["id"].ToString();
-                                string UserName = drCarrinhos["UserName"].ToString();
-                                string Email = drCarrinhos["email"].ToString();
-                                string iconeUrl = drCarrinhos["iconeUrl"].ToString();
-                                int adm = int.Parse(drCarrinhos["administrador"].ToString());
-                                usuario = new Modelo.Usuario(usuarioId, UserName, Email, iconeUrl, adm);
+                                string usuarioId = drUsuarios["id"].ToString();
+                                string UserName = drUsuarios["UserName"].ToString();
+                                string Email = drUsuarios["email"].ToString();
+                                string iconeUrl = drUsuarios["iconeUrl"].ToString();
+                                bool adm = Convert.ToBoolean(drUsuarios["administrador"]);
+                                usuario = new Modelo.Usuario(usuarioId, UserName, Email, iconeUrl, adm ? 1 : 0);
                             }
                         }
                     }

@@ -42,10 +42,16 @@ namespace IGames.Administrador
             UploadGame.SaveAs("JogosDown/" + UploadGame.FileName);
         }
 
-        //Add method to upload the game image
         protected void uploadImage()
         {
             UploadImage.SaveAs("Images/" + UploadImage.FileName);
+        }
+
+        protected void Sair(object sender, EventArgs e)
+        {
+            Session["id"] = null;
+            Session["email"] = null;
+            Response.Redirect("~/Public/Index.aspx");
         }
     }
 }

@@ -8,6 +8,7 @@
 </div>
 </nav>
 <main>
+<form runat="server">
 <div class="card medium">
 <div class="row">
 <div class="col l6 offset-l3 s12">
@@ -29,5 +30,6 @@
 </div>
 </div>
 </div>
+</form>
 </main>
 </asp:Content>
