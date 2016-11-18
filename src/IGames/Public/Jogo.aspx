@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<nav>
 <div class="nav-wrapper">  
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
@@ -36,28 +37,9 @@
 </ul>
 <a href="index.aspx" class="brand-logo">Logo</a>
 </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-  <%--<h3><asp:Label ID="NomeJogo" runat="server" Text="Nome do Jogo"></asp:Label></h3>
-    <div class="row center-align from">
-        <div class="col l6 offset-l3 s5 offset-s3 m7 offset-m3 ">
-          <div class="card white">
-              <div class="left-align">
-                   <aside>
-                        <i class="material-icons">favorite</i><br />
-                        <i class="material-icons">info</i><br />
-                        <i class="material-icons">help</i>
-                    </aside>
-                </div>
-                <div class="center-align">
-                    <i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><br />
-                </div>
-                   <iframe id="frame" src="http://browserquest.mozilla.org/" width="620px" height="400px" scrolling="no" frameborder="0"></iframe> 
-          </div>
-        </div>
-    </div>--%>
-
-    <h3><asp:Label ID="NomeJogo" runat="server" Text="Nome do Jogo"></asp:Label></h3>
+</nav>
+<main>
+<h3><asp:Label ID="NomeJogo" runat="server" Text="Nome do Jogo"></asp:Label></h3>
     <div class="row center-align">
             <div class="col l6 offset-l3 s5 offset-s3 m7 offset-m3 center-align">
               <div class=" card from">
@@ -88,4 +70,5 @@
             <h6 class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur dapibus urna non dignissim. Ut pretium tempor pulvinar. Aliquam sit amet mauris laoreet, fringilla risus at, dignissim ante. Nulla turpis tellus, interdum sit amet congue lobortis, molestie et elit. In.</h6>
             </div>
         </div>
+</main>
 </asp:Content>

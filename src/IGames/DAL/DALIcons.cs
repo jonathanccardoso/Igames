@@ -9,7 +9,7 @@ namespace IGames.DAL
 {
     public class DALIcons : DAL
     {
-        public DALIcons() : base() {}
+        public DALIcons() : base() { }
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
@@ -52,41 +52,41 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-         public Modelo.Icone Select(int icone_id)
-         {
-             //instancia um novo usuario
-             Modelo.Icone icone = null;
-             try
-             {
-                 using (connection)
-                 {
-                     //abre a conexão
-                     connection.Open();
-                     string sqlIcone = "SELECT * FROM Icone WHERE id = @id";
-                     SqlCommand cmdIcone = new SqlCommand(sqlIcone, connection);
-                     cmdIcone.Parameters.AddWithValue("@id", icone_id);
-                     SqlDataReader drIcones;
-                     using (drIcones = cmdIcone.ExecuteReader())
-                     {
-                         if (drIcones.HasRows)
-                         {
-                             //lê os resultados
-                             while (drIcones.Read())
-                             {
-                                 int idIcone = (int)drIcones["id"];
-                                 string iconeUrl = (string)drIcones["IconeUrl"];
-                                 icone = new Modelo.Icone(idIcone, iconeUrl);
-                             }
-                         }
-                     }
-                 }
-             }
-             catch (SystemException)
-             {
-                 throw;
-             }
-             return icone;
-         }
+        public Modelo.Icone Select(int icone_id)
+        {
+            //instancia um novo usuario
+            Modelo.Icone icone = null;
+            try
+            {
+                using (connection)
+                {
+                    //abre a conexão
+                    connection.Open();
+                    string sqlIcone = "SELECT * FROM Icone WHERE id = @id";
+                    SqlCommand cmdIcone = new SqlCommand(sqlIcone, connection);
+                    cmdIcone.Parameters.AddWithValue("@id", icone_id);
+                    SqlDataReader drIcones;
+                    using (drIcones = cmdIcone.ExecuteReader())
+                    {
+                        if (drIcones.HasRows)
+                        {
+                            //lê os resultados
+                            while (drIcones.Read())
+                            {
+                                int idIcone = (int)drIcones["id"];
+                                string iconeUrl = (string)drIcones["IconeUrl"];
+                                icone = new Modelo.Icone(idIcone, iconeUrl);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return icone;
+        }
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]

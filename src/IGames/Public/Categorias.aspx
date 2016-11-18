@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<nav>
 <div class="nav-wrapper">
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
@@ -36,221 +37,222 @@
 </ul>
 <a href="index.aspx" class="brand-logo">Logo</a>
 </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+</nav>
+<main>
 <h1 class="center-align">Categorias</h1><br>
-	<div class="center-align">
-		  <ul class="collapsible popout" data-collapsible="accordion">
-		<li>
-		  <div class="collapsible-header">Aventura</div>
-		  <div class="collapsible-body">
-			<div class="row">
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="Jogo.aspx"><img class="responsive-img" src="../Images/browserQuest.jpg"> <br>
-						<b>Browser Quest</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="Jogo.aspx"><img class="responsive-img" src="../Images/browserQuest.jpg"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-			</div>
-		  </div>
-		</li>
-		<li>
-		  <div class="collapsible-header">Administração</div>
-		  <div class="collapsible-body">
-			  <div class="row">
-					<div class="col l3 s6">
-						<div class="card">
-							<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-							<b>Título do Jogo</b></a>
-							<p>Lorem ipsum dolor sit amet.</p>
-						</div>
-					</div>
-					<div class="col l3 s6">
-						<div class="card">
-							<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-							<b>Título do Jogo</b></a>
-							<p>Lorem ipsum dolor sit amet.</p>
-						</div>
-					</div>
-					<div class="col l3 s6">
-						<div class="card">
-							<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-							<b>Título do Jogo</b></a>
-							<p>Lorem ipsum dolor sit amet.</p>
-						</div>
-					</div>
-					<div class="col l3 s6">
-						<div class="card">
-							<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-							<b>Título do Jogo</b></a>
-							<p>Lorem ipsum dolor sit amet.</p>
-						</div>
-					</div>
-				</div>
-		  </div>
-		</li>
-		<li>
-		  <div class="collapsible-header">Arcade</div>
-		  <div class="collapsible-body">
-			<div class="row">
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-			</div>
-		  </div>
-		</li>
-		<li>
-		  <div class="collapsible-header">Ação</div>
-		  <div class="collapsible-body">
-			<div class="row">
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-			</div>
-		  </div>
-		</li>
-		<li>
-		  <div class="collapsible-header">Clássicos</div>
-		  <div class="collapsible-body">
-			<div class="row">
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-			</div>
-		  </div>
-		</li>
-		<li>
-		  <div class="collapsible-header">Educacional</div>
-		  <div class="collapsible-body">
-			<div class="row">
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-			</div>
-		  </div>
-		</li>
-	  </ul>
-	</div>
+<div class="center-align">
+<ul class="collapsible popout" data-collapsible="accordion">
+<li>
+<div class="collapsible-header">Aventura</div>
+<div class="collapsible-body">
+<div class="row">
+<div class="col l3 s6">
+<div class="card">
+<a href="Jogo.aspx"><img class="responsive-img" src="../Images/browserQuest.jpg"> <br>
+<b>Browser Quest</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="Jogo.aspx"><img class="responsive-img" src="../Images/browserQuest.jpg"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="collapsible-header">Administração</div>
+<div class="collapsible-body">
+<div class="row">
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="collapsible-header">Arcade</div>
+<div class="collapsible-body">
+<div class="row">
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="collapsible-header">Ação</div>
+<div class="collapsible-body">
+<div class="row">
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="collapsible-header">Clássicos</div>
+<div class="collapsible-body">
+<div class="row">
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="collapsible-header">Educacional</div>
+<div class="collapsible-body">
+<div class="row">
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+<div class="col l3 s6">
+<div class="card">
+<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
+<b>Título do Jogo</b></a>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</main>
 </asp:Content>

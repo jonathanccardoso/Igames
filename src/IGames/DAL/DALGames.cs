@@ -10,7 +10,7 @@ namespace IGames.DAL
 {
     public class DALGames : DAL
     {
-        public DALGames() : base() {}
+        public DALGames() : base() { }
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
@@ -56,45 +56,45 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-         public Modelo.Jogo Select(int jogo_id)
-         {
-             //instancia um novo usuario
-             Modelo.Jogo jogo = null;
-             try
-             {
-                 using (connection)
-                 {
-                     //abre a conexão
-                     connection.Open();
-                     string sqlJogo = "SELECT * FROM Jogo WHERE id = @id";
-                     SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
-                     cmdJogo.Parameters.AddWithValue("@id", jogo_id);
-                     SqlDataReader drJogo;
-                     using (drJogo = cmdJogo.ExecuteReader())
-                     {
-                         if (drJogo.HasRows)
-                         {
-                             //lê os resultados
-                             while (drJogo.Read())
-                             {
-                                 int idJogo = (int)drJogo["id"];
-                                 string jogoUrl = (string)drJogo["jogoUrl"];
-                                 string descricao = (string)drJogo["descricao"];
-                                 string imagemUrl = (string)drJogo["imagemUrl"];
-                                 string nome = (string)drJogo["nome"];
-                                 int tipo = (int)drJogo["tipo"];
-                                 jogo = new Modelo.Jogo(idJogo, jogoUrl, descricao, imagemUrl, nome, tipo);
-                             }
-                         }
-                     }
-                 }
-             }
-             catch (SystemException)
-             {
-                 throw;
-             }
-             return jogo;
-         }
+        public Modelo.Jogo Select(int jogo_id)
+        {
+            //instancia um novo usuario
+            Modelo.Jogo jogo = null;
+            try
+            {
+                using (connection)
+                {
+                    //abre a conexão
+                    connection.Open();
+                    string sqlJogo = "SELECT * FROM Jogo WHERE id = @id";
+                    SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
+                    cmdJogo.Parameters.AddWithValue("@id", jogo_id);
+                    SqlDataReader drJogo;
+                    using (drJogo = cmdJogo.ExecuteReader())
+                    {
+                        if (drJogo.HasRows)
+                        {
+                            //lê os resultados
+                            while (drJogo.Read())
+                            {
+                                int idJogo = (int)drJogo["id"];
+                                string jogoUrl = (string)drJogo["jogoUrl"];
+                                string descricao = (string)drJogo["descricao"];
+                                string imagemUrl = (string)drJogo["imagemUrl"];
+                                string nome = (string)drJogo["nome"];
+                                int tipo = (int)drJogo["tipo"];
+                                jogo = new Modelo.Jogo(idJogo, jogoUrl, descricao, imagemUrl, nome, tipo);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return jogo;
+        }
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]

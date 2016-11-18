@@ -19,12 +19,14 @@ namespace IGames.Public
         {
             if (email.Text != "" && senha.Text != "")
             {
-                if (Membership.ValidateUser(Membership.GetUserNameByEmail(email.Text), senha.Text))
+                DAL.DALUsers daluser = new DAL.DALUsers();
+                Modelo.Usuario user = daluser.Select(Membership.GetUser(Membership.GetUserNameByEmail(email.Text)).ProviderUserKey.ToString());
+                if (Membership.ValidateUser(user.UserName, senha.Text))
                 {
                     FormsAuthentication.SetAuthCookie(email.Text, true);
-                    Session["id"] = Membership.GetUser(Membership.GetUserNameByEmail(email.Text)).ProviderUserKey;
+                    Session["id"] = user.Id;
                     Session["email"] = email.Text;
-                    if (Roles.IsUserInRole(Membership.GetUserNameByEmail(email.Text), "Administrador"))
+                    if (Roles.IsUserInRole(user.UserName, "Administrador"))
                     {
                         Response.Redirect("~/Administrador/Index.aspx");
                     }

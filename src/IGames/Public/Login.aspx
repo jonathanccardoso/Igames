@@ -2,18 +2,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<nav>
 <div class="nav-wrapper">
 <a href="index.aspx" class="brand-logo center">Logo</a>
 </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+</nav>
+<main>
 <div class="card medium">
 <div class="row">
 <div class="col l6 offset-l3 s12">
 <div class="card-content center-align">
 <h3>Login</h3>
 </div>
-<form id="Form1" name="loginform" method="post" runat="server">
 <div class="input-field">
 <asp:TextBox ID="email" runat="server" TextMode="Email"></asp:TextBox>
 <label for="email">Email</label>
@@ -26,8 +26,8 @@
 <asp:LinkButton ID="cadastro" runat="server" CssClass="waves-effect waves-light btn yellow darken-1" OnClick="cadastro_Click">Cadastre-se</asp:LinkButton>
 <asp:LinkButton ID="login" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="login_Click">Entrar</asp:LinkButton>
 </div>
-</form>
 </div>
 </div>
 </div>
+</main>
 </asp:Content>

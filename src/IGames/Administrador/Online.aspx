@@ -33,7 +33,7 @@
 </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-<form runat="server">
+<form id="Form1" runat="server">
 <div class="row">
 <div class="col l10 offset-l1">
 <div class="card">

@@ -11,7 +11,8 @@ namespace IGames.DAL
     {
         protected string connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
         protected SqlConnection connection;
-        public DAL(){
+        public DAL()
+        {
             connection = new SqlConnection(connectionString);
         }
     }

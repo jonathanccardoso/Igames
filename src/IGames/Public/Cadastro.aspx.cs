@@ -19,21 +19,20 @@ namespace IGames.Public
 
         protected void Cadastrar_Click(object sender, EventArgs e)
         {
-            if (nome.Text != null && senha.Text != null && email.Text != null && confsenha.Text != null) {
-                string UserName = nome.Text,
-                       Password = senha.Text,
-                       Email = email.Text;
-                Membership.CreateUser(UserName, Password, Email);
-                Roles.AddUserToRole(UserName, "Usuario");
-                Modelo.Usuario user = new Modelo.Usuario(Membership.GetUser(UserName).ProviderUserKey.ToString(), UserName, Email, "imagens/", 0);
-                DAL.DALUsers usuario = new DAL.DALUsers();
-                usuario.Insert(user);
-                FormsAuthentication.SetAuthCookie(email.Text, true);
-                Session["id"] = Membership.GetUser(UserName).ProviderUserKey;
-                Session["email"] = Membership.GetUser(UserName).Email;
+            if (nome.Text != null && senha.Text != null && email.Text != null && confsenha.Text != null)
+            {
+                DAL.DALUsers daluser = new DAL.DALUsers();
+                Modelo.Usuario user = daluser.Select(Membership.GetUser(nome).ProviderUserKey.ToString());
+                Membership.CreateUser(user.UserName, senha.Text, user.Email);
+                Roles.AddUserToRole(user.UserName, "Usuario");
+                daluser.Insert(user);
+                FormsAuthentication.SetAuthCookie(user.Email, true);
+                Session["id"] = user.Id;
+                Session["email"] = user.Email;
                 Response.Redirect("~/User/Index.aspx");
             }
-            else {
+            else
+            {
                 Response.Redirect(Request.RawUrl);
             }
         }

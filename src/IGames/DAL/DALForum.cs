@@ -10,7 +10,7 @@ namespace IGames.DAL
 {
     public class DALForum : DAL
     {
-        public DALForum() : base() {}
+        public DALForum() : base() { }
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
@@ -56,44 +56,44 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-         public Modelo.Forum Select(int forum_id)
-         {
-             //instancia um novo Forum
-             Modelo.Forum forum = null;
-             try
-             {
-                 using (connection)
-                 {
-                     //abre a conexão
-                     connection.Open();
-                     string sqlForum = "SELECT * FROM Forum WHERE id = @id";
-                     SqlCommand cmdForum = new SqlCommand(sqlForum, connection);
-                     cmdForum.Parameters.AddWithValue("@id", forum_id);
-                     SqlDataReader drForum;
-                     using (drForum = cmdForum.ExecuteReader())
-                     {
-                         if (drForum.HasRows)
-                         {
-                             while (drForum.Read())
-                             {
-                                 int idForum = (int)drForum["id"];
-                                 string descricao = (string)drForum["descricao"];
-                                 string data = (string)drForum["data"];
-                                 string hora = (string)drForum["hora"];
-                                 string usuarioId = (string)drForum["Usuario_id"];
-                                 int idPostagem = (int)drForum["Postagem_id"];
-                                 forum = new Modelo.Forum(idForum, descricao, data, hora, usuarioId, idPostagem);
-                             }
-                         }
-                     }
-                 }
-             }
-             catch (SystemException)
-             {
-                 throw;
-             }
-             return forum;
-         }
+        public Modelo.Forum Select(int forum_id)
+        {
+            //instancia um novo Forum
+            Modelo.Forum forum = null;
+            try
+            {
+                using (connection)
+                {
+                    //abre a conexão
+                    connection.Open();
+                    string sqlForum = "SELECT * FROM Forum WHERE id = @id";
+                    SqlCommand cmdForum = new SqlCommand(sqlForum, connection);
+                    cmdForum.Parameters.AddWithValue("@id", forum_id);
+                    SqlDataReader drForum;
+                    using (drForum = cmdForum.ExecuteReader())
+                    {
+                        if (drForum.HasRows)
+                        {
+                            while (drForum.Read())
+                            {
+                                int idForum = (int)drForum["id"];
+                                string descricao = (string)drForum["descricao"];
+                                string data = (string)drForum["data"];
+                                string hora = (string)drForum["hora"];
+                                string usuarioId = (string)drForum["Usuario_id"];
+                                int idPostagem = (int)drForum["Postagem_id"];
+                                forum = new Modelo.Forum(idForum, descricao, data, hora, usuarioId, idPostagem);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return forum;
+        }
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]

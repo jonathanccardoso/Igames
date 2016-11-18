@@ -9,7 +9,7 @@ namespace IGames.DAL
 {
     public class DALPosts : DAL
     {
-        public DALPosts() : base() {}
+        public DALPosts() : base() { }
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
@@ -57,46 +57,46 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-         public Modelo.Postagem Select(int postagem_id)
-         {
-             //instancia um novo postagem
-             Modelo.Postagem postagem = null;
-             try
-             {
-                 using (connection)
-                 {
-                     //abre a conexão
-                     connection.Open();
-                     string sqlPostagem = "SELECT * FROM Postagem WHERE id = @id";
-                     SqlCommand cmdPostagem = new SqlCommand(sqlPostagem, connection);
-                     cmdPostagem.Parameters.AddWithValue("@id", postagem_id);
-                     SqlDataReader drPostagem;
-                     using (drPostagem = cmdPostagem.ExecuteReader())
-                     {
-                         if (drPostagem.HasRows)
-                         {
-                             //lê os resultados
-                             while (drPostagem.Read())
-                             {
-                                 int idPostagem = (int)drPostagem["id"];
-                                 string Texto = (string)drPostagem["texto"];
-                                 string Data = (string)drPostagem["data"];
-                                 string Hora = (string)drPostagem["hora"];
-                                 string UsuarioId = (string)drPostagem["Usuario_id"];
-                                 int PostagemCitada = (int)drPostagem["PostagemCitada"];
-                                 int idForum = (int)drPostagem["Forum_id"];
-                                 postagem = new Modelo.Postagem(idPostagem, Texto, Data, Hora, UsuarioId, PostagemCitada, idForum);
-                             }
-                         }
-                     }
-                 }
-             }
-             catch (SystemException)
-             {
-                 throw;
-             }
-             return postagem;
-         }
+        public Modelo.Postagem Select(int postagem_id)
+        {
+            //instancia um novo postagem
+            Modelo.Postagem postagem = null;
+            try
+            {
+                using (connection)
+                {
+                    //abre a conexão
+                    connection.Open();
+                    string sqlPostagem = "SELECT * FROM Postagem WHERE id = @id";
+                    SqlCommand cmdPostagem = new SqlCommand(sqlPostagem, connection);
+                    cmdPostagem.Parameters.AddWithValue("@id", postagem_id);
+                    SqlDataReader drPostagem;
+                    using (drPostagem = cmdPostagem.ExecuteReader())
+                    {
+                        if (drPostagem.HasRows)
+                        {
+                            //lê os resultados
+                            while (drPostagem.Read())
+                            {
+                                int idPostagem = (int)drPostagem["id"];
+                                string Texto = (string)drPostagem["texto"];
+                                string Data = (string)drPostagem["data"];
+                                string Hora = (string)drPostagem["hora"];
+                                string UsuarioId = (string)drPostagem["Usuario_id"];
+                                int PostagemCitada = (int)drPostagem["PostagemCitada"];
+                                int idForum = (int)drPostagem["Forum_id"];
+                                postagem = new Modelo.Postagem(idPostagem, Texto, Data, Hora, UsuarioId, PostagemCitada, idForum);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return postagem;
+        }
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]

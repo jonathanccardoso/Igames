@@ -2,11 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<nav>
 <div class="nav-wrapper">
 <a href="index.aspx" class="brand-logo center">Logo</a>
 </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+</nav>
+<main>
 <form id="form1" runat="server">
 <div id="modal" class="modal">
 <div class="modal-content">
@@ -48,4 +49,5 @@
 </div>
 </div>
 </form>
+</main>
 </asp:Content>

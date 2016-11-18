@@ -10,7 +10,7 @@ namespace IGames.DAL
 {
     public class DALRates : DAL
     {
-        public DALRates() : base() {}
+        public DALRates() : base() { }
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
@@ -54,42 +54,42 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-         public Modelo.Avaliacao Select(int avaliacao_id)
-         {
-             //instancia um novo usuario
-             Modelo.Avaliacao avaliacao = null;
-             try
-             {
-                 using (connection)
-                 {
-                     //abre a conexão
-                     connection.Open();
-                     string sqlAvaliacao = "SELECT * FROM Usuario WHERE Usuario_id = @id";
-                     SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
-                     cmdAvaliacao.Parameters.AddWithValue("@id", avaliacao_id);
-                     SqlDataReader drAvaliacao;
-                     using (drAvaliacao = cmdAvaliacao.ExecuteReader())
-                     {
-                         if (drAvaliacao.HasRows)
-                         {
-                             //lê os resultados
-                             while (drAvaliacao.Read())
-                             {
-                                 int idAvaliacao = (int)drAvaliacao["id"];
-                                 int NumeroEstrelas = (int)drAvaliacao["numeroEstrelas"];
-                                 string UsuarioId = (string)drAvaliacao["usuarioId"];
-                                 avaliacao = new Modelo.Avaliacao(idAvaliacao, NumeroEstrelas, UsuarioId);
-                             }
-                         }
-                     }
-                 }
-             }
-             catch (SystemException)
-             {
-                 throw;
-             }
-             return avaliacao;
-         }
+        public Modelo.Avaliacao Select(int avaliacao_id)
+        {
+            //instancia um novo usuario
+            Modelo.Avaliacao avaliacao = null;
+            try
+            {
+                using (connection)
+                {
+                    //abre a conexão
+                    connection.Open();
+                    string sqlAvaliacao = "SELECT * FROM Usuario WHERE Usuario_id = @id";
+                    SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
+                    cmdAvaliacao.Parameters.AddWithValue("@id", avaliacao_id);
+                    SqlDataReader drAvaliacao;
+                    using (drAvaliacao = cmdAvaliacao.ExecuteReader())
+                    {
+                        if (drAvaliacao.HasRows)
+                        {
+                            //lê os resultados
+                            while (drAvaliacao.Read())
+                            {
+                                int idAvaliacao = (int)drAvaliacao["id"];
+                                int NumeroEstrelas = (int)drAvaliacao["numeroEstrelas"];
+                                string UsuarioId = (string)drAvaliacao["usuarioId"];
+                                avaliacao = new Modelo.Avaliacao(idAvaliacao, NumeroEstrelas, UsuarioId);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return avaliacao;
+        }
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]

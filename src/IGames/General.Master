@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="author" content="Jo&#227;o Lucas,Jonathan Cardoso,J&#250;lio C&#233;sar,La&#237;s Pereira,Sarah Soares,Vanessa Santos">
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:url" content="http://igames.gear.host">
+    <meta property="og:url" content="">
     <meta property="og:description" content="Site de Jogos bem massa">
     <meta property="og:site_name" content="IGames">
     <meta name="apple-mobile-web-app-title" content="IGames">
@@ -18,9 +18,8 @@
     <meta name='twitter:card' content='summary'/>
     <meta name='twitter:title' content='IGames'/>
     <meta name='twitter:site' content='@Jo&#227;o Lucas,Jonathan Cardoso,J&#250;lio C&#233;sar,La&#237;s Pereira,Sarah Soares,Vanessa Santos'/>
-    <link href='http://www.igames.gear.host/' rel='canonical'/>
-    <link href='http://igames.gear.host/' rel='canonical'/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='' rel='canonical'/>
+    <link href='' rel='canonical'/>
     <link rel="stylesheet" href="App_Themes/Default/materialize.min.css">
     <link rel="stylesheet" href="App_Themes/Default/custom.css">
     <link rel="stylesheet" href="App_Themes/Default/minha.css">
@@ -43,14 +42,8 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-        <nav>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
-        </nav>
-        <main>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-        </asp:ContentPlaceHolder>
-        </main>
         <footer class="page-footer">
         <div class="container">
         <div class="row">

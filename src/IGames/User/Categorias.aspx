@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div class="nav-wrapper">
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-<form runat="server">
+<form id="Form1" runat="server">
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
 <li>
