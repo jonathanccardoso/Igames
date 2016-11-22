@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<nav>
 <div class="nav-wrapper">  
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
@@ -31,8 +32,8 @@
 </ul>
 <a href="index.aspx" class="brand-logo">Logo</a>
 </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+</nav>
+<main>
 <h3 class="center-align">Jogos Online</h3>
 <div class="slider">
 <ul class="slides">
@@ -184,11 +185,11 @@
 <div class="row">
 <div class="col l1 offset-l4">
 <asp:RadioButton ID="online" runat="server" GroupName="escolha" />
-<label for="ContentPlaceHolder2_online">Online</label>
+<label for="ContentPlaceHolder1_online">Online</label>
 </div>
 <div class="col l1 offset-l1">
 <asp:RadioButton ID="download" runat="server" GroupName="escolha" />
-<label for="ContentPlaceHolder2_download">Download</label>
+<label for="ContentPlaceHolder1_download">Download</label>
 </div>
 </div>
 </div>
@@ -198,4 +199,5 @@
 </div>
 </form>
 </div>
+</main>
 </asp:Content>

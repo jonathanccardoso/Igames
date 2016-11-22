@@ -56,7 +56,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Jogo Select(int jogo_id)
+        public Modelo.Jogo Select(int? jogo_id)
         {
             //instancia um novo usuario
             Modelo.Jogo jogo = null;
@@ -94,37 +94,6 @@ namespace IGames.DAL
                 throw;
             }
             return jogo;
-        }
-
-        //Add method to get the last game
-        [DataObjectMethod(DataObjectMethodType.Select)]
-        public int? SelectLast()
-        {
-            int? idLast = null;
-            try
-            {
-                using (connection)
-                {
-                    connection.Open();
-                    SqlCommand cmdJogo = new SqlCommand("SELECT LAST(id) FROM Jogo", connection);
-                    SqlDataReader drJogo;
-                    using (drJogo = cmdJogo.ExecuteReader())
-                    {
-                        if (drJogo.HasRows)
-                        {
-                            while (drJogo.Read())
-                            {
-                                idLast = (int)drJogo["id"];
-                            }
-                        }
-                    }
-                }
-            }
-            catch (SystemException)
-            {
-                throw;
-            }
-            return idLast;
         }
 
         //Método Insert

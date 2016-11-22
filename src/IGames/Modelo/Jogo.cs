@@ -7,7 +7,7 @@ namespace IGames.Modelo
 {
     public class Jogo
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         public string JogoUrl { get; set; }
 
@@ -23,7 +23,18 @@ namespace IGames.Modelo
 
         public int? ComentarioId { get; set; }
 
-        public Jogo(int Id, string JogoUrl, string Descricao, string ImagemUrl, string Nome, int Tipo, int? AvaliaçãoId = null, int? ComentarioId = null)
+        public Jogo(string JogoUrl, string Descricao, string ImagemUrl, string Nome, int Tipo, int? AvaliaçãoId = null, int? ComentarioId = null)
+        {
+            this.JogoUrl = JogoUrl;
+            this.Descricao = Descricao;
+            this.ImagemUrl = ImagemUrl;
+            this.Nome = Nome;
+            this.Tipo = Tipo;
+            this.AvaliacaoId = AvaliaçãoId;
+            this.ComentarioId = ComentarioId;
+        }
+
+        public Jogo(int? Id, string JogoUrl, string Descricao, string ImagemUrl, string Nome, int Tipo, int? AvaliaçãoId = null, int? ComentarioId = null)
         {
             this.Id = Id;
             this.JogoUrl = JogoUrl;

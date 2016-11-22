@@ -26,15 +26,7 @@ namespace IGames.Public
                     FormsAuthentication.SetAuthCookie(email.Text, true);
                     Session["id"] = user.Id;
                     Session["email"] = user.Email;
-                    Response.Redirect("~/" + (user.Adm == 1 ? "Administrador" : "User") + "Index.aspx");
-                    if (Roles.IsUserInRole(user.UserName, "Administrador"))
-                    {
-                        Response.Redirect("~/Administrador/Index.aspx");
-                    }
-                    else
-                    {
-                        Response.Redirect("~/User/Index.aspx");
-                    }
+                    Response.Redirect("~/" + (user.Adm == 1 ? "Administrador" : "User") + "/Index.aspx");
                 }
             }
         }
