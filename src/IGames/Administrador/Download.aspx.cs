@@ -11,7 +11,7 @@ namespace IGames.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //getCategories();
+            
         }
 
         protected void addGame_Click(object sender, EventArgs e)
@@ -21,19 +21,6 @@ namespace IGames.Administrador
             DAL.DALGames jogo = new DAL.DALGames();
             Modelo.Jogo jog = new Modelo.Jogo("JogosDown/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text, 1);
             jogo.Insert(jog);
-        }
-
-        protected void getCategories()
-        {
-            DAL.DALCategories cat = new DAL.DALCategories();
-            List<Modelo.Categoria> cats = cat.SelectAll();
-            Categorias.DataSource = cats;
-            foreach (Modelo.Categoria ca in cats)
-            {
-                Categorias.DataTextField = ca.Descricao;
-                Categorias.DataValueField = ca.Id.ToString();
-            }
-            Categorias.DataBind();
         }
 
         protected void uploadGame()

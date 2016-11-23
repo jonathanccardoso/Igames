@@ -50,9 +50,10 @@
                             <i class="material-icons">help</i>
                         </aside>
                     </div>
-                    <div class="center-align">
+                    <%--<div class="center-align">
                         <i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><br />
-                    </div>
+                    </div>--%>
+                  <br /><br />
                        <iframe id="frame" src="http://browserquest.mozilla.org/" width="620px" height="400px" scrolling="no" frameborder="0"></iframe> 
               </div>
             </div>

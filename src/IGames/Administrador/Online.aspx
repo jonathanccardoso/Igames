@@ -69,7 +69,7 @@
 <label for="ContentPlaceholder2_TextBox2">Nome</label>
 </div>
 <div class="input-field">
-<asp:DropDownList ID="Categorias" runat="server"></asp:DropDownList>
+<asp:DropDownList ID="Categorias" runat="server" ViewStateMode="Enabled"></asp:DropDownList>
 <label>Categoria</label>
 </div>
 </div>

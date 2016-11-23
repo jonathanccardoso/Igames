@@ -13,16 +13,14 @@ namespace IGames.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!Page.IsPostBack)
-            //{
+            if (!Page.IsPostBack)
+            {
                 getCategories();
-            //}
+            }
         }
 
         protected void addGame_Click(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
                 if (Categorias.SelectedItem.Value != "Escolha uma categoria")
                 {
                     uploadGame();
@@ -35,7 +33,6 @@ namespace IGames.Administrador
                 {
 
                 }
-            }
         }
 
         protected void getCategories()

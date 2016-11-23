@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<nav>
 <div class="nav-wrapper">
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
@@ -31,8 +32,8 @@
 </ul>
 <a href="index.aspx" class="brand-logo">Logo</a>
 </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+</nav>
+<main>
 <form id="Form1" runat="server">
 <div class="row">
 <div class="col l10 offset-l1">
@@ -43,7 +44,7 @@
 <div class="file-field input-field">
 <div class="btn">
 <span>Jogo</span>
-<asp:FileUpload ID="UploadGame" runat="server" />
+<asp:FileUpload ID="UploadGame" runat="server" AllowMultiple="True" webkitdirectory mozdirectory directory/>
 </div>
 <div class="file-path-wrapper">
 <input class="file-path validate" type="text">
@@ -66,10 +67,6 @@
 <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
 <label for="ContentPlaceholder2_TextBox2">Nome</label>
 </div>
-<div class="input-field">
-<asp:DropDownList ID="Categorias" Width="200" runat="server"></asp:DropDownList>
-<label>Categoria</label>
-</div>
 <asp:Button ID="addGame" runat="server" Text="Adicionar" CssClass="btn right"/>
 </div>
 </div>
@@ -77,4 +74,5 @@
 </div>
 </div>
 </form>
+</main>
 </asp:Content>

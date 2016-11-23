@@ -21,20 +21,5 @@ namespace IGames.User
             Session["email"] = null;
             Response.Redirect("~/Public/Index.aspx");
         }
-        protected void favoritar_Click(object sender, EventArgs e)
-        {
-            string aSQLConecStr;
-            aSQLConecStr = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
-            SqlConnection aSQLCon = new SqlConnection(aSQLConecStr);
-            aSQLCon.Open();
-            
-            //ainda não tem a tabela favorito
-            
-            // SqlCommand aSQL = new SqlCommand("DELETE FROM Jogo WHERE nome = '@NomeJogo'", aSQLCon);
-            //aSQL.Parameters.AddWithValue("@NomeJogo",  );
-            //aSQL.ExecuteNonQuery();
-
-            Response.Redirect("Index.aspx");
-        }
     }
 }
