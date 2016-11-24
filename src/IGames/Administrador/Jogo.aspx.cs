@@ -17,15 +17,12 @@ namespace IGames.Administrador
         }
 
         protected void Confirmar_Click(object sender, EventArgs e)
-        {
-            string aSQLConecStr;
-            aSQLConecStr = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
-            SqlConnection aSQLCon = new SqlConnection(aSQLConecStr);
-            aSQLCon.Open();
-            // SqlCommand aSQL = new SqlCommand("DELETE FROM Jogo WHERE nome = '@NomeJogo'", aSQLCon);
-            //aSQL.Parameters.AddWithValue("@NomeJogo",  );
-            //aSQL.ExecuteNonQuery();
+        {//REMOVER JOGO
 
+            DAL.DALGames jogo = new DAL.DALGames();
+            //Modelo.Jogo rem = new Modelo.Jogo("");
+            //jogo.Delete(rem);
+            
             Response.Redirect("Index.aspx");
         }
     }

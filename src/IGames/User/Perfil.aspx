@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<nav>
 <div class="nav-wrapper">  
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <form id="Form1" runat="server">
@@ -38,20 +39,23 @@
 </form>
 <a href="index.aspx" class="brand-logo">Logo</a>
 </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+</nav>
+<main>
     <h3 class="center-align"><asp:Label ID="NomeJogo" runat="server" Text="Editar perfil"></asp:Label></h3>
     <div class="row">
         <div class="col l6 offset-l3 s12 m10 offset-m1">
           <div class="card white">
                <div class="card-content">
-                    Nome:<asp:Label ID="Nome_user" runat="server" Text=""></asp:Label><br />
-                    Usuário:<asp:Label ID="Usuario_user" runat="server" Text=""></asp:Label><br />
-                    E-mail:<asp:Label ID="email_user" runat="server" Text=""></asp:Label><br />
-                    Senha:<asp:Label ID="senha_user" runat="server" Text=""></asp:Label><br /><br />
-                  <%--<asp:LinkButton ID="EditaPerfil" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="EditarPerfil_Click">Editar</asp:LinkButton>--%>
+                    <form runat="server">
+                        Nome:<asp:Label ID="Nome_user" runat="server" Text=""></asp:Label><br />
+                        Usuário:<asp:Label ID="Usuario_user" runat="server" Text=""></asp:Label><br />
+                        E-mail:<asp:Label ID="email_user" runat="server" Text=""></asp:Label><br />
+                        Senha:<asp:Label ID="senha_user" runat="server" Text=""></asp:Label><br /><br />
+                        <asp:LinkButton ID="EditaPerfil" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="EditarPerfil_Click">Editar</asp:LinkButton>
+                    </form>
                 </div>
             </div> 
           </div>
         </div>
+</main>
 </asp:Content>

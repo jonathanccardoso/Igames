@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<nav>
 <div class="nav-wrapper"> 
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
@@ -31,8 +32,9 @@
 </ul>
 <a href="index.aspx" class="brand-logo">Logo</a>
 </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-<form id="Form1" runat="server">
-</form\>
+</nav>
+<main>
+    <form id="Form1" runat="server">
+    </form>
+</main>
 </asp:Content>
