@@ -69,6 +69,8 @@
     <Content Include="App_Themes\fonts\material-design-icons\LICENSE.txt" />
     <Content Include="App_Themes\fonts\material-design-icons\Material-Design-Icons.svg" />
     <Content Include="Images\browserQuest.jpg" />
+    <Content Include="Images\EstrelaAcesa.png" />
+    <Content Include="Images\EstrelaApagada.png" />
     <Content Include="Images\img01.jpeg" />
     <Content Include="Images\img02.jpeg" />
     <Content Include="Images\user.png" />

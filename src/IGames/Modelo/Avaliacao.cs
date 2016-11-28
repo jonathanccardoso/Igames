@@ -13,6 +13,12 @@ namespace IGames.Modelo
 
         public string UsuarioId { get; set; }
 
+        public Avaliacao(int NumeroEstrelas, string UsuarioId)
+        {
+            this.NumeroEstrelas = NumeroEstrelas;
+            this.UsuarioId = UsuarioId;
+        }
+
         public Avaliacao(int Id, int NumeroEstrelas, string UsuarioId)
         {
             this.Id = Id;

@@ -13,24 +13,6 @@ namespace IGames.User {
     public partial class Jogo {
         
         /// <summary>
-        /// Form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
-        
-        /// <summary>
-        /// login control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton login;
-        
-        /// <summary>
         /// NomeJogo control.
         /// </summary>
         /// <remarks>
@@ -40,13 +22,13 @@ namespace IGames.User {
         protected global::System.Web.UI.WebControls.Label NomeJogo;
         
         /// <summary>
-        /// cadastro control.
+        /// Estrela1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton cadastro;
+        protected global::System.Web.UI.WebControls.ImageButton Estrela1;
         
         /// <summary>
         /// Label1 control.

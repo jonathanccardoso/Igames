@@ -5,7 +5,6 @@
 <nav>
 <div class="nav-wrapper">  
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-<form id="Form1" runat="server">
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
 <li> 
@@ -16,14 +15,14 @@
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
-<li><asp:LinkButton ID="login" runat="server"  OnClick="Sair_Click">Sair</asp:LinkButton>
+<%--<li><asp:LinkButton ID="login" runat="server"  OnClick="Sair_Click">Sair</asp:LinkButton>--%>
 </ul>
 <ul class="side-nav" id="mobile-demo">
 <li>
 <div class="card grey lighten-1 search-mobile">
 <div class="input-field inputy">
 <input type="search" class="inp">
-<label for="searc"><i class="material-icons">search</i></label>
+<label for="search"><i class="material-icons">search</i></label>
 <i class="material-icons clos">close</i>
 </div>
 </div>
@@ -32,7 +31,6 @@
 <li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="login.aspx"><i class="material-icons left">fingerprint</i>Login</a></li>
 </ul>
-</form>
 <a href="index.aspx" class="brand-logo">Logo</a>
 </div>
 </nav>
@@ -46,14 +44,18 @@
 <aside>
 
 <%--falta tabela no banco de dados--%>
-<asp:LinkButton ID="cadastro" runat="server" OnClick="favoritar_Click"><i class="material-icons">favorite</i></asp:LinkButton><br />
+<%--<asp:LinkButton ID="cadastro" runat="server" OnClick="favoritar_Click"><i class="material-icons">favorite</i></asp:LinkButton><br />--%>
 
 <i class="material-icons">info</i><br />
 <i class="material-icons">help</i><br />
 </aside>
 </div>
 <div class="center-align">
-<%--<i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><br />--%>
+
+    <asp:ImageButton ID="Estrela1" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="100px" OnClick="Estrela1_Click" />
+   
+
+    <%--<i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><br />
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
             <div class="estrelas">
               <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
@@ -67,7 +69,8 @@
               <input type="radio" id="cm_star-4" name="fb" value="4"/>
               <label for="cm_star-5"><i class="fa"></i></label>
               <input type="radio" id="cm_star-5" name="fb" value="5"/>
-            </div>
+            </div>--%>
+
 </div>
 <iframe id="frame" src="http://browserquest.mozilla.org/" width="620" height="400" scrolling="no" frameborder="0"></iframe> 
 </div>
