@@ -152,9 +152,11 @@
     <Compile Include="Modelo\Avaliacao.cs" />
     <Compile Include="Modelo\Categoria.cs" />
     <Compile Include="Modelo\Comentario.cs" />
+    <Compile Include="Modelo\Favorito.cs" />
     <Compile Include="Modelo\Forum.cs" />
     <Compile Include="Modelo\Icone.cs" />
     <Compile Include="Modelo\Jogo.cs" />
+    <Compile Include="Modelo\JogoCategoria.cs" />
     <Compile Include="Modelo\Postagem.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -270,9 +272,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\Personagens\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -286,7 +286,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51608</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:50102/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
