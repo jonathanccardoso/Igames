@@ -7,17 +7,17 @@ namespace IGames.Modelo
 {
     public class Comentario
     {
-        public int Id { get; set; }
+        public string descricao { get; set; }
 
-        public string Descricao { get; set; }
+        public int Jogo_id { get; set; }
 
-        public string UsuarioId { get; set; }
+        public int Usuario_id { get; set; }
 
-        public Comentario(int Id, string Descricao, string UsuarioId)
+        public Comentario(string descricao, int Jogo_id, int Usuario_id)
         {
-            this.Id = Id;
-            this.Descricao = Descricao;
-            this.UsuarioId = UsuarioId;
+            this.descricao = descricao;
+            this.Jogo_id = Jogo_id;
+            this.Usuario_id = Usuario_id;
         }
     }
 }

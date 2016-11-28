@@ -7,43 +7,40 @@ namespace IGames.Modelo
 {
     public class Jogo
     {
-        public int? Id { get; set; }
+        public int id { get; set; }
 
-        public string JogoUrl { get; set; }
+        public string jogoUrl { get; set; }
 
-        public string Descricao { get; set; }
+        public string descricao { get; set; }
 
-        public string ImagemUrl { get; set; }
+        public string imagemUrl { get; set; }
 
-        public string Nome { get; set; }
+        public string nome { get; set; }
 
-        public int Tipo { get; set; }
+        public bool tipo { get; set; }
 
-        public int? AvaliacaoId { get; set; }
+        public int? Categoria_id { get; set; }
 
-        public int? ComentarioId { get; set; }
 
-        public Jogo(string JogoUrl, string Descricao, string ImagemUrl, string Nome, int Tipo, int? AvaliaçãoId = null, int? ComentarioId = null)
+        public Jogo(string jogoUrl, string descricao, string imagemUrl, string nome, bool tipo, int Categoria_id)
         {
-            this.JogoUrl = JogoUrl;
-            this.Descricao = Descricao;
-            this.ImagemUrl = ImagemUrl;
-            this.Nome = Nome;
-            this.Tipo = Tipo;
-            this.AvaliacaoId = AvaliaçãoId;
-            this.ComentarioId = ComentarioId;
+            this.jogoUrl = jogoUrl;
+            this.descricao = descricao;
+            this.imagemUrl = imagemUrl;
+            this.nome = nome;
+            this.tipo = tipo;
+            this.Categoria_id = Categoria_id;
         }
 
-        public Jogo(int? Id, string JogoUrl, string Descricao, string ImagemUrl, string Nome, int Tipo, int? AvaliaçãoId = null, int? ComentarioId = null)
+        public Jogo(int id, string jogoUrl, string descricao, string imagemUrl, string nome, bool tipo, int Categoria_id)
         {
-            this.Id = Id;
-            this.JogoUrl = JogoUrl;
-            this.Descricao = Descricao;
-            this.ImagemUrl = ImagemUrl;
-            this.Nome = Nome;
-            this.Tipo = Tipo;
-            this.AvaliacaoId = AvaliaçãoId;
-            this.ComentarioId = ComentarioId;
+            this.id = id;
+            this.jogoUrl = jogoUrl;
+            this.descricao = descricao;
+            this.imagemUrl = imagemUrl;
+            this.nome = nome;
+            this.tipo = tipo;
+            this.Categoria_id = Categoria_id;
         }
     }
 }

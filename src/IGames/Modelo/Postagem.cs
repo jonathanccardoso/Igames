@@ -7,29 +7,39 @@ namespace IGames.Modelo
 {
     public class Postagem
     {
-        public int Id { get; set; }
+        public int id { get; set; }
 
-        public string Texto { get; set; }
+        public string texto { get; set; }
 
-        public string Data { get; set; }
+        public string data { get; set; }
 
-        public string Hora { get; set; }
+        public string hora { get; set; }
 
-        public string UsuarioId { get; set; }
+        public int Usuario_id { get; set; }
 
-        public int? PostagemCitada { get; set; }
+        public int? Postagem_id { get; set; }
 
-        public int ForumId { get; set; }
+        public int Forum_id { get; set; }
 
-        public Postagem(int Id, string Texto, string Data, string Hora, string UsuarioId, int ForumId, int? PostagemCitada = null)
+        public Postagem(int id, string texto, string data, string hora, int Usuario_id, int? Postagem_id, int Forum_id)
         {
-            this.Id = Id;
-            this.Texto = Texto;
-            this.Data = Data;
-            this.Hora = Hora;
-            this.UsuarioId = UsuarioId;
-            this.PostagemCitada = (PostagemCitada != null) ? PostagemCitada : null;
-            this.ForumId = ForumId;
+            this.id = id;
+            this.texto = texto;
+            this.data = data;
+            this.hora = hora;
+            this.Usuario_id = Usuario_id;
+            this.Postagem_id = Postagem_id;
+            this.Forum_id = Forum_id;
+        }
+
+        public Postagem(string texto, string data, string hora, int Usuario_id, int? Postagem_id, int Forum_id)
+        {
+            this.texto = texto;
+            this.data = data;
+            this.hora = hora;
+            this.Usuario_id = Usuario_id;
+            this.Postagem_id = Postagem_id;
+            this.Forum_id = Forum_id;
         }
     }
 }

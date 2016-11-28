@@ -7,26 +7,23 @@ namespace IGames.Modelo
 {
     public class Forum
     {
-        public int Id { get; set; }
+        public int id { get; set; }
 
-        public string Descricao { get; set; }
+        public string descricao { get; set; }
 
-        public DateTime Data { get; set; }
+        public DateTime data { get; set; }
 
-        public string Hora { get; set; }
+        public string hora { get; set; }
 
-        public string UsuarioId { get; set; }
+        public int Usuario_id { get; set; }
 
-        public int PostagemId { get; set; }
-
-        public Forum(int Id, string Descricao, string Data, string Hora, string UsuarioId, int PostagemId)
+        public Forum(string descricao, string data, string hora, int Usuario_id)
         {
-            this.Id = Id;
-            this.Descricao = Descricao;
-            this.Data = DateTime.Parse(Data);
-            this.Hora = Hora;
-            this.UsuarioId = UsuarioId;
-            this.PostagemId = PostagemId;
+            this.id = id;
+            this.descricao = descricao;
+            this.data = DateTime.Parse(data);
+            this.hora = hora;
+            this.Usuario_id = Usuario_id;
         }
     }
 }

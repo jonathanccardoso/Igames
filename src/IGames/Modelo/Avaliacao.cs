@@ -7,23 +7,17 @@ namespace IGames.Modelo
 {
     public class Avaliacao
     {
-        public int Id { get; set; }
+        public int Jogo_id { get; set; }
 
-        public int NumeroEstrelas { get; set; }
+        public int numeroEstrelas { get; set; }
 
-        public string UsuarioId { get; set; }
+        public string Usuario_id { get; set; }
 
-        public Avaliacao(int NumeroEstrelas, string UsuarioId)
+        public Avaliacao(int numeroEstrelas, int Jogo_id, string Usuario_id)
         {
-            this.NumeroEstrelas = NumeroEstrelas;
-            this.UsuarioId = UsuarioId;
-        }
-
-        public Avaliacao(int Id, int NumeroEstrelas, string UsuarioId)
-        {
-            this.Id = Id;
-            this.NumeroEstrelas = NumeroEstrelas;
-            this.UsuarioId = UsuarioId;
+            this.numeroEstrelas = numeroEstrelas;
+            this.Jogo_id = Jogo_id;
+            this.Usuario_id = Usuario_id;
         }
     }
 }

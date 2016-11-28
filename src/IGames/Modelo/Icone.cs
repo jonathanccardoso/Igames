@@ -7,14 +7,19 @@ namespace IGames.Modelo
 {
     public class Icone
     {
-        public int Id { get; set; }
+        public int id { get; set; }
 
-        public string IconeUrl { get; set; }
+        public string iconeUrl { get; set; }
 
-        public Icone(int Id, string IconeUrl)
+        public Icone(int id, string iconeUrl)
         {
-            this.Id = Id;
-            this.IconeUrl = IconeUrl;
+            this.id = id;
+            this.iconeUrl = iconeUrl;
+        }
+
+        public Icone(string iconeUrl)
+        {
+            this.iconeUrl = iconeUrl;
         }
     }
 }
