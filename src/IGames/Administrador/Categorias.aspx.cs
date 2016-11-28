@@ -19,5 +19,11 @@ namespace IGames.Administrador
             DAL.DALCategories cat = new DAL.DALCategories();
             cat.SelectAll();
         }
+        protected void AdicionarCategoria_CLick()
+        {
+            //DAL.DALCategories cate = new DAL.DALCategories();
+            //Modelo.Categoria categoria = new Modelo.Categoria(Id, Descricao);
+            //cate.Insert = categoria;
+        }
     }
 }

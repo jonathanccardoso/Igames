@@ -18,11 +18,17 @@ namespace IGames.Administrador
 
         protected void Confirmar_Click(object sender, EventArgs e)
         {//REMOVER JOGO
+            //string JogoUrl = "";
+            //string descricao = "";
+            //string imagemUrl = "";
+            //string nome = "";
+            //int? AvaliaçãoId = null;
+            //int? ComentarioId = null;
 
-            DAL.DALGames jogo = new DAL.DALGames();
-            //Modelo.Jogo rem = new Modelo.Jogo("");
-            //jogo.Delete(rem);
-            
+            //DAL.DALGames daljogo = new DAL.DALGames();
+            //Modelo.Jogo jogo = new Modelo.Jogo(JogoUrl, descricao, imagemUrl, nome, AvaliaçãoId, ComentarioId);
+            //daljogo.Delete(jogo);
+
             Response.Redirect("Index.aspx");
         }
     }

@@ -295,5 +295,8 @@
 </li>
 </ul>
 </div>
+
+<asp:Button ID="Button1" runat="server" Text="Button" OnClick="AdicionarCategoria_CLick"></asp:Button>
+
 </main>
 </asp:Content>
