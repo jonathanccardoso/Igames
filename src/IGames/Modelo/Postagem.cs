@@ -15,13 +15,13 @@ namespace IGames.Modelo
 
         public string hora { get; set; }
 
-        public int Usuario_id { get; set; }
+        public string Usuario_id { get; set; }
 
         public int? Postagem_id { get; set; }
 
         public int Forum_id { get; set; }
 
-        public Postagem(int id, string texto, string data, string hora, int Usuario_id, int? Postagem_id, int Forum_id)
+        public Postagem(int id, string texto, string data, string hora, string Usuario_id, int? Postagem_id, int Forum_id)
         {
             this.id = id;
             this.texto = texto;
@@ -32,7 +32,7 @@ namespace IGames.Modelo
             this.Forum_id = Forum_id;
         }
 
-        public Postagem(string texto, string data, string hora, int Usuario_id, int? Postagem_id, int Forum_id)
+        public Postagem(string texto, string data, string hora, string Usuario_id, int? Postagem_id, int Forum_id)
         {
             this.texto = texto;
             this.data = data;

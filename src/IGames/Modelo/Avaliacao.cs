@@ -7,9 +7,10 @@ namespace IGames.Modelo
 {
     public class Avaliacao
     {
-        public int Jogo_id { get; set; }
 
         public int numeroEstrelas { get; set; }
+
+        public int Jogo_id { get; set; }
 
         public string Usuario_id { get; set; }
 

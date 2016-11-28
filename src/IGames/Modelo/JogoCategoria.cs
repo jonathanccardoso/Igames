@@ -10,7 +10,7 @@ namespace IGames.Modelo
 
         public int? Jogo_id { get; set; }
 
-        public int? Categoria_id { get; set; }
+        public int Categoria_id { get; set; }
 
         public JogoCategoria()
         {

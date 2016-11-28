@@ -11,9 +11,9 @@ namespace IGames.Modelo
 
         public int Jogo_id { get; set; }
 
-        public int Usuario_id { get; set; }
+        public string Usuario_id { get; set; }
 
-        public Comentario(string descricao, int Jogo_id, int Usuario_id)
+        public Comentario(string descricao, int Jogo_id, string Usuario_id)
         {
             this.descricao = descricao;
             this.Jogo_id = Jogo_id;
