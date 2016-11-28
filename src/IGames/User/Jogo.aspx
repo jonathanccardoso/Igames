@@ -51,26 +51,12 @@
 </aside>
 </div>
 <div class="center-align">
+    <asp:ImageButton ID="Estrela1" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="50px" OnClick="Estrela1_Click" />
 
-    <asp:ImageButton ID="Estrela1" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="100px" OnClick="Estrela1_Click" />
-   
-
-    <%--<i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><br />
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-            <div class="estrelas">
-              <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
-              <label for="cm_star-1"><i class="fa"></i></label>
-              <input type="radio" id="cm_star-1" name="fb" value="1"/>
-              <label for="cm_star-2"><i class="fa"></i></label>
-              <input type="radio" id="cm_star-2" name="fb" value="2"/>
-              <label for="cm_star-3"><i class="fa"></i></label>
-              <input type="radio" id="cm_star-3" name="fb" value="3"/>
-              <label for="cm_star-4"><i class="fa"></i></label>
-              <input type="radio" id="cm_star-4" name="fb" value="4"/>
-              <label for="cm_star-5"><i class="fa"></i></label>
-              <input type="radio" id="cm_star-5" name="fb" value="5"/>
-            </div>--%>
-
+    <asp:ImageButton ID="Estrela2" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="100px" OnClick="Estrela2_Click" />
+    <asp:ImageButton ID="Estrela3" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="100px" OnClick="Estrela3_Click" />
+    <asp:ImageButton ID="Estrela4" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="100px" OnClick="Estrela4_Click" />
+    <asp:ImageButton ID="Estrela5" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="100px" OnClick="Estrela5_Click" />
 </div>
 <iframe id="frame" src="http://browserquest.mozilla.org/" width="620" height="400" scrolling="no" frameborder="0"></iframe> 
 </div>

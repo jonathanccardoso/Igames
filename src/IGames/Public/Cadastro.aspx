@@ -7,7 +7,7 @@
 <a href="index.aspx" class="brand-logo center">Logo</a>
 </div>
 </nav>
-<main>
+<main style="background:white">
 <form id="form1" runat="server">
 <div id="modal" class="modal">
 <div class="modal-content">
@@ -19,10 +19,17 @@
 </div>
 </div>
 <div class="row">
-<div class="card large register">
+<div class="card large register" style="margin-top: 0px;height: initial;">
 <div class="col l6 offset-l3 s12">
 <div class="card-content center-align">
     <h3>Cadastre-se</h3>
+    <div class="carousel">
+        <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/250/250/nature/1"></a>
+        <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/250/250/nature/2"></a>
+        <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/250/250/nature/3"></a>
+        <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/250/250/nature/4"></a>
+        <a class="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5"></a>
+    </div>
     <div class="input-field">
     <asp:TextBox ID="nome" runat="server"></asp:TextBox>
     <label for="last_name">Nome</label>

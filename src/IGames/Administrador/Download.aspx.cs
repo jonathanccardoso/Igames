@@ -19,8 +19,8 @@ namespace IGames.Administrador
             uploadGame();
             uploadImage();
             DAL.DALGames jogo = new DAL.DALGames();
-            Modelo.Jogo jog = new Modelo.Jogo("JogosDown/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text, 1);
-            jogo.Insert(jog);
+           // Modelo.Jogo jog = new Modelo.Jogo("JogosDown/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text, 1);
+           // jogo.Insert(jog);
         }
 
         protected void uploadGame()

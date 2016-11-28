@@ -7415,6 +7415,7 @@ input[type=range]:focus::-ms-fill-upper {
           transform-style: preserve-3d;
   -webkit-transform-origin: 0% 50%;
           transform-origin: 0% 50%;
+          margin-top:-80px;
 }
 
 .carousel .carousel-item {
