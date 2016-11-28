@@ -40,7 +40,7 @@ namespace IGames.DAL
                                 string hora = (string)drForuns["hora"];
                                 string usuarioId = (string)drForuns["Usuario_id"];
                                 int idPostagem = (int)drForuns["Postagem_id"];
-                                forum = new Modelo.Forum(idForum, descricao, data, hora, usuarioId, idPostagem);
+                                forum = new Modelo.Forum(idForum, descricao, data, hora, usuarioId);
                                 foruns.Add(forum);
                             }
                         }
@@ -82,7 +82,7 @@ namespace IGames.DAL
                                 string hora = (string)drForum["hora"];
                                 string usuarioId = (string)drForum["Usuario_id"];
                                 int idPostagem = (int)drForum["Postagem_id"];
-                                forum = new Modelo.Forum(idForum, descricao, data, hora, usuarioId, idPostagem);
+                                forum = new Modelo.Forum(idForum, descricao, data, hora, usuarioId);
                             }
                         }
                     }
@@ -101,18 +101,17 @@ namespace IGames.DAL
         {
             try
             {
-                if (this.Select(forum.Id) == null)
+                if (this.Select(forum.id) == null)
                 {
                     using (connection)
                     {
                         connection.Open();
-                        string sqlforum = "INSERT INTO Forum(descricao, data, hora, Usuario_id, Postagem_id) VALUES (@descricao, @data, @hora, @usuarioId, @postagemId)";
+                        string sqlforum = "INSERT INTO Forum(descricao, data, hora, Usuario_id) VALUES (@descricao, @data, @hora, @usuarioId)";
                         SqlCommand cmdforum = new SqlCommand(sqlforum, connection);
-                        cmdforum.Parameters.AddWithValue("@descricao", forum.Descricao);
-                        cmdforum.Parameters.AddWithValue("@data", SqlDbType.Date).Value = forum.Data.ToString("yyyy-MM-dd");
-                        cmdforum.Parameters.AddWithValue("@hora", forum.Hora);
-                        cmdforum.Parameters.AddWithValue("@usuarioId", forum.UsuarioId);
-                        cmdforum.Parameters.AddWithValue("@postagemId", forum.PostagemId);
+                        cmdforum.Parameters.AddWithValue("@descricao", forum.descricao);
+                        cmdforum.Parameters.AddWithValue("@data", SqlDbType.Date).Value = forum.data.ToString("yyyy-MM-dd");
+                        cmdforum.Parameters.AddWithValue("@hora", forum.hora);
+                        cmdforum.Parameters.AddWithValue("@usuarioId", forum.Usuario_id);
                         cmdforum.ExecuteNonQuery();
                     }
                 }
@@ -136,14 +135,14 @@ namespace IGames.DAL
                 using (connection)
                 {
                     connection.Open();
-                    if (Select(forum.Id) != forum)
+                    if (Select(forum.id) != forum)
                     {
                         string sqlForum = "UPDATE Forum SET descricao = @descricao, data = @data, hora = @hora WHERE id = @id";
                         SqlCommand cmdForum = new SqlCommand(sqlForum, connection);
-                        cmdForum.Parameters.AddWithValue("@descricao", forum.Descricao);
-                        cmdForum.Parameters.AddWithValue("@data", forum.Data);
-                        cmdForum.Parameters.AddWithValue("@hora", forum.Hora);
-                        cmdForum.Parameters.AddWithValue("@id", forum.Id);
+                        cmdForum.Parameters.AddWithValue("@descricao", forum.descricao);
+                        cmdForum.Parameters.AddWithValue("@data", forum.data);
+                        cmdForum.Parameters.AddWithValue("@hora", forum.hora);
+                        cmdForum.Parameters.AddWithValue("@id", forum.id);
                         cmdForum.ExecuteNonQuery();
                     }
                 }
@@ -165,7 +164,7 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlForum = "DELETE FROM Forum WHERE id = @id";
                     SqlCommand cmdForum = new SqlCommand(sqlForum, connection);
-                    cmdForum.Parameters.AddWithValue("@id", forum.Id);
+                    cmdForum.Parameters.AddWithValue("@id", forum.id);
                     cmdForum.ExecuteNonQuery();
                 }
             }

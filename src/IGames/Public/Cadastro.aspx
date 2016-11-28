@@ -24,11 +24,11 @@
 <div class="card-content center-align">
     <h3>Cadastre-se</h3>
     <div class="carousel">
-        <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/250/250/nature/1"></a>
-        <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/250/250/nature/2"></a>
-        <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/250/250/nature/3"></a>
-        <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/250/250/nature/4"></a>
-        <a class="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5"></a>
+        <a class="carousel-item" href="?iconeId=1"><img src="http://lorempixel.com/250/250/nature/1"></a>
+        <a class="carousel-item" href="?iconeId=2"><img src="http://lorempixel.com/250/250/nature/2"></a>
+        <a class="carousel-item" href="?iconeId=3"><img src="http://lorempixel.com/250/250/nature/3"></a>
+        <a class="carousel-item" href="?iconeId=4"><img src="http://lorempixel.com/250/250/nature/4"></a>
+        <a class="carousel-item" href="?iconeId=5"><img src="http://lorempixel.com/250/250/nature/5"></a>
     </div>
     <div class="input-field">
     <asp:TextBox ID="nome" runat="server"></asp:TextBox>
@@ -38,7 +38,7 @@
     <asp:TextBox ID="email" runat="server" TextMode="Email"></asp:TextBox>
     <label for="last_name">Email</label>
     </div>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Inclua um endereço de email válido" ControlToValidate="email" ValidationExpression="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"></asp:RegularExpressionValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Inclua um endereço de email válido" ControlToValidate="email" ValidationExpression="[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"></asp:RegularExpressionValidator>
     <div class="input-field">
     <asp:TextBox ID="senha" runat="server" TextMode="Password"></asp:TextBox>
     <label for="last_name">Senha</label>

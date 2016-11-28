@@ -94,14 +94,14 @@ namespace IGames.DAL
         {
             try
             {
-                if (this.Select(icone.Id) == null)
+                if (this.Select(icone.id) == null)
                 {
                     using (connection)
                     {
                         connection.Open();
                         string sqlUsuario = "INSERT INTO Icone(IconeUrl) VALUES (@iconeUrl)";
                         SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                        cmdUsuario.Parameters.AddWithValue("@iconeUrl", icone.IconeUrl);
+                        cmdUsuario.Parameters.AddWithValue("@iconeUrl", icone.iconeUrl);
                         cmdUsuario.ExecuteNonQuery();
                     }
                 }
@@ -125,12 +125,12 @@ namespace IGames.DAL
                 using (connection)
                 {
                     connection.Open();
-                    if (Select(icone.Id) != icone)
+                    if (Select(icone.id) != icone)
                     {
                         string sqlUsuario = "UPDATE Icone SET IconeUrl = @iconeUrl WHERE id = @id";
                         SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                        cmdUsuario.Parameters.AddWithValue("@iconeUrl", icone.IconeUrl);
-                        cmdUsuario.Parameters.AddWithValue("@id", icone.Id);
+                        cmdUsuario.Parameters.AddWithValue("@iconeUrl", icone.iconeUrl);
+                        cmdUsuario.Parameters.AddWithValue("@id", icone.id);
                         cmdUsuario.ExecuteNonQuery();
                     }
                 }
@@ -152,7 +152,7 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlIcone = "DELETE FROM Icone WHERE id = @id";
                     SqlCommand cmdIcone = new SqlCommand(sqlIcone, connection);
-                    cmdIcone.Parameters.AddWithValue("@id", icone.Id);
+                    cmdIcone.Parameters.AddWithValue("@id", icone.id);
                     cmdIcone.ExecuteNonQuery();
                 }
             }

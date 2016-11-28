@@ -54,7 +54,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Avaliacao Select(int avaliacao_id)
+        public Modelo.Avaliacao Select(int jogo_id, string usuario_id)
         {
             //instancia um novo usuario
             Modelo.Avaliacao avaliacao = null;
@@ -64,9 +64,10 @@ namespace IGames.DAL
                 {
                     //abre a conexão
                     connection.Open();
-                    string sqlAvaliacao = "SELECT * FROM Usuario WHERE Usuario_id = @id";
+                    string sqlAvaliacao = "SELECT * FROM Avaliacao WHERE Usuario_id = @usuario_id and Jogo_id = @jogo_id";
                     SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
-                    cmdAvaliacao.Parameters.AddWithValue("@id", avaliacao_id);
+                    cmdAvaliacao.Parameters.AddWithValue("@usuario_id", usuario_id);
+                    cmdAvaliacao.Parameters.AddWithValue("@jogo_id", jogo_id);
                     SqlDataReader drAvaliacao;
                     using (drAvaliacao = cmdAvaliacao.ExecuteReader())
                     {
@@ -97,15 +98,15 @@ namespace IGames.DAL
         {
             try
             {
-                if (this.Select(avaliacao.Id) == null)
+                if (this.Select(avaliacao.Jogo_id, avaliacao.Usuario_id) == null)
                 {
                     using (connection)
                     {
                         connection.Open();
                         string sqlAvaliacao = "INSERT INTO Usuario(numeroEstrelas, UsuarioId) VALUES (@numeroEstrelas, @UsuarioId)";
                         SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
-                        cmdAvaliacao.Parameters.AddWithValue("@numeroEstrelas", avaliacao.NumeroEstrelas);
-                        cmdAvaliacao.Parameters.AddWithValue("@UsuarioId", avaliacao.UsuarioId);
+                        cmdAvaliacao.Parameters.AddWithValue("@numeroEstrelas", avaliacao.numeroEstrelas);
+                        cmdAvaliacao.Parameters.AddWithValue("@UsuarioId", avaliacao.Usuario_id);
                         cmdAvaliacao.ExecuteNonQuery();
                     }
                 }
@@ -129,12 +130,13 @@ namespace IGames.DAL
                 using (connection)
                 {
                     connection.Open();
-                    if (Select(avaliacao.Id) != avaliacao)
+                    if (Select(avaliacao.Jogo_id, avaliacao.Usuario_id) != avaliacao)
                     {
-                        string sqlAvaliacao = "UPDATE Avaliação SET numeroEstrelas = @numeroEstrelas WHERE id = @id";
+                        string sqlAvaliacao = "UPDATE Avaliação SET numeroEstrelas = @numeroEstrelas WHERE Usuario_id = @usuario_id and Jogo_id = @jogo_id";
                         SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
-                        cmdAvaliacao.Parameters.AddWithValue("@numeroEstrelas", avaliacao.NumeroEstrelas);
-                        cmdAvaliacao.Parameters.AddWithValue("@id", avaliacao.Id);
+                        cmdAvaliacao.Parameters.AddWithValue("@numeroEstrelas", avaliacao.numeroEstrelas);
+                        cmdAvaliacao.Parameters.AddWithValue("@usuario_id", avaliacao.Usuario_id);
+                        cmdAvaliacao.Parameters.AddWithValue("@jogo_id", avaliacao.Jogo_id);
                         cmdAvaliacao.ExecuteNonQuery();
                     }
                 }
@@ -154,9 +156,9 @@ namespace IGames.DAL
                 using (connection)
                 {
                     connection.Open();
-                    string sqlAvaliacao = "DELETE FROM Avaliação WHERE id = @id";
+                    string sqlAvaliacao = "DELETE FROM Avaliação WHERE Usuario_id = @usuario_id";
                     SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
-                    cmdAvaliacao.Parameters.AddWithValue("@id", avaliacao.Id);
+                    cmdAvaliacao.Parameters.AddWithValue("@usuario_id", avaliacao.Usuario_id);
                     cmdAvaliacao.ExecuteNonQuery();
                 }
             }

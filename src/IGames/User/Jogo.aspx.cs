@@ -77,9 +77,11 @@ namespace IGames.User
         protected void Estrela1_Click(object sender, EventArgs e)
         {
             Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
-            DAL.DALRates aval = new DAL.DALRates();
-            Modelo.Avaliacao ava = new Modelo.Avaliacao(1, Session["id"].ToString());
-            aval.Insert(ava);
+            DAL.DALRates dalaval = new DAL.DALRates();
+            DAL.DALGames daljogo = new DAL.DALGames();
+            //Create method 'SelectByName' in DALGames
+            //Modelo.Avaliacao ava = new Modelo.Avaliacao(true, daljogo.SelectByName(Request.QueryString["jogo"]), Session["id"].ToString());
+            //dalaval.Insert(ava);
         }
     }
 }

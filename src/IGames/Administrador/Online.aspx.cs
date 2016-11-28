@@ -26,7 +26,7 @@ namespace IGames.Administrador
                     uploadGame();
                     uploadImage();
                     DAL.DALGames jogo = new DAL.DALGames();
-                    Modelo.Jogo jog = new Modelo.Jogo("JogosDown/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text, 0);
+                    Modelo.Jogo jog = new Modelo.Jogo("Jogos/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text);
                     jogo.Insert(jog);
                 }
                 else

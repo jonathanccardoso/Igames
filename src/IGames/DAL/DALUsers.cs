@@ -34,14 +34,13 @@ namespace IGames.DAL
                         {
                             while (drUsuarios.Read())
                             {
-                                string Username = (string)drUsuarios["UserName"];
+                                string idUsuario = (string)drUsuarios["id"];
+                                string Username = (string)drUsuarios["nome"];
                                 string email = (string)drUsuarios["email"];
-                                string iconeUrl = (string)drUsuarios["iconeUrl"];
-                                int administrador = (int)drUsuarios["administrador"];
-                                string idUsuario = (string)drUsuarios["usuarioId"];
-
-
-                                usuario = new Modelo.Usuario(idUsuario, Username, email, iconeUrl, administrador);
+                                string senha = (string)drUsuarios["senha"];
+                                bool administrador = (bool)drUsuarios["administrador"];
+                                int iconeId = (int)drUsuarios["Icone_id"];
+                                usuario = new Modelo.Usuario(idUsuario, Username, email, senha, administrador, iconeId);
                                 usuarios.Add(usuario);
                             }
                         }
@@ -81,9 +80,9 @@ namespace IGames.DAL
                                 string usuarioId = drUsuarios["id"].ToString();
                                 string UserName = drUsuarios["UserName"].ToString();
                                 string Email = drUsuarios["email"].ToString();
-                                string iconeUrl = drUsuarios["iconeUrl"].ToString();
-                                bool adm = Convert.ToBoolean(drUsuarios["administrador"]);
-                                usuario = new Modelo.Usuario(usuarioId, UserName, Email, iconeUrl, adm ? 1 : 0);
+                                int idIcone = (int)drUsuarios["Icone_id"];
+                                bool adm = (bool)drUsuarios["administrador"];
+                                usuario = new Modelo.Usuario(usuarioId, UserName, Email, adm, idIcone);
                             }
                         }
                     }
@@ -102,18 +101,20 @@ namespace IGames.DAL
         {
             try
             {
-                if (this.Select(usuario.Id) == null)
+                //o id esta sempre indo nuol
+                if (this.Select(usuario.id) == null)
                 {
                     using (connection)
                     {
                         connection.Open();
-                        string sqlUsuario = "INSERT INTO Usuario(UserName, email, iconeUrl, administrador, id) VALUES (@userName, @email, @iconeUrl, @administrador, @id)";
+                        string sqlUsuario = "INSERT INTO Usuario(id, nome, email, senha, icone_id, administrador) VALUES (@id, @userName, @email, @senha, @icone_id, @administrador)";
                         SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                        cmdUsuario.Parameters.AddWithValue("@userName", usuario.UserName);
-                        cmdUsuario.Parameters.AddWithValue("@email", usuario.Email);
-                        cmdUsuario.Parameters.AddWithValue("@iconeUrl", usuario.IconeUrl);
-                        cmdUsuario.Parameters.AddWithValue("@administrador", usuario.Adm);
-                        cmdUsuario.Parameters.AddWithValue("@id", usuario.Id);
+                        cmdUsuario.Parameters.AddWithValue("@id", usuario.id);
+                        cmdUsuario.Parameters.AddWithValue("@userName", usuario.nome);
+                        cmdUsuario.Parameters.AddWithValue("@email", usuario.email);
+                        cmdUsuario.Parameters.AddWithValue("@senha", usuario.senha);
+                        cmdUsuario.Parameters.AddWithValue("@icone_id", usuario.Icone_id);
+                        cmdUsuario.Parameters.AddWithValue("@administrador", usuario.administrador);
                         cmdUsuario.ExecuteNonQuery();
                     }
                 }
@@ -137,13 +138,13 @@ namespace IGames.DAL
                 using (connection)
                 {
                     connection.Open();
-                    if (Select(usuario.Id) != usuario)
+                    if (Select(usuario.id) != usuario)
                     {
                         string sqlUsuario = "UPDATE Usuario SET Username = @Username, email = @email, iconeUrl = @iconeUrl WHERE id = @id";
                         SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                        cmdUsuario.Parameters.AddWithValue("@Username", usuario.UserName);
-                        cmdUsuario.Parameters.AddWithValue("@email", usuario.Email);
-                        cmdUsuario.Parameters.AddWithValue("@iconeUrl", usuario.IconeUrl);
+                        cmdUsuario.Parameters.AddWithValue("@Username", usuario.nome);
+                        cmdUsuario.Parameters.AddWithValue("@email", usuario.email);
+                        cmdUsuario.Parameters.AddWithValue("@iconeUrl", usuario.Icone_id);
                         cmdUsuario.ExecuteNonQuery();
                     }
                 }
@@ -165,7 +166,7 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlUsuario = "DELETE FROM Usuario WHERE id = @id";
                     SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                    cmdUsuario.Parameters.AddWithValue("@id", usuario.Id);
+                    cmdUsuario.Parameters.AddWithValue("@id", usuario.id);
                     cmdUsuario.ExecuteNonQuery();
                 }
             }

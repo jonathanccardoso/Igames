@@ -22,13 +22,13 @@ namespace IGames.Public
             if (nome.Text != null && senha.Text != null && email.Text != null && confsenha.Text != null)
             {
                 DAL.DALUsers daluser = new DAL.DALUsers();
-                Modelo.Usuario user = daluser.Select(Membership.GetUser(nome).ProviderUserKey.ToString());
-                Membership.CreateUser(user.UserName, senha.Text, user.Email);
-                Roles.AddUserToRole(user.UserName, "Usuario");
+                Modelo.Usuario user = new Modelo.Usuario(nome.Text, email.Text, senha.Text, false, Convert.ToInt32(Request.QueryString["iconeId"]));
+                Membership.CreateUser(user.nome, senha.Text, user.email);
+                Roles.AddUserToRole(user.nome, "Usuario");
                 daluser.Insert(user);
-                FormsAuthentication.SetAuthCookie(user.Email, true);
-                Session["id"] = user.Id;
-                Session["email"] = user.Email;
+                FormsAuthentication.SetAuthCookie(user.email, true);
+                Session["id"] = user.id;
+                Session["email"] = user.email;
                 Response.Redirect("~/User/Index.aspx");
             }
             else

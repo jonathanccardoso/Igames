@@ -34,11 +34,11 @@ namespace IGames.DAL
                         {
                             while (drComentarios.Read())
                             {
-                                int idComentario = (int)drComentarios["id"];
                                 string descricaoComentario = (string)drComentarios["descricao"];
+                                int idJogo = (int)drComentarios["Jogo_id"];
                                 string idUsuario = (string)drComentarios["usuarioId"];
 
-                                comentario = new Modelo.Comentario(idComentario, descricaoComentario, idUsuario);
+                                comentario = new Modelo.Comentario(descricaoComentario, idJogo, idUsuario);
                                 comentarios.Add(comentario);
                             }
                         }
@@ -54,7 +54,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Comentario Select(int Comentario_id)
+        public Modelo.Comentario Select(int jogo_id, string usuario_id)
         {
             Modelo.Comentario Comentario = null;
             try
@@ -62,9 +62,10 @@ namespace IGames.DAL
                 using (connection)
                 {
                     connection.Open();
-                    string sqlComentario = "SELECT * FROM Comentario WHERE Comentario_id = @id";
+                    string sqlComentario = "SELECT * FROM Comentario WHERE Jogo_id = @jogo_id and Usuario_id = @usuario_id";
                     SqlCommand cmdComentario = new SqlCommand(sqlComentario, connection);
-                    cmdComentario.Parameters.AddWithValue("@id", Comentario_id);
+                    cmdComentario.Parameters.AddWithValue("@jogo_id", jogo_id);
+                    cmdComentario.Parameters.AddWithValue("@usuario_id", usuario_id);
                     SqlDataReader drComentarios;
 
                     using (drComentarios = cmdComentario.ExecuteReader())
@@ -73,11 +74,10 @@ namespace IGames.DAL
                         {
                             while (drComentarios.Read())
                             {
-                                int idComentario = (int)drComentarios["id"];
                                 string descricao = (string)drComentarios["descricao"];
+                                int idJogo = (int)drComentarios["Jogo_id"];
                                 string UsuarioId = (string)drComentarios["usuarioId"];
-
-                                Comentario = new Modelo.Comentario(idComentario, descricao, UsuarioId);
+                                Comentario = new Modelo.Comentario(descricao, idJogo, UsuarioId);
                             }
                         }
                     }
@@ -96,15 +96,15 @@ namespace IGames.DAL
         {
             try
             {
-                if (this.Select(comentario.Id) == null)
+                if (this.Select(comentario.Jogo_id, comentario.Usuario_id) == null)
                 {
                     using (connection)
                     {
                         connection.Open();
                         string sqlComentario = "INSERT INTO Comentario(descricao, usuarioId) VALUES (@descricao, @usuarioId)";
                         SqlCommand cmdComentario = new SqlCommand(sqlComentario, connection);
-                        cmdComentario.Parameters.AddWithValue("@descricao", comentario.Descricao);
-                        cmdComentario.Parameters.AddWithValue("@usuarioId", SqlDbType.UniqueIdentifier).Value = comentario.UsuarioId;
+                        cmdComentario.Parameters.AddWithValue("@descricao", comentario.descricao);
+                        cmdComentario.Parameters.AddWithValue("@usuarioId", SqlDbType.UniqueIdentifier).Value = comentario.Usuario_id;
                         cmdComentario.ExecuteNonQuery();
                     }
                 }
@@ -128,12 +128,13 @@ namespace IGames.DAL
                 using (connection)
                 {
                     connection.Open();
-                    if (Select(comentario.Id) != comentario)
+                    if (Select(comentario.Jogo_id, comentario.Usuario_id) != comentario)
                     {
-                        string sqlComentario = "UPDATE Comentario SET descricao = @descricao WHERE id = @id";
+                        string sqlComentario = "UPDATE Comentario SET descricao = @descricao WHERE Jogo_id = @jogo_id and Usuario_id = @usuario_id";
                         SqlCommand cmdComentario = new SqlCommand(sqlComentario, connection);
-                        cmdComentario.Parameters.AddWithValue("@descricao", comentario.Descricao);
-                        cmdComentario.Parameters.AddWithValue("@id", comentario.Id);
+                        cmdComentario.Parameters.AddWithValue("@descricao", comentario.descricao);
+                        cmdComentario.Parameters.AddWithValue("@jogo_id", comentario.Jogo_id);
+                        cmdComentario.Parameters.AddWithValue("@usuario_id", comentario.Usuario_id);
                         cmdComentario.ExecuteNonQuery();
                     }
                 }
@@ -153,9 +154,10 @@ namespace IGames.DAL
                 using (connection)
                 {
                     connection.Open();
-                    string sqlComentario = "DELETE FROM Comentario WHERE id = @id";
+                    string sqlComentario = "DELETE FROM Comentario WHERE Jogo_id = @jogo_id and Usuario_id = @usuario_id";
                     SqlCommand cmdComentario = new SqlCommand(sqlComentario, connection);
-                    cmdComentario.Parameters.AddWithValue("@id", comentario.Id);
+                    cmdComentario.Parameters.AddWithValue("@jogo_id", comentario.Jogo_id);
+                    cmdComentario.Parameters.AddWithValue("@usuario_id", comentario.Usuario_id);
                     cmdComentario.ExecuteNonQuery();
                 }
             }

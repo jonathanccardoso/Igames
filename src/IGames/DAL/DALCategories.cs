@@ -94,14 +94,14 @@ namespace IGames.DAL
         {
             try
             {
-                if (this.Select(categoria.Id) == null)
+                if (this.Select(categoria.id) == null)
                 {
                     using (connection)
                     {
                         connection.Open();
                         string sqlCategoria = "INSERT INTO Categoria(descricao) VALUES (@descricao)";
                         SqlCommand cmdCategoria = new SqlCommand(sqlCategoria, connection);
-                        cmdCategoria.Parameters.AddWithValue("@descricao", categoria.Descricao);
+                        cmdCategoria.Parameters.AddWithValue("@descricao", categoria.descricao);
                         cmdCategoria.ExecuteNonQuery();
                     }
                 }
@@ -127,8 +127,8 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlCategoria = "UPDATE Categoria SET descricao = @descricao WHERE id = @id";
                     SqlCommand cmdCategoria = new SqlCommand(sqlCategoria, connection);
-                    cmdCategoria.Parameters.AddWithValue("@id", categoria.Id);
-                    cmdCategoria.Parameters.AddWithValue("@descricao", categoria.Descricao);
+                    cmdCategoria.Parameters.AddWithValue("@id", categoria.id);
+                    cmdCategoria.Parameters.AddWithValue("@descricao", categoria.descricao);
                     cmdCategoria.ExecuteNonQuery();
                 }
             }
@@ -149,7 +149,7 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlCategoria = "DELETE FROM Categoria WHERE id = @id";
                     SqlCommand cmdCategoria = new SqlCommand(sqlCategoria, connection);
-                    cmdCategoria.Parameters.AddWithValue("@id", categoria.Id);
+                    cmdCategoria.Parameters.AddWithValue("@id", categoria.id);
                     cmdCategoria.ExecuteNonQuery();
                 }
             }

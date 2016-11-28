@@ -39,8 +39,7 @@ namespace IGames.DAL
                                 string descricao = (string)drJogos["descricao"];
                                 string imagemUrl = (string)drJogos["imagemUrl"];
                                 string nome = (string)drJogos["nome"];
-                                int tipo = (int)drJogos["tipo"];
-                                jogo = new Modelo.Jogo(idJogo, jogoUrl, descricao, imagemUrl, nome, tipo);
+                                jogo = new Modelo.Jogo(idJogo, jogoUrl, descricao, imagemUrl, nome);
                             }
                         }
                     }
@@ -82,8 +81,7 @@ namespace IGames.DAL
                                 string descricao = (string)drJogo["descricao"];
                                 string imagemUrl = (string)drJogo["imagemUrl"];
                                 string nome = (string)drJogo["nome"];
-                                int tipo = (int)drJogo["tipo"];
-                                jogo = new Modelo.Jogo(idJogo, jogoUrl, descricao, imagemUrl, nome, tipo);
+                                jogo = new Modelo.Jogo(idJogo, jogoUrl, descricao, imagemUrl, nome);
                             }
                         }
                     }
@@ -102,20 +100,17 @@ namespace IGames.DAL
         {
             try
             {
-                if (this.Select(jogo.Id) == null)
+                if (this.Select(jogo.id) == null)
                 {
                     using (connection)
                     {
                         connection.Open();
-                        string sqlJogo = "INSERT INTO Jogo(jogoUrl, descricao, imagemUrl, nome, tipo, avaliacaoId, comentarioId) VALUES (@jogoUrl, @descricao, @imagemUrl, @nome, @tipo, @avaliacaoId, @comentarioId)";
+                        string sqlJogo = "INSERT INTO Jogo(jogoUrl, descricao, imagemUrl, nome) VALUES (@jogoUrl, @descricao, @imagemUrl, @nome)";
                         SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
-                        cmdJogo.Parameters.AddWithValue("@jogoUrl", jogo.JogoUrl);
-                        cmdJogo.Parameters.AddWithValue("@descricao", jogo.Descricao);
-                        cmdJogo.Parameters.AddWithValue("@imagemUrl", jogo.ImagemUrl);
-                        cmdJogo.Parameters.AddWithValue("@nome", jogo.Nome);
-                        cmdJogo.Parameters.AddWithValue("@tipo", jogo.Tipo);
-                        cmdJogo.Parameters.AddWithValue("@avaliacaoId", jogo.AvaliacaoId);
-                        cmdJogo.Parameters.AddWithValue("@comentarioId", jogo.ComentarioId);
+                        cmdJogo.Parameters.AddWithValue("@jogoUrl", jogo.jogoUrl);
+                        cmdJogo.Parameters.AddWithValue("@descricao", jogo.descricao);
+                        cmdJogo.Parameters.AddWithValue("@imagemUrl", jogo.imagemUrl);
+                        cmdJogo.Parameters.AddWithValue("@nome", jogo.nome);
                         cmdJogo.ExecuteNonQuery();
                     }
                 }
@@ -139,14 +134,14 @@ namespace IGames.DAL
                 using (connection)
                 {
                     connection.Open();
-                    if (Select(jogo.Id) != jogo)
+                    if (Select(jogo.id) != jogo)
                     {
                         string sqlJogo = "UPDATE Carrinho SET descricao = @descricao, nome = @nome, imagemUrl = @imagemUrl WHERE id = @id";
                         SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
-                        cmdJogo.Parameters.AddWithValue("@descricao", jogo.Descricao);
-                        cmdJogo.Parameters.AddWithValue("@nome", jogo.Nome);
-                        cmdJogo.Parameters.AddWithValue("@imagemUrl", jogo.ImagemUrl);
-                        cmdJogo.Parameters.AddWithValue("@id", jogo.Id);
+                        cmdJogo.Parameters.AddWithValue("@descricao", jogo.descricao);
+                        cmdJogo.Parameters.AddWithValue("@nome", jogo.nome);
+                        cmdJogo.Parameters.AddWithValue("@imagemUrl", jogo.imagemUrl);
+                        cmdJogo.Parameters.AddWithValue("@id", jogo.id);
                         cmdJogo.ExecuteNonQuery();
                     }
                 }
@@ -168,7 +163,7 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlJogo = "DELETE FROM Jogo WHERE id = @id";
                     SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
-                    cmdJogo.Parameters.AddWithValue("@id", jogo.Id);
+                    cmdJogo.Parameters.AddWithValue("@id", jogo.id);
                     cmdJogo.ExecuteNonQuery();
                 }
             }

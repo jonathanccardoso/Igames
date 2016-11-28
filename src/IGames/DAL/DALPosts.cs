@@ -104,19 +104,19 @@ namespace IGames.DAL
         {
             try
             {
-                if (this.Select(postagem.Id) == null)
+                if (this.Select(postagem.id) == null)
                 {
                     using (connection)
                     {
                         connection.Open();
-                        string sqlPostagem = "INSERT INTO Postagem(texto, data, hora, Usuario_id, PostagemCitada, Forum_id) VALUES (@texto, @data, @hora, @UsuarioId, @PostagemCitada, @ForumId)";
+                        string sqlPostagem = "INSERT INTO Postagem(texto, data, hora, Usuario_id, Postagem_id, Forum_id) VALUES (@texto, @data, @hora, @UsuarioId, @Postagem_id, @ForumId)";
                         SqlCommand cmdPostagem = new SqlCommand(sqlPostagem, connection);
-                        cmdPostagem.Parameters.AddWithValue("@texto", postagem.Texto);
-                        cmdPostagem.Parameters.AddWithValue("@data", postagem.Data);
-                        cmdPostagem.Parameters.AddWithValue("@hora", postagem.Hora);
-                        cmdPostagem.Parameters.AddWithValue("@UsuarioId", postagem.UsuarioId);
-                        cmdPostagem.Parameters.AddWithValue("@PostagemCitada", postagem.PostagemCitada);
-                        cmdPostagem.Parameters.AddWithValue("@ForumId", postagem.ForumId);
+                        cmdPostagem.Parameters.AddWithValue("@texto", postagem.texto);
+                        cmdPostagem.Parameters.AddWithValue("@data", postagem.data);
+                        cmdPostagem.Parameters.AddWithValue("@hora", postagem.hora);
+                        cmdPostagem.Parameters.AddWithValue("@UsuarioId", postagem.Usuario_id);
+                        cmdPostagem.Parameters.AddWithValue("@Postagem_id", postagem.Postagem_id);
+                        cmdPostagem.Parameters.AddWithValue("@ForumId", postagem.Forum_id);
                         cmdPostagem.ExecuteNonQuery();
                     }
                 }
@@ -140,12 +140,12 @@ namespace IGames.DAL
                 using (connection)
                 {
                     connection.Open();
-                    if (Select(postagem.Id) != postagem)
+                    if (Select(postagem.id) != postagem)
                     {
                         string sqlPostagem = "UPDATE Carrinho SET texto = @texto WHERE id = @id";
                         SqlCommand cmdPostagem = new SqlCommand(sqlPostagem, connection);
-                        cmdPostagem.Parameters.AddWithValue("@texto", postagem.Texto);
-                        cmdPostagem.Parameters.AddWithValue("@id", postagem.Id);
+                        cmdPostagem.Parameters.AddWithValue("@texto", postagem.texto);
+                        cmdPostagem.Parameters.AddWithValue("@id", postagem.id);
                         cmdPostagem.ExecuteNonQuery();
                     }
                 }
@@ -167,7 +167,7 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlPostagem = "DELETE FROM Postagem WHERE id = @id";
                     SqlCommand cmdPostagem = new SqlCommand(sqlPostagem, connection);
-                    cmdPostagem.Parameters.AddWithValue("@id", postagem.Id);
+                    cmdPostagem.Parameters.AddWithValue("@id", postagem.id);
                     cmdPostagem.ExecuteNonQuery();
                 }
             }
