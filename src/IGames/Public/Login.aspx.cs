@@ -21,12 +21,12 @@ namespace IGames.Public
             {
                 DAL.DALUsers daluser = new DAL.DALUsers();
                 Modelo.Usuario user = daluser.Select(Membership.GetUser(Membership.GetUserNameByEmail(email.Text)).ProviderUserKey.ToString());
-                if (Membership.ValidateUser(user.nome, senha.Text))
+                if (Membership.ValidateUser(user.nome, user.senha))
                 {
                     FormsAuthentication.SetAuthCookie(email.Text, true);
                     Session["id"] = user.id;
                     Session["email"] = user.email;
-                    Response.Redirect("~/" + (user.administrador == false ? "Administrador" : "User") + "/Index.aspx");
+                    Response.Redirect("~/" + (user.administrador ? "Administrador" : "User") + "/Index.aspx");
                 }
             }
         }

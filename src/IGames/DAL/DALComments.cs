@@ -21,7 +21,7 @@ namespace IGames.DAL
 
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlComentarios = "SELECT * FROM Comentario";
@@ -59,7 +59,7 @@ namespace IGames.DAL
             Modelo.Comentario Comentario = null;
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlComentario = "SELECT * FROM Comentario WHERE Jogo_id = @jogo_id and Usuario_id = @usuario_id";
@@ -98,7 +98,7 @@ namespace IGames.DAL
             {
                 if (this.Select(comentario.Jogo_id, comentario.Usuario_id) == null)
                 {
-                    using (connection)
+                    using (connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
                         string sqlComentario = "INSERT INTO Comentario(descricao, usuarioId) VALUES (@descricao, @usuarioId)";
@@ -125,7 +125,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     if (Select(comentario.Jogo_id, comentario.Usuario_id) != comentario)
@@ -151,7 +151,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlComentario = "DELETE FROM Comentario WHERE Jogo_id = @jogo_id and Usuario_id = @usuario_id";

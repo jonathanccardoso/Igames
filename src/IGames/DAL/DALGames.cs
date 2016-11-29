@@ -21,7 +21,7 @@ namespace IGames.DAL
 
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlJogos = "SELECT * FROM Jogo";
@@ -61,13 +61,54 @@ namespace IGames.DAL
             Modelo.Jogo jogo = null;
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     //abre a conexão
                     connection.Open();
                     string sqlJogo = "SELECT * FROM Jogo WHERE id = @id";
                     SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
                     cmdJogo.Parameters.AddWithValue("@id", jogo_id);
+                    SqlDataReader drJogo;
+                    using (drJogo = cmdJogo.ExecuteReader())
+                    {
+                        if (drJogo.HasRows)
+                        {
+                            //lê os resultados
+                            while (drJogo.Read())
+                            {
+                                int idJogo = (int)drJogo["id"];
+                                string jogoUrl = (string)drJogo["jogoUrl"];
+                                string descricao = (string)drJogo["descricao"];
+                                string imagemUrl = (string)drJogo["imagemUrl"];
+                                string nome = (string)drJogo["nome"];
+                                jogo = new Modelo.Jogo(idJogo, jogoUrl, descricao, imagemUrl, nome);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return jogo;
+        }
+
+        //Método Select
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public Modelo.Jogo SelectByName(string jogo_nome)
+        {
+            //instancia um novo usuario
+            Modelo.Jogo jogo = null;
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    //abre a conexão
+                    connection.Open();
+                    string sqlJogo = "SELECT * FROM Jogo WHERE nome = @nome";
+                    SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
+                    cmdJogo.Parameters.AddWithValue("@nome", jogo_nome);
                     SqlDataReader drJogo;
                     using (drJogo = cmdJogo.ExecuteReader())
                     {
@@ -102,7 +143,7 @@ namespace IGames.DAL
             {
                 if (this.Select(jogo.id) == null)
                 {
-                    using (connection)
+                    using (connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
                         string sqlJogo = "INSERT INTO Jogo(jogoUrl, descricao, imagemUrl, nome) VALUES (@jogoUrl, @descricao, @imagemUrl, @nome)";
@@ -131,7 +172,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     if (Select(jogo.id) != jogo)
@@ -158,7 +199,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlJogo = "DELETE FROM Jogo WHERE id = @id";

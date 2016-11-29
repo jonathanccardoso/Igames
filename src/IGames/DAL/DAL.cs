@@ -9,11 +9,11 @@ namespace IGames.DAL
 {
     public class DAL
     {
-        protected string connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
+        protected string connectionString;
         protected SqlConnection connection;
         public DAL()
         {
-            connection = new SqlConnection(connectionString);
+            connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
         }
     }
 }

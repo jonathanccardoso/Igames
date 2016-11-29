@@ -20,7 +20,7 @@ namespace IGames.DAL
 
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlPostagens = "SELECT * FROM Postagem";
@@ -63,7 +63,7 @@ namespace IGames.DAL
             Modelo.Postagem postagem = null;
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     //abre a conexão
                     connection.Open();
@@ -106,7 +106,7 @@ namespace IGames.DAL
             {
                 if (this.Select(postagem.id) == null)
                 {
-                    using (connection)
+                    using (connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
                         string sqlPostagem = "INSERT INTO Postagem(texto, data, hora, Usuario_id, Postagem_id, Forum_id) VALUES (@texto, @data, @hora, @UsuarioId, @Postagem_id, @ForumId)";
@@ -137,7 +137,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     if (Select(postagem.id) != postagem)
@@ -162,7 +162,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlPostagem = "DELETE FROM Postagem WHERE id = @id";

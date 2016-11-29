@@ -21,7 +21,7 @@ namespace IGames.DAL
 
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlAvaliacoes = "SELECT * FROM Avaliacao";
@@ -60,7 +60,7 @@ namespace IGames.DAL
             Modelo.Avaliacao avaliacao = null;
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     //abre a conexão
                     connection.Open();
@@ -100,7 +100,7 @@ namespace IGames.DAL
             {
                 if (this.Select(avaliacao.Jogo_id, avaliacao.Usuario_id) == null)
                 {
-                    using (connection)
+                    using (connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
                         string sqlAvaliacao = "INSERT INTO Usuario(numeroEstrelas, UsuarioId) VALUES (@numeroEstrelas, @UsuarioId)";
@@ -127,7 +127,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     if (Select(avaliacao.Jogo_id, avaliacao.Usuario_id) != avaliacao)
@@ -153,7 +153,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlAvaliacao = "DELETE FROM Avaliação WHERE Usuario_id = @usuario_id";

@@ -8,12 +8,12 @@
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
 <li>
-<form>
+<%--<form>--%>
 <div class="input-field search-desktop">
 <input id="search" type="search">
 <label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
 </div>
-</form>
+<%--</form>--%>
 </li>
 <li><a href="categorias.aspx">Categorias</a></li>
 <li><a href="#">Fórum</a></li>
@@ -30,12 +30,14 @@
 <li><a class="search"><i class="material-icons left">search</i>Pesquisar</a></li>
 <li>
 <div class="input-field search-mobile">
-<asp:TextBox ID="TextBox1" runat="server" CssClass="mobileSearch"></asp:TextBox>
+<%--<asp:TextBox ID="TextBox1" runat="server" CssClass="mobileSearch"></asp:TextBox>--%>
 <label for="ContentPlaceholder2_mobileSearch"><i class="material-icons">search</i></label><i class="material-icons mobile-close">close</i>
 </div>
 </li>
+<form id="Form1" runat="server">
 <li><a href="categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
 <li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
+<li><asp:LinkButton ID="login" runat="server" OnClick="Sair_Click">Sair</asp:LinkButton>
 </ul>
 <a href="index.aspx" class="brand-logo">Logo</a>
 </div>
@@ -60,7 +62,7 @@
     <div class="card">
     <div class="card-content">
     <div class="input-field col s6">
-    <form id="form1" runat="server">
+    <%--<form id="form1" runat="server">--%>
     <i class="material-icons prefix">mode_edit</i>
     <asp:TextBox ID="TextArea" runat="server" TextMode="MultiLine" CssClass="materialize-textarea"></asp:TextBox>
     <label for="ContentPlaceHolder2_TextArea">Escreva um comentário</label>
@@ -69,9 +71,10 @@
     <asp:LinkButton ID="Send" runat="server" CssClass="btn waves-effect waves-light" OnClick="Send_Click">Enviar <i class="material-icons right">send</i></asp:LinkButton>
     </div>
     </div>
-    </form>
+    <%--</form>--%>
     </div>
     </div>
     </div>
+</form>
 </main>
 </asp:Content>

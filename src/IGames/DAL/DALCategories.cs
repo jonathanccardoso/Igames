@@ -21,7 +21,7 @@ namespace IGames.DAL
 
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlCategorias = "SELECT * FROM Categoria";
@@ -58,7 +58,7 @@ namespace IGames.DAL
             Modelo.Categoria categoria = null;
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlCategoria = "SELECT * FROM Categoria WHERE Categoria_id = @id";
@@ -96,7 +96,7 @@ namespace IGames.DAL
             {
                 if (this.Select(categoria.id) == null)
                 {
-                    using (connection)
+                    using (connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
                         string sqlCategoria = "INSERT INTO Categoria(descricao) VALUES (@descricao)";
@@ -122,7 +122,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlCategoria = "UPDATE Categoria SET descricao = @descricao WHERE id = @id";
@@ -144,7 +144,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlCategoria = "DELETE FROM Categoria WHERE id = @id";

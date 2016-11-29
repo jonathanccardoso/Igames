@@ -20,7 +20,7 @@ namespace IGames.DAL
 
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlIcones = "SELECT * FROM Icone";
@@ -58,7 +58,7 @@ namespace IGames.DAL
             Modelo.Icone icone = null;
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     //abre a conexão
                     connection.Open();
@@ -96,7 +96,7 @@ namespace IGames.DAL
             {
                 if (this.Select(icone.id) == null)
                 {
-                    using (connection)
+                    using (connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
                         string sqlUsuario = "INSERT INTO Icone(IconeUrl) VALUES (@iconeUrl)";
@@ -122,7 +122,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     if (Select(icone.id) != icone)
@@ -147,7 +147,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlIcone = "DELETE FROM Icone WHERE id = @id";

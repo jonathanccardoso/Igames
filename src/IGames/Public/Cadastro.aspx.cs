@@ -23,7 +23,8 @@ namespace IGames.Public
             {
                 DAL.DALUsers daluser = new DAL.DALUsers();
                 Modelo.Usuario user = new Modelo.Usuario(nome.Text, email.Text, senha.Text, false, Convert.ToInt32(Request.QueryString["iconeId"]));
-                Membership.CreateUser(user.nome, senha.Text, user.email);
+                Membership.CreateUser(user.nome, user.senha, user.email);
+                user.id = Membership.GetUser(Membership.GetUserNameByEmail(user.email)).ProviderUserKey.ToString();
                 Roles.AddUserToRole(user.nome, "Usuario");
                 daluser.Insert(user);
                 FormsAuthentication.SetAuthCookie(user.email, true);

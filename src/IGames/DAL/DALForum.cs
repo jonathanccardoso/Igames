@@ -21,7 +21,7 @@ namespace IGames.DAL
 
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlForuns = "SELECT * FROM Forum";
@@ -62,7 +62,7 @@ namespace IGames.DAL
             Modelo.Forum forum = null;
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     //abre a conexão
                     connection.Open();
@@ -103,7 +103,7 @@ namespace IGames.DAL
             {
                 if (this.Select(forum.id) == null)
                 {
-                    using (connection)
+                    using (connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
                         string sqlforum = "INSERT INTO Forum(descricao, data, hora, Usuario_id) VALUES (@descricao, @data, @hora, @usuarioId)";
@@ -132,7 +132,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     if (Select(forum.id) != forum)
@@ -159,7 +159,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlForum = "DELETE FROM Forum WHERE id = @id";

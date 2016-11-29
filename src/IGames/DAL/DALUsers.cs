@@ -21,7 +21,7 @@ namespace IGames.DAL
 
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlUsuarios = "SELECT * FROM Usuario";
@@ -63,7 +63,7 @@ namespace IGames.DAL
             Modelo.Usuario usuario = null;
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     //abre a conexão
                     connection.Open();
@@ -78,11 +78,12 @@ namespace IGames.DAL
                             while (drUsuarios.Read())
                             {
                                 string usuarioId = drUsuarios["id"].ToString();
-                                string UserName = drUsuarios["UserName"].ToString();
+                                string UserName = drUsuarios["nome"].ToString();
                                 string Email = drUsuarios["email"].ToString();
+                                string Senha = drUsuarios["senha"].ToString();
                                 int idIcone = (int)drUsuarios["Icone_id"];
                                 bool adm = (bool)drUsuarios["administrador"];
-                                usuario = new Modelo.Usuario(usuarioId, UserName, Email, adm, idIcone);
+                                usuario = new Modelo.Usuario(usuarioId, UserName, Email, Senha, adm, idIcone);
                             }
                         }
                     }
@@ -101,10 +102,9 @@ namespace IGames.DAL
         {
             try
             {
-                //o id esta sempre indo nuol
                 if (this.Select(usuario.id) == null)
                 {
-                    using (connection)
+                    using (connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
                         string sqlUsuario = "INSERT INTO Usuario(id, nome, email, senha, icone_id, administrador) VALUES (@id, @userName, @email, @senha, @icone_id, @administrador)";
@@ -135,7 +135,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     if (Select(usuario.id) != usuario)
@@ -161,7 +161,7 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection)
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     string sqlUsuario = "DELETE FROM Usuario WHERE id = @id";

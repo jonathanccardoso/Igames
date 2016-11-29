@@ -28,5 +28,11 @@ namespace IGames.User
             aSQL.Parameters.AddWithValue();
             aSQL.ExecuteNonQuery();*/
         }
+        protected void Sair_Click(object sender, EventArgs e)
+        {
+            Session["id"] = null;
+            Session["email"] = null;
+            Response.Redirect("~/Public/Index.aspx");
+        }
     }
 }

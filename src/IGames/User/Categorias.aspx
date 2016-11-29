@@ -16,6 +16,7 @@
 </li>
 <li><a href="#">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
+<li><asp:LinkButton ID="login" runat="server"  OnClick="Sair_Click">Sair</asp:LinkButton>
 </ul>
 <ul class="side-nav" id="mobile-demo">
 <li>
@@ -50,7 +51,7 @@
 			<div class="row">
 				<div class="col l3 s6">
 					<div class="card">
-						<a href="Jogo.aspx"><img class="responsive-img" src="../Images/browserQuest.jpg"> <br>
+						<a href="Jogo.aspx?jogo=BrowserQuest"><img class="responsive-img" src="../Images/browserQuest.jpg"> <br>
 						<b>Browser Quest</b></a>
 						<p>Lorem ipsum dolor sit amet.</p>
 					</div>
