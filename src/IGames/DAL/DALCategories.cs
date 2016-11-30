@@ -61,9 +61,9 @@ namespace IGames.DAL
                 using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string sqlCategoria = "SELECT * FROM Categoria WHERE Categoria_id = @id";
+                    string sqlCategoria = "SELECT * FROM Categoria WHERE id = @id";
                     SqlCommand cmdCategoria = new SqlCommand(sqlCategoria, connection);
-                    cmdCategoria.Parameters.Add("@id", SqlDbType.UniqueIdentifier).Value = Categoria_id;
+                    cmdCategoria.Parameters.Add("@id", Categoria_id);
                     SqlDataReader drCategorias;
 
                     using (drCategorias = cmdCategoria.ExecuteReader())

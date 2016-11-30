@@ -41,6 +41,7 @@
 </div>
 </nav>
 <main>
+<%--<form id="Form1" runat="server">--%>
     <h1 class="center-align">Categorias</h1><br>
 	<div class="center-align">
 		  <ul class="collapsible popout" data-collapsible="accordion">
@@ -51,9 +52,8 @@
 				<div class="col l3 s6">
 					<div class="card">
 						<a href="Jogo.aspx">
-                            <form runat="server">
-                            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/browserQuest.jpg" PostBackUrl="~/Administrador/Jogo.aspx?jogo=Browser Quest" />
-                                </form>
+                            <%--<form runat="server">--%>
+                           <%-- <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/browserQuest.jpg" PostBackUrl="~/Administrador/Jogo.aspx?jogo=Browser Quest" />--%>
                               <%--  <img class="responsive-img" src="../Images/browserQuest.jpg"> --%><br>
 						<b>Browser Quest</b></a>
 						<p>Lorem ipsum dolor sit amet.</p>
@@ -295,8 +295,26 @@
 </li>
 </ul>
 </div>
+    <a class="waves-effect waves-teal btn modal-trigger" href="#modal"><i class="material-icons">add</i></a>
+      <div id="modal" class="modal">
+           <form id="Form1" runat="server">
+                <div class="modal-content">
+                  <h4 class="center-align">Adicionar categoria?</h4>
+                    <div class="input-field">
+                   
+                        <asp:TextBox ID="Categoria" runat="server"></asp:TextBox>
+                        <label for="ContentPlaceholder2_TextBox1">Descrição</label>
+                        </div>
+                </div>
+                <div class="modal-footer center-align">
+                <%--  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" >Confirmar</a>--%>    
+                        <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button2" runat="server" OnClick="AddCategoria_Click" Text="Confirmar" />
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a><br /><br />
+                     
+                </div>
+          </form>
+         </div>
 
-<asp:Button ID="Button1" runat="server" Text="Button" OnClick="AdicionarCategoria_CLick"></asp:Button>
-
+<%--</form>--%>
 </main>
 </asp:Content>
