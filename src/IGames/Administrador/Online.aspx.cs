@@ -29,10 +29,6 @@ namespace IGames.Administrador
                     Modelo.Jogo jog = new Modelo.Jogo("Jogos/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text);
                     jogo.Insert(jog);
                 }
-                else
-                {
-
-                }
         }
 
         protected void getCategories()

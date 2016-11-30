@@ -35,6 +35,17 @@
 </nav>
 <main>
     <form id="Form1" runat="server">
+    <%--<div>
+    <asp:Label ID="Label1" runat="server" Text="Lista de Usuários"></asp:Label><hr />
+        <asp:GridView ID="Usuarios" runat="server" AutoGenerateColumns="False" DataSourceID="dataSourceProduto" AllowPaging="True" AllowSorting="True">
+            <Columns>
+                <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
+                <asp:BoundField DataField="descricao" HeaderText="Descrição" SortExpression="descricao" />
+                <asp:BoundField DataField="iconeUrl" HeaderText="icone" SortExpression="imagem" />
+            </Columns>
+        </asp:GridView>
+     </div>
+       <asp:ObjectDataSource ID="SourceUsuario" runat="server" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" UpdateMethod="Update"></asp:ObjectDataSource>--%>
     </form>
 </main>
 </asp:Content>

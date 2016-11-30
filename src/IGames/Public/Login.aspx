@@ -18,6 +18,7 @@
 <div class="input-field">
 <asp:TextBox ID="email" runat="server" TextMode="Email"></asp:TextBox>
 <label for="email">Email</label>
+<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Inclua um endereço de email válido" ControlToValidate="email" ValidationExpression="[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"></asp:RegularExpressionValidator>
 </div>
 <div class="input-field">
 <asp:TextBox ID="senha" runat="server" TextMode="Password"></asp:TextBox>

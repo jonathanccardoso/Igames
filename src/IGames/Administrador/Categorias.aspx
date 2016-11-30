@@ -295,13 +295,12 @@
 </li>
 </ul>
 </div>
+    <form id="Form1" runat="server">
     <a class="waves-effect waves-teal btn modal-trigger" href="#modal"><i class="material-icons">add</i></a>
       <div id="modal" class="modal">
-           <form id="Form1" runat="server">
                 <div class="modal-content">
                   <h4 class="center-align">Adicionar categoria?</h4>
                     <div class="input-field">
-                   
                         <asp:TextBox ID="Categoria" runat="server"></asp:TextBox>
                         <label for="ContentPlaceholder2_TextBox1">Descrição</label>
                         </div>
@@ -312,9 +311,23 @@
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a><br /><br />
                      
                 </div>
-          </form>
-         </div>
+     </div>
 
-<%--</form>--%>
+    <!--REMOVER--->
+    <a class="waves-effect waves-teal btn modal-trigger" href="#modal"><i class="material-icons">del</i></a>
+    <div id="Div1" class="modal">
+                <div class="modal-content">
+                  <h4 class="center-align">Remover categoria?</h4>
+                    <div class="input-field">
+                        <asp:DropDownList ID="DeletarCategorias" runat="server" ViewStateMode="Enabled"></asp:DropDownList>
+                        <label>Categoria</label>
+                    </div>
+                </div>
+                <div class="modal-footer center-align">
+                   <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button1" runat="server" OnClick="DelCategoria_Click" Text="Confirmar" />
+                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a><br /><br />
+                </div>
+    </div>
+</form>
 </main>
 </asp:Content>

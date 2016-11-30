@@ -11,22 +11,32 @@ namespace IGames.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //GetCategories();
+            if (!Page.IsPostBack)
+            {
+                getCategorias();
+            }
         }
 
-        protected void GetCategories()
+        protected void getCategorias()
         {
             DAL.DALCategories cat = new DAL.DALCategories();
-            cat.SelectAll();
-        }
-        protected void AddCategoria_Click(object sender, EventArgs e)
-        {
-            string descricao = Categoria.Text;
-            DAL.DALCategories cate = new DAL.DALCategories();
-            Modelo.Categoria categoria = new Modelo.Categoria(descricao);
-            cate.Insert(categoria);
+            List<Modelo.Categoria> cats = cat.SelectAll();
+            this.DeletarCategorias.DataSource = cats;
+            this.DeletarCategorias.DataTextField = "Descricao";
+            this.DeletarCategorias.DataValueField = "ID";
+            this.DataBind();
+            DeletarCategorias.Items.Insert(0, "Escolha a categoria");
 
-           //Response.Redirect("~/Index.aspx");
+        }
+        protected void DelCategoria_Click(object sender, EventArgs e)
+        {
+            string descricao = "";
+            if (DeletarCategorias.SelectedItem.Value != "Escolha uma categoria")
+            {
+                DAL.DALCategories dalcate = new DAL.DALCategories();
+                Modelo.Categoria cat = new Modelo.Categoria(descricao);
+                dalcate.Delete(cat);
+            }
         }
     }
 }

@@ -17,19 +17,17 @@ namespace IGames.Administrador
         }
 
         protected void Confirmar_Click(object sender, EventArgs e)
-        {//REMOVER JOGO
-            string JogoUrl = "";
+        {
+            string JogoUrl = "";//QUERYSTRING
             string descricao = "";
             string imagemUrl = "";
             string nome = "";
-            int? AvaliaçãoId = null;
-            int? ComentarioId = null;
+           //int? AvaliaçãoId = null;
+           //int? ComentarioId = null;
 
-            //DAL.DALGames daljogo = new DAL.DALGames();
-            //Modelo.Jogo jogo = new Modelo.Jogo(JogoUrl, descricao, imagemUrl, nome, AvaliaçãoId, ComentarioId);
-            //daljogo.Delete(jogo);
-
-            Response.Redirect("Index.aspx");
+            DAL.DALGames daljogo = new DAL.DALGames();
+            Modelo.Jogo jogo = new Modelo.Jogo(JogoUrl, descricao, imagemUrl, nome);
+            daljogo.Delete(jogo);
         }
     }
 }
