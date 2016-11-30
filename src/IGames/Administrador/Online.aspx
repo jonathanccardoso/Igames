@@ -69,6 +69,17 @@
 <label for="ContentPlaceholder2_TextBox2">Nome</label>
 </div>
 <div class="input-field">
+<%-- <div class="input-field">
+<% IGames.DAL.DALCategories cat = new IGames.DAL.DALCategories();
+   List<IGames.Modelo.Categoria> cats = cat.SelectAll(); %>
+<select id="Categorias">
+<option value="0" disabled selected>Escolha uma categoria</option>
+<% foreach(IGames.Modelo.Categoria cat in cats) { %>
+<option value="<%= cat.id; %>"><%= cat.descricao; %></option>
+<% } %>
+</select>
+<label>Categoria</label>
+</div> --%>
 <asp:DropDownList ID="Categorias" runat="server" ViewStateMode="Enabled"></asp:DropDownList>
 <label>Categoria</label>
 </div>
