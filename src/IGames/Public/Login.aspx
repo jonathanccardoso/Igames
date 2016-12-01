@@ -16,17 +16,18 @@
 <h3>Login</h3>
 </div>
 <div class="input-field">
-<input type="email" id="email" />
+<input type="email" name="email" />
 <label for="email">Email</label>
 </div>
 <div class="input-field">
-<input type="password" id="senha" title="senha" pattern="[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]{7,}" />
+<input type="password" name="senha" />
 <label for="senha">Senha</label>
 </div>
-<div class="col l7 offset-l6 m3 offset-m5 s7 offset-s2">
-<%--adiconar buttons--%>
-<asp:LinkButton ID="cadastro" runat="server" CssClass="waves-effect waves-light btn yellow darken-1" OnClick="cadastro_Click">Cadastre-se</asp:LinkButton>
-<asp:LinkButton ID="login" runat="server" CssClass="waves-effect waves-light btn green darken-1">Entrar</asp:LinkButton>
+<div class="col l4 s12 offset-s3">
+<a class="waves-effect waves-light btn yellow darken-1" href="Cadastro.aspx">Cadastre-se</a>
+</div>
+<div class="col l1 offset-l6 s12 offset-s4">
+<button class="waves-effect waves-light btn green darken-1" name="action" onclick="<% login(); %>">Entrar</button>
 </div>
 </div>
 </div>

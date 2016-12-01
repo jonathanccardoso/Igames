@@ -14,14 +14,8 @@ namespace IGames.Public
         {
             if (Session["email"] != null)
             {
-                if (Roles.IsUserInRole(Membership.GetUserNameByEmail(Session["email"].ToString()), "Administrador"))
-                {
-                    Response.Redirect("~/Administrador/Index.aspx");
-                }
-                else
-                {
-                    Response.Redirect("~/User/Index.aspx");
-                }
+                DAL.DALUsers daluser = new DAL.DALUsers();
+                Response.Redirect("~/" + (daluser.Select(Membership.GetUser(Membership.GetUserNameByEmail(Session["email"].ToString())).ProviderUserKey.ToString()).administrador ? "Administrador" : "User") + "Index.aspx");
             }
         }
     }
