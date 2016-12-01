@@ -43,13 +43,24 @@ namespace IGames.Administrador
         }
 
         protected void uploadGame() {
-            
-            UploadGame.SaveAs("~/JogosDown/" + UploadGame.FileName);
+            if (UploadGame.HasFile)
+            {
+                foreach (HttpPostedFile file in UploadGame.PostedFiles) {]
+                    //ta dando erro
+                    //bugou meu cerebro
+                    //faz o passinho do romano
+                    //falta criar diretorio
+                    file.SaveAs(Server.MapPath("~") + "Jogos/" + file.FileName);
+                }
+                
+            }
         }
-
         protected void uploadImage()
         {
-            UploadImage.SaveAs("~/Images/" + UploadImage.FileName);
+            if (UploadImage.HasFile)
+            {
+                UploadImage.PostedFile.SaveAs(Server.MapPath("~") + "Images/" + UploadImage.FileName);
+            }
         }
 
         protected void Sair(object sender, EventArgs e)

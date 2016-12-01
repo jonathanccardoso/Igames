@@ -35,7 +35,7 @@
 </div>
 </nav>
 <main>
-<form id="Form1" runat="server">
+<form id="Form1" runat="server" enctype="multipart/form-data">
 <div class="row">
 <div class="col l10 offset-l1">
 <div class="card">
