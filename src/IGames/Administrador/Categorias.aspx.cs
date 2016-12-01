@@ -11,39 +11,22 @@ namespace IGames.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-                getCategorias();
-            }
+           
         }
-
-        protected void getCategorias()
+        //protected void DelCategoria_Click(object sender, EventArgs e)
+        //{
+        //        string descricao = "";
+        //        DAL.DALCategories dalcate = new DAL.DALCategories();
+        //        Modelo.Categoria cat = new Modelo.Categoria(descricao);
+        //        dalcate.Delete(cat);
+        //    
+        //}
+        protected void AddCategoria_Click(object sender, EventArgs e)
         {
-            DAL.DALCategories cat = new DAL.DALCategories();
-            List<Modelo.Categoria> cats = cat.SelectAll();
-            this.DeletarCategorias.DataSource = cats;
-            this.DeletarCategorias.DataTextField = "Descricao";
-            this.DeletarCategorias.DataValueField = "ID";
-            this.DataBind();
-            DeletarCategorias.Items.Insert(0, "Escolha a categoria");
-
+            string descricao = Categoria.Text;
+            DAL.DALCategories dalcat = new DAL.DALCategories();
+            Modelo.Categoria cat = new Modelo.Categoria(descricao);
+            dalcat.Insert(cat);
         }
-        protected void DelCategoria_Click(object sender, EventArgs e)
-        {
-            string descricao = "";
-            if (DeletarCategorias.SelectedItem.Value != "Escolha uma categoria")
-            {
-                DAL.DALCategories dalcate = new DAL.DALCategories();
-                Modelo.Categoria cat = new Modelo.Categoria(descricao);
-                dalcate.Delete(cat);
-            }
-        }
-       protected void AddCategoria_Click(object sender, EventArgs e)
-       {//ok
-           string descricao = Categoria.Text;
-           DAL.DALCategories dalcat = new DAL.DALCategories();
-           Modelo.Categoria cat = new Modelo.Categoria(descricao);
-           dalcat.Insert(cat);
-       }
     }
 }
