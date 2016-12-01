@@ -47,4 +47,8 @@
         $(".search-mobile").hide();
         $(".search").fadeIn(1000);
     });
+
+    $('.fixed-action-btn').openFAB();
+    $('.fbtn-floating-btn').closeFAB();
+
 });

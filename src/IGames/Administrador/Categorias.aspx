@@ -43,10 +43,12 @@
 <main>
 <%--<form id="Form1" runat="server">--%>
     <h1 class="center-align">Categorias</h1><br>
-	<div class="center-align">
+	
+    <div class="center-align">
 		  <ul class="collapsible popout" data-collapsible="accordion">
-		<li>
-		  <div class="collapsible-header">Aventura<a class="waves-effect waves-teal btn-flat right" href="#"><i class="material-icons">delete</i></a></div>
+              <% foreach(IGames.Modelo.Categoria cate in cats) { %>
+		<li> 
+		  <div class="collapsible-header"><%= cate.descricao %></div>
 		  <div class="collapsible-body">
 			<div class="row">
 				<div class="col l3 s6">
@@ -83,26 +85,62 @@
 			</div>
 		  </div>
 		</li>
+              <% } %>
         </ul>
     </div>
 
     <form id="Form1" runat="server">
-    <a class="waves-effect waves-teal btn modal-trigger" href="#modal"><i class="material-icons">add</i></a>
-      <div id="modal" class="modal">
+        <div class="fixed-action-btn vertical click-to-toggle">
+            <a class="btn-floating btn-large red">
+              <i class="material-icons">menu</i>
+            </a>
+            <ul>
+              <li><a class="btn-floating red modal-trigger" href="#modalInsert"><i class="material-icons">insert_chart</i></a></li>
+              <li><a class="btn-floating yellow darken-1 modal-trigger" href="#modalUpdate"><i class="material-icons">format_quote</i></a></li>
+              <li><a class="btn-floating green modal-trigger" href="#modalDelete"><i class="material-icons">publish</i></a></li>
+            </ul>
+        </div>
+
+      <div id="modalInsert" class="modal">
                 <div class="modal-content">
                   <h4 class="center-align">Adicionar categoria?</h4>
                     <div class="input-field">
-                        <asp:TextBox ID="Categoria" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="InstCategoria" runat="server"></asp:TextBox>
                         <label for="ContentPlaceholder2_TextBox1">Descrição</label>
                         </div>
                 </div>
                 <div class="modal-footer center-align">
-                <%--  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" >Confirmar</a>--%>    
                         <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button2" runat="server" OnClick="AddCategoria_Click" Text="Confirmar" />
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a><br /><br />
-                     
                 </div>
-     </div>
+      </div>
+      <div id="modalUpdate" class="modal">
+                    <div class="modal-content">
+                      <h4 class="center-align">Editar categoria?</h4>
+                        <div class="input-field">
+                            <asp:DropDownList ID="listCateUpd" runat="server" ViewStateMode="Enabled" ></asp:DropDownList>
+                            <label>Categoria</label>
+                            <asp:TextBox ID="DescricaoUpdate" runat="server" Text="Descrição"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="modal-footer center-align">
+                            <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button1" runat="server" OnClick="EdtCategoria_Click" Text="Confirmar" />
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a><br /><br />
+                    </div>
+      </div>
+        <div id="modalDelete" class="modal">
+                <div class="modal-content">
+                    <h4 class="center-align">Excluir categoria?</h4>
+                         <div class="input-field">
+                            <asp:DropDownList ID="listCatDel" runat="server" ViewStateMode="Enabled"></asp:DropDownList>
+                            <label>Categoria</label>
+                         </div>
+                 </div>
+                 <div class="modal-footer center-align">
+                         <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button3" runat="server" OnClick="DelCategoria_Click" Text="Confirmar" />
+                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a><br /><br />
+                 </div>
+          </div>
 </form>
 </main>
 </asp:Content>
