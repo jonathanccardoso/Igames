@@ -16,17 +16,17 @@
 <h3>Login</h3>
 </div>
 <div class="input-field">
-<asp:TextBox ID="email" runat="server" TextMode="Email"></asp:TextBox>
+<input type="email" id="email" />
 <label for="email">Email</label>
-<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Inclua um endereço de email válido" ControlToValidate="email" ValidationExpression="[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"></asp:RegularExpressionValidator>
 </div>
 <div class="input-field">
-<asp:TextBox ID="senha" runat="server" TextMode="Password"></asp:TextBox>
+<input type="password" id="senha" title="senha" pattern="[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]{7,}" />
 <label for="senha">Senha</label>
 </div>
 <div class="col l7 offset-l6 m3 offset-m5 s7 offset-s2">
+<%--adiconar buttons--%>
 <asp:LinkButton ID="cadastro" runat="server" CssClass="waves-effect waves-light btn yellow darken-1" OnClick="cadastro_Click">Cadastre-se</asp:LinkButton>
-<asp:LinkButton ID="login" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="login_Click">Entrar</asp:LinkButton>
+<asp:LinkButton ID="login" runat="server" CssClass="waves-effect waves-light btn green darken-1">Entrar</asp:LinkButton>
 </div>
 </div>
 </div>
