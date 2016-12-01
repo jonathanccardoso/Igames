@@ -38,5 +38,12 @@ namespace IGames.Administrador
                 dalcate.Delete(cat);
             }
         }
+       protected void AddCategoria_Click(object sender, EventArgs e)
+       {//ok
+           string descricao = Categoria.Text;
+           DAL.DALCategories dalcat = new DAL.DALCategories();
+           Modelo.Categoria cat = new Modelo.Categoria(descricao);
+           dalcat.Insert(cat);
+       }
     }
 }

@@ -313,8 +313,8 @@
                 </div>
      </div>
 
-    <!--REMOVER--->
-    <a class="waves-effect waves-teal btn modal-trigger" href="#modal"><i class="material-icons">del</i></a>
+    <!--REMOVER
+    <a class="waves-effect waves-teal btn modal-trigger" href="#modalDel"><i class="material-icons">del</i></a>
     <div id="Div1" class="modal">
                 <div class="modal-content">
                   <h4 class="center-align">Remover categoria?</h4>
@@ -327,7 +327,7 @@
                    <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button1" runat="server" OnClick="DelCategoria_Click" Text="Confirmar" />
                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a><br /><br />
                 </div>
-    </div>
+    </div>--->
 </form>
 </main>
 </asp:Content>

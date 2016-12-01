@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<nav>
+    <nav>
 <div class="nav-wrapper"> 
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
@@ -35,17 +35,15 @@
 </nav>
 <main>
     <form id="Form1" runat="server">
-    <%--<div>
-    <asp:Label ID="Label1" runat="server" Text="Lista de Usuários"></asp:Label><hr />
-        <asp:GridView ID="Usuarios" runat="server" AutoGenerateColumns="False" DataSourceID="dataSourceProduto" AllowPaging="True" AllowSorting="True">
-            <Columns>
-                <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
-                <asp:BoundField DataField="descricao" HeaderText="Descrição" SortExpression="descricao" />
-                <asp:BoundField DataField="iconeUrl" HeaderText="icone" SortExpression="imagem" />
-            </Columns>
+    <div class="center-align">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:BoundField DataField="nome" HeaderText="Usuarios" SortExpression="nome" />
+        </Columns>
         </asp:GridView>
-     </div>
-       <asp:ObjectDataSource ID="SourceUsuario" runat="server" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" UpdateMethod="Update"></asp:ObjectDataSource>--%>
+
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2016TiiGrupo5ConnectionString %>" SelectCommand="SELECT [nome] FROM [Usuario]"></asp:SqlDataSource>
+    </div>
     </form>
 </main>
 </asp:Content>
