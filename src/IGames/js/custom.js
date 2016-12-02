@@ -47,8 +47,16 @@
         $(".search-mobile").hide();
         $(".search").fadeIn(1000);
     });
-
-    $('.fixed-action-btn').openFAB();
-    $('.fbtn-floating-btn').closeFAB();
+    $(".dropdown-button").dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false,
+        hover: true,
+        gutter: 0,
+        belowOrigin: true,
+        alignment: "left"
+    });
+    $(".fixed-action-btn").openFAB();
+    $(".fbtn-floating-btn").closeFAB();
 
 });

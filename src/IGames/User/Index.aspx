@@ -16,7 +16,14 @@
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
-<li><asp:LinkButton ID="login" runat="server"  OnClick="Sair_Click">Sair</asp:LinkButton>
+<li>
+<a class="dropdown-button" data-activates="dropdown1">teste</a>
+<ul id="dropdown1" class="dropdown-content">
+<li><a href="Pefil.aspx">Perfil</a></li>
+<li><a href="Favoritos.aspx">Favoritos</a></li>
+<li><a href="#" onclick="<% Sair(); %>">Sair</a></li>
+</ul>
+</li>
 <%--<a href="Perfil.aspx" class="perfil-desktop">
 <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/user.png" Width="50" Height="45" CssClass="circle" />
 <asp:Label ID="Label1" runat="server" Text="Usuário" Font-Bold="true"></asp:Label>

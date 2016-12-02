@@ -16,11 +16,14 @@ namespace IGames.User
                 Response.Redirect("~/Public/Cadastro.aspx");
             }
         }
-        protected void Sair_Click(object sender, EventArgs e)
-        {
-            Session["id"] = null;
-            Session["email"] = null;
-            Response.Redirect("~/Public/Index.aspx");
+
+        protected void Sair() {
+            if (Page.IsPostBack)
+            {
+                Session["id"] = null;
+                Session["email"] = null;
+                Response.Redirect("~/Public/Index.aspx");
+            }
         }
     }
 }
