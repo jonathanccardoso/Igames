@@ -47,7 +47,6 @@
     <asp:TextBox ID="confsenha" runat="server" TextMode="Password"></asp:TextBox>
     <label for="last_name">Confirmar senha</label>
     </div>
-    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="As senhas não correspondem" ControlToValidate="confsenha" ControlToCompare="senha"></asp:CompareValidator>
     <div class="col l7 offset-l7 m3 offset-m5 s7 offset-s1">
         <a class="waves-effect waves-light btn modal-trigger btn yellow darken-1" id="modal1" href="#modal">Cadastrar</a>
     </div>
