@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="Administrador\Categorias.aspx" />
     <Content Include="Administrador\Download.aspx" />
+    <Content Include="Administrador\Icone.aspx" />
     <Content Include="Administrador\Index.aspx" />
     <Content Include="Administrador\Jogo.aspx" />
     <Content Include="Administrador\Online.aspx" />
@@ -121,6 +122,13 @@
     </Compile>
     <Compile Include="Administrador\Download.aspx.designer.cs">
       <DependentUpon>Download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Icone.aspx.cs">
+      <DependentUpon>Icone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Icone.aspx.designer.cs">
+      <DependentUpon>Icone.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -298,6 +306,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Download\" />
+    <Folder Include="Icones\" />
     <Folder Include="Online\" />
   </ItemGroup>
   <PropertyGroup>

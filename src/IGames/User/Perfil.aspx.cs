@@ -28,10 +28,12 @@ namespace IGames.User
         }
         protected void Editar_Click(object sender, EventArgs e)
         { 
+            //não esta inserido ainda
+
             string nome = Nome_user.Text;
             string email = email_user.Text;
             string senha = senha_user.Text;
-            bool administrador = false;
+            bool administrador = bool.Parse(Session["administrador"].ToString());
             int Icone_id = int.Parse(Session["iconeId"].ToString());
 
             DAL.DALUsers daluser = new DAL.DALUsers();

@@ -11,7 +11,11 @@ namespace IGames.Public
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+          
+        }
+        protected void Busca_Click(object sender, EventArgs e){
+            //TextBusca.Text = "";
+            //view para resutados da busca
         }
     }
 }

@@ -9,9 +9,21 @@ namespace IGames.User
 {
     public partial class Categorias : System.Web.UI.Page
     {
+        public List<Modelo.Categoria> cats { get; set; }
+
+        public DAL.DALCategories dalcat { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                getCategories();
+            } 
+        }
+        protected void getCategories()
+        {
+            this.dalcat = new DAL.DALCategories();
+            this.cats = this.dalcat.SelectAll();
         }
         protected void Sair_Click(object sender, EventArgs e)
         {

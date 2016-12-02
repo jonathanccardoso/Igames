@@ -8,13 +8,18 @@
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
 <li> 
+<!---
+    o enter esta ok
+    falta mostrar o resultado na query(consulta)
+    -->
 
-<form method="post" action="Busca.aspx"> 
+<%--<form id= "form1" runat="server" method="post" action="Busca.aspx"> 
     <div class="input-field search-desktop">
-    <input id="search" type="search">
-    <label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
+        <%--<asp:TextBox ID="search" runat="server" style="background-color:black"></asp:TextBox>--%>
+        <%--<input id="search" type="search">
+        <label for="search" style="background-color:black"><i class="material-icons">search</i></label><i style="background-color:black" class="material-icons close">close</i>    
     </div>
-</form>
+</form>--%>
 
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
@@ -41,9 +46,11 @@
 </div>
 </nav>
 <main>
-    <form runat="server" action="Busca.aspx" method="get">
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <asp:Button ID="busca" runat="server" Text="Button"></asp:Button>
+    <form runat="server" action="Busca.aspx" method="post">
+      <div class="center">
+          <asp:TextBox ID="TextBusca" runat="server" Class="center-align"></asp:TextBox>
+          <asp:Button ID="busca" runat="server" Text="Busca" OnClick="Busca_Click"></asp:Button>
+       </div>
     </form>
 </main>
 </asp:Content>
