@@ -27,6 +27,7 @@ namespace IGames.Public
                     {
                         FormsAuthentication.SetAuthCookie(Request.Form["email"], true);
                         Session["id"] = user.id;
+                        Session["nome"] = user.nome;
                         Session["email"] = user.email;
                         Session["senha"] = user.senha;
                         Response.Redirect("~/" + (user.administrador ? "Administrador" : "User") + "/Index.aspx");

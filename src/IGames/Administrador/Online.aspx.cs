@@ -45,7 +45,7 @@ namespace IGames.Administrador
         protected void uploadGame() {
             if (UploadGame.HasFile)
             {
-                foreach (HttpPostedFile file in UploadGame.PostedFiles) {]
+                foreach (HttpPostedFile file in UploadGame.PostedFiles) {
                     //ta dando erro
                     //bugou meu cerebro
                     //faz o passinho do romano

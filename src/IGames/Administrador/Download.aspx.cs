@@ -35,8 +35,15 @@ namespace IGames.Administrador
         protected void uploadGame()
         {
             if (UploadGame.HasFile)
-            {  
-                UploadGame.SaveAs(Server.MapPath("~/Jogos") + UploadGame.FileName);
+            {
+                foreach (HttpPostedFile file in UploadGame.PostedFiles)
+                {
+                    //ta dando erro
+                    //bugou meu cerebro
+                    //faz o passinho do romano
+                    //falta criar diretorio
+                    file.SaveAs(Server.MapPath("~") + "Jogos/" + file.FileName);
+                }
             }
         }
 
@@ -44,7 +51,7 @@ namespace IGames.Administrador
         {
             if (UploadImage.HasFile)
             {
-                UploadImage.SaveAs(Server.MapPath("~/Images") + UploadImage.FileName);
+                UploadImage.PostedFile.SaveAs(Server.MapPath("~") + "Images/" + UploadImage.FileName);
             }
         }
 

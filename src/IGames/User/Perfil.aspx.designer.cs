@@ -64,7 +64,7 @@ namespace IGames.User {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Nome_user;
+        protected global::System.Web.UI.WebControls.TextBox Nome_user;
         
         /// <summary>
         /// email_user control.

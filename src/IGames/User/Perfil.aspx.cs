@@ -12,13 +12,11 @@ namespace IGames.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Nome_user.Text = "";//TEM QUE OBTER NO LOGIN
+            Nome_user.Text = Session["nome"].ToString();
             email_user.Text = Session["email"].ToString();
             senha_user.Text = Session["senha"].ToString();
 
-            //deixar o textbox sem ser consultado
-            //EX:NomeDaTextBox.Enabled = false;
-
+            Nome_user.Enabled = false;
 
             //if (Session["email"] != null)
             //{
@@ -34,6 +32,8 @@ namespace IGames.User
         }
         protected void EditarPerfil_Click(object sender, EventArgs e)
         {
+            Nome_user.Enabled = true;
+
             string nome = Nome_user.Text;
             string email = email_user.Text; 
             string senha = senha_user.Text;
@@ -42,11 +42,7 @@ namespace IGames.User
 
             DAL.DALUsers daluser = new DAL.DALUsers();
             Modelo.Usuario user = new Modelo.Usuario(nome, email, senha, administrador, Icone_id);
-            daluser.Update(user);    
- 
-            
-            
+            daluser.Update(user);
         }
-
     }
 }

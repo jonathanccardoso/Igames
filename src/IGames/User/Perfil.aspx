@@ -47,7 +47,8 @@
           <div class="card white">
                <div class="card-content">
                     <form runat="server">
-                        Nome:<asp:Label ID="Nome_user" runat="server" Text=""></asp:Label><br />
+                        Nome:<asp:TextBox ID="Nome_user" runat="server"></asp:TextBox>
+                        <%--<asp:Label ID="Nome_user" runat="server" Text=""></asp:Label>--%><br />
                         E-mail:<asp:Label ID="email_user" runat="server" Text=""></asp:Label><br />
                         Senha:<asp:Label ID="senha_user" runat="server" Text=""></asp:Label><br /><br />
                         <asp:LinkButton ID="EditaPerfil" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="EditarPerfil_Click">Editar</asp:LinkButton>

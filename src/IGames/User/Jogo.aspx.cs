@@ -79,6 +79,8 @@ namespace IGames.User
             Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
             DAL.DALRates dalaval = new DAL.DALRates();
             DAL.DALGames daljogo = new DAL.DALGames();
+            //precisa do dal do jogo 
+            //pegar o nome do jogo
             Modelo.Avaliacao ava = new Modelo.Avaliacao(1, daljogo.SelectByName(Request.QueryString["jogo"]).id, Session["id"].ToString());
             dalaval.Insert(ava);
         }
