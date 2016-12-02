@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -26,7 +27,7 @@ namespace IGames.Administrador
                     uploadGame();
                     uploadImage();
                     DAL.DALGames jogo = new DAL.DALGames();
-                    Modelo.Jogo jog = new Modelo.Jogo("Jogos/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text);
+                    Modelo.Jogo jog = new Modelo.Jogo("Online/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text);
                     jogo.Insert(jog);
                 }
         }
@@ -43,16 +44,15 @@ namespace IGames.Administrador
         }
 
         protected void uploadGame() {
+            string path = Server.MapPath("~") + "Online/" + TextBox2.Text;
             if (UploadGame.HasFile)
             {
-                foreach (HttpPostedFile file in UploadGame.PostedFiles) {
-                    //ta dando erro
-                    //bugou meu cerebro
-                    //faz o passinho do romano
-                    //falta criar diretorio
-                    file.SaveAs(Server.MapPath("~") + "Jogos/" + file.FileName);
+                if (!Directory.Exists(path)) {
+                    Directory.CreateDirectory(path);
                 }
-                
+                foreach (HttpPostedFile file in UploadGame.PostedFiles) {
+                    file.SaveAs(Server.MapPath("~") + "Online/" + file.FileName);
+                }
             }
         }
         protected void uploadImage()

@@ -66,8 +66,9 @@
 <div class="input-field">
 <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
 <label for="ContentPlaceholder2_TextBox2">Nome</label>
+<asp:CompareValidator ID="CompareValidatorUp" runat="server" ErrorMessage="Por favor colocar o mesmo nome da pasta como nome do jogo" ControlToValidate="confsenha" ControlToCompare="senha"></asp>
 </div>
-<asp:Button ID="addGame" runat="server" Text="Adicionar" CssClass="btn right"/>
+<asp:Button ID="addGame" runat="server" Text="Adicionar" CssClass="btn right" OnClick="addGame_Click"/>
 </div>
 </div>
 </div> 
