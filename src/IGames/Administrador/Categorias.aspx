@@ -95,9 +95,9 @@
               <i class="material-icons">menu</i>
             </a>
             <ul>
-              <li><a class="btn-floating red modal-trigger" href="#modalInsert"><i class="material-icons">insert_chart</i></a></li>
-              <li><a class="btn-floating yellow darken-1 modal-trigger" href="#modalUpdate"><i class="material-icons">format_quote</i></a></li>
-              <li><a class="btn-floating green modal-trigger" href="#modalDelete"><i class="material-icons">publish</i></a></li>
+              <li><a class="btn-floating red modal-trigger" href="#modalInsert"><i class="material-icons">add</i></a></li>
+              <li><a class="btn-floating yellow darken-1 modal-trigger" href="#modalUpdate"><i class="material-icons">mode_edit</i></a></li>
+              <li><a class="btn-floating green modal-trigger" href="#modalDelete"><i class="material-icons">delete</i></a></li>
             </ul>
         </div>
 
