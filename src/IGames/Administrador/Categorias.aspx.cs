@@ -10,25 +10,36 @@ namespace IGames.Administrador
     public partial class Categorias : System.Web.UI.Page
     {
         public List<Modelo.Categoria> cats { get; set; }
-        
         public DAL.DALCategories dalcat { get; set; }
 
+        public List<Modelo.Jogo> jog { get; set; }
+        public DAL.DALGames daljog { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
-        {
+        { 
             if (!Page.IsPostBack)
             {
                 getCategories();
+                getJogos();
+
                 getCategoriasUpd();
                 getCategoriasDel();
             }
             
         }
-
+        //categoria
         protected void getCategories()
+        {
+            this.daljog = new DAL.DALGames();
+            this.jog = this.daljog.SelectAll();
+        }
+        //jogo
+        protected void getJogos()
         {
             this.dalcat = new DAL.DALCategories();
             this.cats = this.dalcat.SelectAll();
         }
+
         protected void getCategoriasUpd()
         {
             DAL.DALCategories cat = new DAL.DALCategories();

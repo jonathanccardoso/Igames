@@ -51,39 +51,18 @@
 		  <div class="collapsible-header"><%= cate.descricao %></div>
 		  <div class="collapsible-body">
 			<div class="row">
-				<div class="col l3 s6">
+				<% foreach(IGames.Modelo.Jogo jogo in jog) { %>
+                <div class="col l3 s6">
 					<div class="card">
-						<a href="Jogo.aspx">
-                            <%--<form runat="server">--%>
-                           <%-- <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/browserQuest.jpg" PostBackUrl="~/Administrador/Jogo.aspx?jogo=Browser Quest" />--%>
-                              <%--  <img class="responsive-img" src="../Images/browserQuest.jpg"> --%><br>
-						<b>Browser Quest</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
+						<a href="Jogo.aspx?jogo=<%= jogo.nome %>">
+                            <img src="<%= jogo.imagemUrl %>" class="responsive-img"/>
+						<b><%= jogo.nome %></b></a>
+						<p><%= jogo.descricao %></p>
 					</div>
 				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-			</div>
-		  </div>
+                <% } %>
+                </div>
+              </div>
 		</li>
               <% } %>
         </ul>
