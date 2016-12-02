@@ -30,6 +30,8 @@ namespace IGames.Public
                         Session["nome"] = user.nome;
                         Session["email"] = user.email;
                         Session["senha"] = user.senha;
+                        Session["iconeId"] = user.Icone_id;
+                       // Session["administrador"] = user.administrador;
                         Response.Redirect("~/" + (user.administrador ? "Administrador" : "User") + "/Index.aspx");
                     }
                     else
