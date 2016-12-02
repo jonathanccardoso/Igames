@@ -30,6 +30,7 @@ namespace IGames.Administrador
                     Modelo.Jogo jog = new Modelo.Jogo("Online/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text);
                     jogo.Insert(jog);
                 }
+                Response.Redirect("~/Administrador/Index.aspx");
         }
 
         protected void getCategories()
