@@ -80,7 +80,7 @@ namespace IGames.User
             DAL.DALRates dalaval = new DAL.DALRates();
             DAL.DALGames daljogo = new DAL.DALGames();
             //precisa do dal do jogo 
-            //pegar o nome do jogo
+            //pegar o nome do jogo na categoria
             Modelo.Avaliacao ava = new Modelo.Avaliacao(1, daljogo.SelectByName(Request.QueryString["jogo"]).id, Session["id"].ToString());
             dalaval.Insert(ava);
         }

@@ -51,7 +51,7 @@
     </aside>
     </div>
     <div class="center-align">
-        <asp:ImageButton ID="Estrela1" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="20px" OnClick="Estrela1_Click" />
+        <asp:ImageButton ID="Estrela1" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="10px" OnClick="Estrela1_Click" />
 
        <%-- <asp:ImageButton ID="Estrela2" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="100px" OnClick="Estrela2_Click" />
         <asp:ImageButton ID="Estrela3" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="100px" OnClick="Estrela3_Click" />
