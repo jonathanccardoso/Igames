@@ -35,33 +35,23 @@
 </nav>
 <main>
 <form runat="server" id="usuarios">
-    <%--<div class="center-align">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
-        <Columns>
-            <asp:BoundField DataField="nome" HeaderText="Usuarios" SortExpression="nome" />
-        </Columns>
-        </asp:GridView>
-
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2016TiiGrupo5ConnectionString %>" SelectCommand="SELECT [nome] FROM [Usuario]"></asp:SqlDataSource>
-     </div>
-     <div> 
-     </div>--%>
-
     <h1 class="center-align">Usuarios</h1><br>
     <div class="center-align">
 		  <div class="collapsible-body">
 			<div class="row">
-                <% foreach(IGames.Modelo.Usuario usuario in user) { %>
-				<% foreach(IGames.Modelo.Icone image in icone) { %>
+                <% foreach(IGames.Modelo.Usuario usuario in users) {
+				   foreach(IGames.Modelo.Icone icone in icones) {
+                   if(usuario.Icone_id == icone.id) { %>
                 <div class="col l3 s6">
 					<div class="card">
-                        <img src="<%= image.iconeUrl %>" class="responsive-img"/>
+                        <img src="<%= icone.iconeUrl %>" class="responsive-img"/>
 						<b><%= usuario.nome %></b>						
 					</div>
                     <!-- excluir usuario-->
-                    <li><a class="btn-floating green modal-trigger" href="#modalDelete"><i class="material-icons">delete</i></a></li>
+                    <a class="btn-floating green modal-trigger" href="#modalDelete"><i class="material-icons">delete</i></a>
 				</div>
-                <% } %>
+                <% } 
+                   } %>
                 </div>
           </div>
               <% } %>
@@ -70,7 +60,7 @@
                 <div class="modal-content">
                     <h4 class="center-align">Excluir usuario?</h4>
                          <div class="input-field">
-                             <asp:TextBox ID="delUser" runat="server" Visible="true" Text="<% usuario.nome %>">"></asp:TextBox><!--NÃO PODE APARECE-->
+                             <asp:TextBox ID="delUser" runat="server" Visible="true" Text="<%= usuario.nome %>">"></asp:TextBox><!--NÃO PODE APARECE-->
                          </div>
                  </div>
                  <div class="modal-footer center-align">
