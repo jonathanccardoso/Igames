@@ -26,8 +26,16 @@ namespace IGames.User
             email_user.Enabled = true;
             senha_user.Enabled = true;
         }
+
+        /*protected void Habilitar() {
+            if (Page.IsPostBack) { 
+                //descobrir como fazer  
+            }
+        }*/
+
         protected void Editar_Click(object sender, EventArgs e)
-        { 
+        {
+            
             //não esta inserido ainda
 
             string nome = Nome_user.Text;
@@ -40,5 +48,12 @@ namespace IGames.User
             Modelo.Usuario user = new Modelo.Usuario(nome, email, senha, administrador, Icone_id);
             daluser.Update(user);
         }
+
+        /*protected void Editar() {
+            if (Page.IsPostBack)
+            {
+                this.daluser.Update(this.user);
+            }
+        }*/
     }
 }
