@@ -63,7 +63,8 @@
                         Nome:<asp:TextBox ID="Nome_user" runat="server"></asp:TextBox><br />
                         E-mail:<asp:TextBox ID="email_user" runat="server"></asp:TextBox><br />
                         Senha:<asp:TextBox ID="senha_user" runat="server" TextMode="Password"></asp:TextBox><br /><br />
-                        <asp:LinkButton ID="EditaPerfil" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="EditarPerfil_Click">Editar</asp:LinkButton>
+                        <asp:LinkButton ID="EditaPerfil" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="EditarPerfil_Click">Editar</asp:LinkButton><br /><br />
+                        <asp:LinkButton ID="DelUser" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="Excluir_Click">Excluir Conta</asp:LinkButton>
                     </form>
                 </div>
             </div> 
