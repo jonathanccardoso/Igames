@@ -85,6 +85,9 @@
     <Content Include="Favicon\mstile-144x144.png" />
     <Content Include="Favicon\ToolbarIcon-1.png" />
     <Content Include="Favicon\ToolbarIcon-2.png" />
+    <Content Include="Icone\ariel.jpg" />
+    <Content Include="Icone\bartsimpson.jpg" />
+    <Content Include="Icone\bb8.jpg" />
     <Content Include="Images\browserQuest.jpg" />
     <Content Include="Images\EstrelaAcesa.png" />
     <Content Include="Images\EstrelaApagada.png" />
@@ -306,7 +309,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Download\" />
-    <Folder Include="Icones\" />
     <Folder Include="Online\" />
   </ItemGroup>
   <PropertyGroup>

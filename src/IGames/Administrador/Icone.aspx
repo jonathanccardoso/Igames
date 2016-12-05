@@ -36,7 +36,7 @@
 </div>
 </nav>
 <main>
-    <div class="collapsible-body">
+   <%-- <div class="collapsible-body">
 	    <div class="row">
 		    <% foreach(IGames.Modelo.Icone icone in ico) { %>
               <div class="col l3 s6">
@@ -46,7 +46,7 @@
 			</div>
                 <% } %>
         </div>
-     </div>
+     </div>--%>
     
    <form id="Form1" runat="server">
     <div class="fixed-action-btn vertical click-to-toggle">

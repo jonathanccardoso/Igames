@@ -76,10 +76,10 @@ namespace IGames.DAL
                             //lê os resultados
                             while (drAvaliacao.Read())
                             {
-                                int idAvaliacao = (int)drAvaliacao["id"];
-                                int NumeroEstrelas = (int)drAvaliacao["numeroEstrelas"];
-                                string UsuarioId = (string)drAvaliacao["usuarioId"];
-                                avaliacao = new Modelo.Avaliacao(idAvaliacao, NumeroEstrelas, UsuarioId);
+                                int NumeroEstrelas = int.Parse(drAvaliacao["numeroEstrelas"].ToString());
+                                int JogoId = int.Parse(drAvaliacao["Jogo_id"].ToString());
+                                string UsuarioId = drAvaliacao["Usuario_id"].ToString();
+                                avaliacao = new Modelo.Avaliacao(NumeroEstrelas, JogoId, UsuarioId);
                             }
                         }
                     }
@@ -103,10 +103,12 @@ namespace IGames.DAL
                     using (connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
-                        string sqlAvaliacao = "INSERT INTO Usuario(numeroEstrelas, UsuarioId) VALUES (@numeroEstrelas, @UsuarioId)";
+                        string sqlAvaliacao = "INSERT INTO Avaliacao(numeroEstrelas, Jogo_id, Usuario_id) VALUES (@numeroEstrelas,@Jogo_id, @Usuario_id)";
                         SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
                         cmdAvaliacao.Parameters.AddWithValue("@numeroEstrelas", avaliacao.numeroEstrelas);
-                        cmdAvaliacao.Parameters.AddWithValue("@UsuarioId", avaliacao.Usuario_id);
+                        cmdAvaliacao.Parameters.AddWithValue("@Jogo_id", avaliacao.Jogo_id);
+                        cmdAvaliacao.Parameters.AddWithValue("@Usuario_id", avaliacao.Usuario_id);
+                        
                         cmdAvaliacao.ExecuteNonQuery();
                     }
                 }
@@ -132,7 +134,7 @@ namespace IGames.DAL
                     connection.Open();
                     if (Select(avaliacao.Jogo_id, avaliacao.Usuario_id) != avaliacao)
                     {
-                        string sqlAvaliacao = "UPDATE Avaliação SET numeroEstrelas = @numeroEstrelas WHERE Usuario_id = @usuario_id and Jogo_id = @jogo_id";
+                        string sqlAvaliacao = "UPDATE Avaliacao SET numeroEstrelas = @numeroEstrelas WHERE Usuario_id = @usuario_id and Jogo_id = @jogo_id";
                         SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
                         cmdAvaliacao.Parameters.AddWithValue("@numeroEstrelas", avaliacao.numeroEstrelas);
                         cmdAvaliacao.Parameters.AddWithValue("@usuario_id", avaliacao.Usuario_id);
@@ -156,7 +158,7 @@ namespace IGames.DAL
                 using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string sqlAvaliacao = "DELETE FROM Avaliação WHERE Usuario_id = @usuario_id";
+                    string sqlAvaliacao = "DELETE FROM Avaliacao WHERE Usuario_id = @usuario_id";
                     SqlCommand cmdAvaliacao = new SqlCommand(sqlAvaliacao, connection);
                     cmdAvaliacao.Parameters.AddWithValue("@usuario_id", avaliacao.Usuario_id);
                     cmdAvaliacao.ExecuteNonQuery();

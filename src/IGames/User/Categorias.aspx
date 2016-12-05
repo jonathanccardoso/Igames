@@ -43,7 +43,6 @@
 </nav>
 <main>
 <h1 class="center-align">Categorias</h1><br>
-	 <h1 class="center-align">Categorias</h1><br>
 	
     <div class="center-align">
 		  <ul class="collapsible popout" data-collapsible="accordion">

@@ -46,7 +46,7 @@ namespace IGames.Administrador
         {
             if (UploadImage.HasFile)
             {
-                UploadImage.PostedFile.SaveAs(Server.MapPath("~") + "Icones/" + UploadImage.FileName);
+                UploadImage.PostedFile.SaveAs(Server.MapPath("~") + "Icone/" + UploadImage.FileName);
             }
         }
         //protected void DelIcone_Click(object sender, EventArgs e)
