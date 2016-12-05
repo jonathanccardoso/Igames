@@ -42,6 +42,9 @@ aside {
     top: 0;
     padding-top: 2px;
 }
+.dropdown-button {
+    display: flex;
+}
 .usericon {
     margin-top: 1vh;
     width:3vw;
