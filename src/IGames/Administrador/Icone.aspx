@@ -38,7 +38,7 @@
 <main>
    <%-- <div class="collapsible-body">
 	    <div class="row">
-		    <% foreach(IGames.Modelo.Icone icone in ico) { %>
+		    <% foreach(IGames.Modelo.Icone icon in icones) { %>
               <div class="col l3 s6">
 		   		<div class="card">
                   <img src="<%= icone.iconeUrl %>" class="responsive-img"/>
@@ -55,7 +55,6 @@
             </a>
             <ul>
               <li><a class="btn-floating red modal-trigger" href="#modalInsert"><i class="material-icons">add</i></a></li>
-              <%--<li><a class="btn-floating yellow darken-1 modal-trigger" href="#modalUpdate"><i class="material-icons">mode_edit</i></a></li>--%>
               <li><a class="btn-floating green modal-trigger" href="#modalDelete"><i class="material-icons">delete</i></a></li>
             </ul>
       </div>
@@ -66,8 +65,6 @@
                     <div class="input-field">
                         <span>Imagem</span>
                         <asp:FileUpload ID="UploadImage" runat="server" />
-                        <%--<asp:TextBox ID="InstCategoria" runat="server"></asp:TextBox>
-                        <label for="ContentPlaceholder2_TextBox1">Descrição</label>--%>
                     </div>
                 </div>
                 <div class="modal-footer center-align">
