@@ -24,8 +24,11 @@ namespace IGames.Administrador
         //não pega ainda
         protected void getIcons()
         {
-            this.dalicone = new DAL.DALIcons();
-            this.icones = this.dalicone.SelectAll();
+            if (!Page.IsPostBack)
+            {
+                this.dalicone = new DAL.DALIcons();
+                this.icones = this.dalicone.SelectAll();
+            }
         }
 
         //protected void getIconeDel() 
@@ -50,7 +53,7 @@ namespace IGames.Administrador
         {
                 uploadImage();
                 DAL.DALIcons jogo = new DAL.DALIcons();
-                Modelo.Icone jog = new Modelo.Icone ( "Icone/" + UploadImage.FileName);
+                Modelo.Icone jog = new Modelo.Icone(Server.MapPath("~") + "Icone/" + UploadImage.FileName);
                 jogo.Insert(jog);
                 Response.Redirect("~/Administrador/Index.aspx");
         }

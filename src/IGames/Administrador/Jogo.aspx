@@ -5,7 +5,6 @@
 <nav>
 <div class="nav-wrapper">  
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-<%--<form id="Form1" runat="server">--%>
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
 <li> 
@@ -17,32 +16,40 @@
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
 <li>
-<a href="Perfil.aspx" class="perfil-desktop">
-<%--<asp:Image ID="Image1" runat="server" ImageUrl="~/Images/user.png" Width="50" Height="45" CssClass="circle" />
-<asp:Label ID="Label3" runat="server" Text="Usuário" Font-Bold="true"></asp:Label>--%>
+<a class="dropdown-button" data-activates="dropdown1">
+<img src="<%= icon.iconeUrl %>" class="circle usericon"/>
+<label><%= user.nome %></label>
 </a>
+<ul id="dropdown1" class="dropdown-content">
+<li><a href="Pefil.aspx">Perfil</a></li>
+<li><a href="Favoritos.aspx">Favoritos</a></li>
+<li><a href="#" onclick="<% Sair(); %>">Sair</a></li>
+</ul>
 </li>
 </ul>
 <ul class="side-nav" id="mobile-demo">
 <li>
 <div class="toolbar">
 <a href="Perfil.aspx" class="perfil-mobile">
-<%--<asp:Image ID="Image2" runat="server" ImageUrl="~/Images/user.png" CssClass="circle usericon" />
-<asp:Label ID="Label4" runat="server" Text="Usuário" Font-Bold="true"></asp:Label>--%>
+<img src="<%= icon.iconeUrl %>" class="circle usericon"/>
+<label><%= user.nome %></label>
 </a>
 </div>
 </li>
 <li><a class="search"><i class="material-icons left">search</i>Pesquisar</a></li>
 <li>
 <div class="input-field search-mobile">
-<%--<asp:TextBox ID="TextBox1" runat="server" CssClass="mobileSearch"></asp:TextBox>--%>
-<label for="ContentPlaceholder2_mobileSearch"><i class="material-icons">search</i></label><i class="material-icons mobile-close">close</i>
+<input type="text" class="mobileSearch"/>
+<label for="mobileSearch"><i class="material-icons">search</i></label>
+<i class="material-icons mobile-close">close</i>
 </div>
 </li>
-<li><a href="categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
-<li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
+<li><a href="Categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
+<li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
+<li><a href="Perfil.aspx"><i class="material-icons left">account_circle</i>Perfil</a></li>
+<li><a href="Favoritos.aspx"><i class="material-icons left">favorite</i>Favoritos</a></li>
+<li><a href="#" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
-<%--</form>--%>
 <a href="#" class="brand-logo">Logo</a>
 </div>
 </nav>

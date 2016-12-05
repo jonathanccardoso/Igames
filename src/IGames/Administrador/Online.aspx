@@ -3,11 +3,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <nav>
-<div class="nav-wrapper"> 
+<div class="nav-wrapper">  
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
-<li>
+<li> 
 <div class="input-field search-desktop">
 <input id="search" type="search">
 <label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
@@ -15,23 +15,42 @@
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
-<%--<li><a onclick=""></a></li>--%>
-<%--<li><form id="Form1" runat="server"><asp:LinkButton ID="login" runat="server"  OnClick="Sair_Click">Sair</asp:LinkButton></form></li>--%>
+<li>
+<a class="dropdown-button" data-activates="dropdown1">
+<img src="<%= icon.iconeUrl %>" class="circle usericon"/>
+<label><%= user.nome %></label>
+</a>
+<ul id="dropdown1" class="dropdown-content">
+<li><a href="Pefil.aspx">Perfil</a></li>
+<li><a href="Favoritos.aspx">Favoritos</a></li>
+<li><a href="#" onclick="<% Sair(); %>">Sair</a></li>
+</ul>
+</li>
 </ul>
 <ul class="side-nav" id="mobile-demo">
 <li>
-<div class="card grey lighten-1 search-mobile">
-<div class="input-field inputy">
-<input type="search" class="inp">
-<label for="searc"><i class="material-icons">search</i></label>
-<i class="material-icons clos">close</i>
-</div>
+<div class="toolbar">
+<a href="Perfil.aspx" class="perfil-mobile">
+<img src="<%= icon.iconeUrl %>" class="circle usericon"/>
+<label><%= user.nome %></label>
+</a>
 </div>
 </li>
-<li><a href="categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
-<li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
+<li><a class="search"><i class="material-icons left">search</i>Pesquisar</a></li>
+<li>
+<div class="input-field search-mobile">
+<input type="text" class="mobileSearch"/>
+<label for="mobileSearch"><i class="material-icons">search</i></label>
+<i class="material-icons mobile-close">close</i>
+</div>
+</li>
+<li><a href="Categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
+<li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
+<li><a href="Perfil.aspx"><i class="material-icons left">account_circle</i>Perfil</a></li>
+<li><a href="Favoritos.aspx"><i class="material-icons left">favorite</i>Favoritos</a></li>
+<li><a href="#" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
-<a href="index.aspx" class="brand-logo">Logo</a>
+<a href="#" class="brand-logo">Logo</a>
 </div>
 </nav>
 <main>
