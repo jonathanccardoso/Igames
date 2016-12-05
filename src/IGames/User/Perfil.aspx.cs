@@ -35,9 +35,7 @@ namespace IGames.User
 
         protected void Editar_Click(object sender, EventArgs e)
         {
-            
             //não esta inserido ainda
-
             string nome = Nome_user.Text;
             string email = email_user.Text;
             string senha = senha_user.Text;
@@ -47,8 +45,14 @@ namespace IGames.User
             DAL.DALUsers daluser = new DAL.DALUsers();
             Modelo.Usuario user = new Modelo.Usuario(nome, email, senha, administrador, Icone_id);
             daluser.Update(user);
-        }
-
+        } 
+        protected void Excluir_Click(object sender, EventArgs e){
+            string id = Session["id"].ToString(); 
+            DAL.DALUsers daluser = new DAL.DALUsers();
+            Modelo.Usuario user = daluser.Select(id);
+            daluser.Delete(user); 
+            Response.Redirect("~/Public/Index.aspx");
+        }   
         /*protected void Editar() {
             if (Page.IsPostBack)
             {
