@@ -30,14 +30,14 @@ namespace IGames.Administrador
         //categoria
         protected void getCategories()
         {
-            this.daljog = new DAL.DALGames();
-            this.jog = this.daljog.SelectAll();
+            this.dalcat = new DAL.DALCategories();
+            this.cats = this.dalcat.SelectAll();
         }
         //jogo
         protected void getJogos()
         {
-            this.dalcat = new DAL.DALCategories();
-            this.cats = this.dalcat.SelectAll();
+            this.daljog = new DAL.DALGames();
+            this.jog = this.daljog.SelectAll();
         }
 
         protected void getCategoriasUpd()
