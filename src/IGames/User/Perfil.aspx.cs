@@ -10,8 +10,20 @@ namespace IGames.User
 {
     public partial class Perfil : System.Web.UI.Page
     {
+        public DAL.DALUsers daluser { get; set; }
+
+        public Modelo.Usuario user { get; set; }
+
+        public DAL.DALIcons dalicon { get; set; }
+
+        public Modelo.Icone icon { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            hasUser();
+            getUser();
+            getIcon();
+
             Nome_user.Text = Session["nome"].ToString();
             email_user.Text = Session["email"].ToString();
             senha_user.Text = Session["senha"].ToString();
@@ -59,5 +71,46 @@ namespace IGames.User
                 this.daluser.Update(this.user);
             }
         }*/
+        protected void hasUser()
+        {
+            if (!Page.IsPostBack)
+            {
+                if (Session["id"] == null)
+                {
+                    Response.Redirect("~/Public/Cadastro.aspx");
+                }
+            }
+        }
+
+        protected void getUser()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.daluser = new DAL.DALUsers();
+                this.user = daluser.Select(Session["id"].ToString());
+            }
+        }
+
+        protected void getIcon()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.dalicon = new DAL.DALIcons();
+                this.icon = dalicon.Select(this.user.Icone_id);
+            }
+        }
+
+        protected void Sair()
+        {
+            if (Request.QueryString["exit"] != null)
+            {
+                if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
+                {
+                    Session["id"] = null;
+                    Session["email"] = null;
+                    Response.Redirect("~/Public/Index.aspx");
+                }
+            }
+        }
     }
 }

@@ -22,7 +22,6 @@ namespace IGames.DAL
                 using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    //não sei se o nome da tabela é jogocategoria
                     string sqlJogocategoria = "SELECT * FROM JogoCategoria";
                     SqlCommand cmdJogocategoria = new SqlCommand(sqlJogocategoria, connection);
                     SqlDataReader drJogocategoria;
@@ -92,7 +91,7 @@ namespace IGames.DAL
         {
             try
             {
-                if (this.Select(JogoCategoria.Jogo_id) == null && this.Select(JogoCategoria.Categoria_id) == null)
+                if (this.Select(JogoCategoria.Jogo_id) == null)
                 {
                     using (connection = new SqlConnection(connectionString))
                     {
@@ -104,39 +103,12 @@ namespace IGames.DAL
                         cmdJogoCategoria.ExecuteNonQuery();
                     }
                 }
-                else
-                {
-                    //erro no update
-                    this.Update(JogoCategoria);
-                }
             }
             catch (SystemException)
             {
                 throw;
             }
         }
-        /*Método Update
-        [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.JogoCategoria JogoCategoria) 
-        {
-            try
-            {
-                using (connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    //não sei como colocar no sqlJogoCategoria
-                    string sqlJogoCategoria = "UPDATE JogoCategoria SET descricao = @descricao WHERE id = @id";
-                    SqlCommand cmdJogoCategoria = new SqlCommand(sqlJogoCategoria, connection);
-                    cmdJogoCategoria.Parameters.AddWithValue("@id", JogoCategoria.Jogo_id);
-                    //cmdJogoCategoria.Parameters.AddWithValue("@descricao", categoria.descricao);
-                    cmdJogoCategoria.ExecuteNonQuery();
-                }
-            }
-            catch (SystemException)
-            {
-                throw;
-            }
-        }*/
         //Método Delete
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Delete(Modelo.JogoCategoria JogoCategoria)

@@ -24,7 +24,8 @@ namespace IGames.User
             getIcon();
         }
 
-        protected void hasUser() {
+        protected void hasUser()
+        {
             if (!Page.IsPostBack)
             {
                 if (Session["id"] == null)
@@ -33,7 +34,7 @@ namespace IGames.User
                 }
             }
         }
-        
+
         protected void getUser()
         {
             if (!Page.IsPostBack)
@@ -43,19 +44,25 @@ namespace IGames.User
             }
         }
 
-        protected void getIcon() {
-            if (!Page.IsPostBack) {
+        protected void getIcon()
+        {
+            if (!Page.IsPostBack)
+            {
                 this.dalicon = new DAL.DALIcons();
                 this.icon = dalicon.Select(this.user.Icone_id);
             }
         }
 
-        protected void Sair() {
-            if (Page.IsPostBack)
+        protected void Sair()
+        {
+            if (Request.QueryString["exit"] != null)
             {
-                Session["id"] = null;
-                Session["email"] = null;
-                Response.Redirect("~/Public/Index.aspx");
+                if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
+                {
+                    Session["id"] = null;
+                    Session["email"] = null;
+                    Response.Redirect("~/Public/Index.aspx");
+                }
             }
         }
     }

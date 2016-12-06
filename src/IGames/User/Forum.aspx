@@ -17,13 +17,13 @@
 <li><a href="Forum.aspx">Fórum</a></li>
 <li>
 <a class="dropdown-button" data-activates="dropdown1">
-<img src="<%= icon.iconeUrl %>" class="circle usericon"/>
+<img src="../<%= icon.iconeUrl %>" class="circle usericon"/>
 <label><%= user.nome %></label>
 </a>
 <ul id="dropdown1" class="dropdown-content">
 <li><a href="Pefil.aspx">Perfil</a></li>
 <li><a href="Favoritos.aspx">Favoritos</a></li>
-<li><a href="#" onclick="<% Sair(); %>">Sair</a></li>
+<li><a href="?exit=1" onclick="<% Sair(); %>">Sair</a></li>
 </ul>
 </li>
 </ul>
@@ -31,7 +31,7 @@
 <li>
 <div class="toolbar">
 <a href="Perfil.aspx" class="perfil-mobile">
-<img src="<%= icon.iconeUrl %>" class="circle usericon"/>
+<img src="../<%= icon.iconeUrl %>" class="circle usericon"/>
 <label><%= user.nome %></label>
 </a>
 </div>
@@ -48,12 +48,13 @@
 <li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="Perfil.aspx"><i class="material-icons left">account_circle</i>Perfil</a></li>
 <li><a href="Favoritos.aspx"><i class="material-icons left">favorite</i>Favoritos</a></li>
-<li><a href="#" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
+<li><a href="?exit=1" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
 <a href="#" class="brand-logo">Logo</a>
 </div>
 </nav>
 <main>
+<form runat="server">
     <div class="card">
     <div class="card-content">
     <div class="row coment">
