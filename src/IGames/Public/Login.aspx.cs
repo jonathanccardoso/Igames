@@ -10,6 +10,10 @@ namespace IGames.Public
 {
     public partial class Login : System.Web.UI.Page
     {
+        public string email { get; set; }
+
+        public string senha { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -17,26 +21,30 @@ namespace IGames.Public
 
         protected void login()
         {
+            this.email = Request.Form["email"];
+            this.senha = Request.Form["senha"];
             if (Page.IsPostBack)
             {
-                if (Request.Form.GetKey(2) != "" && Request.Form.GetKey(3) != "")
+                if (this.email != "" && this.senha != "")
                 {
                     DAL.DALUsers daluser = new DAL.DALUsers();
-                    Modelo.Usuario user = daluser.Select(Membership.GetUser(Membership.GetUserNameByEmail(Request.Form["email"])).ProviderUserKey.ToString());
-                    if (Membership.ValidateUser(user.nome, user.senha))
+                    Modelo.Usuario user = daluser.Select(Membership.GetUser(Membership.GetUserNameByEmail(email)).ProviderUserKey.ToString());
+                    if (this.email == user.email && this.senha == user.senha)
                     {
-                        FormsAuthentication.SetAuthCookie(Request.Form["email"], true);
-                        Session["id"] = user.id;
-                        Session["nome"] = user.nome;
-                        Session["email"] = user.email;
-                        Session["senha"] = user.senha;
-                        Session["iconeId"] = user.Icone_id;
-                       // Session["administrador"] = user.administrador;
-                        Response.Redirect("~/" + (user.administrador ? "Administrador" : "User") + "/Index.aspx");
-                    }
-                    else
-                    {
-                        Response.Redirect("~/Public/Login.aspx");
+                        if (Membership.ValidateUser(Membership.GetUserNameByEmail(email), this.senha))
+                        {
+                            FormsAuthentication.SetAuthCookie(email, true);
+                            Session["id"] = user.id;
+                            Session["nome"] = user.nome;
+                            Session["email"] = user.email;
+                            Session["senha"] = user.senha;
+                            Session["iconeId"] = user.Icone_id;
+                            Response.Redirect("~/" + (user.administrador ? "Administrador" : "User") + "/Index.aspx");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/Public/Login.aspx");
+                        }
                     }
                 }
             }
