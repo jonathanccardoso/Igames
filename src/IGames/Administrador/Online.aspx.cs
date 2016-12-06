@@ -12,6 +12,10 @@ namespace IGames.Administrador
 {
     public partial class Online : System.Web.UI.Page
     {
+        public DAL.DALGamesCategories daljogocategoria { get; set; }
+
+        public Modelo.JogoCategoria jogocategoria { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -29,6 +33,9 @@ namespace IGames.Administrador
                     DAL.DALGames jogo = new DAL.DALGames();
                     Modelo.Jogo jog = new Modelo.Jogo("Online/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text);
                     jogo.Insert(jog);
+                    this.daljogocategoria = new DAL.DALGamesCategories();
+                    this.jogocategoria = new Modelo.JogoCategoria(jog.id, int.Parse(Categorias.SelectedItem.Value));
+                    this.daljogocategoria.Insert(this.jogocategoria);
                 }
                 Response.Redirect("~/Administrador/Index.aspx");
         }

@@ -23,27 +23,40 @@ namespace IGames.User
             hasUser();
             getUser();
             getIcon();
-
-            Nome_user.Text = Session["nome"].ToString();
-            email_user.Text = Session["email"].ToString();
-            senha_user.Text = Session["senha"].ToString();
-
-            Nome_user.Enabled = false;
-            email_user.Enabled = false;
-            senha_user.Enabled = false;
+            InitTextBox();
         }
-        protected void EditarPerfil_Click(object sender, EventArgs e)
-        {
-            Nome_user.Enabled = true;
-            email_user.Enabled = true;
-            senha_user.Enabled = true;
-        }
-
-        /*protected void Habilitar() {
-            if (Page.IsPostBack) { 
-                //descobrir como fazer  
-            }
+        /*protected void EditarPerfil_Click(object sender, EventArgs e)
+        {   
+            EditaPerfil.Click -= EditarPerfil_Click;
+            EditaPerfil.Click += Editar_Click;
         }*/
+
+        protected void InitTextBox() {
+            if (Request.QueryString["edit"] == null)
+            {
+                Nome_user.Text = user.nome;
+                Nome_user.Enabled = false;
+                email_user.Text = user.email;
+                email_user.Enabled = false;
+                senha_user.Text = user.senha;
+                senha_user.Enabled = false;
+            }
+        }
+
+        protected void Habilitar() {
+            if (Request.QueryString["edit"] != null)
+            {
+                if (int.Parse(Request.QueryString["edit"].ToString()) == 1)
+                {
+                    Nome_user.Enabled = true;
+                    Nome_user.Text = user.nome;
+                    email_user.Text = user.email;
+                    email_user.Enabled = true;
+                    senha_user.Text = user.senha;
+                    senha_user.Enabled = true;  
+                }
+            }
+        }
 
         protected void Editar_Click(object sender, EventArgs e)
         {

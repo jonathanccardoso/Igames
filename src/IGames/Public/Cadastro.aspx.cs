@@ -12,9 +12,15 @@ namespace IGames.Public
 {
     public partial class Cadastro : System.Web.UI.Page
     {
+        public DAL.DALIcons dalicone { get; set; }
+
+        public List<Modelo.Icone> icones { get; set; }
+
+        public Modelo.Icone icone { get; set; }
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            getIcon();
         }
 
         protected void Cadastrar_Click(object sender, EventArgs e)
@@ -22,7 +28,7 @@ namespace IGames.Public
             if (nome.Text != null && senha.Text != null && email.Text != null && confsenha.Text != null)
             {
                 DAL.DALUsers daluser = new DAL.DALUsers();
-                Modelo.Usuario user = new Modelo.Usuario(nome.Text, email.Text, senha.Text, false, Convert.ToInt32(Request.QueryString["iconeId"]));
+                Modelo.Usuario user = new Modelo.Usuario(nome.Text, email.Text, senha.Text, false, icone.id);
                 Membership.CreateUser(user.nome, user.senha, user.email);
                 user.id = Membership.GetUser(Membership.GetUserNameByEmail(user.email)).ProviderUserKey.ToString();
                 Roles.AddUserToRole(user.nome, "Usuario");
@@ -35,6 +41,21 @@ namespace IGames.Public
             else
             {
                 Response.Redirect(Request.RawUrl);
+            }
+        }
+
+        protected void getIcon()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.dalicone = new DAL.DALIcons();
+                this.icones = dalicone.SelectAll();
+            }
+        }
+
+        protected void setIcon() {
+            if (Request.QueryString["icone"] != null){
+                this.icone = dalicone.Select(int.Parse(Request.QueryString["icone"]));
             }
         }
     }

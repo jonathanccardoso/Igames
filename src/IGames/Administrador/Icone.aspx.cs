@@ -9,15 +9,27 @@ namespace IGames.Administrador
 {
     public partial class Icone : System.Web.UI.Page
     {
-        public List<Modelo.Icone> icones { get; set; }
+        public DAL.DALUsers daluser { get; set; }
+
+        public Modelo.Usuario user { get; set; }
 
         public DAL.DALIcons dalicone { get; set; }
 
         public Modelo.Icone icone { get; set; }
 
+        public Modelo.Icone ico { get; set; }
+
+        public List<Modelo.Icone> icones { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            getIcons();
+            if (!Page.IsPostBack)
+            {
+                getIcons();
+                hasUser();
+                getUser();
+                getIcon();
+            }
         }
 
         //icone 
@@ -49,13 +61,25 @@ namespace IGames.Administrador
             Response.Redirect("~/Administrador/Index.aspx");
         }*/
 
+        protected void Delete()
+        {
+            if (Request.QueryString["delete"] != null)
+            {
+                int id = int.Parse(Request.QueryString["delete"].ToString());
+                this.dalicone = new DAL.DALIcons();
+                this.ico = dalicone.Select(id);
+                dalicone.Delete(ico);
+                Response.Redirect("~/Administrador/Icone.aspx");
+            }
+        }
+
         protected void AddIcone_Click(object sender, EventArgs e)
         {
                 uploadImage();
                 DAL.DALIcons jogo = new DAL.DALIcons();
-                Modelo.Icone jog = new Modelo.Icone(Server.MapPath("~") + "Icone/" + UploadImage.FileName);
+                Modelo.Icone jog = new Modelo.Icone("../Icone/" + UploadImage.FileName);
                 jogo.Insert(jog);
-                Response.Redirect("~/Administrador/Index.aspx");
+                Response.Redirect("~/Administrador/Icone.aspx");
         }
 
         protected void uploadImage()
@@ -66,13 +90,46 @@ namespace IGames.Administrador
             }
         }
 
-        //protected void DelIcone_Click(object sender, EventArgs e)
-        //{ 
-        //    int id = int.Parse(listCatDel.SelectedItem.Value);
-        //    DAL.DALIcons dalicone = new DAL.DALIcons();
-        //    Modelo.Icone ico = dalicone.Select(id);
-        //    dalicone.Delete(ico);
-        //    Response.Redirect("~/Administrador/Index.aspx");
-        //}
+        protected void hasUser()
+        {
+            if (!Page.IsPostBack)
+            {
+                if (Session["id"] == null)
+                {
+                    Response.Redirect("~/Public/Cadastro.aspx");
+                }
+            }
+        }
+
+        protected void getUser()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.daluser = new DAL.DALUsers();
+                this.user = daluser.Select(Session["id"].ToString());
+            }
+        }
+
+        protected void getIcon()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.dalicone = new DAL.DALIcons();
+                this.icone = dalicone.Select(this.user.Icone_id);
+            }
+        }
+
+        protected void Sair()
+        {
+            if (Request.QueryString["exit"] != null)
+            {
+                if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
+                {
+                    Session["id"] = null;
+                    Session["email"] = null;
+                    Response.Redirect("~/Public/Index.aspx");
+                }
+            }
+        }
     }
 }

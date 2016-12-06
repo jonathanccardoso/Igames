@@ -17,7 +17,7 @@
 <li><a href="Forum.aspx">Fórum</a></li>
 <li>
 <a class="dropdown-button" data-activates="dropdown1">
-<img src="../<%= icon.iconeUrl %>" class="circle usericon"/>
+<img src="<%= icon.iconeUrl %>" class="circle usericon"/>
 </a>
 <ul id="dropdown1" class="dropdown-content">
 <li><a href="Perfil.aspx">Perfil</a></li>
@@ -30,7 +30,7 @@
 <li>
 <div class="toolbar">
 <a href="Perfil.aspx" class="perfil-mobile">
-<img src="../<%= icon.iconeUrl %>" class="circle usericon"/>
+<img src="<%= icon.iconeUrl %>" class="circle usericon"/>
 <label><%= user.nome %></label>
 </a>
 </div>

@@ -24,11 +24,15 @@
 <div class="card-content center-align">
     <h3>Cadastre-se</h3>
     <div class="carousel">
-        <a class="carousel-item" href="?iconeId=1"><img src="http://lorempixel.com/250/250/nature/1"></a>
-        <a class="carousel-item" href="?iconeId=2"><img src="http://lorempixel.com/250/250/nature/2"></a>
-        <a class="carousel-item" href="?iconeId=3"><img src="http://lorempixel.com/250/250/nature/3"></a>
-        <a class="carousel-item" href="?iconeId=4"><img src="http://lorempixel.com/250/250/nature/4"></a>
-        <a class="carousel-item" href="?iconeId=5"><img src="http://lorempixel.com/250/250/nature/5"></a>
+        <% foreach(IGames.Modelo.Icone icon in icones) { %>
+        <%-- if(Request.QueryString["icone"] != null) { --%>
+        <%-- if(int.Parse(Request.QueryString["icone"].ToString()) == icon.id) { --%>
+        <a class="carousel-item" href="?icone=<%= icon.id %>" onclick="<% setIcon(); %>"><img src="<%= icon.iconeUrl %>"></a>
+        <%-- } --%>
+        <%-- } else {--%>
+        <%-- <a class="carousel-item" href="?icone=<%= icon.id %>" onclick="<% setIcon(icon.id, icon.iconeUrl); %>"><img src="../<%= icon.iconeUrl %>"></a> --%>
+        <%-- } --%>
+        <% } %>
     </div>
     <div class="input-field">
     <asp:TextBox ID="nome" runat="server"></asp:TextBox>

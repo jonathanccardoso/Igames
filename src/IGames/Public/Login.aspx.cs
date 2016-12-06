@@ -49,10 +49,5 @@ namespace IGames.Public
                 }
             }
         }
-
-        protected void cadastro_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Public/Cadastro.aspx");
-        }
     }
 }

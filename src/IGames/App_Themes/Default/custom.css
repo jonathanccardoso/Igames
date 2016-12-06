@@ -126,3 +126,17 @@ input[name=fb] {
 #ContentPlaceHolder2_addGame {
     margin-bottom: 18px;
 }
+/*.card-close {
+    position: absolute;
+    left: -10px;
+    top: -20px;
+    z-index: 9999;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
+    vertical-align: central;
+    color: blue;
+}
+.card-close .material-icons {
+    font-size: 1.2rem;
+
+}*/

@@ -48,7 +48,7 @@
 <li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="Perfil.aspx"><i class="material-icons left">account_circle</i>Perfil</a></li>
 <li><a href="Favoritos.aspx"><i class="material-icons left">favorite</i>Favoritos</a></li>
-<li><a href="#" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
+<li><a href="?exit=1" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
 <a href="#" class="brand-logo">Logo</a>
 </div>
@@ -195,8 +195,9 @@
 </div>
 </div>
 <div class="row">
-<a class="col s12 btn modal-jogo" href="#modal-jogo">Adicionar Jogos</a>
-<a class="col l1 offset-l9 s12 btn" href="Usuarios.aspx">Usuários</a>
+<a class="col l1 s12 btn modal-jogo" href="#modal-jogo">Adicionar Jogos</a>
+<a class="col l1 offset-l4 btn" href="Icone.aspx">Icones</a>
+<a class="col l1 offset-l4 s12 btn" href="Usuarios.aspx">Usuários</a>
 </div>
 <div id="modal-jogo" class="modal">
 <form id="Form1" runat="server">
