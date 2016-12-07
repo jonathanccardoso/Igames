@@ -64,7 +64,7 @@
                         E-mail:<asp:TextBox ID="email_user" runat="server"></asp:TextBox><br />
                         Senha:<asp:TextBox ID="senha_user" runat="server" TextMode="Password"></asp:TextBox><br /><br />
                         <a class="waves-effect waves-light btn green darken-1" href="?edit=1" onclick="<% Habilitar(); %>">Editar</a><br /><br />
-                        <asp:LinkButton ID="DelUser" runat="server" CssClass="waves-effect waves-light btn green darken-1" OnClick="Excluir_Click">Excluir Conta</asp:LinkButton>
+                        <a class="waves-effect waves-light btn green darken-1" href="?edit=2" onclick="<% Excluir(); %>">Excluir Conta</a><br /><br />
                     </form>
                 </div>
             </div> 

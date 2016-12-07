@@ -18,6 +18,10 @@ namespace IGames.User
 
         public Modelo.Icone icon { get; set; }
 
+        public DAL.DALRates dalrates { get; set; }
+
+        public Modelo.Avaliacao avaliacao { get; set; }
+         
         protected void Page_Load(object sender, EventArgs e)
         {
             hasUser();
@@ -53,14 +57,17 @@ namespace IGames.User
                     email_user.Text = user.email;
                     email_user.Enabled = true;
                     senha_user.Text = user.senha;
-                    senha_user.Enabled = true;  
+                    senha_user.Enabled = true;
+                }
+                else if (Nome_user.Enabled == true)
+                {
+                    Editar_Click();
                 }
             }
         }
 
-        protected void Editar_Click(object sender, EventArgs e)
+        protected void Editar_Click()
         {
-            //não esta inserido ainda
             string nome = Nome_user.Text;
             string email = email_user.Text;
             string senha = senha_user.Text;
@@ -71,8 +78,14 @@ namespace IGames.User
             Modelo.Usuario user = new Modelo.Usuario(nome, email, senha, administrador, Icone_id);
             daluser.Update(user);
         } 
-        protected void Excluir_Click(object sender, EventArgs e){
-            string id = Session["id"].ToString(); 
+        protected void Excluir(){ 
+            string id = Session["id"].ToString();
+            string Usuario_id = this.avaliacao.;
+
+            DAL.DALRates dalavaliar = new DAL.DALRates();
+            Modelo.Avaliacao avaliar = dalavaliar.Select(Usuario_id);
+            dalavaliar.Delete(avaliar);
+
             DAL.DALUsers daluser = new DAL.DALUsers();
             Modelo.Usuario user = daluser.Select(id);
             daluser.Delete(user); 
