@@ -21,6 +21,8 @@ namespace IGames.User
         public DAL.DALRates dalrates { get; set; }
 
         public Modelo.Avaliacao avaliacao { get; set; }
+
+        public int ctrl { get; set; }
          
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -52,16 +54,19 @@ namespace IGames.User
             {
                 if (int.Parse(Request.QueryString["edit"].ToString()) == 1)
                 {
-                    Nome_user.Enabled = true;
-                    Nome_user.Text = user.nome;
-                    email_user.Text = user.email;
-                    email_user.Enabled = true;
-                    senha_user.Text = user.senha;
-                    senha_user.Enabled = true;
-                }
-                else if (Nome_user.Enabled == true)
-                {
-                    Editar_Click();
+                    if (this.ctrl != 1)
+                    {
+                        Nome_user.Enabled = true;
+                        Nome_user.Text = user.nome;
+                        email_user.Text = user.email;
+                        email_user.Enabled = true;
+                        senha_user.Text = user.senha;
+                        senha_user.Enabled = true;
+                        this.ctrl = 1;
+                    }
+                    else {
+                        Editar_Click();
+                    }
                 }
             }
         }
@@ -78,18 +83,28 @@ namespace IGames.User
             Modelo.Usuario user = new Modelo.Usuario(nome, email, senha, administrador, Icone_id);
             daluser.Update(user);
         } 
-        protected void Excluir(){ 
-            string id = Session["id"].ToString();
-            string Usuario_id = this.avaliacao.;
-
-            DAL.DALRates dalavaliar = new DAL.DALRates();
-            Modelo.Avaliacao avaliar = dalavaliar.Select(Usuario_id);
-            dalavaliar.Delete(avaliar);
-
-            DAL.DALUsers daluser = new DAL.DALUsers();
-            Modelo.Usuario user = daluser.Select(id);
-            daluser.Delete(user); 
-            Response.Redirect("~/Public/Index.aspx");
+        protected void Excluir(){
+            if (Request.QueryString["delete"] != null)
+            {
+                if (int.Parse(Request.QueryString["delete"].ToString()) == 1)
+                {
+                    string id = Session["id"].ToString();
+                    DAL.DALRates dalavaliar = new DAL.DALRates();
+                    List<Modelo.Avaliacao> avaliacoes = dalavaliar.SelectByUser(id);
+                    foreach (Modelo.Avaliacao avaliar in avaliacoes)
+                    {
+                        dalavaliar.Delete(avaliar);
+                    }
+                    DAL.DALUsers daluser = new DAL.DALUsers();
+                    Modelo.Usuario user = daluser.Select(id);
+                    daluser.Delete(user);
+                    Roles.RemoveUserFromRole(user.nome, (user.administrador) ? "Administrador" : "Usuario");
+                    Membership.DeleteUser(user.nome);
+                    Session["id"] = null;
+                    Session["email"] = null;
+                    Response.Redirect("~/Public/Index.aspx");
+                }
+            }
         }   
         /*protected void Editar() {
             if (Page.IsPostBack)
@@ -122,7 +137,7 @@ namespace IGames.User
             if (!Page.IsPostBack)
             {
                 this.dalicon = new DAL.DALIcons();
-                this.icon = dalicon.Select(this.user.Icone_id);
+                this.icon = this.dalicon.Select(this.user.Icone_id);
             }
         }
 
