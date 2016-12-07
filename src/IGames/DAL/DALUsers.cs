@@ -70,8 +70,8 @@ namespace IGames.DAL
                     string sqlUsuario = "SELECT * FROM Usuario WHERE id = @id";
                     SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
                     cmdUsuario.Parameters.AddWithValue("@id", usuario_id);
-                    SqlDataReader drUsuarios = cmdUsuario.ExecuteReader();
-                    using (drUsuarios)
+                    SqlDataReader drUsuarios;
+                    using (drUsuarios = cmdUsuario.ExecuteReader())
                     {
                         if (drUsuarios.HasRows)
                         {
