@@ -34,10 +34,49 @@ namespace IGames.DAL
                         {
                             while (drAvaliacoes.Read())
                             {
-                                int idAvaliacao = (int)drAvaliacoes["id"];
                                 int NumeroEstrelas = (int)drAvaliacoes["numeroEstrelas"];
-                                string UsuarioId = (string)drAvaliacoes["usuarioId"];
-                                avaliacao = new Modelo.Avaliacao(idAvaliacao, NumeroEstrelas, UsuarioId);
+                                string UsuarioId = (string)drAvaliacoes["Usuario_id"];
+                                int JogoId = (int)drAvaliacoes["Jogo_id"];
+                                avaliacao = new Modelo.Avaliacao(NumeroEstrelas, JogoId, UsuarioId);
+                                avaliacoes.Add(avaliacao);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+
+            return avaliacoes;
+        }
+        //Metodo SelectByUser
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.Avaliacao> SelectByUser(string Usuario_id)
+        { 
+            Modelo.Avaliacao avaliacao;
+            List<Modelo.Avaliacao> avaliacoes = new List<Modelo.Avaliacao>();
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlAvaliacoes = "SELECT * FROM Avaliacao where Usuario_id = @Usuario_id";
+                    SqlCommand cmdAvaliacoes = new SqlCommand(sqlAvaliacoes, connection);
+                    cmdAvaliacoes.Parameters.AddWithValue("@Usuario_id", Usuario_id);
+                    SqlDataReader drAvaliacoes;
+
+                    using (drAvaliacoes = cmdAvaliacoes.ExecuteReader())
+                    {
+                        if (drAvaliacoes.HasRows)
+                        {
+                            while (drAvaliacoes.Read())
+                            {
+                                int NumeroEstrelas = (int)drAvaliacoes["numeroEstrelas"];
+                                string UsuarioId = drAvaliacoes["Usuario_id"].ToString();
+                                int JogoId = (int)drAvaliacoes["Jogo_id"];
+                                avaliacao = new Modelo.Avaliacao(NumeroEstrelas, JogoId ,UsuarioId);
                                 avaliacoes.Add(avaliacao);
                             }
                         }
