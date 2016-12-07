@@ -25,9 +25,11 @@ namespace IGames.Public
 
         protected void Cadastrar_Click(object sender, EventArgs e)
         {
+            
             if (nome.Text != null && senha.Text != null && email.Text != null && confsenha.Text != null)
             {
                 DAL.DALUsers daluser = new DAL.DALUsers();
+                setIcon();
                 Modelo.Usuario user = new Modelo.Usuario(nome.Text, email.Text, senha.Text, false, icone.id);
                 Membership.CreateUser(user.nome, user.senha, user.email);
                 user.id = Membership.GetUser(Membership.GetUserNameByEmail(user.email)).ProviderUserKey.ToString();
@@ -55,7 +57,8 @@ namespace IGames.Public
 
         protected void setIcon() {
             if (Request.QueryString["icone"] != null){
-                this.icone = dalicone.Select(int.Parse(Request.QueryString["icone"]));
+                this.dalicone = new DAL.DALIcons();
+                this.icone = this.dalicone.Select(int.Parse(Request.QueryString["icone"]));
             }
         }
     }
