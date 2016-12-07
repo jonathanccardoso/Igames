@@ -54,21 +54,25 @@ namespace IGames.User
             {
                 if (int.Parse(Request.QueryString["edit"].ToString()) == 1)
                 {
-                    if (this.ctrl != 1)
+                    //deve da certo
+                    if (Nome_user.Enabled == false)
                     {
                         Nome_user.Enabled = true;
+                        email_user.Enabled = true;
+                        senha_user.Enabled = true;
                         Nome_user.Text = user.nome;
                         email_user.Text = user.email;
-                        email_user.Enabled = true;
                         senha_user.Text = user.senha;
-                        senha_user.Enabled = true;
-                        this.ctrl = 1;
+                        this.ctrl = 1;//não faz nada de controle
                     }
                     else {
+                        Nome_user.Text = user.nome;
+                        email_user.Text = user.email;
+                        senha_user.Text = user.senha;
                         Editar_Click();
                     }
                 }
-            }
+            } 
         }
 
         protected void Editar_Click()
@@ -83,6 +87,7 @@ namespace IGames.User
             Modelo.Usuario user = new Modelo.Usuario(nome, email, senha, administrador, Icone_id);
             daluser.Update(user);
         } 
+
         protected void Excluir(){
             if (Request.QueryString["delete"] != null)
             {

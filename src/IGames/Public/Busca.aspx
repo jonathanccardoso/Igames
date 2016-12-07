@@ -46,10 +46,10 @@
 </div>
 </nav>
 <main>
-    <form runat="server" action="Busca.aspx" method="post">
+    <form runat="server" action="Busca.aspx" method="get"> 
       <div class="center">
-          <asp:TextBox ID="TextBusca" runat="server" Class="center-align"></asp:TextBox>
-          <asp:Button ID="busca" runat="server" Text="Busca" OnClick="Busca_Click"></asp:Button>
+          <asp:TextBox ID="TextBusca" runat="server" Class="center-align"></asp:TextBox>          
+          <a class="waves-effect waves-light btn green darken-1" href="?busca=1" onclick="<% Pesquisa(); %>">Busca</a>
        </div>
     </form>
 </main>

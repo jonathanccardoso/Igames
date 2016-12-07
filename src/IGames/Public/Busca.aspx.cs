@@ -17,5 +17,16 @@ namespace IGames.Public
             //TextBusca.Text = "";
             //view para resutados da busca
         }
+        protected void Pesquisa() 
+        {
+            if (Request.QueryString["busca"] != null)
+            {
+                if (int.Parse(Request.QueryString["busca"].ToString()) == 1)
+                {
+                    //consulta no SQL para busca
+                    Response.Redirect("~/Public/Index.aspx");
+                }
+            }
+        }
     }
 }
