@@ -13,7 +13,7 @@ namespace IGames.Modelo
 
         public DateTime data { get; set; }
 
-        public string hora { get; set; }
+        public DateTime hora { get; set; }
 
         public string Usuario_id { get; set; }
 
@@ -22,7 +22,7 @@ namespace IGames.Modelo
             this.id = id;
             this.descricao = descricao;
             this.data = DateTime.Parse(data);
-            this.hora = hora;
+            this.hora = DateTime.Parse(hora);
             this.Usuario_id = Usuario_id;
         }
 
@@ -30,7 +30,7 @@ namespace IGames.Modelo
         {
             this.descricao = descricao;
             this.data = DateTime.Parse(data);
-            this.hora = hora;
+            this.hora = DateTime.Parse(hora);
             this.Usuario_id = Usuario_id;
         }
     }

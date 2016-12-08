@@ -34,7 +34,7 @@ namespace IGames.DAL
                         {
                             while (drUsuarios.Read())
                             {
-                                string idUsuario = (string)drUsuarios["id"];
+                                string idUsuario = Convert.ToString(drUsuarios["id"]);
                                 string Username = (string)drUsuarios["nome"];
                                 string email = (string)drUsuarios["email"];
                                 string senha = (string)drUsuarios["senha"];

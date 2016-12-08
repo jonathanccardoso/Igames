@@ -5076,12 +5076,18 @@ button.btn-floating {
   height: 1px;
 }
 
-.dropdown-content li > a, .dropdown-content li > span {
+.dropdown-content li > a, .dropdown-content li > button, .dropdown-content li > span {
   font-size: 16px;
   color: #26a69a;
   display: block;
   line-height: 22px;
   padding: 14px 16px;
+}
+
+.dropdown-content li > button {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
 }
 
 .dropdown-content li > span > label {

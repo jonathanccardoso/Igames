@@ -10,14 +10,24 @@ namespace IGames.DAL
 {
     public class DALCategories : DAL
     {
+        
         public DALCategories() : base() { }
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.Categoria> SelectAll()
         {
+
             Modelo.Categoria categoria;
             List<Modelo.Categoria> categorias = new List<Modelo.Categoria>();
+            
+            /*
+              Mandar mensagem para os administradores
+                using System.Net.Mail;
+                MailMessage message = new MailMessage("origem", "destinatário", "assunto", "corpo");
+                SmtpClient emailClient = new SmtpClient();
+              Mandar mensagem para os administradores
+            */
 
             try
             {

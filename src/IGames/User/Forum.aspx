@@ -55,22 +55,31 @@
 </nav>
 <main>
 <form runat="server">
+    <% foreach (IGames.Modelo.Forum foru in foruns) { %>
     <div class="card">
     <div class="card-content">
     <div class="row coment">
     <aside class="col l1 s1 pic left center-align">
-    <img src="http://lorempixel.com/100/100/" class="circle"><br />
-    <b>Usuário</b>
+    <% foreach (IGames.Modelo.Usuario usuario in users) {
+       foreach (IGames.Modelo.Icone icone in icons) {
+       if(usuario.id == foru.Usuario_id) {
+       if(usuario.Icone_id == icone.id) { %>
+    <img src="<%= icone.iconeUrl %>" class="circle"><br />
+    <b><%= usuario.nome %></b>
     </aside>
     <div class="col l11 s6 offset-s3 left-align">
-    <h6>12/04 &nbsp;&nbsp; 18:09</h6><br />
-    <h6 class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur dapibus urna non dignissim. Ut pretium tempor pulvinar. Aliquam sit amet mauris laoreet, fringilla risus at, dignissim ante. Nulla turpis tellus, interdum sit amet congue lobortis, molestie et elit. In.</h6>
-    <a class="waves-effect waves-teal center-align btn-flat left"><i class="material-icons like">favorite_border</i> Curtir</a>
-    <a class="waves-effect center-align btn-flat left"><i class="material-icons chat">chat_bubble</i> Comentar</a>
+    <h6><%= foru.data %> &nbsp;&nbsp; <%= foru.hora %></h6><br />
+    <h6 class="message"><%= foru.descricao %></h6>
+    <a class="waves-effect center-align btn-flat left"><i class="material-icons chat">chat_bubble</i>Comentar</a>
     </div>
     </div>
     </div>
     </div>
+    <% }
+       }
+       }
+       }
+       } %>
     <div class="card">
     <div class="card-content">
     <div class="input-field col s6">

@@ -22,6 +22,7 @@
 <ul id="dropdown1" class="dropdown-content">
 <li><a href="Perfil.aspx">Perfil</a></li>
 <li><a href="Favoritos.aspx">Favoritos</a></li>
+<%-- button name action criar form--%>
 <li><a href="?exit=1" onclick="<% Sair(); %>">Sair</a></li>
 </ul>
 </li>
