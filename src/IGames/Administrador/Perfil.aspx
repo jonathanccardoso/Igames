@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Fórum" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" CodeBehind="Forum.aspx.cs" Inherits="IGames.User.Forum" %>
+﻿<%@ Page Title="Perfil" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" CodeBehind="Perfil.aspx.cs" Inherits="IGames.Administrador.Perfil" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -52,39 +52,21 @@
 </div>
 </nav>
 <main>
-<form runat="server">
-    <div class="card">
-    <div class="card-content">
-    <div class="row coment">
-    <aside class="col l1 s1 pic left center-align">
-    <img src="http://lorempixel.com/100/100/" class="circle"><br />
-    <b>Usuário</b>
-    </aside>
-    <div class="col l11 s6 offset-s3 left-align">
-    <h6>12/04 &nbsp;&nbsp; 18:09</h6><br />
-    <h6 class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur dapibus urna non dignissim. Ut pretium tempor pulvinar. Aliquam sit amet mauris laoreet, fringilla risus at, dignissim ante. Nulla turpis tellus, interdum sit amet congue lobortis, molestie et elit. In.</h6>
-    <a class="waves-effect waves-teal center-align btn-flat left"><i class="material-icons like">favorite_border</i> Curtir</a>
-    <a class="waves-effect center-align btn-flat left"><i class="material-icons chat">chat_bubble</i> Comentar</a>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="card">
-    <div class="card-content">
-    <div class="input-field col s6">
-    <%--<form id="form1" runat="server">--%>
-    <i class="material-icons prefix">mode_edit</i>
-    <asp:TextBox ID="TextArea" runat="server" TextMode="MultiLine" CssClass="materialize-textarea"></asp:TextBox>
-    <label for="ContentPlaceHolder2_TextArea">Escreva um comentário</label>
+    <h3 class="center-align"><asp:Label ID="NomeJogo" runat="server" Text="Editar perfil"></asp:Label></h3>
     <div class="row">
-    <div class="col l2 offset-l10 s7 offset-s6">
-    <asp:LinkButton ID="Send" runat="server" CssClass="btn waves-effect waves-light" OnClick="Send_Click">Enviar <i class="material-icons right">send</i></asp:LinkButton>
-    </div>
-    </div>
-    <%--</form>--%>
-    </div>
-    </div>
-    </div>
-</form>
+        <div class="col l6 offset-l3 s12 m10 offset-m1">
+          <div class="card white">
+               <div class="card-content">
+                    <form id="Form1" runat="server">   
+                        Nome:<asp:TextBox ID="Nome_user" runat="server"></asp:TextBox><br />
+                        E-mail:<asp:TextBox ID="email_user" runat="server"></asp:TextBox><br />
+                        Senha:<asp:TextBox ID="senha_user" runat="server" TextMode="Password"></asp:TextBox><br /><br />
+                        <a class="waves-effect waves-light btn green darken-1" href="?edit=1" onclick="<% Habilitar(); %>">Editar</a><br /><br />
+                        <a class="waves-effect waves-light btn green darken-1" href="?delete=1" onclick="<% Excluir(); %>">Excluir Conta</a><br /><br />
+                    </form>
+                </div>
+            </div> 
+          </div>
+        </div>
 </main>
 </asp:Content>

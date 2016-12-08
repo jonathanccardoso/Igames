@@ -34,7 +34,7 @@ namespace IGames.DAL
                         {
                             while (drUsuarios.Read())
                             {
-                                string idUsuario = (string)drUsuarios["id"];
+                                string idUsuario = Convert.ToString(drUsuarios["id"]);
                                 string Username = (string)drUsuarios["nome"];
                                 string email = (string)drUsuarios["email"];
                                 string senha = (string)drUsuarios["senha"];
@@ -142,6 +142,7 @@ namespace IGames.DAL
                     {
                         string sqlUsuario = "UPDATE Usuario SET Username = @Username, email = @email, iconeUrl = @iconeUrl WHERE id = @id";
                         SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
+                       // cmdUsuario.Parameters.AddWithValue("@id", usuario.id);//não estava aqui
                         cmdUsuario.Parameters.AddWithValue("@Username", usuario.nome);
                         cmdUsuario.Parameters.AddWithValue("@email", usuario.email);
                         cmdUsuario.Parameters.AddWithValue("@iconeUrl", usuario.Icone_id);

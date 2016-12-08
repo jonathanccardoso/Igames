@@ -10,42 +10,51 @@
 namespace IGames.Administrador {
     
     
-    public partial class Usuarios {
+    public partial class Perfil {
         
         /// <summary>
-        /// usuarios control.
+        /// NomeJogo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm usuarios;
+        protected global::System.Web.UI.WebControls.Label NomeJogo;
         
         /// <summary>
-        /// Delete control.
+        /// Form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Delete;
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
-        /// delUser control.
+        /// Nome_user control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox delUser;
+        protected global::System.Web.UI.WebControls.TextBox Nome_user;
         
         /// <summary>
-        /// Button3 control.
+        /// email_user control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.TextBox email_user;
+        
+        /// <summary>
+        /// senha_user control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox senha_user;
     }
 }

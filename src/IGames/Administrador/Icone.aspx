@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" CodeBehind="Icone.aspx.cs"  theme="Default" Inherits="IGames.Administrador.Icone" %>
+﻿<%@ Page Title="Icone" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" CodeBehind="Icone.aspx.cs"  theme="Default" Inherits="IGames.Administrador.Icone" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -32,7 +32,6 @@
 <div class="toolbar">
 <a href="Perfil.aspx" class="perfil-mobile">
 <img src="../<%= icone.iconeUrl %>" class="circle usericon"/>
-<label><%= user.nome %></label>
 </a>
 </div>
 </li>
@@ -54,22 +53,23 @@
 </div>
 </nav>
 <main>
-<div class="row">
-<% foreach(IGames.Modelo.Icone icon in icones) { %>
-<div class="col l1 s6">
-<div class="card">
-<div class="card-close">
-<a class="btn btn-flat" href="?delete=<%= icon.id %>" onclick="<% Delete(); %>">
-<i class="material-icons">close</i>
-</a>
-</div>
-<div class="card-image">
-<img src="<%= icon.iconeUrl %>" class="responsive-img"/>
-</div>
-</div>
-</div>
-<% } %>
-</div>
+    <h3 class="center-align">Icones</h3><br>
+    <div class="row">
+    <% foreach(IGames.Modelo.Icone icon in icones) { %>
+    <div class="col l1 s6">
+    <div class="card">
+    <div class="card-close">
+    <a class="btn btn-flat" href="?delete=<%= icon.id %>" onclick="<% Delete(); %>">
+    <i class="material-icons">close</i>
+    </a>
+    </div>
+    <div class="card-image">
+    <img src="<%= icon.iconeUrl %>" class="responsive-img"/>
+    </div>
+    </div>
+    </div>
+    <% } %>
+    </div>
     
    <form id="Form1" runat="server">
     <div class="fixed-action-btn vertical click-to-toggle">

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" Theme="Default" CodeBehind="Perfil.aspx.cs" Inherits="IGames.User.Perfil" %>
+﻿<%@ Page Title="Perfil" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" Theme="Default" CodeBehind="Perfil.aspx.cs" Inherits="IGames.User.Perfil" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -18,10 +18,9 @@
 <li>
 <a class="dropdown-button" data-activates="dropdown1">
 <img src="<%= icon.iconeUrl %>" class="circle usericon"/>
-<label><%= user.nome %></label>
 </a>
 <ul id="dropdown1" class="dropdown-content">
-<li><a href="Pefil.aspx">Perfil</a></li>
+<li><a href="Perfil.aspx">Perfil</a></li>
 <li><a href="Favoritos.aspx">Favoritos</a></li>
 <li><a href="?exit=1" onclick="<% Sair(); %>">Sair</a></li>
 </ul>
@@ -32,7 +31,6 @@
 <div class="toolbar">
 <a href="Perfil.aspx" class="perfil-mobile">
 <img src="<%= icon.iconeUrl %>" class="circle usericon"/>
-<label><%= user.nome %></label>
 </a>
 </div>
 </li>
@@ -50,7 +48,7 @@
 <li><a href="Favoritos.aspx"><i class="material-icons left">favorite</i>Favoritos</a></li>
 <li><a href="?exit=1" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
-<a href="#" class="brand-logo">Logo</a>
+<a href="Index.aspx" class="brand-logo">Logo</a>
 </div>
 </nav>
 <main>

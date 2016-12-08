@@ -32,8 +32,6 @@ namespace IGames.Administrador
             }
         }
 
-        //icone 
-        //não pega ainda
         protected void getIcons()
         {
             if (!Page.IsPostBack)

@@ -63,6 +63,7 @@
     <Content Include="Administrador\Index.aspx" />
     <Content Include="Administrador\Jogo.aspx" />
     <Content Include="Administrador\Online.aspx" />
+    <Content Include="Administrador\Perfil.aspx" />
     <Content Include="Administrador\Usuarios.aspx" />
     <Content Include="App_Themes\Default\custom.css" />
     <Content Include="App_Themes\Default\materialize.min.css" />
@@ -85,9 +86,6 @@
     <Content Include="Favicon\mstile-144x144.png" />
     <Content Include="Favicon\ToolbarIcon-1.png" />
     <Content Include="Favicon\ToolbarIcon-2.png" />
-    <Content Include="Icone\ariel.jpg" />
-    <Content Include="Icone\bartsimpson.jpg" />
-    <Content Include="Icone\bb8.jpg" />
     <Content Include="Images\browserQuest.jpg" />
     <Content Include="Images\EstrelaAcesa.png" />
     <Content Include="Images\EstrelaApagada.png" />
@@ -105,6 +103,7 @@
     <Content Include="Public\Jogo.aspx" />
     <Content Include="Public\Login.aspx" />
     <Content Include="User\Categorias.aspx" />
+    <Content Include="User\Favoritos.aspx" />
     <Content Include="User\Forum.aspx" />
     <Content Include="User\Index.aspx" />
     <Content Include="User\Jogo.aspx" />
@@ -154,6 +153,13 @@
     <Compile Include="Administrador\Online.aspx.designer.cs">
       <DependentUpon>Online.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,6 +170,7 @@
     <Compile Include="DAL\DAL.cs" />
     <Compile Include="DAL\DALCategories.cs" />
     <Compile Include="DAL\DALComments.cs" />
+    <Compile Include="DAL\DALFavorites.cs" />
     <Compile Include="DAL\DALForum.cs" />
     <Compile Include="DAL\DALGames.cs" />
     <Compile Include="DAL\DALGamesCategories.cs" />
@@ -245,6 +252,13 @@
     <Compile Include="User\Categorias.aspx.designer.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Favoritos.aspx.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Favoritos.aspx.designer.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Forum.aspx.cs">
       <DependentUpon>Forum.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -310,6 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Download\" />
+    <Folder Include="Icone\" />
     <Folder Include="Online\" />
   </ItemGroup>
   <PropertyGroup>

@@ -6,7 +6,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace IGames.User
+namespace IGames.Administrador
 {
     public partial class Perfil : System.Web.UI.Page
     {
@@ -95,7 +95,7 @@ namespace IGames.User
                 {
                     string id = Session["id"].ToString();
                     DAL.DALRates dalavaliar = new DAL.DALRates();
-                    List<Modelo.Avaliacao> avaliacoes = dalavaliar.SelectAllByUser(id);
+                    List<Modelo.Avaliacao> avaliacoes = dalavaliar.SelectAllByUser(id);//SelectByUser
                     foreach (Modelo.Avaliacao avaliar in avaliacoes)
                     {
                         dalavaliar.Delete(avaliar);

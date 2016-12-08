@@ -140,3 +140,9 @@ input[name=fb] {
     font-size: 1.2rem;
 
 }*/
+
+div.usuarios {
+    display: flex;
+    align-items: center;
+    flex-direction: row;    
+}

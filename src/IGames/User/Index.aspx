@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" Theme="Default" CodeBehind="Index.aspx.cs" Inherits="IGames.User.Index" %>
+﻿<%@ Page Title="Index" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" Theme="Default" CodeBehind="Index.aspx.cs" Inherits="IGames.User.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -31,7 +31,6 @@
 <div class="toolbar">
 <a href="Perfil.aspx" class="perfil-mobile">
 <img src="<%= icon.iconeUrl %>" class="circle usericon"/>
-<label><%= user.nome %></label>
 </a>
 </div>
 </li>
@@ -49,7 +48,7 @@
 <li><a href="Favoritos.aspx"><i class="material-icons left">favorite</i>Favoritos</a></li>
 <li><a href="?exit=1" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
-<a href="#" class="brand-logo">Logo</a>
+<a href="Index.aspx" class="brand-logo">Logo</a>
 </div>
 </nav>
 <main>

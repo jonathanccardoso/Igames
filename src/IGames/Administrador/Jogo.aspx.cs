@@ -19,11 +19,24 @@ namespace IGames.Administrador
 
         public Modelo.Icone icon { get; set; }
 
+        public DAL.DALFavorites dalfavorito { get; set;}
+
+        public Modelo.Favorito favorito { get; set; }
+
+        public DAL.DALGames daljogo { get; set; }
+
+        public Modelo.Jogo jogo { get; set; }
+
+        //avaliacao
+        private bool avaliacao = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             hasUser();
             getUser();
             getIcon();
+
+            pegarAvaliacao();
         }
 
         protected void Confirmar_Click(object sender, EventArgs e)
@@ -52,20 +65,14 @@ namespace IGames.Administrador
 
         protected void getUser()
         {
-            if (!Page.IsPostBack)
-            {
-                this.daluser = new DAL.DALUsers();
-                this.user = daluser.Select(Session["id"].ToString());
-            }
+             this.daluser = new DAL.DALUsers();
+             this.user = daluser.Select(Session["id"].ToString());
         }
 
         protected void getIcon()
         {
-            if (!Page.IsPostBack)
-            {
-                this.dalicon = new DAL.DALIcons();
-                this.icon = dalicon.Select(this.user.Icone_id);
-            }
+             this.dalicon = new DAL.DALIcons();
+             this.icon = dalicon.Select(this.user.Icone_id);
         }
 
         protected void Sair()
@@ -80,5 +87,206 @@ namespace IGames.Administrador
                 }
             }
         }
+        protected void AddFavorito_Click(object sender, EventArgs e)
+        {
+            //não esta pegando  
+            this.dalfavorito = new DAL.DALFavorites();
+            this.favorito = new Modelo.Favorito(user.id,jogo.id);
+            dalfavorito.Insert(favorito);
+        }
+
+        //estrelas
+        protected void pegarAvaliacao()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.dalaval = new DAL.DALRates();
+                this.daljogo = new DAL.DALGames();
+                //              this.avali = this.dalaval.Select(this.daljogo.SelectByName("2048").id, Session["id"].ToString());
+                this.avali = this.dalaval.Select(this.daljogo.SelectByName("2048").id, user.id);
+                if (this.dalaval.SelectByUser(user.id) != null)
+                {
+                    if (avali.numeroEstrelas == 1)
+                    {
+                        Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela2.ImageUrl = "~/Images/EstrelaApagada.png";
+                        Estrela3.ImageUrl = "~/Images/EstrelaApagada.png";
+                        Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
+                        Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
+                    }
+                    else if (avali.numeroEstrelas == 2)
+                    {
+                        Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela3.ImageUrl = "~/Images/EstrelaApagada.png";
+                        Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
+                        Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
+                    }
+                    else if (avali.numeroEstrelas == 3)
+                    {
+                        Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela3.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
+                        Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
+                    }
+                    else if (avali.numeroEstrelas == 4)
+                    {
+                        Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela3.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela4.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
+                    }
+                    else if (avali.numeroEstrelas == 5)
+                    {
+                        Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela3.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela4.ImageUrl = "~/Images/EstrelaAcesa.png";
+                        Estrela5.ImageUrl = "~/Images/EstrelaAcesa.png";
+                    }
+                    avaliacao = true;
+                }
+
+            }
+        }
+
+        protected void Estrela1_Click(object sender, EventArgs e)
+        {
+            this.dalaval = new DAL.DALRates();
+            this.daljogo = new DAL.DALGames();
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(1, daljogo.SelectByName("2048").id, Session["id"].ToString());
+            if (this.dalaval.Select(this.daljogo.SelectByName("2048").id, Session["id"].ToString()) != null)
+            {
+                Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela2.ImageUrl = "~/Images/EstrelaApagada.png";
+                Estrela3.ImageUrl = "~/Images/EstrelaApagada.png";
+                Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
+                Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
+                this.dalaval.Delete(ava);
+                this.dalaval.Insert(ava);
+                this.avaliacao = false;
+            }
+            else
+            {
+                Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela2.ImageUrl = "~/Images/EstrelaApagada.png";
+                Estrela3.ImageUrl = "~/Images/EstrelaApagada.png";
+                Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
+                Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
+                this.dalaval.Insert(ava);
+                this.avaliacao = true;
+            }
+        }
+        protected void Estrela2_Click(object sender, EventArgs e)
+        {
+            DAL.DALRates dalaval = new DAL.DALRates();
+            DAL.DALGames daljogo = new DAL.DALGames();
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(2, daljogo.SelectByName("2048").id, Session["id"].ToString());
+            if (dalaval.Select(daljogo.SelectByName("2048").id, Session["id"].ToString()) != null)
+            {
+                Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela3.ImageUrl = "~/Images/EstrelaApagada.png";
+                Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
+                Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
+                dalaval.Delete(ava);
+                dalaval.Insert(ava);
+                this.avaliacao = false;
+            }
+            else
+            {
+                Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela3.ImageUrl = "~/Images/EstrelaApagada.png";
+                Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
+                Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
+                dalaval.Insert(ava);
+                this.avaliacao = true;
+            }
+        }
+        protected void Estrela3_Click(object sender, EventArgs e)
+        {
+            DAL.DALRates dalaval = new DAL.DALRates();
+            DAL.DALGames daljogo = new DAL.DALGames();
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(3, daljogo.SelectByName("2048").id, Session["id"].ToString());
+            if (dalaval.Select(daljogo.SelectByName("2048").id, Session["id"].ToString()) != null)
+            {
+                Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela3.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
+                Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
+                dalaval.Delete(ava);
+                dalaval.Insert(ava);
+                this.avaliacao = false;
+            }
+            else
+            {
+                Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela3.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
+                Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
+                dalaval.Insert(ava);
+                this.avaliacao = true;
+            }
+        }
+        protected void Estrela4_Click(object sender, EventArgs e)
+        {
+            DAL.DALRates dalaval = new DAL.DALRates();
+            DAL.DALGames daljogo = new DAL.DALGames();
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(4, daljogo.SelectByName("2048").id, Session["id"].ToString());
+            if (dalaval.Select(daljogo.SelectByName("2048").id, Session["id"].ToString()) != null)
+            {
+                Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela3.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela4.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
+                dalaval.Delete(ava);
+                dalaval.Insert(ava);
+                this.avaliacao = false;
+            }
+            else
+            {
+                Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela3.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela4.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
+                dalaval.Insert(ava);
+                this.avaliacao = true;
+            }
+        }
+        protected void Estrela5_Click(object sender, EventArgs e)
+        {
+            DAL.DALRates dalaval = new DAL.DALRates();
+            DAL.DALGames daljogo = new DAL.DALGames();
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(5, daljogo.SelectByName("2048").id, Session["id"].ToString());
+            if (dalaval.Select(daljogo.SelectByName("2048").id, Session["id"].ToString()) != null)
+            {
+                Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela3.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela4.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela5.ImageUrl = "~/Images/EstrelaAcesa.png";
+                dalaval.Delete(ava);
+                dalaval.Insert(ava);
+                this.avaliacao = false;
+            }
+            else
+            {
+                Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela3.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela4.ImageUrl = "~/Images/EstrelaAcesa.png";
+                Estrela5.ImageUrl = "~/Images/EstrelaAcesa.png";
+                dalaval.Insert(ava);
+                this.avaliacao = true;
+            }
+        }
+
     }
 }
