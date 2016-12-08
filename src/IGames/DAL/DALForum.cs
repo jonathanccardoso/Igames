@@ -34,12 +34,11 @@ namespace IGames.DAL
                         {
                             while (drForuns.Read())
                             {
-                                int idForum = (int)drForuns["id"];
-                                string descricao = (string)drForuns["descricao"];
-                                string data = (string)drForuns["data"];
-                                string hora = (string)drForuns["hora"];
-                                string usuarioId = (string)drForuns["Usuario_id"];
-                                int idPostagem = (int)drForuns["Postagem_id"];
+                                int idForum = Convert.ToInt32(drForuns["id"]);
+                                string descricao = Convert.ToString(drForuns["descricao"]);
+                                string data = Convert.ToString(drForuns["data"]);
+                                string hora = Convert.ToString(drForuns["hora"]);
+                                string usuarioId = Convert.ToString(drForuns["Usuario_id"]);
                                 forum = new Modelo.Forum(idForum, descricao, data, hora, usuarioId);
                                 foruns.Add(forum);
                             }
@@ -109,7 +108,7 @@ namespace IGames.DAL
                         string sqlforum = "INSERT INTO Forum(descricao, data, hora, Usuario_id) VALUES (@descricao, @data, @hora, @usuarioId)";
                         SqlCommand cmdforum = new SqlCommand(sqlforum, connection);
                         cmdforum.Parameters.AddWithValue("@descricao", forum.descricao);
-                        cmdforum.Parameters.AddWithValue("@data", SqlDbType.Date).Value = forum.data.ToString("yyyy-MM-dd");
+                        cmdforum.Parameters.AddWithValue("@data", SqlDbType.Date).Value = forum.data;
                         cmdforum.Parameters.AddWithValue("@hora", forum.hora);
                         cmdforum.Parameters.AddWithValue("@usuarioId", forum.Usuario_id);
                         cmdforum.ExecuteNonQuery();
