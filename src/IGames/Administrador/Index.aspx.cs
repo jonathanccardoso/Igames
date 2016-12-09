@@ -24,16 +24,6 @@ namespace IGames.Administrador
             getUser();
             getIcon();
         }
-        protected void Sair_Click(object sender, EventArgs e)
-        {
-            Session["id"] = null;
-            Session["email"] = null;
-            Response.Redirect("~/Public/Index.aspx");
-        }
-        protected void Confirmar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Administrador/" + (online.Checked ? "Online" : ((download.Checked) ? "Download" : "Index")) + ".aspx");
-        }
 
         protected void hasUser()
         {
@@ -51,7 +41,7 @@ namespace IGames.Administrador
             if (!Page.IsPostBack)
             {
                 this.daluser = new DAL.DALUsers();
-                this.user = daluser.Select(Session["id"].ToString());
+                this.user = DAL.DALUsers.Select(Session["id"].ToString());
             }
         }
 
@@ -60,8 +50,19 @@ namespace IGames.Administrador
             if (!Page.IsPostBack)
             {
                 this.dalicon = new DAL.DALIcons();
-                this.icon = dalicon.Select(this.user.Icone_id);
+                this.icon = DAL.DALIcons.Select(this.user.Icone_id);
             }
+        }
+
+        protected void Sair_Click(object sender, EventArgs e)
+        {
+            Session["id"] = null;
+            Session["email"] = null;
+            Response.Redirect("~/Public/Index.aspx");
+        }
+        protected void Confirmar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Administrador/" + (online.Checked ? "Online" : ((download.Checked) ? "Download" : "Index")) + ".aspx");
         }
 
         protected void Sair()
