@@ -55,7 +55,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Jogo Select(int? jogo_id)
+        public Modelo.Jogo Select(int jogo_id)
         {
             //instancia um novo usuario
             Modelo.Jogo jogo = null;

@@ -57,9 +57,7 @@
               <div class=" card from">
                   <div class="left-align">
                         <aside>
-                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#favorito"><i class="material-icons">favorite</i></a><br />
-                        <a class="waves-effect waves-teal btn-flat modal-trigger" href="#infoJogo"><i class="material-icons">info</i></a><br />
-                        <a class="waves-effect waves-teal btn-flat modal-trigger" href="#help"><i class="material-icons">help</i></a><br /><br /><br /><br />
+                        <a class="waves-effect waves-teal btn-flat modal-trigger" href="#infoJogo"><i class="material-icons">info</i></a><br /><br /><br /><br /><br /><br />
                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#delete"><i class="material-icons">delete</i></a>
                           <div id="delete" class="modal">
                             <div class="modal-content">
@@ -81,7 +79,7 @@
                           </div>
                         <div id="infoJogo" class="modal">
                             <div class="modal-content">
-                              <h4 class="center-align">Informações</h4>
+                              <h4 class="center-align">Descrições</h4>
                             </div>
                             <div class="modal-footer center-align">
                                 <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button3" runat="server" Text="Confirmar" />

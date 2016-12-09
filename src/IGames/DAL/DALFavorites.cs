@@ -64,7 +64,7 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlFavorito = "SELECT * FROM Favorito WHERE Usuario_id = @Usuario_id"; 
                     SqlCommand cmdFavorito = new SqlCommand(sqlFavorito, connection);
-                    cmdFavorito.Parameters.AddWithValue("@Usuario_id", favorito.Usuario_id); 
+                    cmdFavorito.Parameters.AddWithValue("@Usuario_id", Usuario_id); 
                     SqlDataReader drFavoritos; 
                     using (drFavoritos = cmdFavorito.ExecuteReader())
                     {
@@ -102,7 +102,7 @@ namespace IGames.DAL
                     connection.Open();
                     string sqlFavorito = "SELECT * FROM Favorito WHERE Jogo_id = @Jogo_id";
                     SqlCommand cmdFavorito = new SqlCommand(sqlFavorito, connection);
-                    cmdFavorito.Parameters.AddWithValue("@Jogo_id", favorito.Jogo_id);
+                    cmdFavorito.Parameters.AddWithValue("@Jogo_id", Jogo_id);
                     SqlDataReader drFavoritos;
                     using (drFavoritos = cmdFavorito.ExecuteReader())
                     {

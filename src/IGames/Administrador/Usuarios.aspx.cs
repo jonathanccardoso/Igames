@@ -13,6 +13,7 @@ namespace IGames.Administrador
         public DAL.DALUsers daluser { get; set; }
         
         public List<Modelo.Icone> icones { get; set; }
+       
         public DAL.DALIcons dalicone { get; set; }
 
         public DAL.DALUsers dalusuario { get; set; }

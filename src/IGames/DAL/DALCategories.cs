@@ -60,6 +60,42 @@ namespace IGames.DAL
             }
             return categorias;
         }
+        //Método SelectAllByDescription
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public Modelo.Categoria SelectAllByDescription(string descricao) 
+        {
+            Modelo.Categoria categoria = null;
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    //abre a conexão
+                    connection.Open();
+                    string sqlCategoria = "SELECT * FROM Categoria WHERE descricao = @descricao";
+                    SqlCommand cmdCategoria = new SqlCommand(sqlCategoria, connection);
+                    cmdCategoria.Parameters.AddWithValue("@descricao", descricao);
+                    SqlDataReader drCategoria;
+                    using (drCategoria = cmdCategoria.ExecuteReader())
+                    {
+                        if (drCategoria.HasRows)
+                        {
+                            //lê os resultados
+                            while (drCategoria.Read())
+                            {
+                                int id = (int)drCategoria["id"];
+                                string catdescricao = (string)drCategoria["descricao"];
+                                categoria = new Modelo.Categoria(id, catdescricao);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return categoria;
+        }
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]

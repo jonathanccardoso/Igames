@@ -20,12 +20,18 @@ namespace IGames.User
 
         public Modelo.Icone icon { get; set; }
 
+        public DAL.DALFavorites dalfavorito { get; set; }
+
+        public Modelo.Favorito favorito { get; set; }
+
+        public DAL.DALGames daljogo { get; set; }
+
+        public Modelo.Jogo jogo { get; set; }
+
         //avaliacao
         private bool avaliacao = false;
 
         public DAL.DALRates dalaval { get; set; }
-
-        public DAL.DALGames daljogo { get; set; }
 
         public Modelo.Avaliacao avali { get; set; }
 
@@ -34,7 +40,7 @@ namespace IGames.User
             hasUser();
             getUser();
             getIcon();
-
+            getJogo();
             pegarAvaliacao();
         }
         protected void Sair_Click(object sender, EventArgs e)
@@ -43,6 +49,11 @@ namespace IGames.User
             Session["email"] = null;
             Response.Redirect("~/Public/Index.aspx");
         }
+
+        /*
+         * mudar quando estiver sem favoritar
+         * 
+        <i class="material-icons">favorite_border</i>*/
 
         protected void pegarAvaliacao() {
             if (!Page.IsPostBack) {
@@ -255,6 +266,12 @@ namespace IGames.User
             this.dalicon = new DAL.DALIcons();
             this.icon = dalicon.Select(this.user.Icone_id);
         }
+        
+        protected void getJogo()
+        {
+            this.daljogo = new DAL.DALGames();
+            this.jogo = daljogo.Select(daljogo.SelectByName(Request.QueryString["jogo"]).id);
+        }
 
         protected void Sair()
         {
@@ -268,5 +285,13 @@ namespace IGames.User
                 }
             }
         }
+        protected void AddFavorito_Click(object sender, EventArgs e)
+        {
+            //não esta pegando  
+            this.dalfavorito = new DAL.DALFavorites();
+            this.favorito = new Modelo.Favorito(user.id, jogo.id);
+            dalfavorito.Insert(favorito);
+        }
+
     }
 }

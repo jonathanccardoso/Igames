@@ -45,14 +45,18 @@
               <div class=" card from">
                   <div class="left-align">
                        <aside>
-                            <i class="material-icons">favorite</i><br />
-                            <i class="material-icons">info</i><br />
-                            <i class="material-icons">help</i>
+                        <a class="waves-effect waves-teal btn-flat modal-trigger" href="#infoJogo"><i class="material-icons">info</i></a><br /><br /><br /><br /><br /><br />
+                        <div id="infoJogo" class="modal">
+                            <div class="modal-content">
+                              <h4 class="center-align">Descrições</h4>
+                            </div>
+                            <div class="modal-footer center-align">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Confirmar</a>
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                            </div>
+                         </div>
                         </aside>
                     </div>
-                    <%--<div class="center-align">
-                        <i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><br />
-                    </div>--%>
                   <br /><br />
                        <iframe id="frame" src="http://browserquest.mozilla.org/" width="620px" height="400px" scrolling="no" frameborder="0"></iframe> 
               </div>

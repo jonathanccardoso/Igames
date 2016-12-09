@@ -30,6 +30,11 @@ namespace IGames.Administrador
         //avaliacao
         private bool avaliacao = false;
 
+        public DAL.DALRates dalaval { get; set; }
+
+        public Modelo.Avaliacao avali { get; set; }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             hasUser();

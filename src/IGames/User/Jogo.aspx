@@ -52,34 +52,57 @@
 </div>
 </nav>
 <main>
-<form runat="server">
-    <h3><asp:Label ID="NomeJogo" runat="server" Text="Nome do Jogo"></asp:Label></h3>
+<form id="Form1" runat="server">
+<h3><asp:Label ID="NomeJogo" runat="server" Text="Nome do Jogo"></asp:Label></h3>
     <div class="row center-align">
-    <div class="col l6 offset-l3 s5 offset-s3 m7 offset-m3">
-    <div class="card white">
-    <div class="left-align">
-    <aside>
-
-    <%--falta tabela no banco de dados--%>
-    <%--<asp:LinkButton ID="cadastro" runat="server" OnClick="favoritar_Click"><i class="material-icons">favorite</i></asp:LinkButton><br />--%>
-
-    <i class="material-icons">info</i><br />
-    <i class="material-icons">help</i><br />
-    </aside>
-    </div>
-    <div class="center-align">
-        <asp:ImageButton ID="Estrela1" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela1_Click" />
-        <asp:ImageButton ID="Estrela2" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela2_Click" />
-        <asp:ImageButton ID="Estrela3" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela3_Click" />
-        <asp:ImageButton ID="Estrela4" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela4_Click" />
-        <asp:ImageButton ID="Estrela5" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela5_Click" />
-    </div>
-    <iframe id="frame" src="http://browserquest.mozilla.org/" width="620" height="400" scrolling="no" frameborder="0"></iframe> 
-    </div>
-    </div>
-    </div>
-    <h3 Class="center-align"><asp:Label ID="Label1" runat="server" Text="Relacionados"></asp:Label></h3>
-    <h3 Class="center-align"><asp:Label ID="Label2"  runat="server" Text="Comentarios"></asp:Label></h3>
+            <div class="col l6 offset-l3 s5 offset-s3 m7 offset-m3 center-align">
+              <div class=" card from">
+                  <div class="left-align">
+                        <aside>
+                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#favorito"><i class="material-icons">favorite</i></a><br />
+                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#infoJogo"><i class="material-icons">info</i></a><br /><br /><br /><br /><br /><br />
+                          <div id="help" class="modal">
+                            <div class="modal-content">
+                              <h4 class="center-align">Como jogar ?</h4>
+                            </div>
+                            <div class="modal-footer center-align">
+                                <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button2" runat="server" Text="Confirmar" />
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                            </div>
+                          </div>
+                        <div id="infoJogo" class="modal">
+                            <div class="modal-content">
+                              <h4 class="center-align">Descrições</h4>
+                            </div>
+                            <div class="modal-footer center-align">
+                                <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button3" runat="server" Text="Confirmar" />
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                            </div>
+                         </div>
+                        <div id="favorito" class="modal">
+                            <div class="modal-content">
+                              <h4 class="center-align">Adicionar esse jogo aos favoritos ?</h4>
+                            </div>
+                            <div class="modal-footer center-align">
+                                <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button4" runat="server" onClick="AddFavorito_Click" Text="Confirmar" />
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                            </div>
+                         </div>
+                        </aside>
+                    </div>
+                  <div class="center-align">
+                        <asp:ImageButton ID="Estrela1" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela1_Click" />
+                        <asp:ImageButton ID="Estrela2" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela2_Click" />
+                        <asp:ImageButton ID="Estrela3" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela3_Click" />
+                        <asp:ImageButton ID="Estrela4" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela4_Click" />
+                        <asp:ImageButton ID="Estrela5" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela5_Click" />
+                   </div><br /><br />
+                  <iframe id="Iframe1" src="http://browserquest.mozilla.org/" width="620px" height="400px" scrolling="no" frameborder="0"></iframe> 
+              </div>
+            </div>
+        </div>
+     <h3 Class="center-align"><asp:Label ID="Label3" runat="server" Text="Relacionados"></asp:Label></h3>
+     <h3 Class="center-align"><asp:Label ID="Label4"  runat="server" Text="Comentarios"></asp:Label></h3>
 </form>
 </main>
 </asp:Content>

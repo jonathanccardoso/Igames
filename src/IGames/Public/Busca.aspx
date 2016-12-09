@@ -50,6 +50,24 @@
       <div class="center">
           <asp:TextBox ID="TextBusca" runat="server" Class="center-align"></asp:TextBox>          
           <a class="waves-effect waves-light btn green darken-1" href="?busca=1" onclick="<% Pesquisa(); %>">Busca</a>
+          <div class="card">
+            <div class="row">
+            <% foreach(IGames.Modelo.Jogo jogo in jogos) { %>
+                <div class="col l4 s6">
+                        <div class="jogos">
+                        <img src="<%= jogo.imagemUrl %>" class="responsive-img"/>
+						<div class="">
+                            <b><%= jogo.descricao %></b><br />	
+                            <asp:HyperLink ID="Delete" runat="server">Deletar</asp:HyperLink>					
+                        </div>
+                       </div>
+				</div>
+                <% } 
+                  }
+                } %>
+               </div>
+            </div>
+
        </div>
     </form>
 </main>
