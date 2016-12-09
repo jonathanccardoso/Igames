@@ -14,23 +14,33 @@ namespace IGames.Public
         public Modelo.Jogo jogo { get; set; }
 
         public DAL.DALGames daljogo { get; set; }
+
+        public List<Modelo.Jogo> jogos { get; set; }
         
         public DAL.DALCategories dalcat { get; set; }
 
         public Modelo.Categoria categoria { get; set; }
 
-        public List<Modelo.Jogo> jogos { get; set; }
+        public List<Modelo.Categoria> categorias { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             getPesquisaJog();
             getPesquisaCat();
+            getJogos();
+            getCategorias();
         }
         //BuscasJogos
         protected void getJogos()
         {
             this.daljogo = new DAL.DALGames();
             this.jogos = this.daljogo.SelectAll();
+        }
+        //BuscasCategoria
+        protected void getCategorias()
+        {
+            this.dalcat = new DAL.DALCategories();
+            this.categorias = this.dalcat.SelectAll();
         }
 
         protected void getPesquisaJog() {
