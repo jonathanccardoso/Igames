@@ -185,6 +185,7 @@
     <Compile Include="General.Master.designer.cs">
       <DependentUpon>General.Master</DependentUpon>
     </Compile>
+    <Compile Include="Metodos.cs" />
     <Compile Include="Modelo\Avaliacao.cs" />
     <Compile Include="Modelo\Categoria.cs" />
     <Compile Include="Modelo\Comentario.cs" />
