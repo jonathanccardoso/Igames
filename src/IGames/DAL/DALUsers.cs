@@ -57,7 +57,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Usuario Select(string usuario_id)
+        public static Modelo.Usuario Select(string usuario_id)
         {
             //instancia um novo usuario
             Modelo.Usuario usuario = null;
@@ -102,7 +102,7 @@ namespace IGames.DAL
         {
             try
             {
-                if (this.Select(usuario.id) == null)
+                if (Select(usuario.id) == null)
                 {
                     using (connection = new SqlConnection(connectionString))
                     {

@@ -52,7 +52,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Icone Select(int icone_id)
+        public static Modelo.Icone Select(int icone_id)
         {
             //instancia um novo usuario
             Modelo.Icone icone = null;
@@ -92,9 +92,10 @@ namespace IGames.DAL
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Insert(Modelo.Icone icone)
         {
+            Modelo.Icone icon = icone;
             try
             {
-                if (this.Select(icone.id) == null)
+                if (Select(icon.id) == null)
                 {
                     using (connection = new SqlConnection(connectionString))
                     {
