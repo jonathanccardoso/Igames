@@ -65,7 +65,7 @@ namespace IGames.Administrador
             {
                 int id = int.Parse(Request.QueryString["delete"].ToString());
                 this.dalicone = new DAL.DALIcons();
-                this.ico = dalicone.Select(id);
+                this.ico = DAL.DALIcons.Select(id);
                 dalicone.Delete(ico);
                 Response.Redirect("~/Administrador/Icone.aspx");
             }
@@ -104,7 +104,7 @@ namespace IGames.Administrador
             if (!Page.IsPostBack)
             {
                 this.daluser = new DAL.DALUsers();
-                this.user = daluser.Select(Session["id"].ToString());
+                this.user = DAL.DALUsers.Select(Session["id"].ToString());
             }
         }
 
@@ -113,7 +113,7 @@ namespace IGames.Administrador
             if (!Page.IsPostBack)
             {
                 this.dalicone = new DAL.DALIcons();
-                this.icone = dalicone.Select(this.user.Icone_id);
+                this.icone = DAL.DALIcons.Select(this.user.Icone_id);
             }
         }
 

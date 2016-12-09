@@ -9,60 +9,46 @@ namespace IGames.User
 {
     public partial class Index : System.Web.UI.Page
     {
-        public DAL.DALUsers daluser { get; set; }
-
         public Modelo.Usuario user { get; set; }
-
-        public DAL.DALIcons dalicon { get; set; }
 
         public Modelo.Icone icon { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            hasUser();
-            getUser();
-            getIcon();
+            initPage();
         }
 
-        protected void hasUser()
-        {
-            if (!Page.IsPostBack)
+        protected void initPage() {
+            if (Metodos.hasUser(Session["id"].ToString()))
             {
-                if (Session["id"] == null)
-                {
-                    Response.Redirect("~/Public/Cadastro.aspx");
-                }
+                Response.Redirect("~/Public/Cadastro.aspx");
             }
-        }
-
-        protected void getUser()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.daluser = new DAL.DALUsers();
-                this.user = daluser.Select(Session["id"].ToString());
-            }
-        }
-
-        protected void getIcon()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.dalicon = new DAL.DALIcons();
-                this.icon = dalicon.Select(this.user.Icone_id);
-            }
+            this.user = Metodos.getUser(Session["id"].ToString());
+            this.icon = Metodos.getIcon(this.user.Icone_id);
         }
 
         protected void Sair()
         {
-            if (Request.QueryString["exit"] != null)
+            if (Page.IsPostBack)
             {
-                if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
+                //Versão 01
+                /**/
+                Session.Abandon();
+                Response.Redirect("~/Public/Index.aspx");
+                //Versão 02
+                /*
+                Session.Contents.RemoveAll();*/
+                //Versão 03
+                /*
+                if (Request.QueryString["exit"] != null)
                 {
-                    Session["id"] = null;
-                    Session["email"] = null;
-                    Response.Redirect("~/Public/Index.aspx");
-                }
+                    if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
+                    {
+                        Session["id"] = null;
+                        Session["email"] = null;
+                        Response.Redirect("~/Public/Index.aspx");
+                    }
+                }*/
             }
         }
     }

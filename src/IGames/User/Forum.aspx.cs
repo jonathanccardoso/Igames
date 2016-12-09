@@ -65,7 +65,7 @@ namespace IGames.User
         protected void getUser()
         {
             this.daluser = new DAL.DALUsers();
-            this.user = daluser.Select(Session["id"].ToString());
+            this.user = DAL.DALUsers.Select(Session["id"].ToString());
         }
 
         protected void getUsers()
@@ -77,7 +77,7 @@ namespace IGames.User
         protected void getIcon()
         {
             this.dalicon = new DAL.DALIcons();
-            this.icon = dalicon.Select(this.user.Icone_id);
+            this.icon = DAL.DALIcons.Select(this.user.Icone_id);
         }
 
         protected void getIcons()

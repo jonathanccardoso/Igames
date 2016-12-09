@@ -52,7 +52,7 @@ namespace IGames.Administrador
             // int id = int.Parse(listCatDel.SelectedItem.Value);
             string nomeUser = delUser.Text;
             DAL.DALUsers daluser = new DAL.DALUsers();
-            Modelo.Usuario user = daluser.Select(nomeUser);
+            Modelo.Usuario user = DAL.DALUsers.Select(nomeUser);
             daluser.Delete(user);
             Response.Redirect("~/Administrador/Usuarios.aspx");
         }
@@ -72,7 +72,7 @@ namespace IGames.Administrador
             if (!Page.IsPostBack)
             {
                 this.dalusuario = new DAL.DALUsers();
-                this.user = dalusuario.Select(Session["id"].ToString());
+                this.user = DAL.DALUsers.Select(Session["id"].ToString());
             }
         }
 
@@ -81,7 +81,7 @@ namespace IGames.Administrador
             if (!Page.IsPostBack)
             {
                 this.dalicon = new DAL.DALIcons();
-                this.icon = dalicon.Select(this.user.Icone_id);
+                this.icon = DAL.DALIcons.Select(this.user.Icone_id);
             }
         }
 

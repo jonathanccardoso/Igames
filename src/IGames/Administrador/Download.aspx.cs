@@ -77,7 +77,7 @@ namespace IGames.Administrador
             if (!Page.IsPostBack)
             {
                 this.daluser = new DAL.DALUsers();
-                this.user = daluser.Select(Session["id"].ToString());
+                this.user = DAL.DALUsers.Select(Session["id"].ToString());
             }
         }
 
@@ -86,7 +86,7 @@ namespace IGames.Administrador
             if (!Page.IsPostBack)
             {
                 this.dalicon = new DAL.DALIcons();
-                this.icon = dalicon.Select(this.user.Icone_id);
+                this.icon = DAL.DALIcons.Select(this.user.Icone_id);
             }
         }
 

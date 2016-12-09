@@ -28,7 +28,7 @@ namespace IGames.Public
                 if (this.email != "" && this.senha != "")
                 {
                     DAL.DALUsers daluser = new DAL.DALUsers();
-                    Modelo.Usuario user = daluser.Select(Membership.GetUser(Membership.GetUserNameByEmail(email)).ProviderUserKey.ToString());
+                    Modelo.Usuario user = DAL.DALUsers.Select(Membership.GetUser(Membership.GetUserNameByEmail(email)).ProviderUserKey.ToString());
                     if (this.email == user.email && this.senha == user.senha)
                     {
                         if (Membership.ValidateUser(Membership.GetUserNameByEmail(email), this.senha))

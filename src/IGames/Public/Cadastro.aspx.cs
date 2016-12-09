@@ -58,7 +58,7 @@ namespace IGames.Public
         protected void setIcon() {
             if (Request.QueryString["icone"] != null){
                 this.dalicone = new DAL.DALIcons();
-                this.icone = this.dalicone.Select(int.Parse(Request.QueryString["icone"]));
+                this.icone = DAL.DALIcons.Select(int.Parse(Request.QueryString["icone"]));
             }
         }
     }

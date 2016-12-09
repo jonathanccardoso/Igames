@@ -101,7 +101,7 @@ namespace IGames.Administrador
                         dalavaliar.Delete(avaliar);
                     }
                     DAL.DALUsers daluser = new DAL.DALUsers();
-                    Modelo.Usuario user = daluser.Select(id);
+                    Modelo.Usuario user = DAL.DALUsers.Select(id);
                     daluser.Delete(user);
                     Roles.RemoveUserFromRole(user.nome, (user.administrador) ? "Administrador" : "Usuario");
                     Membership.DeleteUser(user.nome);
@@ -133,7 +133,7 @@ namespace IGames.Administrador
             if (!Page.IsPostBack)
             {
                 this.daluser = new DAL.DALUsers();
-                this.user = daluser.Select(Session["id"].ToString());
+                this.user = DAL.DALUsers.Select(Session["id"].ToString());
             }
         }
 
@@ -142,7 +142,7 @@ namespace IGames.Administrador
             if (!Page.IsPostBack)
             {
                 this.dalicon = new DAL.DALIcons();
-                this.icon = this.dalicon.Select(this.user.Icone_id);
+                this.icon = DAL.DALIcons.Select(this.user.Icone_id);
             }
         }
 
