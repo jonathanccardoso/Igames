@@ -54,12 +54,11 @@
             <% foreach(IGames.Modelo.Jogo jogo in jogos) { 
                   foreach(IGames.Modelo.Categoria categoria in categorias) { %>
                 <div class="col l4 s6">
-                        <div class="jogos">
+                       <div class="jogos">
                         <img src="<%= jogo.imagemUrl %>" class="responsive-img"/>
 						<div class="">
                             <b><%= jogo.descricao %></b><br />	
-                            <b><%= categoria.descricao %></b><br />	
-                            <asp:HyperLink ID="Delete" runat="server">Deletar</asp:HyperLink>					
+                            <b><%= categoria.descricao %></b><br />					
                         </div>
                        </div>
 				</div>

@@ -11,7 +11,7 @@ namespace IGames.Public
 {
     public partial class Busca : System.Web.UI.Page
     {
-        public Modelo.Jogo jogo { get; set; }
+        public Modelo.Jogo jog { get; set; }
 
         public DAL.DALGames daljogo { get; set; }
 
@@ -27,20 +27,6 @@ namespace IGames.Public
         {
             getPesquisaJog();
             getPesquisaCat();
-            getJogos();
-            getCategorias();
-        }
-        //BuscasJogos
-        protected void getJogos()
-        {
-            this.daljogo = new DAL.DALGames();
-            this.jogos = this.daljogo.SelectAll();
-        }
-        //BuscasCategoria
-        protected void getCategorias()
-        {
-            this.dalcat = new DAL.DALCategories();
-            this.categorias = this.dalcat.SelectAll();
         }
 
         protected void getPesquisaJog() {
@@ -58,7 +44,8 @@ namespace IGames.Public
                     {
                         daljogo = new DAL.DALGames();
                         string nome = (string)drBusca["nome"];
-                        jogo = daljogo.SelectByName(nome);
+                        jog = DAL.DALGames.SelectByName(nome);
+                        jogos.Add(jog);
                     }
                 }
                 connection.Close();
@@ -82,25 +69,10 @@ namespace IGames.Public
                         dalcat = new DAL.DALCategories();
                         string descricao = (string)drBusca["descricao"];
                         categoria = dalcat.SelectAllByDescription(descricao);
+                        categorias.Add(categoria);
                     }
                 }
                 connection.Close();
-            }
-        }
-
-        protected void Busca_Click(object sender, EventArgs e){
-            //TextBusca.Text = "";
-            //view para resutados da busca
-        }
-        protected void Pesquisa() 
-        {
-            if (Request.QueryString["busca"] != null)
-            {
-                if (int.Parse(Request.QueryString["busca"].ToString()) == 1)
-                {
-                    //consulta no SQL para busca
-                    Response.Redirect("~/Public/Index.aspx");
-                }
             }
         }
     }
