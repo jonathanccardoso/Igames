@@ -89,93 +89,36 @@
 </ul>
 <!---MENU JOGOS-->
 <div id="nalinha">
+<% for(int i = 0; i <= 3; i++) { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="Jogo.aspx"><img class="responsive-img" src="../Images/browserQuest.jpg"> <br>
-<b>Browser Quest</b></a>
-<p>Lorem ipsum dolor sit amet.</p>
+<a href="Jogo.aspx?jogo=<%= online[i].nome %>"><img class="responsive-img" src="<%= online[i].imagemUrl %>"> <br>
+<b><%= online[i].nome %></b></a>
+<p><%= online[i].descricao %></p>
 </div>
 </div>
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste01</p>
-</div>
-</div>
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste01</p>
-</div>
-</div>
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste01</p>
-</div>
-</div>
-</div>
+<% } %>
 <div id="destaque">
+<% for(int i = 0; i <= 3; i++) { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>Teste02</p>
+<a href="Jogo.aspx?jogo=<%= destaque[i].nome %>"><img class="responsive-img" src="<%= destaque[i].imagemUrl %>"> <br>
+<b><%= destaque[i].nome %></b></a>
+<p><%= destaque[i].descricao %></p>
 </div>
 </div>
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste02</p>
-</div>
-</div>
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste02</p>
-</div>
-</div>
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste02</p>
-</div>
-</div>
+<% } %>
 </div>
 <div id="recomendado">
+<% for(int i = 0; i <= 3; i++) { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste03</p>
+<a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="<%= recomendado[i].imagemUrl %>"> <br>
+<b><%= recomendado[i].nome %></b></a>
+<p><%= recomendado[i].descricao %></p>
 </div>
 </div>
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste03</p>
-</div>
-</div>
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste03</p>
-</div>
-</div>
-<div class="col l3 s6">
-<div class="card">
-<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-<b>Título do Jogo</b></a>
-<p>teste03</p>
-</div>
+<% } %>
 </div>
 </div>
 </div>
