@@ -29,33 +29,15 @@ namespace IGames.User
             hasUser();
             getUser();
             getIcon();
-            InitTextBox();
         }
-        /*protected void EditarPerfil_Click(object sender, EventArgs e)
-        {   
-            EditaPerfil.Click -= EditarPerfil_Click;
-            EditaPerfil.Click += Editar_Click;
-        }*/
-
-        protected void InitTextBox() {
-            if (Request.QueryString["edit"] == null)
-            {
-                Nome_user.Text = user.nome;
-                Nome_user.Enabled = false;
-                email_user.Text = user.email;
-                email_user.Enabled = false;
-                senha_user.Text = user.senha;
-                senha_user.Enabled = false;
-            }
-        }
-
+        
         protected void Habilitar() {
             if (Request.QueryString["edit"] != null)
             {
                 if (int.Parse(Request.QueryString["edit"].ToString()) == 1)
                 {
                     //deve da certo
-                    if (Nome_user.Enabled == true)
+                    if (!Nome_user.Enabled)
                     {
                         Nome_user.Enabled = true;
                         email_user.Enabled = true;
@@ -66,9 +48,6 @@ namespace IGames.User
                         this.ctrl = 1;//não faz nada de controle
                     }
                     else {
-                        Nome_user.Text = user.nome;
-                        email_user.Text = user.email;
-                        senha_user.Text = user.senha;
                         Editar_Click();
                     }
                 }
@@ -130,11 +109,10 @@ namespace IGames.User
 
         protected void getUser()
         {
-            if (!Page.IsPostBack)
-            {
+            
                 this.daluser = new DAL.DALUsers();
                 this.user = DAL.DALUsers.Select(Session["id"].ToString());
-            }
+            
         }
 
         protected void getIcon()
