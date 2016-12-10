@@ -58,17 +58,16 @@
           <div class="card white">
                <div class="card-content">
                     <% foreach (IGames.Modelo.Favorito favorito in favoritos){
-                       foreach (IGames.Modelo.Jogo jogo in jogos) {
-                       if (favorito.Jogo_id == jogo.id) { %>
+                           if(favorito.Usuario_id == user.id) { %>
                     <div class="col l1 s6"> 
                     <div class="card">
                     <div class="card-image">
-                    <img src="<%= favorito.Jogo_id %>" class="responsive-img"/>
+                    <a href="Jogo.aspx?jogo=IGames.DAL.DALGames.Select(favorito.Jogo_id).nome"></a>
+                    <img src="<%= IGames.DAL.DALGames.Select(favorito.Jogo_id).imagemUrl %>" class="responsive-img"/>
                     </div>
                     </div>
                     </div>
-                    <% } 
-                       } 
+                    <% }
                        } %>
                 </div>
             </div> 
