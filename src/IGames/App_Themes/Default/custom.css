@@ -140,7 +140,10 @@ input[name=fb] {
     font-size: 1.2rem;
 
 }*/
-
+.busca {
+    visibility: hidden;
+    position: absolute;
+}
 div.usuarios {
     display: flex;
     align-items: center;
