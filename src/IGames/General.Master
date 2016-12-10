@@ -50,11 +50,22 @@
         <div class="row">
         <div class="col l6 s12">
         <h5 class="white-text">Siga-nos em nossas redes sociais</h5>
-        <div class="col l3">
-        <img src="../images/facebook.png">
-        <img src="../images/twitter.png">
-        <img src="../images/instagram.png">
         </div>
+        </div>
+        <div class="row">
+        <div class="col l7">
+        <div class="chip">
+            <img src="../Images/facebook.png">
+        </div>
+        <div class="chip">
+            <img src="../Images/twitter.png">
+        </div>
+        <div class="chip">
+            <img src="../Images/instagram.png">
+        </div>
+        </div>
+        <div class="col l4 right">
+            <a href="~/Public/FaleConosco.aspx"><h5 class="white-text">Fale Conosco</h5></a>
         </div>
         </div>
         </div>

@@ -89,8 +89,11 @@
     <Content Include="Images\browserQuest.jpg" />
     <Content Include="Images\EstrelaAcesa.png" />
     <Content Include="Images\EstrelaApagada.png" />
+    <Content Include="Images\facebook.png" />
     <Content Include="Images\img01.jpeg" />
     <Content Include="Images\img02.jpeg" />
+    <Content Include="Images\instagram.png" />
+    <Content Include="Images\twitter.png" />
     <Content Include="Images\user.png" />
     <Content Include="js\custom.js" />
     <Content Include="js\jquery-2.1.1.min.js" />
