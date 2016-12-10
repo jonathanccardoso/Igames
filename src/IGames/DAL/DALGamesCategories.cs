@@ -85,6 +85,44 @@ namespace IGames.DAL
             }
             return JogoCategoria;
         }
+
+        //Método SelectByCategory
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static Modelo.JogoCategoria SelectByCategory(int Categoria_id)
+        {
+            Modelo.JogoCategoria JogoCategoria = null;
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlJogoCategoria = "SELECT * FROM JogoCategoria WHERE Categoria_id = @Categoria_id";
+                    SqlCommand cmdJogoCategoria = new SqlCommand(sqlJogoCategoria, connection);
+                    cmdJogoCategoria.Parameters.AddWithValue("@Categoria_id", Categoria_id);
+                    SqlDataReader drJogoCategoria;
+
+                    using (drJogoCategoria = cmdJogoCategoria.ExecuteReader())
+                    {
+                        if (drJogoCategoria.HasRows)
+                        {
+                            while (drJogoCategoria.Read())
+                            {
+                                int idJogo = (int)drJogoCategoria["Jogo_id"];
+                                int idCategoria = (int)drJogoCategoria["Categoria_id"];
+
+                                JogoCategoria = new Modelo.JogoCategoria(idJogo, idCategoria);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return JogoCategoria;
+        }
+
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Insert(Modelo.JogoCategoria JogoCategoria) 
