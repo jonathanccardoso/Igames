@@ -39,19 +39,10 @@
 </div>
 </nav>
 <main>
+<h2 class="center-align">Fórum</h2><br>
 <div class="card">
 <div class="card-content">
-<div class="row coment">
-<aside class="col l1 s1 pic left">
-<img src="http://lorempixel.com/100/100/" class="circle">
-</aside>
-<div class="col l11 s6 offset-s3 left-align">
-<b>Nome de usuário para teste</b>
-<h6 class="right">12/04</h6><br />
-<i>18:09</i><br />
-<h6 class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur dapibus urna non dignissim. Ut pretium tempor pulvinar. Aliquam sit amet mauris laoreet, fringilla risus at, dignissim ante. Nulla turpis tellus, interdum sit amet congue lobortis, molestie et elit. In.</h6>
-</div>
-</div>
+<a href="Cadastro.aspx"><h3>Cadastre-se em nosso site para desbloquear o serviço de fórum...</h3></a>
 </div>
 </div>
 </main>
