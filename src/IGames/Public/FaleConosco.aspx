@@ -40,17 +40,27 @@
 </nav>
 <main>
 <form runat="server">
-<div class="cardsiga">
+<div class="card">
 <div class="card-content">
 <div class="row coment">
 <aside class="col l1 s1 pic left">
-<img src="http://lorempixel.com/100/100/" class="circle">
+<img src="<%= icon.iconeUrl %>" class="circle">
 </aside>
 <div class="col l11 s6 offset-s3 left-align">
-<b>Nome de usuário para teste</b>
-<h6 class="right">12/04</h6><br />
-<i>18:09</i><br />
-<asp:TextBox ID="TextArea" runat="server" TextMode="MultiLine" CssClass="materialize-textarea"></asp:TextBox>
+<b><%= user.nome %></b>
+<div class="input-field">
+<asp:TextBox ID="email" runat="server"></asp:TextBox>
+<label for="ContentPlaceHolder1_email">Email</label>
+</div>
+<div class="input-field">
+<asp:TextBox ID="assunto" runat="server"></asp:TextBox>
+<label for="ContentPlaceHolder1_assunto">Assunto</label>
+</div>
+<div class="input-field">
+<asp:TextBox ID="mensagem" runat="server" TextMode="MultiLine" CssClass="materialize-textarea"></asp:TextBox>
+<label for="ContentPlaceHolder1_mensagem">Mensagem</label>
+</div>
+<asp:Button ID="Send" runat="server" Text="Enviar" OnClick="Send_Click"></asp:Button>
 </div>
 </div>
 </div>
