@@ -41,5 +41,24 @@ namespace IGames.Modelo
             this.Postagem_id = Postagem_id;
             this.Forum_id = Forum_id;
         }
+
+        public Postagem(string texto, string data, string hora, string Usuario_id, int Forum_id)
+        {
+            this.texto = texto;
+            this.data = data;
+            this.hora = hora;
+            this.Usuario_id = Usuario_id;
+            this.Forum_id = Forum_id;
+        }
+
+        public Postagem(string texto, string data, string hora, string Usuario_id, int Forum_id, int Postagem_id)
+        {
+            this.texto = texto;
+            this.data = data;
+            this.hora = hora;
+            this.Usuario_id = Usuario_id;
+            this.Postagem_id = Postagem_id;
+            this.Forum_id = Forum_id;
+        }
     }
 }
