@@ -17,6 +17,12 @@ namespace IGames.User
 
         public Modelo.Forum forum { get; set; }
 
+        public DAL.DALPosts dalposts { get; set; }
+
+        public List<Modelo.Postagem> postagens { get; set; }
+
+        public Modelo.Postagem postagem { get; set; }
+
         public DAL.DALUsers daluser { get; set; }
 
         public List<Modelo.Usuario> users { get; set; }
@@ -31,6 +37,7 @@ namespace IGames.User
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            getPosts();
             hasUser();
             getUser();
             getUsers();
@@ -41,14 +48,36 @@ namespace IGames.User
 
         protected void Send_Click(object sender, EventArgs e)
         {
-            this.dalforum = new DAL.DALForum();
-            this.forum = new Modelo.Forum(TextArea.Text, DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString(), DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute, user.id);
-            dalforum.Insert(forum);
+            if (Request.QueryString["forum"] != null && Request.QueryString["postagem"] != null)
+            {
+                this.dalforum = new DAL.DALForum();
+                this.forum = new Modelo.Forum(TextArea.Text, DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString(), DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute, user.id);
+                dalforum.Insert(forum);
+            }
+            //fazer comentario
+            else if (Request.QueryString["forum"] != null)
+            {
+                this.dalposts = new DAL.DALPosts();
+                this.postagem = new Modelo.Postagem(TextArea.Text, DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString(), DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute, user.id, Convert.ToInt32(Request.QueryString["forum"].ToString()));
+                dalposts.Insert(postagem);
+            }
+            //responder comentario
+            else if (Request.QueryString["postagem"] != null)
+            {
+                this.dalposts = new DAL.DALPosts();
+                this.postagem = new Modelo.Postagem(TextArea.Text, DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString(), DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute, user.id, dalposts.Select(Convert.ToInt32(Request.QueryString["postagem"].ToString())).Forum_id, Convert.ToInt32(Request.QueryString["postagem"].ToString()));
+                dalposts.Insert(postagem);
+            }
         }
 
         protected void getForuns() {
             this.dalforum = new DAL.DALForum();
             this.foruns = dalforum.SelectAll();
+        }
+
+        protected void getPosts() {
+            this.dalposts = new DAL.DALPosts();
+            this.postagens = this.dalposts.SelectAll();
         }
 
         protected void hasUser()

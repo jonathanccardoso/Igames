@@ -56,7 +56,7 @@
     <% foreach (IGames.Modelo.Forum foru in foruns) { %>
     <div class="card">
     <div class="card-content">
-    <div class="row coment">
+    <div class="row">
     <aside class="col l1 s1 pic left center-align">
     <% foreach (IGames.Modelo.Usuario usuario in users) {
        foreach (IGames.Modelo.Icone icone in icons) {
@@ -68,7 +68,7 @@
     <div class="col l11 s6 offset-s3 left-align">
     <h6><%= foru.data %> &nbsp;&nbsp; <%= foru.hora %></h6><br />
     <h6 class="message"><%= foru.descricao %></h6>
-    <a class="waves-effect center-align btn-flat left"><i class="material-icons chat">chat_bubble</i>Comentar</a>
+    <a class="waves-effect center-align btn-flat left" href="?forum=<%= foru.id %>"><i class="material-icons chat">chat_bubble</i>Comentar</a>
     </div>
     </div>
     </div>
@@ -76,8 +76,11 @@
     <% }
        }
        }
-       }
        } %>
+       <% foreach(IGames.Modelo.Postagem post in postagens) { %>
+
+      <% }
+         } %>
     <div class="card">
     <div class="card-content">
     <div class="input-field col s6">
