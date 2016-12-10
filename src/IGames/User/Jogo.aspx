@@ -59,8 +59,8 @@
               <div class=" card from">
                   <div class="left-align">
                         <aside>
-                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#favorito"><i class="material-icons">favorite</i></a><br />
-                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#infoJogo"><i class="material-icons">info</i></a><br /><br /><br /><br /><br /><br />
+                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#favorito"><i class="material-icons" name="favorito">favorite_border</i></a><br />
+                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#infoJogo"><i class="material-icons" name="informacoes">info</i></a><br /><br /><br /><br /><br /><br />
                           <div id="help" class="modal">
                             <div class="modal-content">
                               <h4 class="center-align">Como jogar ?</h4>

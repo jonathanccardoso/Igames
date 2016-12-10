@@ -24,6 +24,8 @@ namespace IGames.User
 
         public Modelo.Favorito favorito { get; set; }
 
+        public Modelo.Favorito fav { get; set; }
+
         public DAL.DALGames daljogo { get; set; }
 
         public Modelo.Jogo jogo { get; set; }
@@ -60,7 +62,7 @@ namespace IGames.User
                 this.dalaval = new DAL.DALRates();
                 this.daljogo = new DAL.DALGames();
 //              this.avali = this.dalaval.Select(this.daljogo.SelectByName("2048").id, Session["id"].ToString());
-                this.avali = this.dalaval.Select(this.daljogo.SelectByName("2048").id, user.id);
+                this.avali = this.dalaval.Select(DAL.DALGames.SelectByName("2048").id, user.id);
                 if (this.dalaval.SelectByUser(user.id) != null)
                 {
                     if (avali.numeroEstrelas == 1)
@@ -109,12 +111,24 @@ namespace IGames.User
             }
         }
 
+        protected void pegarFavorito()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.dalfavorito = new DAL.DALFavorites();
+                if (this.dalfavorito.SelectByUser(user.id) != null)
+                {
+                    Request.Form["favorito"] = "favorite";
+                }
+            }
+        }
+
         protected void Estrela1_Click(object sender, EventArgs e)
         {
             this.dalaval = new DAL.DALRates();
             this.daljogo = new DAL.DALGames();
-            Modelo.Avaliacao ava = new Modelo.Avaliacao(1, daljogo.SelectByName("2048").id, Session["id"].ToString());
-            if (this.dalaval.Select(this.daljogo.SelectByName("2048").id, Session["id"].ToString()) != null)
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(1, DAL.DALGames.SelectByName("2048").id, Session["id"].ToString());
+            if (this.dalaval.Select(DAL.DALGames.SelectByName("2048").id, Session["id"].ToString()) != null)
             {
                 Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela2.ImageUrl = "~/Images/EstrelaApagada.png";
@@ -139,8 +153,8 @@ namespace IGames.User
         {
             DAL.DALRates dalaval = new DAL.DALRates();
             DAL.DALGames daljogo = new DAL.DALGames();
-            Modelo.Avaliacao ava = new Modelo.Avaliacao(2, daljogo.SelectByName("2048").id, Session["id"].ToString());
-            if (dalaval.Select(daljogo.SelectByName("2048").id, Session["id"].ToString()) != null)
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(2, DAL.DALGames.SelectByName("2048").id, Session["id"].ToString());
+            if (dalaval.Select(DAL.DALGames.SelectByName("2048").id, Session["id"].ToString()) != null)
             {
                 Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
@@ -166,8 +180,8 @@ namespace IGames.User
         {
             DAL.DALRates dalaval = new DAL.DALRates();
             DAL.DALGames daljogo = new DAL.DALGames();
-            Modelo.Avaliacao ava = new Modelo.Avaliacao(3, daljogo.SelectByName("2048").id, Session["id"].ToString());
-            if (dalaval.Select(daljogo.SelectByName("2048").id, Session["id"].ToString()) != null)
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(3, DAL.DALGames.SelectByName("2048").id, Session["id"].ToString());
+            if (dalaval.Select(DAL.DALGames.SelectByName("2048").id, Session["id"].ToString()) != null)
             {
                 Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
@@ -193,8 +207,8 @@ namespace IGames.User
         {
             DAL.DALRates dalaval = new DAL.DALRates();
             DAL.DALGames daljogo = new DAL.DALGames();
-            Modelo.Avaliacao ava = new Modelo.Avaliacao(4, daljogo.SelectByName("2048").id, Session["id"].ToString());
-            if (dalaval.Select(daljogo.SelectByName("2048").id, Session["id"].ToString()) != null)
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(4, DAL.DALGames.SelectByName("2048").id, Session["id"].ToString());
+            if (dalaval.Select(DAL.DALGames.SelectByName("2048").id, Session["id"].ToString()) != null)
             {
                 Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
@@ -219,9 +233,8 @@ namespace IGames.User
         protected void Estrela5_Click(object sender, EventArgs e)
         {
             DAL.DALRates dalaval = new DAL.DALRates();
-            DAL.DALGames daljogo = new DAL.DALGames();
-            Modelo.Avaliacao ava = new Modelo.Avaliacao(5, daljogo.SelectByName("2048").id, Session["id"].ToString());
-            if (dalaval.Select(daljogo.SelectByName("2048").id, Session["id"].ToString()) != null)
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(5, DAL.DALGames.SelectByName("2048").id, Session["id"].ToString());
+            if (dalaval.Select(DAL.DALGames.SelectByName("2048").id, Session["id"].ToString()) != null)
             {
                 Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
@@ -270,7 +283,7 @@ namespace IGames.User
         protected void getJogo()
         {
             this.daljogo = new DAL.DALGames();
-            this.jogo = daljogo.Select(daljogo.SelectByName(Request.QueryString["jogo"]).id);
+            this.jogo = DAL.DALGames.Select(DAL.DALGames.SelectByName(Request.QueryString["jogo"]).id);
         }
 
         protected void Sair()
@@ -287,11 +300,16 @@ namespace IGames.User
         }
         protected void AddFavorito_Click(object sender, EventArgs e)
         {
-            //não esta pegando  
             this.dalfavorito = new DAL.DALFavorites();
             this.favorito = new Modelo.Favorito(user.id, jogo.id);
             dalfavorito.Insert(favorito);
+            if (this.dalfavorito.SelectByUser(user.id) != null)
+            {
+                Request.Form["favorito"] = "favorite_border";
+            }
+            else if (this.dalfavorito.SelectByUser(user.id) == null) {
+                Request.Form["favorito"] = "favorite";
+            }
         }
-
     }
 }
