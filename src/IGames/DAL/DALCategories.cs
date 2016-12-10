@@ -21,14 +21,6 @@ namespace IGames.DAL
             Modelo.Categoria categoria;
             List<Modelo.Categoria> categorias = new List<Modelo.Categoria>();
             
-            /*
-              Mandar mensagem para os administradores
-                using System.Net.Mail;
-                MailMessage message = new MailMessage("origem", "destinatário", "assunto", "corpo");
-                SmtpClient emailClient = new SmtpClient();
-              Mandar mensagem para os administradores
-            */
-
             try
             {
                 using (connection = new SqlConnection(connectionString))

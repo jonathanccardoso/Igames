@@ -29,9 +29,8 @@ namespace IGames.Administrador
         {
             uploadGame();
             uploadImage();
-            DAL.DALGames jogo = new DAL.DALGames();
             Modelo.Jogo jog = new Modelo.Jogo("Download/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text);
-            jogo.Insert(jog);
+            DAL.DALGames.Insert(jog);
 
             Response.Redirect("~/Administrador/Index.aspx");
         }

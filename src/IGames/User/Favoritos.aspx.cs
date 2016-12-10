@@ -68,7 +68,7 @@ namespace IGames.User
             if (!Page.IsPostBack)
             {
                 this.daljogo = new DAL.DALGames();
-                this.jogos = daljogo.SelectAll();
+                this.jogos = DAL.DALGames.SelectAll();
             }
         }
         protected void getFavoritos()
