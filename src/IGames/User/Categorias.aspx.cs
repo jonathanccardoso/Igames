@@ -9,74 +9,43 @@ namespace IGames.User
 {
     public partial class Categorias : System.Web.UI.Page
     {
-        public DAL.DALUsers daluser { get; set; }
-
-        public Modelo.Usuario user { get; set; }
-
-        public DAL.DALIcons dalicon { get; set; }
-
-        public Modelo.Icone icon { get; set; }
-
         public List<Modelo.Categoria> cats { get; set; }
+
+        public List<Modelo.Jogo> jogos { get; set; }
+
+        public List<Modelo.JogoCategoria> jogoscategorias { get; set; }
 
         public DAL.DALCategories dalcat { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            hasUser();
-            getUser();
-            getIcon();
-
             if (!Page.IsPostBack)
             {
+                getJogos();
                 getCategories();
-            } 
+                getJogosCategorias();
+            }
         }
+
         protected void getCategories()
         {
             this.dalcat = new DAL.DALCategories();
             this.cats = this.dalcat.SelectAll();
         }
-        protected void hasUser()
+
+        protected void getJogos()
         {
-            if (!Page.IsPostBack)
-            {
-                if (Session["id"] == null)
-                {
-                    Response.Redirect("~/Public/Cadastro.aspx");
-                }
-            }
+            this.jogos = DAL.DALGames.SelectAll();
         }
 
-        protected void getUser()
+        protected Modelo.Jogo getJogo(int jogo_id)
         {
-            if (!Page.IsPostBack)
-            {
-                this.daluser = new DAL.DALUsers();
-                this.user = DAL.DALUsers.Select(Session["id"].ToString());
-            }
+            return DAL.DALGames.Select(jogo_id);
         }
 
-        protected void getIcon()
+        protected void getJogosCategorias()
         {
-            if (!Page.IsPostBack)
-            {
-                this.dalicon = new DAL.DALIcons();
-                this.icon = DAL.DALIcons.Select(this.user.Icone_id);
-            }
-        }
-
-        protected void Sair()
-        {
-            if (Request.QueryString["exit"] != null)
-            {
-                if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
-                {
-                    Session["id"] = null;
-                    Session["email"] = null;
-                    Response.Redirect("~/Public/Index.aspx");
-                }
-            }
+            this.jogos = DAL.DALGames.SelectAll();
         }
     }
 }

@@ -47,43 +47,32 @@
 		  <div class="collapsible-header"><%= cate.descricao %></div>
 		  <div class="collapsible-body">
 			<div class="row">
-				<div class="col l3 s6">
+                <% for(int i = 0; i <= 3; i++) { %>
+                <div class="col l3 s6">
 					<div class="card">
-						<a href="Jogo.aspx">
-                            <%--<form runat="server">--%>
-                           <%-- <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/browserQuest.jpg" PostBackUrl="~/Administrador/Jogo.aspx?jogo=Browser Quest" />--%>
-                              <%--  <img class="responsive-img" src="../Images/browserQuest.jpg"> --%><br>
-						<b>Browser Quest</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
+						<a href="Jogo.aspx?jogo=<%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).nome %>"><br>
+						<b><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).nome %></b></a>
+						<p><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).descricao %></p>
 					</div>
 				</div>
+                <% } %>
+                <%--<% for(int i = 0; i <= 3; i++) {
+                       if(jogos[i].id == jogoscategorias[i].Jogo_id && cate.id == jogoscategorias[i].Categoria_id) { %>
 				<div class="col l3 s6">
 					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
+						<a href="Jogo.aspx?jogo=<%= jogos[i].nome %>"><br>
+						<b><%= jogos[i].nome %></b></a>
+						<p><%= jogos[i].descricao %></p>
 					</div>
 				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="col l3 s6">
-					<div class="card">
-						<a href="#"><img class="responsive-img" src="http://lorempixel.com/120/120"> <br>
-						<b>Título do Jogo</b></a>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
+                <% jogos.Remove(jogos[i]);
+                    } 
+                   } %>--%>
 			</div>
 		  </div>
 		</li>
               <% } %>
         </ul>
     </div>
-
 </main>
 </asp:Content>

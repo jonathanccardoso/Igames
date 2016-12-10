@@ -50,9 +50,7 @@
 </div>
 </nav>
 <main>
-<%--<form id="Form1" runat="server">--%>
-    <h1 class="center-align">Categorias</h1><br>
-	
+ <h1 class="center-align">Categorias</h1><br>
     <div class="center-align">
 		  <ul class="collapsible popout" data-collapsible="accordion">
               <% foreach(IGames.Modelo.Categoria cate in cats) { %>
@@ -60,18 +58,29 @@
 		  <div class="collapsible-header"><%= cate.descricao %></div>
 		  <div class="collapsible-body">
 			<div class="row">
-				<% foreach(IGames.Modelo.Jogo jogo in jog) { %>
+                <% for(int i = 0; i <= 3; i++) { %>
                 <div class="col l3 s6">
 					<div class="card">
-						<a href="Jogo.aspx?jogo=<%= jogo.nome %>">
-                            <img src="<%= jogo.imagemUrl %>" class="responsive-img"/>
-						<b><%= jogo.nome %></b></a>
-						<p><%= jogo.descricao %></p>
+						<a href="Jogo.aspx?jogo=<%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).nome %>"><br>
+						<b><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).nome %></b></a>
+						<p><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).descricao %></p>
 					</div>
 				</div>
                 <% } %>
-                </div>
-          </div>
+                <%--<% for(int i = 0; i <= 3; i++) {
+                       if(jogos[i].id == jogoscategorias[i].Jogo_id && cate.id == jogoscategorias[i].Categoria_id) { %>
+				<div class="col l3 s6">
+					<div class="card">
+						<a href="Jogo.aspx?jogo=<%= jogos[i].nome %>"><br>
+						<b><%= jogos[i].nome %></b></a>
+						<p><%= jogos[i].descricao %></p>
+					</div>
+				</div>
+                <% jogos.Remove(jogos[i]);
+                    } 
+                   } %>--%>
+			</div>
+		  </div>
 		</li>
               <% } %>
         </ul>
