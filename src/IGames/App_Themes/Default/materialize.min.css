@@ -5407,11 +5407,11 @@ a.waves-effect .waves-ripple {
   height: 32px;
   font-size: 13px;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.1);
   line-height: 32px;
   padding: 0 12px;
   border-radius: 16px;
-  background-color: #e4e4e4;
+  background-color: transparent;
 }
 
 .chip img {
