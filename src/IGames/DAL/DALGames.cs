@@ -14,9 +14,9 @@ namespace IGames.DAL
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Jogo> SelectAll()
+        public static List<Modelo.Jogo> SelectAll()
         {
-            Modelo.Jogo jogo;
+            Modelo.Jogo jogo = null;
             List<Modelo.Jogo> jogos = new List<Modelo.Jogo>();
 
             try
@@ -40,6 +40,85 @@ namespace IGames.DAL
                                 string imagemUrl = (string)drJogos["imagemUrl"];
                                 string nome = (string)drJogos["nome"];
                                 jogo = new Modelo.Jogo(idJogo, jogoUrl, descricao, imagemUrl, nome);
+                                jogos.Add(jogo);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+
+            return jogos;
+        }
+
+        //Método SelectTop
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Modelo.Jogo> SelectTop()
+        {
+            Modelo.Jogo jogo;
+            List<Modelo.Jogo> jogos = new List<Modelo.Jogo>();
+
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlJogos = "exec sp_TopAvaliacoes";
+                    SqlCommand cmdJogos = new SqlCommand(sqlJogos, connection);
+                    SqlDataReader drJogos;
+
+                    using (drJogos = cmdJogos.ExecuteReader())
+                    {
+                        if (drJogos.HasRows)
+                        {
+                            while (drJogos.Read())
+                            {
+                                jogo = Select(Convert.ToInt32(drJogos["id"]));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+
+            return jogos;
+        }
+
+        //Método SelectRandom
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Modelo.Jogo> SelectRandom()
+        {
+            Modelo.Jogo jogo;
+            List<Modelo.Jogo> jogos = new List<Modelo.Jogo>();
+            Random r = new Random();
+            int[] j = new int[4];
+
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlJogos = "Select Count(id) as id from Jogo";
+                    SqlCommand cmdJogos = new SqlCommand(sqlJogos, connection);
+                    SqlDataReader drJogos;
+
+                    using (drJogos = cmdJogos.ExecuteReader())
+                    {
+                        if (drJogos.HasRows)
+                        {
+                            while (drJogos.Read())
+                            {
+                                for (int i = 0; i <= j.Length; i++)
+                                {
+                                    jogo = Select(r.Next(0, Convert.ToInt32(drJogos["id"])));
+                                    jogos.Add(jogo);
+                                }
                             }
                         }
                     }
@@ -55,7 +134,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Jogo Select(int jogo_id)
+        public static Modelo.Jogo Select(int jogo_id)
         {
             //instancia um novo usuario
             Modelo.Jogo jogo = null;
@@ -96,7 +175,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Jogo SelectByName(string jogo_nome)
+        public static Modelo.Jogo SelectByName(string jogo_nome)
         {
             //instancia um novo usuario
             Modelo.Jogo jogo = null;
@@ -137,11 +216,11 @@ namespace IGames.DAL
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Jogo jogo)
+        public static void Insert(Modelo.Jogo jogo)
         {
             try
             {
-                if (this.Select(jogo.id) == null)
+                if (Select(jogo.id) == null)
                 {
                     using (connection = new SqlConnection(connectionString))
                     {
@@ -157,7 +236,7 @@ namespace IGames.DAL
                 }
                 else
                 {
-                    this.Update(jogo);
+                    Update(jogo);
                 }
             }
             catch (SystemException)
@@ -168,7 +247,7 @@ namespace IGames.DAL
 
         //Método Update
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Jogo jogo)
+        public static void Update(Modelo.Jogo jogo)
         {
             try
             {
@@ -195,7 +274,7 @@ namespace IGames.DAL
 
         //Método Delete
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Jogo jogo)
+        public static void Delete(Modelo.Jogo jogo)
         {
             try
             {
