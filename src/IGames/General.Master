@@ -45,7 +45,7 @@
 <body>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
-        <footer class="page-footer">
+        <footer class="page-footer" style="background-color:#FF7416">
         <div class="container">
         <div class="row">
         <div class="col l6 s12">
@@ -65,7 +65,7 @@
         </div>
         </div>
         <div class="col l4 right">
-            <a href="~/Public/FaleConosco.aspx"><h5 class="white-text">Fale Conosco</h5></a>
+            <a href="FaleConosco.aspx"><h5 class="white-text">Fale Conosco</h5></a>
         </div>
         </div>
         </div>

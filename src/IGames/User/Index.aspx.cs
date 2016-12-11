@@ -13,8 +13,18 @@ namespace IGames.User
 
         public Modelo.Icone icon { get; set; }
 
+        public List<Modelo.Jogo> online { get; set; }
+        
+        public List<Modelo.Jogo> destaque { get; set; }
+
+        public List<Modelo.Jogo> recomendado { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            getOnline();
+            getDestaque();
+            getRecomendado();
+
             initPage();
         }
 
@@ -49,6 +59,29 @@ namespace IGames.User
                         Response.Redirect("~/Public/Index.aspx");
                     }
                 }*/
+            }
+        }
+        protected void getOnline()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.online = DAL.DALGames.SelectAll();
+            }
+        }
+
+        protected void getDestaque()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.destaque = DAL.DALGames.SelectTop();
+            }
+        }
+
+        protected void getRecomendado()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.destaque = DAL.DALGames.SelectRandom();
             }
         }
     }

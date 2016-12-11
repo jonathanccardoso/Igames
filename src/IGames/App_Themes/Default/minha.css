@@ -1,13 +1,19 @@
 ﻿main{
-	background:#EEEEEE;
+	background:#EFEDED;
 }
 nav{
-	background:#003366;
+	background:#FF7416;
+    /*User:
+       background:#OF3057;
+    */
 }
 .card {
     text-align: center;
+    background:#0F3057;
 }
-.responsive-img{margin-top:10px;}
+.responsive-img{
+    margin-top:10px;
+}
 #jogosonline{margin-left: 20px;}
 .slider{
 	margin-top: 10px;
@@ -21,3 +27,17 @@ nav{
   float: none; 
   width: 740px;
  }
+.modal {
+     background: #123660;
+}
+a, button {
+     /*background: #123660;*/
+     background: #FA812F;
+}
+li {
+     background: #0F3057;
+}
+i {
+    /*user*/
+  background: #FA812F;
+}

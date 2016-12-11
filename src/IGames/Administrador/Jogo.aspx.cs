@@ -34,12 +34,17 @@ namespace IGames.Administrador
 
         public Modelo.Avaliacao avali { get; set; }
 
+        public List<Modelo.Jogo> destaque { get; set; }
+
+        public List<Modelo.Jogo> recomendado { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             hasUser();
             getUser();
             getIcon();
+
+            getRecomendado();
 
             pegarAvaliacao();
         }
@@ -292,6 +297,14 @@ namespace IGames.Administrador
                 this.avaliacao = true;
             }
         }
+        protected void getRecomendado()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.destaque = DAL.DALGames.SelectRandom();
+            }
+        }
 
+        
     }
 }

@@ -52,7 +52,7 @@
     <label for="last_name">Confirmar senha</label>
     </div>
     <div class="col l7 offset-l7 m3 offset-m5 s7 offset-s1">
-        <a class="waves-effect waves-light btn modal-trigger btn yellow darken-1" id="modal1" href="#modal">Cadastrar</a>
+        <a class="waves-effect waves-light btn modal-trigger btn yellow darken-1" id="modal1" href="#modal" >Cadastrar</a>
     </div>
 </div>
 </div>

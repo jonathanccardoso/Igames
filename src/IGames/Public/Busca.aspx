@@ -8,19 +8,13 @@
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
 <li> 
-<!---
-    o enter esta ok
-    falta mostrar o resultado na query(consulta)
-    -->
-
-<%--<form id= "form1" runat="server" method="post" action="Busca.aspx"> 
-    <div class="input-field search-desktop">
-        <%--<asp:TextBox ID="search" runat="server" style="background-color:black"></asp:TextBox>--%>
-        <%--<input id="search" type="search">
-        <label for="search" style="background-color:black"><i class="material-icons">search</i></label><i style="background-color:black" class="material-icons close">close</i>    
-    </div>
-</form>--%>
-
+<form action="Busca.aspx" method="post"> 
+<div class="input-field search-desktop">
+<input id="search" type="search" name="search">
+<label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
+</div>
+<button class="busca" type="submit" name="action"></button>
+</form>
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
@@ -29,12 +23,12 @@
 <ul class="side-nav" id="mobile-demo">
 <li>
 <div class="card grey lighten-1 search-mobile">
-<form>
-<div class="input-field inputy">
-<input type="search" class="inp">
-<label for="searc"><i class="material-icons">search</i></label>
-<i class="material-icons clos">close</i>
+<form action="Busca.aspx" method="post"> 
+<div class="input-field search-desktop">
+<input id="search1" type="search" name="search">
+<label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
 </div>
+<button class="busca" type="submit" name="action"></button>
 </form>
 </div>
 </li>

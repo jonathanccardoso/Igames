@@ -18,12 +18,34 @@ namespace IGames.Administrador
 
         public Modelo.Icone icon { get; set; }
 
+        public List<Modelo.Jogo> online { get; set; }
+
+        public List<Modelo.Jogo> destaque { get; set; }
+
+        public List<Modelo.Jogo> recomendado { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             hasUser();
             getUser();
             getIcon();
+
+            getOnline();
+            getDestaque();
+            getRecomendado();
+
+            initPage();
         }
+        protected void initPage()
+        {
+            if (Metodos.hasUser(Session["id"].ToString()))
+            {
+                Response.Redirect("~/Public/Cadastro.aspx");
+            }
+            this.user = Metodos.getUser(Session["id"].ToString());
+            this.icon = Metodos.getIcon(this.user.Icone_id);
+        }
+
 
         protected void hasUser()
         {
@@ -62,7 +84,8 @@ namespace IGames.Administrador
         }
         protected void Confirmar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Administrador/" + (online.Checked ? "Online" : ((download.Checked) ? "Download" : "Index")) + ".aspx");
+            //erro no online.Checked
+            //Response.Redirect("~/Administrador/" + (online.Checked ? "Online" : ((download.Checked) ? "Download" : "Index")) + ".aspx");
         }
 
         protected void Sair()
@@ -75,6 +98,29 @@ namespace IGames.Administrador
                     Session["email"] = null;
                     Response.Redirect("~/Public/Index.aspx");
                 }
+            }
+        }
+        protected void getOnline()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.online = DAL.DALGames.SelectAll();
+            }
+        }
+
+        protected void getDestaque()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.destaque = DAL.DALGames.SelectTop();
+            }
+        }
+
+        protected void getRecomendado()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.destaque = DAL.DALGames.SelectRandom();
             }
         }
     }

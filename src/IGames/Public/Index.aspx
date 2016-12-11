@@ -23,12 +23,12 @@
 <ul class="side-nav" id="mobile-demo">
 <li>
 <div class="card grey lighten-1 search-mobile">
-<form>
-<div class="input-field inputy">
-<input type="search" class="inp">
-<label for="searc"><i class="material-icons">search</i></label>
-<i class="material-icons clos">close</i>
+<form action="Busca.aspx" method="post"> 
+<div class="input-field search-desktop">
+<input id="search1" type="search" name="search">
+<label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
 </div>
+<button class="busca" type="submit" name="action"></button>
 </form>
 </div>
 </li>
@@ -36,7 +36,7 @@
 <li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="login.aspx"><i class="material-icons left">fingerprint</i>Login</a></li>
 </ul>
-<a href="index.aspx" class="brand-logo"><img src="../Favicon/ToolbarIcon-1.png"/></a>
+<a href="index.aspx" class="brand-logo"><img src="../Images/logomarca.png"/></a>
 </div>
 </nav>
 <main>

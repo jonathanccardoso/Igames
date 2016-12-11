@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="Administrador\Categorias.aspx" />
     <Content Include="Administrador\Download.aspx" />
+    <Content Include="Administrador\Forum.aspx" />
     <Content Include="Administrador\Icone.aspx" />
     <Content Include="Administrador\Index.aspx" />
     <Content Include="Administrador\Jogo.aspx" />
@@ -93,6 +94,7 @@
     <Content Include="Images\img01.jpeg" />
     <Content Include="Images\img02.jpeg" />
     <Content Include="Images\instagram.png" />
+    <Content Include="Images\logomarca.png" />
     <Content Include="Images\twitter.png" />
     <Content Include="Images\user.png" />
     <Content Include="js\custom.js" />
@@ -128,6 +130,13 @@
     </Compile>
     <Compile Include="Administrador\Download.aspx.designer.cs">
       <DependentUpon>Download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Forum.aspx.cs">
+      <DependentUpon>Forum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Forum.aspx.designer.cs">
+      <DependentUpon>Forum.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\Icone.aspx.cs">
       <DependentUpon>Icone.aspx</DependentUpon>

@@ -37,12 +37,19 @@ namespace IGames.User
 
         public Modelo.Avaliacao avali { get; set; }
 
+        public List<Modelo.Jogo> destaque { get; set; }
+
+        public List<Modelo.Jogo> recomendado { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             hasUser();
             getUser();
             getIcon();
             getJogo();
+
+            getRecomendado();
+
             pegarAvaliacao();
         }
         protected void Sair_Click(object sender, EventArgs e)
@@ -309,6 +316,14 @@ namespace IGames.User
             }
             else if (this.dalfavorito.SelectByUser(user.id) == null) {
                 Request.Form["favorito"] = "favorite";
+            }
+        }
+
+        protected void getRecomendado()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.destaque = DAL.DALGames.SelectRandom();
             }
         }
     }

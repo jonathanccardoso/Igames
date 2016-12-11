@@ -19,6 +19,7 @@ namespace IGames.Public
             getOnline();
             getDestaque();
             getRecomendado();
+
             if (Session["email"] != null)
             {
                 DAL.DALUsers daluser = new DAL.DALUsers();

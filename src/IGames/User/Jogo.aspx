@@ -53,7 +53,7 @@
 </nav>
 <main>
 <form id="Form1" runat="server">
-<h3><asp:Label ID="NomeJogo" runat="server" Text="Nome do Jogo"></asp:Label></h3>
+<h3><asp:Label ID="NomeJogo" runat="server" Text="<%=  %>">"></asp:Label></h3>
     <div class="row center-align">
             <div class="col l6 offset-l3 s5 offset-s3 m7 offset-m3 center-align">
               <div class=" card from">
@@ -102,7 +102,17 @@
             </div>
         </div>
      <h3 Class="center-align"><asp:Label ID="Label3" runat="server" Text="Relacionados"></asp:Label></h3>
-     <h3 Class="center-align"><asp:Label ID="Label4"  runat="server" Text="Comentarios"></asp:Label></h3>
+      <div id="recomendado">
+        <% for(int i = 0; i <= 3; i++) { %>
+            <div class="col l3 s6">
+            <div class="card">
+            <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="<%= recomendado[i].imagemUrl %>"> <br>
+            <b><%= recomendado[i].nome %></b></a>
+            <p><%= recomendado[i].descricao %></p>
+            </div>
+            </div>
+        <% } %>
+        </div>
 </form>
 </main>
 </asp:Content>

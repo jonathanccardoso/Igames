@@ -8,11 +8,12 @@
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
 <li>
-<form>
+<form action="Busca.aspx" method="post"> 
 <div class="input-field search-desktop">
-<input id="search" type="search">
+<input id="search" type="search" name="search">
 <label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
 </div>
+<button class="busca" type="submit" name="action"></button>
 </form>
 </li>
 <li><a href="categorias.aspx">Categorias</a></li>
@@ -22,12 +23,12 @@
 <ul class="side-nav" id="mobile-demo">
 <li>
 <div class="card grey lighten-1 search-mobile">
-<form>
-<div class="input-field inputy">
-<input type="search" class="inp">
-<label for="searc"><i class="material-icons">search</i></label>
-<i class="material-icons clos">close</i>
+<form action="Busca.aspx" method="post"> 
+<div class="input-field search-desktop">
+<input id="search1" type="search" name="search">
+<label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
 </div>
+<button class="busca" type="submit" name="action"></button>
 </form>
 </div>
 </li>
