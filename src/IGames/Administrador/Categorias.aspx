@@ -8,10 +8,13 @@
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
 <li> 
+<form action="Busca.aspx" method="post"> 
 <div class="input-field search-desktop">
-<input id="search" type="search">
+<input id="search" type="search" name="search">
 <label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
 </div>
+<button class="busca" type="submit" name="action"></button>
+</form>
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
@@ -35,11 +38,13 @@
 </li>
 <li><a class="search"><i class="material-icons left">search</i>Pesquisar</a></li>
 <li>
-<div class="input-field search-mobile">
-<input type="text" class="mobileSearch"/>
-<label for="mobileSearch"><i class="material-icons">search</i></label>
-<i class="material-icons mobile-close">close</i>
+<form action="Busca.aspx" method="post"> 
+<div class="input-field search-desktop">
+<input id="search1" type="search" name="search">
+<label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
 </div>
+<button class="busca" type="submit" name="action"></button>
+</form>
 </li>
 <li><a href="Categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
 <li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
@@ -88,7 +93,7 @@
 
     <form id="Form1" runat="server">
         <div class="fixed-action-btn vertical click-to-toggle">
-            <a class="btn-floating btn-large red">
+            <a class="btn-floating btn-large red" style="background-color:#123660">
               <i class="material-icons">menu</i>
             </a>
             <ul>

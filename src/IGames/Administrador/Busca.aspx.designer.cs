@@ -10,7 +10,7 @@
 namespace IGames.Administrador {
     
     
-    public partial class Forum {
+    public partial class Busca {
         
         /// <summary>
         /// Form1 control.

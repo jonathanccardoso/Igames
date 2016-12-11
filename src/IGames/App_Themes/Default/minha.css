@@ -33,6 +33,7 @@ nav{
 a, button {
      /*background: #123660;*/
      background: #FA812F;
+     /*Adm background: #0F3057; BOTOES add icone*/
 }
 li {
      background: #0F3057;
@@ -40,4 +41,7 @@ li {
 i {
     /*user*/
   background: #FA812F;
+}
+.button {
+     background: #FA812F;
 }

@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IGames.Administrador {
+namespace IGames.User {
     
     
-    public partial class Forum {
+    public partial class Busca {
         
         /// <summary>
         /// Form1 control.

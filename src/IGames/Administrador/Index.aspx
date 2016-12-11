@@ -8,10 +8,13 @@
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
 <li> 
+<form action="Busca.aspx" method="post"> 
 <div class="input-field search-desktop">
-<input id="search" type="search">
+<input id="search" type="search" name="search">
 <label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
 </div>
+<button class="busca" type="submit" name="action"></button>
+</form>
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
@@ -35,11 +38,13 @@
 </li>
 <li><a class="search"><i class="material-icons left">search</i>Pesquisar</a></li>
 <li>
-<div class="input-field search-mobile">
-<input type="text" class="mobileSearch"/>
-<label for="mobileSearch"><i class="material-icons">search</i></label>
-<i class="material-icons mobile-close">close</i>
+<form action="Busca.aspx" method="post"> 
+<div class="input-field search-desktop">
+<input id="search1" type="search" name="search">
+<label for="search"><i class="material-icons">search</i></label><i class="material-icons close">close</i>
 </div>
+<button class="busca" type="submit" name="action"></button>
+</form>
 </li>
 <li><a href="Categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
 <li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
@@ -54,28 +59,28 @@
 <div class="slider">
 <ul class="slides">
 <li>
-<img src="http://www.mudandoparamarte.com/wp-content/uploads/2015/04/kids-games-banner.jpg"> 
+<img src="../Images/img02.jpeg"> 
 <div class="caption center-align">
 <h3>Os jogos mais legais estão aqui!</h3>
 <h5 class="light grey-text text-lighten-3">Crie sua conta!</h5>
 </div>
 </li>
 <li>
-<img src="https://gamedesignunesp.files.wordpress.com/2012/06/cropped-game-design-banner.jpg">
+<img src="../Images/img01.jpeg">
 <div class="caption left-align">
 <h3></h3>
 <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
 </div>
 </li>
 <li>
-<img src="http://www.mylpl.info/wp-content/uploads/2015/08/Games-Banner-1140x400.png"> 
+<img src="../Images/equipe.png"> 
 <div class="caption right-align">
 <h3>Right Aligned Caption</h3>
 <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
 </div>
 </li>
 <li>
-<img src="http://www.volt.com/uploadedImages/Blog/how_to_get_a_job_as_a_video_game_tester_banner.jpg">
+<img src="../Images/quemsomos.png">
 <div class="caption center-align">
 <h3>This is our big Tagline!</h3>
 <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>

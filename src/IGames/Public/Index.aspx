@@ -36,7 +36,7 @@
 <li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="login.aspx"><i class="material-icons left">fingerprint</i>Login</a></li>
 </ul>
-<a href="index.aspx" class="brand-logo"><img src="../Images/logomarca.png"/></a>
+<a href="index.aspx" class="brand-logo"><img src="../Images/logomarca.png" width="60px" height="60px"/></a>
 </div>
 </nav>
 <main>
@@ -58,14 +58,14 @@
 </div>
 </li>
 <li>
-<img src="http://www.mylpl.info/wp-content/uploads/2015/08/Games-Banner-1140x400.png"> 
+<img src="../Images/equipe.png"> 
 <div class="caption right-align">
 <h3>Right Aligned Caption</h3>
 <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
 </div>
 </li>
 <li>
-<img src="http://www.volt.com/uploadedImages/Blog/how_to_get_a_job_as_a_video_game_tester_banner.jpg">
+<img src="../Images/quemsomos.png">
 <div class="caption center-align">
 <h3>This is our big Tagline!</h3>
 <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>

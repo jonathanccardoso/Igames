@@ -57,6 +57,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administrador\Busca.aspx" />
     <Content Include="Administrador\Categorias.aspx" />
     <Content Include="Administrador\Download.aspx" />
     <Content Include="Administrador\Forum.aspx" />
@@ -88,6 +89,7 @@
     <Content Include="Favicon\ToolbarIcon-1.png" />
     <Content Include="Favicon\ToolbarIcon-2.png" />
     <Content Include="Images\browserQuest.jpg" />
+    <Content Include="Images\equipe.png" />
     <Content Include="Images\EstrelaAcesa.png" />
     <Content Include="Images\EstrelaApagada.png" />
     <Content Include="Images\facebook.png" />
@@ -95,6 +97,7 @@
     <Content Include="Images\img02.jpeg" />
     <Content Include="Images\instagram.png" />
     <Content Include="Images\logomarca.png" />
+    <Content Include="Images\quemsomos.png" />
     <Content Include="Images\twitter.png" />
     <Content Include="Images\user.png" />
     <Content Include="js\custom.js" />
@@ -108,6 +111,7 @@
     <Content Include="Public\Index.aspx" />
     <Content Include="Public\Jogo.aspx" />
     <Content Include="Public\Login.aspx" />
+    <Content Include="User\Busca.aspx" />
     <Content Include="User\Categorias.aspx" />
     <Content Include="User\Favoritos.aspx" />
     <Content Include="User\Forum.aspx" />
@@ -117,6 +121,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\Busca.aspx.cs">
+      <DependentUpon>Busca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Busca.aspx.designer.cs">
+      <DependentUpon>Busca.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\Categorias.aspx.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -265,6 +276,13 @@
     </Compile>
     <Compile Include="Public\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Busca.aspx.cs">
+      <DependentUpon>Busca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Busca.aspx.designer.cs">
+      <DependentUpon>Busca.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Categorias.aspx.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>

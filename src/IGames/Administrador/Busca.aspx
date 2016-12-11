@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" CodeBehind="Forum.aspx.cs" Theme="Default" Inherits="IGames.Administrador.Forum" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/General.Master" Theme="Default" AutoEventWireup="true" CodeBehind="Busca.aspx.cs" Inherits="IGames.Administrador.Busca" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <nav>
+<nav>
 <div class="nav-wrapper">  
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
