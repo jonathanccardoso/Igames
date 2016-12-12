@@ -9,6 +9,10 @@ namespace IGames.User
 {
     public partial class Categorias : System.Web.UI.Page
     {
+        public Modelo.Usuario user { get; set; }
+
+        public Modelo.Icone icon { get; set; }
+
         public List<Modelo.Categoria> cats { get; set; }
 
         public List<Modelo.Jogo> jogos { get; set; }
@@ -19,12 +23,27 @@ namespace IGames.User
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            initPage();
             if (!Page.IsPostBack)
             {
                 getJogos();
                 getCategories();
                 getJogosCategorias();
             }
+        }
+
+        protected void initPage()
+        {
+            if (!Metodos.hasUser(Session["id"].ToString()))
+            {
+                this.user = Metodos.getUser(Session["id"].ToString());
+                this.icon = Metodos.getIcon(this.user.Icone_id);
+            }
+            else
+            {
+                Response.Redirect("~/Public/Cadastro.aspx");
+            }
+
         }
 
         protected void getCategories()

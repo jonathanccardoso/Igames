@@ -24,17 +24,19 @@ namespace IGames.User
             getOnline();
             getDestaque();
             getRecomendado();
-
             initPage();
         }
 
         protected void initPage() {
-            if (Metodos.hasUser(Session["id"].ToString()))
+            if (!Metodos.hasUser(Session["id"].ToString()))
             {
+                this.user = Metodos.getUser(Session["id"].ToString());
+                this.icon = Metodos.getIcon(this.user.Icone_id);
+            }
+            else {
                 Response.Redirect("~/Public/Cadastro.aspx");
             }
-            this.user = Metodos.getUser(Session["id"].ToString());
-            this.icon = Metodos.getIcon(this.user.Icone_id);
+            
         }
 
         protected void Sair()
