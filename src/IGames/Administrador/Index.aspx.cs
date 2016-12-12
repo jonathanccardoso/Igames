@@ -10,11 +10,8 @@ namespace IGames.Administrador
 {
     public partial class Index : System.Web.UI.Page
     {
-        public DAL.DALUsers daluser { get; set; }
 
         public Modelo.Usuario user { get; set; }
-
-        public DAL.DALIcons dalicon { get; set; }
 
         public Modelo.Icone icon { get; set; }
 
@@ -26,14 +23,9 @@ namespace IGames.Administrador
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            hasUser();
-            getUser();
-            getIcon();
-
             getOnline();
             getDestaque();
             getRecomendado();
-
             initPage();
         }
         protected void initPage()
@@ -44,36 +36,6 @@ namespace IGames.Administrador
             }
             this.user = Metodos.getUser(Session["id"].ToString());
             this.icon = Metodos.getIcon(this.user.Icone_id);
-        }
-
-
-        protected void hasUser()
-        {
-            if (!Page.IsPostBack)
-            {
-                if (Session["id"] == null)
-                {
-                    Response.Redirect("~/Public/Cadastro.aspx");
-                }
-            }
-        }
-
-        protected void getUser()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.daluser = new DAL.DALUsers();
-                this.user = DAL.DALUsers.Select(Session["id"].ToString());
-            }
-        }
-
-        protected void getIcon()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.dalicon = new DAL.DALIcons();
-                this.icon = DAL.DALIcons.Select(this.user.Icone_id);
-            }
         }
 
         protected void Sair_Click(object sender, EventArgs e)
