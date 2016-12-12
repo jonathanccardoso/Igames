@@ -23,8 +23,8 @@
 <img src="<%= icon.iconeUrl %>" class="circle usericon"/>
 </a>
 <ul id="dropdown1" class="dropdown-content">
-<li><a href="Perfil.aspx">Perfil</a></li>
-<li><a href="?exit=1" onclick="<% Sair(); %>">Sair</a></li>
+<li><a href="Perfil.aspx" class="white-text">Perfil</a></li>
+<li><a href="?exit=1" onclick="<% Sair(); %>" class="white-text">Sair</a></li>
 </ul>
 </li>
 </ul>
