@@ -5054,7 +5054,7 @@ button.btn-floating {
 
 .dropdown-content li {
   clear: both;
-  color: rgba(0, 0, 0, 0.87);
+  color: white;
   cursor: pointer;
   min-height: 50px;
   line-height: 1.5rem;
@@ -5064,7 +5064,7 @@ button.btn-floating {
 }
 
 .dropdown-content li:hover, .dropdown-content li.active, .dropdown-content li.selected {
-  background-color: #eee;
+  background-color: #FF6F00;
 }
 
 .dropdown-content li.active.selected {
@@ -5078,7 +5078,7 @@ button.btn-floating {
 
 .dropdown-content li > a, .dropdown-content li > button, .dropdown-content li > span {
   font-size: 16px;
-  color: #26a69a;
+  color: white;
   display: block;
   line-height: 22px;
   padding: 14px 16px;
