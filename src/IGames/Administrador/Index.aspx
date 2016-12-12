@@ -147,8 +147,9 @@
 <div class="modal-content center-align">
 <h4>Escolha o tipo:</h4>
 <div class="row">
-<div class="col l1 offset-l4">
-<asp:RadioButton ID="online" runat="server" GroupName="escolha" />
+<div class="col l1 offset-14">
+<%--<asp:RadioButton ID="online" runat="server" GroupName="escolha" />--%>
+<asp:RadioButton ID="online" runat="server" GroupName="escolha"></asp:RadioButton>
 <label for="ContentPlaceHolder1_online">Online</label>
 </div>
 <div class="col l1 offset-l1">
