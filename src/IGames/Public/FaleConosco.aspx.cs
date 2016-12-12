@@ -19,12 +19,16 @@ namespace IGames.Public
         }
         protected void initPage()
         {
-            if (Metodos.hasUser(Session["id"].ToString()))
+            if (!Metodos.hasUser(Session["id"].ToString()))
+            {
+                this.user = Metodos.getUser(Session["id"].ToString());
+                this.icon = Metodos.getIcon(this.user.Icone_id);
+            }
+            else
             {
                 Response.Redirect("~/Public/Cadastro.aspx");
             }
-            this.user = Metodos.getUser(Session["id"].ToString());
-            this.icon = Metodos.getIcon(this.user.Icone_id);
+
         }
         protected void Send_Click(object sender, EventArgs e) {
             MailMessage message = new MailMessage(email.Text, "projetointegradorinfoweb@gmail.com", assunto.Text, mensagem.Text);
