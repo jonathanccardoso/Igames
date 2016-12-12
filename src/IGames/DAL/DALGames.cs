@@ -76,7 +76,7 @@ namespace IGames.DAL
                         {
                             while (drJogos.Read())
                             {
-                                jogo = Select(Convert.ToInt32(drJogos["id"]));
+                                jogo = Select(Convert.ToInt32(drJogos["Jogo_id"]));
                             }
                         }
                     }

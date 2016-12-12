@@ -89,7 +89,7 @@
 </ul>
 <!---MENU JOGOS-->
 <div id="nalinha">
-<% for(int i = 0; i <= 3; i++) { %>
+<% for(int i = 0; i <= online.Count - 1; i++) { %>
 <div class="col l3 s6">
 <div class="card">
 <a href="Jogo.aspx?jogo=<%= online[i].nome %>"><img class="responsive-img" src="<%= online[i].imagemUrl %>"> <br>
@@ -99,7 +99,7 @@
 </div>
 <% } %>
 <div id="destaque">
-<% for(int i = 0; i <= 3; i++) { %>
+<% for (int i = 0; i <= destaque.Count - 1; i++){ %>
 <div class="col l3 s6">
 <div class="card">
 <a href="Jogo.aspx?jogo=<%= destaque[i].nome %>"><img class="responsive-img" src="<%= destaque[i].imagemUrl %>"> <br>
@@ -110,7 +110,7 @@
 <% } %>
 </div>
 <div id="recomendado">
-<% for(int i = 0; i <= 3; i++) { %>
+<% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
 <div class="col l3 s6">
 <div class="card">
 <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="<%= recomendado[i].imagemUrl %>"> <br>

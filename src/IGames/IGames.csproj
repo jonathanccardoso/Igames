@@ -118,7 +118,9 @@
     <Content Include="User\Index.aspx" />
     <Content Include="User\Jogo.aspx" />
     <Content Include="User\Perfil.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrador\Busca.aspx.cs">
