@@ -40,7 +40,7 @@
 </div>
 </nav>
 <main>
-<h3><asp:Label ID="NomeJogo" runat="server" Text="Nome do Jogo"></asp:Label></h3>
+<h3><%= jo.nome %></h3>
     <div class="row center-align">
             <div class="col l7 offset-l3 s5 offset-s3 m7 offset-m3 center-align">
               <div class=" card from">
@@ -59,7 +59,7 @@
                         </aside>
                     </div>
                   <br /><br /><%--http://browserquest.mozilla.org/ tamanho:  width="550px" height="450px"  ---%>
-                       <iframe id="frame" src="http://2048game.com/pt/" width="420px" height="450px" scrolling="no" frameborder="0"></iframe><br />
+                       <iframe id="frame" src="../<%= jo.jogoUrl %>" width="420px" height="450px" scrolling="no" frameborder="0"></iframe><br />
               </div>
             </div>
         </div>

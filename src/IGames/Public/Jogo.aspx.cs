@@ -9,6 +9,7 @@ namespace IGames.Public
 {
     public partial class Jogo : System.Web.UI.Page
     {
+        public Modelo.Jogo jo { get; set; }
 
         public List<Modelo.Jogo> destaque { get; set; }
 
@@ -17,6 +18,7 @@ namespace IGames.Public
         protected void Page_Load(object sender, EventArgs e)
         {
 //            getRecomendado();
+            getJogo();
 
         }
         //protected void getRecomendado()
@@ -26,5 +28,12 @@ namespace IGames.Public
         //        this.destaque = DAL.DALGames.SelectRandom();
         //    }
         //}
+
+        protected void getJogo() {
+            if (!Page.IsPostBack)
+            {
+                this.jo = DAL.DALGames.SelectByName(Request.QueryString["jogo"]);
+            }
+        }
     }
 }
