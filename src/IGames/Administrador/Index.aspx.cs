@@ -18,7 +18,7 @@ namespace IGames.Administrador
 
         public Modelo.Icone icon { get; set; }
 
-        public List<Modelo.Jogo> online { get; set; }
+        public List<Modelo.Jogo> jogonline { get; set; }
 
         public List<Modelo.Jogo> destaque { get; set; }
 
@@ -104,7 +104,7 @@ namespace IGames.Administrador
         {
             if (!Page.IsPostBack)
             {
-                this.online = DAL.DALGames.SelectAll();
+                this.jogonline = DAL.DALGames.SelectAll();
             }
         }
 
