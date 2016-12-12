@@ -36,7 +36,7 @@
 <li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="login.aspx"><i class="material-icons left">fingerprint</i>Login</a></li>
 </ul>
-<a href="index.aspx" class="brand-logo"><img src="../Images/logomarca.png" width="60px" height="60px"/></a>
+<a href="index.aspx" class="brand-logo">Igames</a>
 </div>
 </nav>
 <main>
@@ -98,28 +98,36 @@
 </div>
 </div>
 <% } %>
-<%--<div id="destaque">
-<% for (int i = 0; i <= destaque.Count - 1; i++){ %>
+<div id="destaque">
+<% for(int i = 0; i <= online.Count - 1; i++) { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="Jogo.aspx?jogo=<%= destaque[i].nome %>"><img class="responsive-img" src="<%= destaque[i].imagemUrl %>"> <br>
-<b><%= destaque[i].nome %></b></a>
-<p><%= destaque[i].descricao %></p>
+<a href="Jogo.aspx?jogo=<%= online[i].nome %>"><img class="responsive-img" src="<%= online[i].imagemUrl %>"> <br>
+<b><%= online[i].nome %></b></a>
+<p><%= online[i].descricao %></p>
 </div>
 </div>
 <% } %>
-</div>--%>
-<%--<div id="recomendado">
-<% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
+</div>
+<div id="recomendado">
+<%--<% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
 <div class="col l3 s6">
 <div class="card">
 <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="<%= recomendado[i].imagemUrl %>"> <br>
 <b><%= recomendado[i].nome %></b></a>
 <p><%= recomendado[i].descricao %></p>
+</div>--%>
+<% for(int i = 0; i <= online.Count - 1; i++) { %>
+<div class="col l3 s6">
+<div class="card">
+<a href="Jogo.aspx?jogo=<%= online[i].nome %>"><img class="responsive-img" src="<%= online[i].imagemUrl %>"> <br>
+<b><%= online[i].nome %></b></a>
+<p><%= online[i].descricao %></p>
+</div>
 </div>
 </div>
 <% } %>
-</div>--%>
+</div>
 </div>
 </div>
 </div>

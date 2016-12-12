@@ -53,7 +53,7 @@
 <li><a href="Favoritos.aspx"><i class="material-icons left">favorite</i>Favoritos</a></li>
 <li><a href="?exit=1" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
-<a href="Index.aspx" class="brand-logo">Logo</a>
+<a href="Index.aspx" class="brand-logo">IGames</a>
 </div>
 </nav>
 <main>
@@ -68,9 +68,9 @@
                 <% for(int i = 0; i <= 3; i++) { %>
                 <div class="col l3 s6">
 					<div class="card">
-						<a href="Jogo.aspx?jogo=<%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).nome %>"><br>
-						<b><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).nome %></b></a>
-						<p><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).descricao %></p>
+						<a href="Jogo.aspx?jogo=<%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id).Jogo_id).nome %>"><br>
+						<b><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id).Jogo_id).nome %></b></a>
+						<p><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id).Jogo_id).descricao %></p>
 					</div>
 				</div>
                 <% } %>

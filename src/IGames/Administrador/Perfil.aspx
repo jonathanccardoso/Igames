@@ -53,7 +53,7 @@
 <li><a href="Favoritos.aspx"><i class="material-icons left">favorite</i>Favoritos</a></li>
 <li><a href="?exit=1" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
-<a href="Index.aspx" class="brand-logo">Logo</a>
+<a href="Index.aspx" class="brand-logo">IGames</a>
 </div>
 </nav>
 <main>

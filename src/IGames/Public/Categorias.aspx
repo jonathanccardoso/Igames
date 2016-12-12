@@ -36,7 +36,7 @@
 <li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="login.aspx"><i class="material-icons left">account_circle</i>Login</a></li>
 </ul>
-<a href="index.aspx" class="brand-logo"><img src="../Images/logomarca.png"/></a>
+<a href="index.aspx" class="brand-logo">IGames</a>
 </div>
 </nav>
 <main>
@@ -48,15 +48,16 @@
 		  <div class="collapsible-header" style="background-color:#0F3057"><%= cate.descricao %></div>
 		  <div class="collapsible-body">
 			<div class="row">
-                <% for(int i = 0; i <= 3; i++) { %>
+                <%--<% for(int i = 0; i <= 3; i++) { %>--%>
                 <div class="col l3 s6">
 					<div class="card">
-						<a href="Jogo.aspx?jogo=<%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).nome %>"><br>
-						<b><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).nome %></b></a>
-						<p><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).descricao %></p>
+						<a href="Jogo.aspx?jogo=<%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id).Jogo_id).nome %>"><br>
+						<b><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id).Jogo_id).nome %></b></a>
+						<p><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id).Jogo_id).descricao %></p>
 					</div>
 				</div>
-                <% } %>
+                <% }
+                   //} %>
                 <%--<% for(int i = 0; i <= 3; i++) {
                        if(jogos[i].id == jogoscategorias[i].Jogo_id && cate.id == jogoscategorias[i].Categoria_id) { %>
 				<div class="col l3 s6">

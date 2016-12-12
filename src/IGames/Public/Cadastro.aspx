@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <nav>
 <div class="nav-wrapper">
-<a href="index.aspx" class="brand-logo center">Logo</a>
+<a href="index.aspx" class="brand-logo center">IGames</a>
 </div>
 </nav>
 <main style="background:white">

@@ -16,15 +16,15 @@ namespace IGames.Public
 
         protected void Page_Load(object sender, EventArgs e)
         {
-//            getRecomendado();
+          getRecomendado();
 
         }
-        //protected void getRecomendado()
-        //{
-        //    if (!Page.IsPostBack)
-        //    {
-        //        this.destaque = DAL.DALGames.SelectRandom();
-        //    }
-        //}
+        protected void getRecomendado()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.destaque = DAL.DALGames.SelectRandom();
+            }
+        }
     }
 }

@@ -36,7 +36,7 @@
 <li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="login.aspx"><i class="material-icons left">fingerprint</i>Login</a></li>
 </ul>
-<a href="index.aspx" class="brand-logo"><img src="../Images/#.png"/></a>
+<a href="index.aspx" class="brand-logo">IGames</a>
 </div>
 </nav>
 <main>

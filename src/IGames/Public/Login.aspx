@@ -4,12 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <nav>
 <div class="nav-wrapper">
-<a href="index.aspx" class="brand-logo center">Logo</a>
+<a href="index.aspx" class="brand-logo center">IGames</a>
 </div>
 </nav>
 <main>
 <form runat="server">
-<div class="card medium">
+<div class="card medium" style="background-color: #efefee;">
 <div class="row">
 <div class="col l6 offset-l3 s12">
 <div class="card-content center-align">
