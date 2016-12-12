@@ -97,7 +97,6 @@ namespace IGames.DAL
             Modelo.Jogo jogo;
             List<Modelo.Jogo> jogos = new List<Modelo.Jogo>();
             Random r = new Random();
-            int[] j = new int[4];
 
             try
             {
@@ -114,9 +113,9 @@ namespace IGames.DAL
                         {
                             while (drJogos.Read())
                             {
-                                for (int i = 0; i <= j.Length; i++)
+                                for (int i = 0; i <= 3; i++)
                                 {
-                                    jogo = Select(r.Next(0, Convert.ToInt32(drJogos["id"])));
+                                    jogo = Select(r.Next(SelectMin(), SelectMax()));
                                     jogos.Add(jogo);
                                 }
                             }
@@ -212,6 +211,76 @@ namespace IGames.DAL
                 throw;
             }
             return jogo;
+        }
+
+        //Método Select
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static int SelectMin()
+        {
+            //instancia um novo usuario
+            int min = 0;
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    //abre a conexão
+                    connection.Open();
+                    string sqlJogo = "SELECT MIN(id) as id FROM Jogo";
+                    SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
+                    SqlDataReader drJogo;
+                    using (drJogo = cmdJogo.ExecuteReader())
+                    {
+                        if (drJogo.HasRows)
+                        {
+                            //lê os resultados
+                            while (drJogo.Read())
+                            {
+                                min = Convert.ToInt32(drJogo["id"]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return min;
+        }
+
+        //Método Select
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static int SelectMax()
+        {
+            //instancia um novo usuario
+            int max = 0;
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    //abre a conexão
+                    connection.Open();
+                    string sqlJogo = "SELECT MIN(id) as id FROM Jogo";
+                    SqlCommand cmdJogo = new SqlCommand(sqlJogo, connection);
+                    SqlDataReader drJogo;
+                    using (drJogo = cmdJogo.ExecuteReader())
+                    {
+                        if (drJogo.HasRows)
+                        {
+                            //lê os resultados
+                            while (drJogo.Read())
+                            {
+                                max = Convert.ToInt32(drJogo["id"]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return max;
         }
 
         //Método Insert

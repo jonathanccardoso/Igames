@@ -88,7 +88,7 @@
 <li class="tab col s3"><a href="#recomendado">Recomendados</a></li>
 </ul>
 <!---MENU JOGOS-->
-<div id="nalinha">
+<%--<div id="nalinha">
 <% for(int i = 0; i <= online.Count - 1; i++) { %>
 <div class="col l3 s6">
 <div class="card">
@@ -98,6 +98,7 @@
 </div>
 </div>
 <% } %>
+</div>
 <div id="destaque">
 <% for(int i = 0; i <= online.Count - 1; i++) { %>
 <div class="col l3 s6">
@@ -106,28 +107,19 @@
 <b><%= online[i].nome %></b></a>
 <p><%= online[i].descricao %></p>
 </div>
-</div>
+</div>B
 <% } %>
-</div>
+</div>--%>
 <div id="recomendado">
-<%--<% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
+<% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="<%= recomendado[i].imagemUrl %>"> <br>
+<a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="<%= recomendado[i].imagemUrl %>"><br>
 <b><%= recomendado[i].nome %></b></a>
 <p><%= recomendado[i].descricao %></p>
-</div>--%>
-<% for(int i = 0; i <= online.Count - 1; i++) { %>
-<div class="col l3 s6">
-<div class="card">
-<a href="Jogo.aspx?jogo=<%= online[i].nome %>"><img class="responsive-img" src="<%= online[i].imagemUrl %>"> <br>
-<b><%= online[i].nome %></b></a>
-<p><%= online[i].descricao %></p>
-</div>
 </div>
 </div>
 <% } %>
-</div>
 </div>
 </div>
 </div>

@@ -36,6 +36,8 @@ namespace IGames.Public
         protected void getDestaque() {
             if (!Page.IsPostBack)
             {
+                //erro 
+                //fora do index
                 this.destaque = DAL.DALGames.SelectTop();
             }
         }
@@ -43,7 +45,7 @@ namespace IGames.Public
         protected void getRecomendado() {
             if (!Page.IsPostBack)
             {
-                this.destaque = DAL.DALGames.SelectRandom();
+                this.recomendado = DAL.DALGames.SelectRandom();
             }
         }
     }
