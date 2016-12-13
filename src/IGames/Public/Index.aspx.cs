@@ -10,42 +10,34 @@ namespace IGames.Public
 {
     public partial class Index : System.Web.UI.Page
     {
+        public Modelo.Usuario user { get; set; }
+
+        public Modelo.Icone icon { get; set; }
+
         public List<Modelo.Jogo> online { get; set; }
+
         public List<Modelo.Jogo> destaque { get; set; }
+
         public List<Modelo.Jogo> recomendado { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            getOnline();
-            getDestaque();
-            getRecomendado();
-
-            if (Session["email"] != null)
-            {
-                DAL.DALUsers daluser = new DAL.DALUsers();
-                Response.Redirect("~/" + (DAL.DALUsers.Select(Membership.GetUser(Membership.GetUserNameByEmail(Session["email"].ToString())).ProviderUserKey.ToString()).administrador ? "Administrador" : "User") + "/Index.aspx");
-            }
+            initPage();
         }
 
-        protected void getOnline() {
-            if (!Page.IsPostBack) {
-                this.online = DAL.DALGames.SelectAll();
-            }
-        }
-
-        protected void getDestaque() {
-            if (!Page.IsPostBack)
+        protected void initPage()
+        {
+            this.online = Metodos.getJogos();
+            this.destaque = Metodos.getJogosDestaque();
+            this.recomendado = Metodos.getJogosRecomendados();
+            if (Session["id"] != null)
             {
-                //erro 
-                //fora do index
-                this.destaque = DAL.DALGames.SelectTop();
-            }
-        }
-
-        protected void getRecomendado() {
-            if (!Page.IsPostBack)
-            {
-                this.recomendado = DAL.DALGames.SelectRandom();
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
+                    Response.Redirect("~/" + (user.administrador ? "Administrador" : "User") + "/Index.aspx");
+                }
             }
         }
     }

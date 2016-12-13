@@ -31,12 +31,11 @@ namespace IGames.User
             if (!Metodos.hasUser(Session["id"].ToString()))
             {
                 this.user = Metodos.getUser(Session["id"].ToString());
-                this.icon = Metodos.getIcon(this.user.Icone_id);
+                this.icon = Metodos.getIcone(this.user.Icone_id);
             }
             else {
                 Response.Redirect("~/Public/Cadastro.aspx");
             }
-            
         }
 
         protected void Sair()

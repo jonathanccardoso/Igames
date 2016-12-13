@@ -19,8 +19,6 @@ namespace IGames.User
 
         public List<Modelo.JogoCategoria> jogoscategorias { get; set; }
 
-        public DAL.DALCategories dalcat { get; set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             initPage();
@@ -37,7 +35,7 @@ namespace IGames.User
             if (!Metodos.hasUser(Session["id"].ToString()))
             {
                 this.user = Metodos.getUser(Session["id"].ToString());
-                this.icon = Metodos.getIcon(this.user.Icone_id);
+                this.icon = Metodos.getIcone(this.user.Icone_id);
             }
             else
             {
@@ -48,8 +46,7 @@ namespace IGames.User
 
         protected void getCategories()
         {
-            this.dalcat = new DAL.DALCategories();
-            this.cats = this.dalcat.SelectAll();
+            this.cats = DAL.DALCategories.SelectAll();
         }
 
         protected void getJogos()
