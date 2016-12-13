@@ -39,7 +39,7 @@ namespace IGames.User
             if (!Metodos.hasUser(Session["id"].ToString()))
             {
                 this.user = Metodos.getUser(Session["id"].ToString());
-                this.icon = Metodos.getIcon(this.user.Icone_id);
+                this.icon = Metodos.getIcone(this.user.Icone_id);
             }
             else
             {
@@ -87,7 +87,7 @@ namespace IGames.User
                     {
                         dalcat = new DAL.DALCategories();
                         string descricao = (string)drBusca["descricao"];
-                        categoria = dalcat.SelectAllByDescription(descricao);
+                        categoria = DAL.DALCategories.SelectByDescription(descricao);
                         categorias.Add(categoria);
                     }
                 }

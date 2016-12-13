@@ -68,9 +68,8 @@ namespace IGames.Administrador
                 {
                     while (drBusca.Read())
                     {
-                        dalcat = new DAL.DALCategories();
                         string descricao = (string)drBusca["descricao"];
-                        categoria = dalcat.SelectAllByDescription(descricao);
+                        categoria = DAL.DALCategories.SelectByDescription(descricao);
                         categorias.Add(categoria);
                     }
                 }

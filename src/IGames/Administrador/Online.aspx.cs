@@ -45,17 +45,15 @@ namespace IGames.Administrador
                     DAL.DALGames jogo = new DAL.DALGames();
                     Modelo.Jogo jog = new Modelo.Jogo("Online/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text);
                     DAL.DALGames.Insert(jog);
-                    this.daljogocategoria = new DAL.DALGamesCategories();
                     this.jogocategoria = new Modelo.JogoCategoria(jog.id, int.Parse(Categorias.SelectedItem.Value));
-                    this.daljogocategoria.Insert(this.jogocategoria);
+                    DAL.DALGamesCategories.Insert(this.jogocategoria);
                 }
                 Response.Redirect("~/Administrador/Index.aspx");
         }
 
         protected void getCategories()
         {
-            DAL.DALCategories cat = new DAL.DALCategories();
-            List<Modelo.Categoria> cats = cat.SelectAll();
+            List<Modelo.Categoria> cats = DAL.DALCategories.SelectAll();
             this.Categorias.DataSource = cats;
             this.Categorias.DataTextField = "Descricao";
             this.Categorias.DataValueField = "ID";

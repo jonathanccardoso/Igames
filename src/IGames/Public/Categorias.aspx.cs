@@ -29,8 +29,7 @@ namespace IGames.Public
 
         protected void getCategories()
         {
-            this.dalcat = new DAL.DALCategories();
-            this.cats = this.dalcat.SelectAll();
+            this.cats = DAL.DALCategories.SelectAll();
         }
         
         protected void getJogos()

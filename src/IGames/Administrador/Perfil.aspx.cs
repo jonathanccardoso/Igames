@@ -63,9 +63,8 @@ namespace IGames.Administrador
             bool administrador = this.user.administrador;
             int Icone_id = this.user.Icone_id;
 
-            DAL.DALUsers daluser = new DAL.DALUsers();
             Modelo.Usuario user = new Modelo.Usuario(nome, email, senha, administrador, Icone_id);
-            daluser.Update(user);
+            DAL.DALUsers.Update(user);
         } 
 
         protected void Excluir(){
@@ -74,15 +73,14 @@ namespace IGames.Administrador
                 if (int.Parse(Request.QueryString["delete"].ToString()) == 1)
                 {
                     string id = Session["id"].ToString();
-                    DAL.DALRates dalavaliar = new DAL.DALRates();
-                    List<Modelo.Avaliacao> avaliacoes = dalavaliar.SelectAllByUser(id);//SelectByUser
+                    List<Modelo.Avaliacao> avaliacoes = DAL.DALRates.SelectAllByUser(id);//SelectByUser
                     foreach (Modelo.Avaliacao avaliar in avaliacoes)
                     {
-                        dalavaliar.Delete(avaliar);
+                        DAL.DALRates.Delete(avaliar);
                     }
                     DAL.DALUsers daluser = new DAL.DALUsers();
                     Modelo.Usuario user = DAL.DALUsers.Select(id);
-                    daluser.Delete(user);
+                    DAL.DALUsers.Delete(user);
                     Roles.RemoveUserFromRole(user.nome, (user.administrador) ? "Administrador" : "Usuario");
                     Membership.DeleteUser(user.nome);
                     Session["id"] = null;

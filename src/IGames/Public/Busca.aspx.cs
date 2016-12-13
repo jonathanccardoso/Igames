@@ -42,7 +42,7 @@ namespace IGames.Public
                 {
                     while (drBusca.Read())
                     {
-                        daljogo = new DAL.DALGames();
+                        jogos = new List<Modelo.Jogo>();
                         string nome = (string)drBusca["nome"];
                         jog = DAL.DALGames.SelectByName(nome);
                         jogos.Add(jog);
@@ -66,9 +66,8 @@ namespace IGames.Public
                 {
                     while (drBusca.Read())
                     {
-                        dalcat = new DAL.DALCategories();
                         string descricao = (string)drBusca["descricao"];
-                        categoria = dalcat.SelectAllByDescription(descricao);
+                        categoria = DAL.DALCategories.SelectByDescription(descricao);
                         categorias.Add(categoria);
                     }
                 }

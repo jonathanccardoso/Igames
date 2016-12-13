@@ -75,8 +75,7 @@ namespace IGames.User
         { 
             if (!Page.IsPostBack)
             {
-                this.dalfavorito = new DAL.DALFavorites();
-                this.favoritos = dalfavorito.SelectAll();
+                this.favoritos = DAL.DALFavorites.SelectAll();
             }
         }
         protected void Sair()

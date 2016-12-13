@@ -9,11 +9,7 @@ namespace IGames.Administrador
 {
     public partial class Icone : System.Web.UI.Page
     {
-        public DAL.DALUsers daluser { get; set; }
-
         public Modelo.Usuario user { get; set; }
-
-        public DAL.DALIcons dalicone { get; set; }
 
         public Modelo.Icone icone { get; set; }
 
@@ -36,8 +32,7 @@ namespace IGames.Administrador
         {
             if (!Page.IsPostBack)
             {
-                this.dalicone = new DAL.DALIcons();
-                this.icones = this.dalicone.SelectAll();
+                this.icones = DAL.DALIcons.SelectAll();
             }
         }
 
@@ -64,9 +59,8 @@ namespace IGames.Administrador
             if (Request.QueryString["delete"] != null)
             {
                 int id = int.Parse(Request.QueryString["delete"].ToString());
-                this.dalicone = new DAL.DALIcons();
                 this.ico = DAL.DALIcons.Select(id);
-                dalicone.Delete(ico);
+                DAL.DALIcons.Delete(ico);
                 Response.Redirect("~/Administrador/Icone.aspx");
             }
         }
@@ -74,9 +68,8 @@ namespace IGames.Administrador
         protected void AddIcone_Click(object sender, EventArgs e)
         {
                 uploadImage();
-                DAL.DALIcons jogo = new DAL.DALIcons();
                 Modelo.Icone jog = new Modelo.Icone("../Icone/" + UploadImage.FileName);
-                jogo.Insert(jog);
+                DAL.DALIcons.Insert(jog);
                 Response.Redirect("~/Administrador/Icone.aspx");
         }
 
@@ -103,7 +96,6 @@ namespace IGames.Administrador
         {
             if (!Page.IsPostBack)
             {
-                this.daluser = new DAL.DALUsers();
                 this.user = DAL.DALUsers.Select(Session["id"].ToString());
             }
         }
@@ -112,7 +104,6 @@ namespace IGames.Administrador
         {
             if (!Page.IsPostBack)
             {
-                this.dalicone = new DAL.DALIcons();
                 this.icone = DAL.DALIcons.Select(this.user.Icone_id);
             }
         }

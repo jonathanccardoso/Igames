@@ -28,13 +28,12 @@ namespace IGames.Public
             
             if (nome.Text != null && senha.Text != null && email.Text != null && confsenha.Text != null)
             {
-                DAL.DALUsers daluser = new DAL.DALUsers();
                 setIcon();
                 Modelo.Usuario user = new Modelo.Usuario(nome.Text, email.Text, senha.Text, false, icone.id);
                 Membership.CreateUser(user.nome, user.senha, user.email);
                 user.id = Membership.GetUser(Membership.GetUserNameByEmail(user.email)).ProviderUserKey.ToString();
                 Roles.AddUserToRole(user.nome, "Usuario");
-                daluser.Insert(user);
+                DAL.DALUsers.Insert(user);
                 FormsAuthentication.SetAuthCookie(user.email, true);
                 Session["id"] = user.id;
                 Session["email"] = user.email;
@@ -50,8 +49,7 @@ namespace IGames.Public
         {
             if (!Page.IsPostBack)
             {
-                this.dalicone = new DAL.DALIcons();
-                this.icones = dalicone.SelectAll();
+                this.icones = DAL.DALIcons.SelectAll();
             }
         }
 

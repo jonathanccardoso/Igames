@@ -38,22 +38,19 @@ namespace IGames.Administrador
         //usuarios
         protected void getUsers()
         {
-            this.dalusuario = new DAL.DALUsers();
-            this.users = this.dalusuario.SelectAll();
+            this.users = DAL.DALUsers.SelectAll();
         }
         protected void getIcons()
         {
-            this.dalicone = new DAL.DALIcons();
-            this.icones = this.dalicone.SelectAll();
+            this.icones = DAL.DALIcons.SelectAll();
         }
         protected void DelUser_Click(object sender, EventArgs e)
         {
 
             // int id = int.Parse(listCatDel.SelectedItem.Value);
             string nomeUser = delUser.Text;
-            DAL.DALUsers daluser = new DAL.DALUsers();
             Modelo.Usuario user = DAL.DALUsers.Select(nomeUser);
-            daluser.Delete(user);
+            DAL.DALUsers.Delete(user);
             Response.Redirect("~/Administrador/Usuarios.aspx");
         }
         protected void hasUser()

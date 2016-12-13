@@ -52,32 +52,30 @@ namespace IGames.User
             {
                 this.dalforum = new DAL.DALForum();
                 this.forum = new Modelo.Forum(TextArea.Text, DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString(), DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute, user.id);
-                dalforum.Insert(forum);
+                DAL.DALForum.Insert(forum);
             }
             //fazer comentario
             else if (Request.QueryString["forum"] != null)
             {
                 this.dalposts = new DAL.DALPosts();
                 this.postagem = new Modelo.Postagem(TextArea.Text, DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString(), DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute, user.id, Convert.ToInt32(Request.QueryString["forum"].ToString()));
-                dalposts.Insert(postagem);
+                DAL.DALPosts.Insert(postagem);
             }
             //responder comentario
             else if (Request.QueryString["postagem"] != null)
             {
                 this.dalposts = new DAL.DALPosts();
-                this.postagem = new Modelo.Postagem(TextArea.Text, DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString(), DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute, user.id, dalposts.Select(Convert.ToInt32(Request.QueryString["postagem"].ToString())).Forum_id, Convert.ToInt32(Request.QueryString["postagem"].ToString()));
-                dalposts.Insert(postagem);
+                this.postagem = new Modelo.Postagem(TextArea.Text, DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString(), DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute, user.id, DAL.DALPosts.Select(Convert.ToInt32(Request.QueryString["postagem"].ToString())).Forum_id, Convert.ToInt32(Request.QueryString["postagem"].ToString()));
+                DAL.DALPosts.Insert(postagem);
             }
         }
 
         protected void getForuns() {
-            this.dalforum = new DAL.DALForum();
-            this.foruns = dalforum.SelectAll();
+            this.foruns = DAL.DALForum.SelectAll();
         }
 
         protected void getPosts() {
-            this.dalposts = new DAL.DALPosts();
-            this.postagens = this.dalposts.SelectAll();
+            this.postagens = DAL.DALPosts.SelectAll();
         }
 
         protected void hasUser()
@@ -93,19 +91,16 @@ namespace IGames.User
 
         protected void getUser()
         {
-            this.daluser = new DAL.DALUsers();
             this.user = DAL.DALUsers.Select(Session["id"].ToString());
         }
 
         protected void getUsers()
         {
-            this.daluser = new DAL.DALUsers();
-            this.users = daluser.SelectAll();
+            this.users = DAL.DALUsers.SelectAll();
         }
 
         protected void getIcon()
         {
-            this.dalicon = new DAL.DALIcons();
             this.icon = DAL.DALIcons.Select(this.user.Icone_id);
         }
 
@@ -113,8 +108,7 @@ namespace IGames.User
         {
             if (!Page.IsPostBack)
             {
-                this.dalicon = new DAL.DALIcons();
-                this.icons = dalicon.SelectAll();
+                this.icons = DAL.DALIcons.SelectAll();
             }
         }
 
