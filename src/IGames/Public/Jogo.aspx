@@ -40,7 +40,7 @@
 </div>
 </nav>
 <main>
-<h3><%= jo.nome %></h3>
+<h3><%= jogo.nome %></h3>
     <div class="row center-align">
             <div class="col l7 offset-l3 s5 offset-s3 m7 offset-m3 center-align">
               <div class=" card from">
@@ -59,21 +59,21 @@
                         </aside>
                     </div>
                   <br /><br /><%--http://browserquest.mozilla.org/ tamanho:  width="550px" height="450px"  ---%>
-                       <iframe id="frame" src="../<%= jo.jogoUrl %>" width="420px" height="450px" scrolling="no" frameborder="0"></iframe><br />
+                       <iframe id="frame" src="../<%= jogo.jogoUrl %>" width="420px" height="450px" scrolling="no" frameborder="0"></iframe><br />
               </div>
             </div>
         </div>
      <h3 Class="center-align"><asp:Label ID="Label1" runat="server" Text="Relacionados"></asp:Label></h3>
-      <%--<div id="recomendado">
-        <% for(int i = 0; i <= 3; i++) { %>
+      <div id="recomendado">
+        <% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
             <div class="col l3 s6">
             <div class="card">
-            <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="<%= recomendado[i].imagemUrl %>"> <br>
+            <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="<%= recomendado[i].imagemUrl %>"><br>
             <b><%= recomendado[i].nome %></b></a>
             <p><%= recomendado[i].descricao %></p>
             </div>
             </div>
         <% } %>
-    </div>--%>
+       </div>
 </main>
 </asp:Content>

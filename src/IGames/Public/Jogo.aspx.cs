@@ -9,6 +9,13 @@ namespace IGames.Public
 {
     public partial class Jogo : System.Web.UI.Page
     {
+        public Modelo.Usuario user { get; set; }
+
+        public Modelo.Icone icon { get; set; }
+
+        public DAL.DALGames daljogo { get; set; } 
+
+        public Modelo.Jogo jogo { get; set; }
 
         public List<Modelo.Jogo> destaque { get; set; }
 
@@ -16,14 +23,27 @@ namespace IGames.Public
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          getRecomendado();
-
+             getRecomendado();
+             initPage();
         }
         protected void getRecomendado()
         {
             if (!Page.IsPostBack)
             {
                 this.destaque = DAL.DALGames.SelectRandom();
+            }
+        }
+        protected void initPage()
+        {
+            this.recomendado = Metodos.getJogosRecomendados();
+            if (Session["id"] != null)
+            {
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
+                    Response.Redirect("~/" + (user.administrador ? "Administrador" : "User") + "/Index.aspx");
+                }
             }
         }
     }

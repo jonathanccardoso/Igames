@@ -10,30 +10,23 @@ namespace IGames.Public
 {
     public partial class FaleConosco : System.Web.UI.Page
     {
-        public Modelo.Usuario user { get; set; }
-
-        public Modelo.Icone icon { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             initPage();
         }
         protected void initPage()
         {
-            if (!Metodos.hasUser(Session["id"].ToString()))
+            if (Session["id"] != null)
             {
-                this.user = Metodos.getUser(Session["id"].ToString());
-                this.icon = Metodos.getIcone(this.user.Icone_id);
+                if (!Metodos.hasUser(Session["id"].ToString()))
+                {
+                    Response.Redirect("~/" + (Metodos.getUser(Session["id"].ToString()).administrador ? "Administrador" : "Usuario") + "/Index.aspx");
+                }
             }
-            else
-            {
-                Response.Redirect("~/Public/Cadastro.aspx");
-            }
-
         }
         protected void Send_Click(object sender, EventArgs e) {
             MailMessage message = new MailMessage(email.Text, "projetointegradorinfoweb@gmail.com", assunto.Text, mensagem.Text);
             SmtpClient emailClient = new SmtpClient();
-            //Mandar mensagem para os administradores
         }
     }
 }

@@ -13,14 +13,14 @@
 <div class="row">
 <div class="col l6 offset-l3 s12">
 <div class="card-content center-align">
-<h3>Login</h3>
+<h3 style="color:black">Login</h3>
 </div>
 <div class="input-field">
-<input type="email" name="email" />
+<input type="email" name="email"/>
 <label for="email">Email</label>
 </div>
 <div class="input-field">
-<input type="password" name="senha" />
+<input type="password" name="senha"/>
 <label for="senha">Senha</label>
 </div>
 <div class="col l4 s12 offset-s3">

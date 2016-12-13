@@ -41,17 +41,10 @@
 </nav>
 <main>
 <form runat="server">
-
 <div class="card">
 <div class="card-content">
-<div class="row coment">
-<aside class="col l1 s1 pic left">
-<img src="<%= icon.iconeUrl %>" class="circle">
-</aside>
-<div class="col l11 s6 offset-s3 left-align">
-<b><%= user.nome %></b>
 <div class="input-field">
-<asp:TextBox ID="email" runat="server"></asp:TextBox>
+<asp:TextBox ID="email" runat="server" TextMode="Email" style="color:black"></asp:TextBox>
 <label for="ContentPlaceHolder1_email">Email</label>
 </div>
 <div class="input-field">
@@ -62,9 +55,7 @@
 <asp:TextBox ID="mensagem" runat="server" TextMode="MultiLine" CssClass="materialize-textarea"></asp:TextBox>
 <label for="ContentPlaceHolder1_mensagem">Mensagem</label>
 </div>
-<asp:Button ID="Send" runat="server" Text="Enviar" OnClick="Send_Click"></asp:Button>
-</div>
-</div>
+<asp:Button ID="Send" runat="server" class="waves-effect waves-light btn green darken-1" Text="Enviar" OnClick="Send_Click"></asp:Button>
 </div>
 </div>
 </form>
