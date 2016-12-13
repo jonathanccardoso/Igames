@@ -46,18 +46,20 @@
               <% foreach(IGames.Modelo.Categoria cate in cats) { %>
 		<li> 
 		  <div class="collapsible-header" style="background-color:#0F3057"><%= cate.descricao %></div>
+          <% if (IGames.Metodos.getJogoPelaCategoria(cate.id) != null) %>
 		  <div class="collapsible-body">
 			<div class="row">
-                <%--<% for(int i = 0; i <= 3; i++) { %>--%>
+                <% for(int i = 0; i <= 3; i++) { %>
                 <div class="col l3 s6">
 					<div class="card">
-						<a href="Jogo.aspx?jogo=<%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id).Jogo_id).nome %>"><br>
-						<b><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id).Jogo_id).nome %></b></a>
-						<p><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id).Jogo_id).descricao %></p>
+						<a href="Jogo.aspx?jogo=<%= IGames.Metodos.getJogoPelaCategoria(cate.id).nome ?? "" %>">
+                        <img src="<%= IGames.Metodos.getJogoPelaCategoria(cate.id).imagemUrl ?? "" %>"/><br>
+						<b><%= IGames.Metodos.getJogoPelaCategoria(cate.id).nome ?? "" %></b></a>
+						<p><%= IGames.Metodos.getJogoPelaCategoria(cate.id).descricao ?? "" %></p>
 					</div>
 				</div>
                 <% }
-                   //} %>
+                   } %> 
                 <%--<% for(int i = 0; i <= 3; i++) {
                        if(jogos[i].id == jogoscategorias[i].Jogo_id && cate.id == jogoscategorias[i].Categoria_id) { %>
 				<div class="col l3 s6">
@@ -73,7 +75,7 @@
 			</div>
 		  </div>
 		</li>
-              <% } %>
+              <%--<% } %>--%>
         </ul>
     </div>
 </main>
