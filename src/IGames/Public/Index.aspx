@@ -6,7 +6,7 @@
 <div class="nav-wrapper">  
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
-<li><a class="show-search"><i class="material-icons">search</i></a></li>
+<li class="li-trigger"><a class="show-search"><i class="material-icons">search</i></a></li>
 <li>
 <form action="Busca.aspx" method="post"> 
 <div class="input-field search-desktop">
@@ -88,7 +88,7 @@
 <li class="tab col s3"><a href="#recomendado">Recomendados</a></li>
 </ul>
 <!---MENU JOGOS-->
-<%--<div id="nalinha">
+<div id="nalinha">
 <% for(int i = 0; i <= online.Count - 1; i++) { %>
 <div class="col l3 s6">
 <div class="card">
@@ -100,16 +100,16 @@
 <% } %>
 </div>
 <div id="destaque">
-<% for(int i = 0; i <= online.Count - 1; i++) { %>
+<% for (int i = 0; i <= destaque.Count - 1; i++) { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="Jogo.aspx?jogo=<%= online[i].nome %>"><img class="responsive-img" src="<%= online[i].imagemUrl %>"> <br>
-<b><%= online[i].nome %></b></a>
-<p><%= online[i].descricao %></p>
+<a href="Jogo.aspx?jogo=<%= destaque[i].nome %>"><img class="responsive-img" src="<%= destaque[i].imagemUrl %>"> <br>
+<b><%= destaque[i].nome %></b></a>
+<p><%= destaque[i].descricao %></p>
 </div>
 </div>B
 <% } %>
-</div>--%>
+</div>
 <div id="recomendado">
 <% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
 <div class="col l3 s6">
