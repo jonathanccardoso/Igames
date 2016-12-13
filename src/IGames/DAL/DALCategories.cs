@@ -15,7 +15,7 @@ namespace IGames.DAL
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Categoria> SelectAll()
+        public static List<Modelo.Categoria> SelectAll()
         {
 
             Modelo.Categoria categoria;
@@ -54,7 +54,7 @@ namespace IGames.DAL
         }
         //Método SelectAllByDescription
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Categoria SelectAllByDescription(string descricao) 
+        public static Modelo.Categoria SelectByDescription(string descricao) 
         {
             Modelo.Categoria categoria = null;
             try
@@ -91,7 +91,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Categoria Select(int Categoria_id)
+        public static Modelo.Categoria Select(int Categoria_id)
         {
             Modelo.Categoria categoria = null;
             try
@@ -128,11 +128,11 @@ namespace IGames.DAL
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Categoria categoria)
+        public static void Insert(Modelo.Categoria categoria)
         {
             try
             {
-                if (this.Select(categoria.id) == null)
+                if (Select(categoria.id) == null)
                 {
                     using (connection = new SqlConnection(connectionString))
                     {
@@ -145,7 +145,7 @@ namespace IGames.DAL
                 }
                 else
                 {
-                    this.Update(categoria);
+                    Update(categoria);
                 }
             }
             catch (SystemException)
@@ -156,7 +156,7 @@ namespace IGames.DAL
 
         //Método Update
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Categoria categoria)
+        public static void Update(Modelo.Categoria categoria)
         {
             try
             {
@@ -178,7 +178,7 @@ namespace IGames.DAL
 
         //Método Delete
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Categoria categoria)
+        public static void Delete(Modelo.Categoria categoria)
         {
             try
             {

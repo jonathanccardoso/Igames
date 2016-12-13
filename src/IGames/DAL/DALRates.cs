@@ -14,7 +14,7 @@ namespace IGames.DAL
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Avaliacao> SelectAll()
+        public static List<Modelo.Avaliacao> SelectAll()
         {
             Modelo.Avaliacao avaliacao;
             List<Modelo.Avaliacao> avaliacoes = new List<Modelo.Avaliacao>();
@@ -53,7 +53,7 @@ namespace IGames.DAL
         }
         //Metodo SelectByUser
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Avaliacao SelectByUser(string Usuario_id)
+        public static Modelo.Avaliacao SelectByUser(string Usuario_id)
         { 
             Modelo.Avaliacao avaliacao = null;
             try
@@ -90,7 +90,7 @@ namespace IGames.DAL
 
         //Metodo SelectAllByUser
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Avaliacao> SelectAllByUser(string Usuario_id) 
+        public static List<Modelo.Avaliacao> SelectAllByUser(string Usuario_id) 
         {
             Modelo.Avaliacao avaliacao = null;
             List<Modelo.Avaliacao> avaliacoes = new List<Modelo.Avaliacao>();
@@ -128,7 +128,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Avaliacao Select(int jogo_id, string usuario_id)
+        public static Modelo.Avaliacao Select(int jogo_id, string usuario_id)
         {
             //instancia um novo usuario
             Modelo.Avaliacao avaliacao = null;
@@ -168,11 +168,11 @@ namespace IGames.DAL
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Avaliacao avaliacao)
+        public static void Insert(Modelo.Avaliacao avaliacao)
         {
             try
             {
-                if (this.Select(avaliacao.Jogo_id, avaliacao.Usuario_id) == null)
+                if (Select(avaliacao.Jogo_id, avaliacao.Usuario_id) == null)
                 {
                     using (connection = new SqlConnection(connectionString))
                     {
@@ -188,7 +188,7 @@ namespace IGames.DAL
                 }
                 else
                 {
-                    this.Update(avaliacao);
+                    Update(avaliacao);
                 }
             }
             catch (SystemException)
@@ -199,7 +199,7 @@ namespace IGames.DAL
 
         //Método Update
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Avaliacao avaliacao)
+        public static void Update(Modelo.Avaliacao avaliacao)
         {
             try
             {
@@ -225,7 +225,7 @@ namespace IGames.DAL
 
         //Método Delete
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Avaliacao avaliacao)
+        public static void Delete(Modelo.Avaliacao avaliacao)
         {
             try
             {

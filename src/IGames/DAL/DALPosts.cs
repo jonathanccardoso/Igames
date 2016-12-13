@@ -13,7 +13,7 @@ namespace IGames.DAL
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Postagem> SelectAll()
+        public static List<Modelo.Postagem> SelectAll()
         {
             Modelo.Postagem postagem;
             List<Modelo.Postagem> postagens = new List<Modelo.Postagem>();
@@ -57,7 +57,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Postagem Select(int postagem_id)
+        public static Modelo.Postagem Select(int postagem_id)
         {
             //instancia um novo postagem
             Modelo.Postagem postagem = null;
@@ -100,11 +100,11 @@ namespace IGames.DAL
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Postagem postagem)
+        public static void Insert(Modelo.Postagem postagem)
         {
             try
             {
-                if (this.Select(postagem.id) == null)
+                if (Select(postagem.id) == null)
                 {
                     using (connection = new SqlConnection(connectionString))
                     {
@@ -122,7 +122,7 @@ namespace IGames.DAL
                 }
                 else
                 {
-                    this.Update(postagem);
+                    Update(postagem);
                 }
             }
             catch (SystemException)
@@ -133,7 +133,7 @@ namespace IGames.DAL
 
         //Método Update
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Postagem postagem)
+        public static void Update(Modelo.Postagem postagem)
         {
             try
             {
@@ -158,7 +158,7 @@ namespace IGames.DAL
 
         //Método Delete
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Postagem postagem)
+        public static void Delete(Modelo.Postagem postagem)
         {
             try
             {

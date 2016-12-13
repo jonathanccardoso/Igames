@@ -14,7 +14,7 @@ namespace IGames.DAL
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Usuario> SelectAll()
+        public static List<Modelo.Usuario> SelectAll()
         {
             Modelo.Usuario usuario;
             List<Modelo.Usuario> usuarios = new List<Modelo.Usuario>();
@@ -98,7 +98,7 @@ namespace IGames.DAL
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Usuario usuario)
+        public static void Insert(Modelo.Usuario usuario)
         {
             try
             {
@@ -120,7 +120,7 @@ namespace IGames.DAL
                 }
                 else
                 {
-                    this.Update(usuario);
+                    Update(usuario);
                 }
             }
             catch (SystemException)
@@ -131,7 +131,7 @@ namespace IGames.DAL
 
         //Método Update
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Usuario usuario)
+        public static void Update(Modelo.Usuario usuario)
         {
             try
             {
@@ -158,7 +158,7 @@ namespace IGames.DAL
 
         //Método Delete
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Usuario usuario)
+        public static void Delete(Modelo.Usuario usuario)
         {
             try
             {

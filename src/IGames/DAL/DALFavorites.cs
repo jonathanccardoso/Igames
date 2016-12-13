@@ -13,7 +13,7 @@ namespace IGames.DAL
 
         //Método SelectAll 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Favorito> SelectAll()
+        public static List<Modelo.Favorito> SelectAll()
         {
             Modelo.Favorito favorito; 
             List<Modelo.Favorito> favoritos = new List<Modelo.Favorito>();
@@ -52,7 +52,7 @@ namespace IGames.DAL
  
          //Método SelectByUser
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Favorito SelectByUser(string Usuario_id)
+        public static Modelo.Favorito SelectByUser(string Usuario_id)
         {
             //instancia um novo usuario
             Modelo.Favorito favorito = null; 
@@ -90,7 +90,7 @@ namespace IGames.DAL
 
         //Método SelectByGame
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Favorito SelectByGame(int Jogo_id)
+        public static Modelo.Favorito SelectByGame(int Jogo_id)
         {
             //instancia um novo usuario
             Modelo.Favorito favorito = null; 
@@ -128,11 +128,11 @@ namespace IGames.DAL
 
          //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Favorito favorito)
+        public static void Insert(Modelo.Favorito favorito)
         {
             try
             {
-                if (this.SelectByUser(favorito.Usuario_id) == null && this.SelectByGame(favorito.Jogo_id) == null)
+                if (SelectByUser(favorito.Usuario_id) == null && SelectByGame(favorito.Jogo_id) == null)
                 {
                     using (connection = new SqlConnection(connectionString))
                     {

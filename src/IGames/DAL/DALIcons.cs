@@ -13,7 +13,7 @@ namespace IGames.DAL
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Icone> SelectAll()
+        public static List<Modelo.Icone> SelectAll()
         {
             Modelo.Icone icone;
             List<Modelo.Icone> icones = new List<Modelo.Icone>();
@@ -90,7 +90,7 @@ namespace IGames.DAL
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Icone icone)
+        public static void Insert(Modelo.Icone icone)
         {
             Modelo.Icone icon = icone;
             try
@@ -108,7 +108,7 @@ namespace IGames.DAL
                 }
                 else
                 {
-                    this.Update(icone);
+                    Update(icone);
                 }
             }
             catch (SystemException)
@@ -119,7 +119,7 @@ namespace IGames.DAL
 
         //Método Update
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Icone icone)
+        public static void Update(Modelo.Icone icone)
         {
             try
             {
@@ -144,7 +144,7 @@ namespace IGames.DAL
 
         //Método Delete
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Icone icone)
+        public static void Delete(Modelo.Icone icone)
         {
             try
             {

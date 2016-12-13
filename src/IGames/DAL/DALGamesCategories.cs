@@ -13,7 +13,7 @@ namespace IGames.DAL
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.JogoCategoria> SelectAll()
+        public static List<Modelo.JogoCategoria> SelectAll()
         {
             Modelo.JogoCategoria jogocategoria;
             List<Modelo.JogoCategoria> jogosCategorias = new List<Modelo.JogoCategoria>();
@@ -51,7 +51,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.JogoCategoria Select(int Jogo_id) 
+        public static Modelo.JogoCategoria Select(int Jogo_id) 
         {
             Modelo.JogoCategoria JogoCategoria = null;
             try
@@ -125,11 +125,11 @@ namespace IGames.DAL
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.JogoCategoria JogoCategoria) 
+        public static void Insert(Modelo.JogoCategoria JogoCategoria) 
         {
             try
             {
-                if (this.Select(JogoCategoria.Jogo_id) == null)
+                if (Select(JogoCategoria.Jogo_id) == null)
                 {
                     using (connection = new SqlConnection(connectionString))
                     {
@@ -149,7 +149,7 @@ namespace IGames.DAL
         }
         //Método Delete
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.JogoCategoria JogoCategoria)
+        public static void Delete(Modelo.JogoCategoria JogoCategoria)
         { 
             try
             {

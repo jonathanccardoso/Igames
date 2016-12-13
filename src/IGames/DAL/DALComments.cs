@@ -14,7 +14,7 @@ namespace IGames.DAL
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Comentario> SelectAll()
+        public static List<Modelo.Comentario> SelectAll()
         {
             Modelo.Comentario comentario;
             List<Modelo.Comentario> comentarios = new List<Modelo.Comentario>();
@@ -54,7 +54,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Comentario Select(int jogo_id, string usuario_id)
+        public static Modelo.Comentario Select(int jogo_id, string usuario_id)
         {
             Modelo.Comentario Comentario = null;
             try
@@ -92,11 +92,11 @@ namespace IGames.DAL
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Comentario comentario)
+        public static void Insert(Modelo.Comentario comentario)
         {
             try
             {
-                if (this.Select(comentario.Jogo_id, comentario.Usuario_id) == null)
+                if (Select(comentario.Jogo_id, comentario.Usuario_id) == null)
                 {
                     using (connection = new SqlConnection(connectionString))
                     {
@@ -110,7 +110,7 @@ namespace IGames.DAL
                 }
                 else
                 {
-                    this.Update(comentario);
+                    Update(comentario);
                 }
             }
             catch (SystemException)
@@ -121,7 +121,7 @@ namespace IGames.DAL
 
         //Método Update
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Comentario comentario)
+        public static void Update(Modelo.Comentario comentario)
         {
             try
             {
@@ -147,7 +147,7 @@ namespace IGames.DAL
 
         //Método Delete
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Comentario comentario)
+        public static void Delete(Modelo.Comentario comentario)
         {
             try
             {

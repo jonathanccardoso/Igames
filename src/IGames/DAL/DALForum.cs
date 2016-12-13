@@ -14,7 +14,7 @@ namespace IGames.DAL
 
         //Método SelectAll
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Forum> SelectAll()
+        public static List<Modelo.Forum> SelectAll()
         {
             Modelo.Forum forum;
             List<Modelo.Forum> foruns = new List<Modelo.Forum>();
@@ -55,7 +55,7 @@ namespace IGames.DAL
 
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Forum Select(int forum_id)
+        public static Modelo.Forum Select(int forum_id)
         {
             //instancia um novo Forum
             Modelo.Forum forum = null;
@@ -96,11 +96,11 @@ namespace IGames.DAL
 
         //Método Insert
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Forum forum)
+        public static void Insert(Modelo.Forum forum)
         {
             try
             {
-                if (this.Select(forum.id) == null)
+                if (Select(forum.id) == null)
                 {
                     using (connection = new SqlConnection(connectionString))
                     {
@@ -116,7 +116,7 @@ namespace IGames.DAL
                 }
                 else
                 {
-                    this.Update(forum);
+                    Update(forum);
                 }
             }
             catch (SystemException)
@@ -127,7 +127,7 @@ namespace IGames.DAL
 
         //Método Update
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Forum forum)
+        public static void Update(Modelo.Forum forum)
         {
             try
             {
@@ -154,7 +154,7 @@ namespace IGames.DAL
 
         //Método Delete
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Forum forum)
+        public static void Delete(Modelo.Forum forum)
         {
             try
             {
