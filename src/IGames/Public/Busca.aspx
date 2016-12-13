@@ -40,26 +40,23 @@
 </div>
 </nav>
 <main>
-    <form runat="server" action="Busca.aspx" method="get"> 
-          <%--<asp:TextBox ID="TextBusca" runat="server" Class="center-align"></asp:TextBox>          
-          <a class="waves-effect waves-light btn green darken-1" href="?busca=1" onclick="<% Pesquisa(); %>">Busca</a>--%>
-          <div class="card">
-            <div class="row">
-            <% foreach(IGames.Modelo.Jogo jogo in jogos) { 
-                  foreach(IGames.Modelo.Categoria categoria in categorias) { %>
-                <div class="col l4 s6">
-                       <div class="jogos">
-                        <img src="<%= jogo.imagemUrl %>" class="responsive-img"/>
-						<div class="">
-                            <b><%= jogo.descricao %></b><br />	
-                            <b><%= categoria.descricao %></b><br />					
-                        </div>
-                       </div>
-				</div>
-                <% } 
-                 } %>
-               </div>
-            </div>
-    </form>
+<h3>Resultados da pesquisa "<%= Request.QueryString["nome"] %>"</h3>
+<div class="card">
+<div class="row">
+<% if(jogos != null) {
+foreach(IGames.Modelo.Jogo jogo in jogos) {%>
+<div class="col l4 s6">
+<div class="jogos">
+<img src="<%= jogo.imagemUrl %>" class="responsive-img"/>
+<div>
+<b><%= jogo.descricao %></b><br />
+<b><%= IGames.Metodos.getCategoriaPeloJogo(jogo.id).descricao ?? "" %></b><br />
+</div>
+</div>
+</div>
+<% }
+   }%>
+</div>
+</div>
 </main>
 </asp:Content>
