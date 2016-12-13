@@ -2,14 +2,12 @@
 	background:#EFEDED;
 }
 nav{
-	background:#FF7416;
-    /*User:
-       background:#OF3057;
-    */
+	background-color: #FF7416;
 }
 .card {
     text-align: center;
     background:#0F3057;
+    color: white;
 }
 .responsive-img{
     margin-top:10px;
@@ -29,14 +27,6 @@ nav{
  }
 .modal {
      background: #123660;
-}
-a, button {
-     /*background: #123660;*/
-     background: #FA812F;
-     /*Adm background: #0F3057; BOTOES add icone*/
-}
-li {
-     background: #0F3057;
 }
 .button {
      background: #FA812F;

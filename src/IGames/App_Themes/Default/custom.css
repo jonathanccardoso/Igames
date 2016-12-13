@@ -149,3 +149,6 @@ div.usuarios {
     align-items: center;
     flex-direction: row;    
 }
+.li-trigger {
+    height:64px;
+}
