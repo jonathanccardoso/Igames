@@ -30,12 +30,18 @@ namespace IGames.Administrador
         }
         protected void initPage()
         {
-            if (Metodos.hasUser(Session["id"].ToString()))
+            this.jogonline = Metodos.getJogos();
+            this.destaque = Metodos.getJogosDestaque();
+            this.recomendado = Metodos.getJogosRecomendados();
+            if (Session["id"] != null)
             {
-                Response.Redirect("~/Public/Cadastro.aspx");
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
+                    Response.Redirect("~/" + (user.administrador ? "Administrador" : "User") + "/Index.aspx");
+                }
             }
-            this.user = Metodos.getUser(Session["id"].ToString());
-            this.icon = Metodos.getIcone(this.user.Icone_id);
         }
 
         protected void Sair_Click(object sender, EventArgs e)

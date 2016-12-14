@@ -24,6 +24,7 @@ namespace IGames.Public
         protected void Page_Load(object sender, EventArgs e)
         {
              getRecomendado();
+             getJogo();
              initPage();
         }
         protected void getRecomendado()
@@ -45,6 +46,11 @@ namespace IGames.Public
                     Response.Redirect("~/" + (user.administrador ? "Administrador" : "User") + "/Index.aspx");
                 }
             }
+        }
+
+        protected void getJogo() {
+            this.jogo = DAL.DALGames.SelectByName(Request.QueryString["jogo"]);
+
         }
     }
 }

@@ -13,12 +13,21 @@ namespace IGames.Administrador {
     public partial class Forum {
         
         /// <summary>
-        /// Form1 control.
+        /// TextArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.WebControls.TextBox TextArea;
+        
+        /// <summary>
+        /// Send control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Send;
     }
 }

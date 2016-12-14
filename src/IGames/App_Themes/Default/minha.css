@@ -6,7 +6,10 @@ nav{
 }
 .card {
     text-align: center;
-    background:#0F3057;
+    /*background:#0F3057;*/
+   /* background:#b9becd;*/
+    background-color:#efefee;
+
 }
 .responsive-img{
     margin-top:10px;

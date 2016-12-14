@@ -102,13 +102,14 @@
 <li class="tab col s3"><a href="#destaque">Destaque</a></li>
 <li class="tab col s3"><a href="#recomendado">Recomendados</a></li>
 </ul>
+<!---MENU JOGOS-->
 <div id="nalinha">
-<% for(int i = 0; i <= online.Count - 1; i++) { %>
+<% for(int i = 0; i <= jogonline.Count - 1; i++) { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="Jogo.aspx?jogo=<%= online[i].nome %>"><img class="responsive-img" src="<%= online[i].imagemUrl %>"> <br>
-<b><%= online[i].nome %></b></a>
-<p><%= online[i].descricao %></p>
+<a href="Jogo.aspx?jogo=<%= jogonline[i].nome %>"><img class="responsive-img" src="<%= jogonline[i].imagemUrl %>"> <br>
+<b><%= jogonline[i].nome %></b></a>
+<p><%= jogonline[i].descricao %></p>
 </div>
 </div>
 <% } %>

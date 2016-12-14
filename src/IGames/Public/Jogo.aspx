@@ -64,7 +64,7 @@
             </div>
         </div>
      <h3 Class="center-align"><asp:Label ID="Label1" runat="server" Text="Relacionados"></asp:Label></h3>
-      <div id="recomendado">
+      <div id="recomendado" class="row">
         <% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
             <div class="col l3 s6">
             <div class="card">
