@@ -22,12 +22,6 @@ namespace IGames.User
         protected void Page_Load(object sender, EventArgs e)
         {
             initPage();
-            if (!Page.IsPostBack)
-            {
-                getJogos();
-                getCategories();
-                getJogosCategorias();
-            }
         }
 
         protected void initPage()
@@ -36,6 +30,9 @@ namespace IGames.User
             {
                 this.user = Metodos.getUser(Session["id"].ToString());
                 this.icon = Metodos.getIcone(this.user.Icone_id);
+                this.cats = DAL.DALCategories.SelectAll();
+                this.jogos = DAL.DALGames.SelectAll();
+                this.jogos = DAL.DALGames.SelectAll();
             }
             else
             {
@@ -44,24 +41,9 @@ namespace IGames.User
 
         }
 
-        protected void getCategories()
-        {
-            this.cats = DAL.DALCategories.SelectAll();
-        }
-
-        protected void getJogos()
-        {
-            this.jogos = DAL.DALGames.SelectAll();
-        }
-
         protected Modelo.Jogo getJogo(int jogo_id)
         {
             return DAL.DALGames.Select(jogo_id);
-        }
-
-        protected void getJogosCategorias()
-        {
-            this.jogos = DAL.DALGames.SelectAll();
         }
     }
 }

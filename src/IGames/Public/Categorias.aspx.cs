@@ -15,35 +15,17 @@ namespace IGames.Public
 
         public List<Modelo.JogoCategoria> jogoscategorias { get; set; }
 
-        public DAL.DALCategories dalcat { get; set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                getJogos();
-                getCategories();
-                getJogosCategorias();
+                this.cats = DAL.DALCategories.SelectAll();
+                this.jogos = DAL.DALGames.SelectAll();
             } 
-        }
-
-        protected void getCategories()
-        {
-            this.cats = DAL.DALCategories.SelectAll();
-        }
-        
-        protected void getJogos()
-        {
-            this.jogos = DAL.DALGames.SelectAll();
         }
 
         protected Modelo.Jogo getJogo(int jogo_id) {
            return DAL.DALGames.Select(jogo_id);
-        }
-
-        protected void getJogosCategorias()
-        {
-            this.jogos = DAL.DALGames.SelectAll();
         }
     }
 }
