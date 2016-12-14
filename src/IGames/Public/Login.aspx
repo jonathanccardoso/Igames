@@ -23,10 +23,10 @@
 <input type="password" name="senha"/>
 <label for="senha">Senha</label>
 </div>
-<div class="col l4 s12 offset-s3">
+<div class="col l4 s6 offset-s3">
 <a class="waves-effect waves-light btn yellow darken-1" href="Cadastro.aspx">Cadastre-se</a>
 </div>
-<div class="col l1 offset-l6 s12 offset-s4">
+<div class="col l1 offset-l6 s4 offset-s4">
 <button class="waves-effect waves-light btn green darken-1" name="action" onclick="<% login(); %>">Entrar</button>
 </div>
 </div>
