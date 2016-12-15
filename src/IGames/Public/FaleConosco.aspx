@@ -44,7 +44,7 @@
 <div class="card">
 <div class="card-content">
 <div class="input-field">
-<asp:TextBox ID="email" runat="server" TextMode="Email" style="color:black"></asp:TextBox>
+<asp:TextBox ID="emailUser" runat="server" TextMode="Email" style="color:black"></asp:TextBox>
 <label for="ContentPlaceHolder1_email">Email</label>
 </div>
 <div class="input-field">
