@@ -65,8 +65,7 @@
                     <form runat="server">   
                         Nome:<asp:TextBox ID="Nome_user" runat="server" Text="<%= user.nome %>" Enabled="False"></asp:TextBox><br />
                         E-mail:<asp:TextBox ID="email_user" runat="server" Text="<%= user.email %>" Enabled="False"></asp:TextBox><br />
-                        Senha:<asp:TextBox ID="senha_user" runat="server" TextMode="Password" Text="<%= user.senha %>" Enabled="False"></asp:TextBox><br /><br />
-                        <!--se der erro é no text-->
+                        Senha:<input id="Password1" type="password" value="<%= user.senha %>"/><br />
                         <a class="waves-effect waves-light btn green darken-1" href="?edit=1" onclick="<% Habilitar(); %>">Editar</a><br /><br />
                         <a class="waves-effect waves-light btn green darken-1" href="?delete=1" onclick="<% Excluir(); %>">Excluir Conta</a><br /><br />
                     </form>

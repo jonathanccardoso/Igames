@@ -9,6 +9,10 @@ namespace IGames.Administrador
 {
     public partial class Categorias : System.Web.UI.Page
     {
+        public Modelo.Usuario user { get; set; }
+
+        public Modelo.Icone icon { get; set; }
+
         public List<Modelo.Categoria> cats { get; set; }
 
         public List<Modelo.Jogo> jogos { get; set; }
@@ -17,11 +21,28 @@ namespace IGames.Administrador
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            initPage();
             if (!Page.IsPostBack)
             {
                 getJogos();
                 getCategories();
                 getJogosCategorias();
+            }
+        }
+
+        protected void initPage()
+        {
+            if (!Metodos.hasUser(Session["id"].ToString()))
+            {
+                this.user = Metodos.getUser(Session["id"].ToString());
+                this.icon = Metodos.getIcone(this.user.Icone_id);
+                this.cats = DAL.DALCategories.SelectAll();
+                this.jogos = DAL.DALGames.SelectAll();
+                this.jogos = DAL.DALGames.SelectAll();
+            }
+            else
+            {
+                Response.Redirect("~/Public/Cadastro.aspx");
             }
         }
 
@@ -85,6 +106,19 @@ namespace IGames.Administrador
             Modelo.Categoria cat = DAL.DALCategories.Select(id);
             DAL.DALCategories.Delete(cat);
             Response.Redirect("~/Administrador/Categorias.aspx");
+        }
+        
+        protected void Sair()
+        {
+            if (Request.QueryString["exit"] != null)
+            {
+                if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
+                {
+                    Session["id"] = null;
+                    Session["email"] = null;
+                    Response.Redirect("~/Public/Index.aspx");
+                }
+            }
         }
     }
 }

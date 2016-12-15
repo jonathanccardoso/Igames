@@ -35,36 +35,29 @@ namespace IGames.Administrador
                 email_user.Text = user.email;
             }
         }
-        //protected void Habilitar()
-        //{
-        //    if (Request.QueryString["edit"] != null)
-        //    {
-        //        if (int.Parse(Request.QueryString["edit"].ToString()) == 1)
-        //        {
-        //            //deve da certo
-        //            if (!Nome_user.Enabled)
-        //            {
-        //                Nome_user.Enabled = true;
-        //                email_user.Enabled = true;
-        //                senha_user.Enabled = true;
-        //                Nome_user.Text = user.nome;
-        //                email_user.Text = user.email;
-        //                senha_user.Text = user.senha;
-        //                this.ctrl = 1;//não faz nada de controle
-        //            }
-        //            else
-        //            {
-        //                Editar_Click();
-        //            }
-        //        }
-        //    }
-        //}
+        protected void Habilitar()
+        {
+            if (Request.QueryString["edit"] != null)
+            {
+                if (int.Parse(Request.QueryString["edit"].ToString()) == 1)
+                {
+                    if (Nome_user.Text != user.nome || email_user.Text != user.email)
+                    {//editar
+                        Editar_Click();
+                    }
+                    else
+                    {//não editar
+                        Response.Redirect("~/Perfil.aspx");
+                    }
+                }
+            }
+        }
 
         protected void Editar_Click()
         {
             string nome = Nome_user.Text;
             string email = email_user.Text;
-            string senha = senha_user.Text;
+            string senha = this.user.senha;
             bool administrador = this.user.administrador;
             int Icone_id = this.user.Icone_id;
 

@@ -6,7 +6,7 @@
 <div class="nav-wrapper">  
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
-<li><a class="show-search"><i class="material-icons">search</i></a></li>
+<li><a class="show-search"><i class="material-icons">search</i></a></li>    
 <li> 
 <form action="Busca.aspx" method="post"> 
 <div class="input-field search-desktop">
