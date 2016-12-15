@@ -24,7 +24,7 @@
 </a>
 <ul id="dropdown1" class="dropdown-content">
 <li><a href="Perfil.aspx">Perfil</a></li>
-<%-- button name action criar form--%>
+<li><a href="Favoritos.aspx">Favoritos</a></li>
 <li><a href="?exit=1" onclick="<% Sair(); %>">Sair</a></li>
 </ul>
 </li>
@@ -50,6 +50,7 @@
 <li><a href="Categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
 <li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="Perfil.aspx"><i class="material-icons left">account_circle</i>Perfil</a></li>
+<li><a href="Favoritos.aspx"><i class="material-icons left">favorite</i>Favoritos</a></li>
 <li><a href="?exit=1" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
 <a href="Index.aspx" class="brand-logo">IGames</a>
@@ -62,9 +63,10 @@
           <div class="card white">
                <div class="card-content">
                     <form id="Form1" runat="server">   
-                        Nome:<asp:TextBox ID="Nome_user" runat="server"></asp:TextBox><br />
-                        E-mail:<asp:TextBox ID="email_user" runat="server"></asp:TextBox><br />
-                        Senha:<input id="Password1" type="password" value="<%= user.senha %>"/><br />
+                        Nome:<asp:TextBox ID="Nome_user" runat="server" Text="<%= user.nome %>" Enabled="False"></asp:TextBox><br />
+                        E-mail:<asp:TextBox ID="email_user" runat="server" Text="<%= user.email %>" Enabled="False"></asp:TextBox><br />
+                        Senha:<asp:TextBox ID="senha_user" runat="server" TextMode="Password" Text="<%= user.senha %>" Enabled="False"></asp:TextBox><br /><br />
+                        <!--se der erro é no text-->
                         <a class="waves-effect waves-light btn green darken-1" href="?edit=1" onclick="<% Habilitar(); %>">Editar</a><br /><br />
                         <a class="waves-effect waves-light btn green darken-1" href="?delete=1" onclick="<% Excluir(); %>">Excluir Conta</a><br /><br />
                     </form>

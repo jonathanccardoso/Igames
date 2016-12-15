@@ -13,13 +13,13 @@ namespace IGames.Public {
     public partial class FaleConosco {
         
         /// <summary>
-        /// emailUser control.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailUser;
+        protected global::System.Web.UI.WebControls.TextBox email;
         
         /// <summary>
         /// assunto control.

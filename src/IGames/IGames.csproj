@@ -193,17 +193,17 @@
     <Compile Include="Administrador\Usuarios.aspx.designer.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Images\DAL\DAL.cs" />
-    <Compile Include="Images\DAL\DALCategories.cs" />
-    <Compile Include="Images\DAL\DALComments.cs" />
-    <Compile Include="Images\DAL\DALFavorites.cs" />
-    <Compile Include="Images\DAL\DALForum.cs" />
-    <Compile Include="Images\DAL\DALGames.cs" />
-    <Compile Include="Images\DAL\DALGamesCategories.cs" />
-    <Compile Include="Images\DAL\DALIcons.cs" />
-    <Compile Include="Images\DAL\DALPosts.cs" />
-    <Compile Include="Images\DAL\DALRates.cs" />
-    <Compile Include="Images\DAL\DALUsers.cs" />
+    <Compile Include="DAL\DAL.cs" />
+    <Compile Include="DAL\DALCategories.cs" />
+    <Compile Include="DAL\DALComments.cs" />
+    <Compile Include="DAL\DALFavorites.cs" />
+    <Compile Include="DAL\DALForum.cs" />
+    <Compile Include="DAL\DALGames.cs" />
+    <Compile Include="DAL\DALGamesCategories.cs" />
+    <Compile Include="DAL\DALIcons.cs" />
+    <Compile Include="DAL\DALPosts.cs" />
+    <Compile Include="DAL\DALRates.cs" />
+    <Compile Include="DAL\DALUsers.cs" />
     <Compile Include="General.Master.cs">
       <DependentUpon>General.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -367,26 +367,6 @@
     <Folder Include="Download\" />
     <Folder Include="Icone\" />
     <Folder Include="Online\" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="MSMask">
-      <Guid>{C932BA88-4374-101B-A56C-00AA003668DC}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>1</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="stdole">
-      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
