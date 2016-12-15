@@ -53,6 +53,7 @@ namespace IGames.Administrador
             }
         }
 
+<<<<<<< HEAD
         protected void Editar_Click()
         {
             string nome = Nome_user.Text;
@@ -60,10 +61,19 @@ namespace IGames.Administrador
             string senha = this.user.senha;
             bool administrador = this.user.administrador;
             int Icone_id = this.user.Icone_id;
+=======
+        //protected void Editar_Click()
+        //{
+        //    string nome = Nome_user.Text;
+        //    string email = email_user.Text;
+        //    string senha = senha_user.Text;
+        //    bool administrador = this.user.administrador;
+        //    int Icone_id = this.user.Icone_id;
+>>>>>>> origin/master
 
-            Modelo.Usuario user = new Modelo.Usuario(nome, email, senha, administrador, Icone_id);
-            DAL.DALUsers.Update(user);
-        } 
+        //    Modelo.Usuario user = new Modelo.Usuario(nome, email, senha, administrador, Icone_id);
+        //    DAL.DALUsers.Update(user);
+        //} 
 
         protected void Excluir(){
             if (Request.QueryString["delete"] != null)
