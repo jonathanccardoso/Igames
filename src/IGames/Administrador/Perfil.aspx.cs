@@ -29,31 +29,36 @@ namespace IGames.Administrador
             hasUser();
             getUser();
             getIcon();
-        }
-        protected void Habilitar()
-        {
-            if (Request.QueryString["edit"] != null)
+            if (!Page.IsPostBack)
             {
-                if (int.Parse(Request.QueryString["edit"].ToString()) == 1)
-                {
-                    //deve da certo
-                    if (!Nome_user.Enabled)
-                    {
-                        Nome_user.Enabled = true;
-                        email_user.Enabled = true;
-                        senha_user.Enabled = true;
-                        Nome_user.Text = user.nome;
-                        email_user.Text = user.email;
-                        senha_user.Text = user.senha;
-                        this.ctrl = 1;//não faz nada de controle
-                    }
-                    else
-                    {
-                        Editar_Click();
-                    }
-                }
+                Nome_user.Text = user.nome;
+                email_user.Text = user.email;
             }
         }
+        //protected void Habilitar()
+        //{
+        //    if (Request.QueryString["edit"] != null)
+        //    {
+        //        if (int.Parse(Request.QueryString["edit"].ToString()) == 1)
+        //        {
+        //            //deve da certo
+        //            if (!Nome_user.Enabled)
+        //            {
+        //                Nome_user.Enabled = true;
+        //                email_user.Enabled = true;
+        //                senha_user.Enabled = true;
+        //                Nome_user.Text = user.nome;
+        //                email_user.Text = user.email;
+        //                senha_user.Text = user.senha;
+        //                this.ctrl = 1;//não faz nada de controle
+        //            }
+        //            else
+        //            {
+        //                Editar_Click();
+        //            }
+        //        }
+        //    }
+        //}
 
         protected void Editar_Click()
         {

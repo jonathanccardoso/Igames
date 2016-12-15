@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -10,7 +9,6 @@ namespace IGames.Administrador
 {
     public partial class Index : System.Web.UI.Page
     {
-
         public Modelo.Usuario user { get; set; }
 
         public Modelo.Icone icon { get; set; }

@@ -136,42 +136,42 @@ namespace IGames.Administrador
             set { _imagem = value; }
         }
 
-        protected void btnupload_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                imagem = System.Drawing.Image.FromStream(UploadImage.PostedFile.InputStream);
-                int tamanhoArquivo = UploadImage.PostedFile.ContentLength;
-                string tipoArquivo = UploadImage.PostedFile.ContentType;
+        //protected void btnupload_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        imagem = System.Drawing.Image.FromStream(UploadImage.PostedFile.InputStream);
+        //        int tamanhoArquivo = UploadImage.PostedFile.ContentLength;
+        //        string tipoArquivo = UploadImage.PostedFile.ContentType;
 
-                if (!(tipoArquivo != "image/jpg" && tipoArquivo != "image/jpeg" && tipoArquivo != "image/png"))
-                {
-                    //chamar add game
-                    //Modelo.Jogo jogo = new Modelo.Jogo("Online/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text);
-                    //produto.id = DAL.DALProduto.Insert(produto);
+        //        if (!(tipoArquivo != "image/jpg" && tipoArquivo != "image/jpeg" && tipoArquivo != "image/png"))
+        //        {
+        //            //chamar add game
+        //            //Modelo.Jogo jogo = new Modelo.Jogo("Online/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text);
+        //            //produto.id = DAL.DALProduto.Insert(produto);
 
-                    //Modelo.Item item = new Modelo.Item(produto, DAL.DALTamanho.Select(Convert.ToInt32(Request.Form["tid"])));
-                    //DAL.DALItem.Insert(item);
+        //            //Modelo.Item item = new Modelo.Item(produto, DAL.DALTamanho.Select(Convert.ToInt32(Request.Form["tid"])));
+        //            //DAL.DALItem.Insert(item);
 
-                    NameValueCollection query = new NameValueCollection()
-                {
-                    {"addtid", item.tamanho.id.ToString()},
-                    {"addpid", item.produto.id.ToString()},
-                    {"addq", Request.Form["q"]}
-                };
+        //            NameValueCollection query = new NameValueCollection()
+        //        {
+        //            {"addtid", item.tamanho.id.ToString()},
+        //            {"addpid", item.produto.id.ToString()},
+        //            {"addq", Request.Form["q"]}
+        //        };
 
-                    MetodosExtensao.Redirecionar("usuario/cart", query);
-                }
-                else
-                {
-                    Response.Write("Algo aconteceu. Tente novamente");
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write(ex.Message);
-                throw;
-            }
-        }
+        //            MetodosExtensao.Redirecionar("usuario/cart", query);
+        //        }
+        //        else
+        //        {
+        //            Response.Write("Algo aconteceu. Tente novamente");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Response.Write(ex.Message);
+        //        throw;
+        //    }
+        //}
     }
 }
