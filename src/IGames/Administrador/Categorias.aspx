@@ -120,7 +120,7 @@
                     <div class="modal-content">
                       <h4 class="center-align">Editar categoria?</h4>
                         <div class="input-field">
-                            <asp:DropDownList ID="listCateUpd" runat="server" ViewStateMode="Enabled" ></asp:DropDownList>
+                            <asp:DropDownList ID="listCateUpd" runat="server"></asp:DropDownList>
                             <label>Categoria</label>
                             <asp:TextBox ID="DescricaoUpdate" runat="server" Text="Descrição"></asp:TextBox>
                         </div>
@@ -134,7 +134,7 @@
                 <div class="modal-content">
                     <h4 class="center-align">Excluir categoria?</h4>
                          <div class="input-field">
-                            <asp:DropDownList ID="listCatDel" runat="server" ViewStateMode="Enabled"></asp:DropDownList>
+                            <asp:DropDownList ID="listCatDel" runat="server" ></asp:DropDownList>
                             <label>Categoria</label>
                          </div>
                  </div>
