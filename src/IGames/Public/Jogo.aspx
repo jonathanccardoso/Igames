@@ -40,7 +40,7 @@
 </div>
 </nav>
 <main>
-<h3><%= jogo.nome %></h3>
+<h3 class="center-align"><%= jogo.nome %></h3>
     <div class="row center-align">
             <div class="col l7 offset-l3 s5 offset-s3 m7 offset-m3 center-align">
               <div class=" card from">
@@ -58,8 +58,8 @@
                          </div>
                         </aside>
                     </div>
-                  <br /><br /><%--http://browserquest.mozilla.org/ tamanho:  width="550px" height="450px"  ---%>
-                       <iframe id="frame" src="../<%= jogo.jogoUrl %>" width="420px" height="450px" scrolling="no" frameborder="0"></iframe><br />
+                  <br /><br /><%-- <!--src="<%= jogo.jogoUrl%>"-->" tamanho:  width="550px" height="450px"  ---%>
+                       <iframe id="frame"  src="http://2048game.com/pt/" width="420px" height="450px" scrolling="no" frameborder="0"></iframe><br />
               </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
         <% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
             <div class="col l3 s6">
             <div class="card">
-            <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="<%= recomendado[i].imagemUrl %>"><br>
+            <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="../<%= recomendado[i].imagemUrl %>" width="100px" height="100px"><br>
             <b><%= recomendado[i].nome %></b></a>
             <p><%= recomendado[i].descricao %></p>
             </div>

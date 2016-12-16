@@ -33,11 +33,11 @@ namespace IGames.Administrador
             initPage();
             if (!Page.IsPostBack)
             {
-                //Nome_user.Text = user.nome;
-                //email_user.Text = user.email;
+                Nome_user.Text = user.nome;
+                email_user.Text = user.email;
             }
-            nomeAtual = Session["nome"].ToString();
-            emailAtual = Session["email"].ToString();
+            nomeAtual = Metodos.getUser(Session["id"].ToString()).nome;
+            emailAtual = Metodos.getUser(Session["id"].ToString()).email;
         }
 
         protected void initPage()
@@ -73,8 +73,9 @@ namespace IGames.Administrador
             string senha = this.user.senha;
             bool administrador = this.user.administrador;
             int Icone_id = this.user.Icone_id;
-            Modelo.Usuario user = new Modelo.Usuario(novoNome, novoEmail, senha, administrador, Icone_id);
+            Modelo.Usuario user = new Modelo.Usuario(Session["id"].ToString(), novoNome, novoEmail, senha, administrador, Icone_id);
             DAL.DALUsers.Update(user);
+            Response.Redirect("~/Administrador/Index.aspx");
         }
 
         //protected void Habilitar()
