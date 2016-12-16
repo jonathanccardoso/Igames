@@ -26,36 +26,30 @@ namespace IGames.User
 
         protected void initPage()
         {
-            if (!Metodos.hasUser(Session["id"].ToString()))
+            if (Session["id"] != null)
             {
-                this.user = Metodos.getUser(Session["id"].ToString());
-                this.icon = Metodos.getIcone(this.user.Icone_id);
-                this.cats = DAL.DALCategories.SelectAll();
-                this.jogos = DAL.DALGames.SelectAll();
-                this.jogos = DAL.DALGames.SelectAll();
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
+                }
             }
             else
             {
-                Response.Redirect("~/Public/Cadastro.aspx");
+                Response.Redirect("~/Public/Login.aspx");
             }
-
         }
 
         protected Modelo.Jogo getJogo(int jogo_id)
         {
             return DAL.DALGames.Select(jogo_id);
         }
-        
+
         protected void Sair()
         {
             if (Request.QueryString["exit"] != null)
             {
-                if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
-                {
-                    Session["id"] = null;
-                    Session["email"] = null;
-                    Response.Redirect("~/Public/Index.aspx");
-                }
+                Session.Contents.RemoveAll();
             }
         }
     }

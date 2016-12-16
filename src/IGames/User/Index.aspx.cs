@@ -14,75 +14,40 @@ namespace IGames.User
         public Modelo.Icone icon { get; set; }
 
         public List<Modelo.Jogo> online { get; set; }
-        
+
         public List<Modelo.Jogo> destaque { get; set; }
 
         public List<Modelo.Jogo> recomendado { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            getOnline();
-            getDestaque();
-            getRecomendado();
             initPage();
         }
 
-        protected void initPage() {
-            if (!Metodos.hasUser(Session["id"].ToString()))
+        protected void initPage()
+        {
+            this.online = Metodos.getJogos();
+            this.destaque = Metodos.getJogosDestaque();
+            this.recomendado = Metodos.getJogosRecomendados();
+            if (Session["id"] != null)
             {
-                this.user = Metodos.getUser(Session["id"].ToString());
-                this.icon = Metodos.getIcone(this.user.Icone_id);
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
+                }
             }
-            else {
-                Response.Redirect("~/Public/Cadastro.aspx");
+            else
+            {
+                Response.Redirect("~/Public/Login.aspx");
             }
         }
 
         protected void Sair()
         {
-            if (Page.IsPostBack)
+            if (Request.QueryString["exit"] != null)
             {
-                //Versão 01
-                /**/
-                Session.Abandon();
-                Response.Redirect("~/Public/Index.aspx");
-                //Versão 02
-                /*
-                Session.Contents.RemoveAll();*/
-                //Versão 03
-                /*
-                if (Request.QueryString["exit"] != null)
-                {
-                    if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
-                    {
-                        Session["id"] = null;
-                        Session["email"] = null;
-                        Response.Redirect("~/Public/Index.aspx");
-                    }
-                }*/
-            }
-        }
-        protected void getOnline()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.online = DAL.DALGames.SelectAll();
-            }
-        }
-
-        protected void getDestaque()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.destaque = DAL.DALGames.SelectTop();
-            }
-        }
-
-        protected void getRecomendado()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.destaque = DAL.DALGames.SelectRandom();
+                Session.Contents.RemoveAll();
             }
         }
     }

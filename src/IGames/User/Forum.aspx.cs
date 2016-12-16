@@ -37,13 +37,27 @@ namespace IGames.User
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            initPage();
             getPosts();
-            hasUser();
-            getUser();
             getUsers();
-            getIcon();
             getIcons();
             getForuns();
+        }
+
+        protected void initPage()
+        {
+            if (Session["id"] != null)
+            {
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Public/Login.aspx");
+            }
         }
 
         protected void Send_Click(object sender, EventArgs e)
@@ -116,12 +130,7 @@ namespace IGames.User
         {
             if (Request.QueryString["exit"] != null)
             {
-                if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
-                {
-                    Session["id"] = null;
-                    Session["email"] = null;
-                    Response.Redirect("~/Public/Index.aspx");
-                }
+                Session.Contents.RemoveAll();
             }
         }
     }

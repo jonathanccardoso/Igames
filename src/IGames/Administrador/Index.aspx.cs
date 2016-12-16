@@ -42,12 +42,6 @@ namespace IGames.Administrador
             }
         }
 
-        protected void Sair_Click(object sender, EventArgs e)
-        {
-            Session["id"] = null;
-            Session["email"] = null;
-            Response.Redirect("~/Public/Index.aspx");
-        }
         protected void Confirmar_Click(object sender, EventArgs e)
         {
             //erro no online.Checked
@@ -58,14 +52,10 @@ namespace IGames.Administrador
         {
             if (Request.QueryString["exit"] != null)
             {
-                if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
-                {
-                    Session["id"] = null;
-                    Session["email"] = null;
-                    Response.Redirect("~/Public/Index.aspx");
-                }
+                Session.Contents.RemoveAll();
             }
         }
+
         protected void getOnline()
         {
             if (!Page.IsPostBack)

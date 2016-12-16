@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.SessionState;
 
 namespace IGames
 {
     public class Metodos
-    {
-        public HttpSessionState Session { get; set; }
+    {   
         #region categoria
         public static Modelo.Categoria getCategoria(int id) {
             return DAL.DALCategories.Select(id);
@@ -67,13 +65,5 @@ namespace IGames
             return DAL.DALUsers.Select(id);
         }
         #endregion
-
-        public void Sair()
-        {
-            //Versão 01
-            Session.Abandon();
-            //Versão 02
-            Session.Contents.RemoveAll();
-        }
     }
 }
