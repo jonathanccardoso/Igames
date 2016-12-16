@@ -18,7 +18,7 @@
 </li>
 <li><a href="Categorias.aspx">Categorias</a></li>
 <li><a href="Forum.aspx">Fórum</a></li>
-<li><a href="Login.aspx">Login</a></li>
+<li><a href="?exit=1" onclick="<% Sair(); %>">Sair</a></li>
 </ul>
 <ul class="side-nav" id="mobile-demo">
 <li>
@@ -32,9 +32,9 @@
 </form>
 </div>
 </li>
-<li><a href="categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
-<li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
-<li><a href="login.aspx"><i class="material-icons left">fingerprint</i>Login</a></li>
+<li><a href="Categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
+<li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
+<li><a href="?exit=1" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
 <a href="index.aspx" class="brand-logo">IGames</a>
 </div>

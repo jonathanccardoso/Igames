@@ -43,7 +43,7 @@ namespace IGames.Administrador
                 {
                     if (Nome_user.Text != user.nome || email_user.Text != user.email)
                     {//editar
-                        Editar_Click();
+                        //Editar_Click();
                     }
                     else
                     {//não editar
@@ -53,14 +53,14 @@ namespace IGames.Administrador
             }
         }
 
-        protected void Editar_Click()
-        {
-            string nome = Nome_user.Text;
-            string email = email_user.Text;
-            string senha = this.user.senha;
-            bool administrador = this.user.administrador;
-            int Icone_id = this.user.Icone_id;
-        }
+        //protected void Editar_Click()
+        //{
+        //    string nome = Nome_user.Text;
+        //    string email = email_user.Text;
+        //    string senha = this.user.senha;
+        //    bool administrador = this.user.administrador;
+        //    int Icone_id = this.user.Icone_id;
+        //}
         //protected void Editar_Click()
         //{
         //    string nome = Nome_user.Text;
@@ -94,12 +94,7 @@ namespace IGames.Administrador
                 }
             }
         }   
-        /*protected void Editar() {
-            if (Page.IsPostBack)
-            {
-                this.daluser.Update(this.user);
-            }
-        }*/
+
         protected void hasUser()
         {
             if (!Page.IsPostBack)
@@ -133,12 +128,7 @@ namespace IGames.Administrador
         {
             if (Request.QueryString["exit"] != null)
             {
-                if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
-                {
-                    Session["id"] = null;
-                    Session["email"] = null;
-                    Response.Redirect("~/Public/Index.aspx");
-                }
+                Session.Contents.RemoveAll();
             }
         }
     }

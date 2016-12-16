@@ -94,5 +94,13 @@ namespace IGames.User
                 connection.Close();
             }
         }
+
+        protected void Sair()
+        {
+            if (Request.QueryString["exit"] != null)
+            {
+                Session.Contents.RemoveAll();
+            }
+        }
     }
 }

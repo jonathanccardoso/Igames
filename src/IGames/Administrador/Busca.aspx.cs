@@ -76,5 +76,13 @@ namespace IGames.Administrador
                 connection.Close();
             }
         }
+
+        protected void Sair()
+        {
+            if (Request.QueryString["exit"] != null)
+            {
+                Session.Contents.RemoveAll();
+            }
+        }
     }
 }

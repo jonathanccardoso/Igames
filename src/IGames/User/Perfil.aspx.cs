@@ -127,12 +127,7 @@ namespace IGames.User
         {
             if (Request.QueryString["exit"] != null)
             {
-                if (int.Parse(Request.QueryString["exit"].ToString()) == 1)
-                {
-                    Session["id"] = null;
-                    Session["email"] = null;
-                    Response.Redirect("~/Public/Index.aspx");
-                }
+                Session.Contents.RemoveAll();
             }
         }
     }
