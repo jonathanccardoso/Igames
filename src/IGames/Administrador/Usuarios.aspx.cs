@@ -26,60 +26,34 @@ namespace IGames.Administrador
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            hasUser();
-            getUser();
-            getIcon();
-
-            if (!Page.IsPostBack) {
-                getUsers();
-                getIcons();
-            }
+            initPage();
         }
-        //usuarios
-        protected void getUsers()
+
+        protected void initPage()
         {
             this.users = DAL.DALUsers.SelectAll();
-        }
-        protected void getIcons()
-        {
             this.icones = DAL.DALIcons.SelectAll();
+            if (Session["id"] != null)
+            {
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Public/Login.aspx");
+            }
         }
+
         protected void DelUser_Click(object sender, EventArgs e)
         {
-
             // int id = int.Parse(listCatDel.SelectedItem.Value);
             string nomeUser = delUser.Text;
             Modelo.Usuario user = DAL.DALUsers.Select(nomeUser);
             DAL.DALUsers.Delete(user);
             Response.Redirect("~/Administrador/Usuarios.aspx");
-        }
-        protected void hasUser()
-        {
-            if (!Page.IsPostBack)
-            {
-                if (Session["id"] == null)
-                {
-                    Response.Redirect("~/Public/Cadastro.aspx");
-                }
-            }
-        }
-
-        protected void getUser()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.dalusuario = new DAL.DALUsers();
-                this.user = DAL.DALUsers.Select(Session["id"].ToString());
-            }
-        }
-
-        protected void getIcon()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.dalicon = new DAL.DALIcons();
-                this.icon = DAL.DALIcons.Select(this.user.Icone_id);
-            }
         }
 
         protected void Sair()

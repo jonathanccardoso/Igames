@@ -23,13 +23,26 @@ namespace IGames.Administrador
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            hasUser();
-            getUser();
-            getIcon();
-
+            initPage();
             if (!Page.IsPostBack)
             {
                 getCategories();
+            }
+        }
+
+        protected void initPage()
+        {
+            if (Session["id"] != null)
+            {
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Public/Login.aspx");
             }
         }
 
@@ -82,32 +95,6 @@ namespace IGames.Administrador
         protected void Categorias_SelectedIndexChanged(object sender, EventArgs e)
         {
          
-        }
-        protected void hasUser()
-        {
-            if (!Page.IsPostBack)
-            {
-                if (Session["id"] == null)
-                {
-                    Response.Redirect("~/Public/Cadastro.aspx");
-                }
-            }
-        }
-
-        protected void getUser()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.user = DAL.DALUsers.Select(Session["id"].ToString());
-            }
-        }
-
-        protected void getIcon()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.icon = DAL.DALIcons.Select(this.user.Icone_id);
-            }
         }
 
         protected void Sair()

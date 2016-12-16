@@ -36,13 +36,28 @@ namespace IGames.Administrador
         protected void Page_Load(object sender, EventArgs e)
         {
             getPosts();
-            hasUser();
-            getUser();
+            initPage();
             getUsers();
-            getIcon();
             getIcons();
             getForuns();
         }
+
+        protected void initPage()
+        {
+            if (Session["id"] != null)
+            {
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Public/Login.aspx");
+            }
+        }
+
         protected void Send_Click(object sender, EventArgs e)
         {
             if (Request.QueryString["forum"] != null && Request.QueryString["postagem"] != null)
@@ -77,30 +92,9 @@ namespace IGames.Administrador
             this.postagens = DAL.DALPosts.SelectAll();
         }
 
-        protected void hasUser()
-        {
-            if (!Page.IsPostBack)
-            {
-                if (Session["id"] == null)
-                {
-                    Response.Redirect("~/Public/Cadastro.aspx");
-                }
-            }
-        }
-
-        protected void getUser()
-        {
-            this.user = DAL.DALUsers.Select(Session["id"].ToString());
-        }
-
         protected void getUsers()
         {
             this.users = DAL.DALUsers.SelectAll();
-        }
-
-        protected void getIcon()
-        {
-            this.icon = DAL.DALIcons.Select(this.user.Icone_id);
         }
 
         protected void getIcons()

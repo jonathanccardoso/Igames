@@ -54,17 +54,20 @@ namespace IGames.Administrador
 
         protected void initPage()
         {
-            if (!Metodos.hasUser(Session["id"].ToString()))
+            if (Session["id"] != null)
             {
-                this.user = Metodos.getUser(Session["id"].ToString());
-                this.icon = Metodos.getIcone(this.user.Icone_id);
-                this.cats = DAL.DALCategories.SelectAll();
-                this.jogos = DAL.DALGames.SelectAll();
-                this.jogos = DAL.DALGames.SelectAll();
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
+                    this.cats = DAL.DALCategories.SelectAll();
+                    this.jogos = DAL.DALGames.SelectAll();
+                    this.jogos = DAL.DALGames.SelectAll();
+                }
             }
             else
             {
-                Response.Redirect("~/Public/Cadastro.aspx");
+                Response.Redirect("~/Public/Login.aspx");
             }
         }
 

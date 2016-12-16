@@ -11,6 +11,10 @@ namespace IGames.Administrador
 {
     public partial class Busca : System.Web.UI.Page
     {
+        public Modelo.Usuario user { get; set; }
+
+        public Modelo.Icone icon { get; set; }
+
         public Modelo.Jogo jog { get; set; }
 
         public DAL.DALGames daljogo { get; set; }
@@ -27,6 +31,22 @@ namespace IGames.Administrador
         {
             getPesquisaJog();
             getPesquisaCat();
+        }
+
+        protected void initPage()
+        {
+            if (Session["id"] != null)
+            {
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Public/Login.aspx");
+            }
         }
 
         protected void getPesquisaJog()

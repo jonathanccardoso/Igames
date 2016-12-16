@@ -19,12 +19,26 @@ namespace IGames.Administrador
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            initPage();
             if (!Page.IsPostBack)
             {
                 getIcons();
-                hasUser();
-                getUser();
-                getIcon();
+            }
+        }
+
+        protected void initPage()
+        {
+            if (Session["id"] != null)
+            {
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.ico = Metodos.getIcone(this.user.Icone_id);
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Public/Login.aspx");
             }
         }
 
@@ -78,33 +92,6 @@ namespace IGames.Administrador
             if (UploadImage.HasFile)
             {
                 UploadImage.PostedFile.SaveAs(Server.MapPath("~") + "Icone/" + UploadImage.FileName);
-            }
-        }
-
-        protected void hasUser()
-        {
-            if (!Page.IsPostBack)
-            {
-                if (Session["id"] == null)
-                {
-                    Response.Redirect("~/Public/Cadastro.aspx");
-                }
-            }
-        }
-
-        protected void getUser()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.user = DAL.DALUsers.Select(Session["id"].ToString());
-            }
-        }
-
-        protected void getIcon()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.icone = DAL.DALIcons.Select(this.user.Icone_id);
             }
         }
 

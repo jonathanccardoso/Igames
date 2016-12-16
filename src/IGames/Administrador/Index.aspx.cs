@@ -26,6 +26,7 @@ namespace IGames.Administrador
             getRecomendado();
             initPage();
         }
+
         protected void initPage()
         {
             this.jogonline = Metodos.getJogos();
