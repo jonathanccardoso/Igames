@@ -90,8 +90,9 @@ namespace IGames.User
             string senha = this.user.senha;
             bool administrador = this.user.administrador;
             int Icone_id = this.user.Icone_id;
-            Modelo.Usuario user = new Modelo.Usuario(novoNome, novoEmail, senha, administrador, Icone_id);
+            Modelo.Usuario user = new Modelo.Usuario(Session["id"].ToString(), novoNome, novoEmail, senha, administrador, Icone_id);
             DAL.DALUsers.Update(user);
+            Response.Redirect("~/User/Index.aspx");
         }
 
         protected void Excluir()

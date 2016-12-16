@@ -63,10 +63,10 @@
           <div class="card white">
                <div class="card-content">
                     <form runat="server">   
-                        Nome:<asp:TextBox ID="Nome_user" runat="server" Text="<%= user.nome %>" Enabled="False"></asp:TextBox><br />
-                        E-mail:<asp:TextBox ID="email_user" runat="server" Text="<%= user.email %>" Enabled="False"></asp:TextBox><br />
+                        Nome:<asp:TextBox ID="Nome_user" runat="server" Text="<%= user.nome %>"></asp:TextBox><br />
+                        E-mail:<asp:TextBox ID="email_user" runat="server" Text="<%= user.email %>"></asp:TextBox><br />
                         Senha:<input id="Password1" type="password" value="<%= user.senha %>"/><br />
-                        <asp:Button ID="EditarPerfil" runat="server" Text="Button" CssClass="waves-effect waves-light btn green darken-1" OnClick="EditarPerfil_Click"></asp:Button><br /><br />
+                        <asp:Button ID="EditarPerfil" runat="server" Text="Editar" CssClass="waves-effect waves-light btn green darken-1" OnClick="EditarPerfil_Click"></asp:Button><br />
                         <a class="waves-effect waves-light btn green darken-1" href="?delete=1" onclick="<% Excluir(); %>">Excluir Conta</a><br /><br />
                     </form>
                 </div>
