@@ -135,17 +135,17 @@ namespace IGames.DAL
         {
             try
             {
-                using (connection = new SqlConnection(connectionString))
+                if (Select(usuario.id) != usuario)
                 {
-                    connection.Open();
-                    if (Select(usuario.id) != usuario)
+                    using (connection = new SqlConnection(connectionString))
                     {
-                        string sqlUsuario = "UPDATE Usuario SET Username = @Username, email = @email, iconeUrl = @iconeUrl WHERE id = @id";
+                        connection.Open();
+                        string sqlUsuario = "UPDATE Usuario SET nome = @nome, email = @email, Icone_id = @Icone_id WHERE id = @id";
                         SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, connection);
-                       // cmdUsuario.Parameters.AddWithValue("@id", usuario.id);//não estava aqui
-                        cmdUsuario.Parameters.AddWithValue("@Username", usuario.nome);
+                        cmdUsuario.Parameters.AddWithValue("@id", usuario.id);//não estava aqui
+                        cmdUsuario.Parameters.AddWithValue("@nome", usuario.nome);
                         cmdUsuario.Parameters.AddWithValue("@email", usuario.email);
-                        cmdUsuario.Parameters.AddWithValue("@iconeUrl", usuario.Icone_id);
+                        cmdUsuario.Parameters.AddWithValue("@Icone_id", usuario.Icone_id);
                         cmdUsuario.ExecuteNonQuery();
                     }
                 }
