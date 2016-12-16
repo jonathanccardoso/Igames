@@ -12,28 +12,18 @@ namespace IGames.User
 {
     public partial class Jogo : System.Web.UI.Page
     {
-        public DAL.DALUsers daluser { get; set; }
-
         public Modelo.Usuario user { get; set; }
 
-        public DAL.DALIcons dalicon { get; set; }
-
         public Modelo.Icone icon { get; set; }
-
-        public DAL.DALFavorites dalfavorito { get; set; }
 
         public Modelo.Favorito favorito { get; set; }
 
         public Modelo.Favorito fav { get; set; }
 
-        public DAL.DALGames daljogo { get; set; }
-
         public Modelo.Jogo jogo { get; set; }
 
         //avaliacao
         private bool avaliacao = false;
-
-        public DAL.DALRates dalaval { get; set; }
 
         public Modelo.Avaliacao avali { get; set; }
 
@@ -43,32 +33,30 @@ namespace IGames.User
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            hasUser();
-            getUser();
-            getIcon();
-            getJogo();
-
-            getRecomendado();
-
-            pegarAvaliacao();
+            initPage();
         }
-        protected void Sair_Click(object sender, EventArgs e)
+
+        protected void initPage()
         {
-            Session["id"] = null;
-            Session["email"] = null;
-            Response.Redirect("~/Public/Index.aspx");
+            this.jogo = DAL.DALGames.Select(DAL.DALGames.SelectByName(Request.QueryString["jogo"]).id);
+            getRecomendado();
+            pegarAvaliacao();
+            if (Session["id"] != null)
+            {
+                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                {
+                    this.user = Metodos.getUser(Session["id"].ToString());
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Public/Login.aspx");
+            }
         }
-
-        /*
-         * mudar quando estiver sem favoritar
-         * 
-        <i class="material-icons">favorite_border</i>*/
 
         protected void pegarAvaliacao() {
             if (!Page.IsPostBack) {
-                this.dalaval = new DAL.DALRates();
-                this.daljogo = new DAL.DALGames();
-//              this.avali = this.dalaval.Select(this.daljogo.SelectByName("2048").id, Session["id"].ToString());
                 this.avali = DAL.DALRates.Select(DAL.DALGames.SelectByName("2048").id, user.id);
                 if (DAL.DALRates.SelectByUser(user.id) != null)
                 {
@@ -122,7 +110,6 @@ namespace IGames.User
         {
             if (!Page.IsPostBack)
             {
-                this.dalfavorito = new DAL.DALFavorites();
                 if (DAL.DALFavorites.SelectByUser(user.id) != null)
                 {
                     Request.Form["favorito"] = "favorite";
@@ -132,8 +119,6 @@ namespace IGames.User
 
         protected void Estrela1_Click(object sender, EventArgs e)
         {
-            this.dalaval = new DAL.DALRates();
-            this.daljogo = new DAL.DALGames();
             Modelo.Avaliacao ava = new Modelo.Avaliacao(1, DAL.DALGames.SelectByName("2048").id, Session["id"].ToString());
             if (DAL.DALRates.Select(DAL.DALGames.SelectByName("2048").id, Session["id"].ToString()) != null)
             {
@@ -156,6 +141,7 @@ namespace IGames.User
                 this.avaliacao = true;
             }
         }
+
         protected void Estrela2_Click(object sender, EventArgs e)
         {
             DAL.DALRates dalaval = new DAL.DALRates();
@@ -263,47 +249,9 @@ namespace IGames.User
                 this.avaliacao = true;
             }
         }
-        protected void hasUser()
-        {
-            if (!Page.IsPostBack)
-            {
-                if (Session["id"] == null)
-                {
-                    Response.Redirect("~/Public/Cadastro.aspx");
-                }
-            }
-        }
-
-        protected void getUser()
-        {
-                this.daluser = new DAL.DALUsers();
-                this.user = DAL.DALUsers.Select(Session["id"].ToString());
-            
-        }
-
-        protected void getIcon()
-        {
-            this.dalicon = new DAL.DALIcons();
-            this.icon = DAL.DALIcons.Select(this.user.Icone_id);
-        }
-        
-        protected void getJogo()
-        {
-            this.daljogo = new DAL.DALGames();
-            this.jogo = DAL.DALGames.Select(DAL.DALGames.SelectByName(Request.QueryString["jogo"]).id);
-        }
-
-        protected void Sair()
-        {
-            if (Request.QueryString["exit"] != null)
-            {
-                Session.Contents.RemoveAll();
-            }
-        }
 
         protected void AddFavorito_Click(object sender, EventArgs e)
         {
-            this.dalfavorito = new DAL.DALFavorites();
             this.favorito = new Modelo.Favorito(user.id, jogo.id);
             DAL.DALFavorites.Insert(favorito);
             if (DAL.DALFavorites.SelectByUser(user.id) != null)
@@ -321,6 +269,14 @@ namespace IGames.User
             if (!Page.IsPostBack)
             {
                 this.destaque = DAL.DALGames.SelectRandom();
+            }
+        }
+
+        protected void Sair()
+        {
+            if (Request.QueryString["exit"] != null)
+            {
+                Session.Contents.RemoveAll();
             }
         }
     }
