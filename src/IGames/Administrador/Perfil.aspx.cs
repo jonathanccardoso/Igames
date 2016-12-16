@@ -77,46 +77,23 @@ namespace IGames.Administrador
             DAL.DALUsers.Update(user);
         }
 
-        protected void Habilitar()
-        {
-           if (Request.QueryString["edit"] != null)
-                {
-                    if (int.Parse(Request.QueryString["edit"].ToString()) == 1)
-                    {
-                        //jeito novo
-                        string novoNome = "", novoEmail = "";
-
-                        if (Nome_user.Text == "") novoNome = nomeAtual;
-                        else novoNome = Nome_user.Text;
-
-                        if (email_user.Text == "") novoEmail = emailAtual;
-                        else novoEmail = email_user.Text;
-
-
-
-                        //if (this.Nome_user.Text != user.nome || email_user.Text != user.email)
-                        //{//editar
-                        //    Editar_Click();
-                        //    Response.Redirect("~/Public/Index.aspx");
-                        //}
-                        //else
-                        //{//não editar
-                        //    Response.Redirect("~/Public/Perfil.aspx");
-                        //}
-                    }
-                }
-        }
-
-        protected void Editar_Click()
-        {
-            string nome = Nome_user.Text;
-            string email = email_user.Text;
-            string senha = this.user.senha;
-            bool administrador = this.user.administrador;
-            int Icone_id = this.user.Icone_id;
-            Modelo.Usuario user = new Modelo.Usuario(nome, email, senha, administrador, Icone_id);
-            DAL.DALUsers.Update(user);
-        }
+        //protected void Habilitar()
+        //{
+        //    if (Request.QueryString["edit"] != null)
+        //    {
+        //        if (int.Parse(Request.QueryString["edit"].ToString()) == 1)
+        //        {
+        //            if (Nome_user.Text != user.nome || email_user.Text != user.email)
+        //            {//editar
+        //                Editar_Click();
+        //            }
+        //            else
+        //            {//não editar
+        //                Response.Redirect("~/Perfil.aspx");
+        //            }
+        //        }
+        //    }
+        //}
 
         protected void Excluir(){
             if (Request.QueryString["delete"] != null)
