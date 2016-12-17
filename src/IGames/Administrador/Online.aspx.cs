@@ -50,10 +50,11 @@ namespace IGames.Administrador
         {
                 if (Categorias.SelectedItem.Value != "Escolha uma categoria")
                 {
-                    uploadGame();
+                    //uploadGame();
                     uploadImage();
                     DAL.DALGames jogo = new DAL.DALGames();
-                    Modelo.Jogo jog = new Modelo.Jogo("Online/" + UploadGame.FileName, TextBox1.Text, this.imagem, TextBox2.Text, UploadImage.FileName);
+                    //Modelo.Jogo jog = new Modelo.Jogo("Online/" + UploadGame.FileName, TextBox1.Text, this.imagem, TextBox2.Text, UploadImage.FileName);
+                    Modelo.Jogo jog = new Modelo.Jogo("Online/" + JogoUrl.Text, TextBox1.Text, this.imagem, TextBox2.Text, UploadImage.FileName);
                     DAL.DALGames.Insert(jog);
                     this.jogocategoria = new Modelo.JogoCategoria(jog.id, int.Parse(Categorias.SelectedItem.Value));
                     DAL.DALGamesCategories.Insert(this.jogocategoria);
@@ -71,18 +72,19 @@ namespace IGames.Administrador
             Categorias.Items.Insert(0, "Escolha uma categoria");
         }
 
-        protected void uploadGame() {
-            string path = Server.MapPath("~") + "Online/" + TextBox2.Text;
-            if (UploadGame.HasFile)
-            {
-                if (!Directory.Exists(path)) {
-                    Directory.CreateDirectory(path);
-                }
-                foreach (HttpPostedFile file in UploadGame.PostedFiles) {
-                    file.SaveAs(Server.MapPath("~") + "Online/" + file.FileName);
-                }
-            }
-        }
+        //protected void uploadGame() {
+        //    string path = Server.MapPath("~") + "Online/" + TextBox2.Text;
+        //    if (UploadGame.HasFile)
+        //    {
+        //        if (!Directory.Exists(path)) {
+        //            Directory.CreateDirectory(path);
+        //        }
+        //        foreach (HttpPostedFile file in UploadGame.PostedFiles) {
+        //            file.SaveAs(Server.MapPath("~") + "Online/" + file.FileName);
+        //        }
+        //    }
+        //}
+
         protected void uploadImage()
         {
             if (UploadImage.HasFile)

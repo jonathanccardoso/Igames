@@ -150,5 +150,26 @@ namespace IGames.DAL
                 throw;
             }
         }
+        
+        //Método DeleteByUser
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public static void DeleteByUser(Modelo.Favorito favorito) 
+        {
+            try
+            { 
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlFavorito = "DELETE from Favorito WHERE Usuario_id = @usuario_id";
+                    SqlCommand cmdFavorito = new SqlCommand(sqlFavorito, connection);
+                    cmdFavorito.Parameters.AddWithValue("@usuario_id", favorito.Usuario_id);
+                    cmdFavorito.ExecuteNonQuery();
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+        }
     }
 }

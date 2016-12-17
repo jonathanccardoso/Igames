@@ -22,13 +22,13 @@ namespace IGames.Administrador {
         protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
-        /// UploadGame control.
+        /// JogoUrl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload UploadGame;
+        protected global::System.Web.UI.WebControls.TextBox JogoUrl;
         
         /// <summary>
         /// TextBox1 control.

@@ -84,7 +84,8 @@
 						<div class="">
                             <b><%= usuario.nome %></b><br />	
                             <b><%= usuario.email %></b><br />
-                            <asp:HyperLink ID="Delete" runat="server">Deletar</asp:HyperLink>					
+                            <a class="col l1 s10 btn modal-jogo" href="#modalDelete">Deletar</a>
+                            <%--<asp:HyperLink ID="Delete" runat="server">Deletar</asp:HyperLink>--%>					
                         </div>
                        </div>
 				</div>
@@ -97,6 +98,7 @@
                 <div class="modal-content">
                     <h4 class="center-align">Excluir usuario?</h4>
                          <div class="input-field">
+                             <!---usuario esta null-->
                              <asp:TextBox ID="delUser" runat="server" Visible="False" Text="<%= usuario.nome %>"></asp:TextBox><!--NÃO PODE APARECE-->
                          </div>
                  </div>

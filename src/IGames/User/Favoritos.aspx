@@ -67,8 +67,10 @@
                     <div class="col l1 s6"> 
                     <div class="card">
                     <div class="card-image">
-                    <a href="Jogo.aspx?jogo=IGames.DAL.DALGames.Select(favorito.Jogo_id).nome"></a>
-                    <img src="<%= IGames.DAL.DALGames.Select(favorito.Jogo_id).imagemUrl %>" class="responsive-img"/>
+                    <!--ERRO no href do favorito-->
+                    <a href="Jogo.aspx?jogo=IGames.DAL.DALGames.Select(favorito.Jogo_id).nome">
+                        <img width="100px" height="100px" src="../<%= IGames.DAL.DALGames.Select(favorito.Jogo_id).imagemUrl %>" class="responsive-img"/>
+                    </a>
                     </div>
                     </div>
                     </div>

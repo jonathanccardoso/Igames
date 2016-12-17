@@ -66,7 +66,7 @@
      <h3 Class="center-align"><asp:Label ID="Label1" runat="server" Text="Relacionados"></asp:Label></h3>
       <div id="recomendado" class="row">
         <% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
-            <div class="col l3 s6">
+            <div class="col l3 s6" >
             <div class="card">
             <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="../<%= recomendado[i].imagemUrl %>" width="100px" height="100px"><br>
             <b><%= recomendado[i].nome %></b></a>

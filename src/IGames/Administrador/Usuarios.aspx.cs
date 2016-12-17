@@ -10,6 +10,7 @@ namespace IGames.Administrador
     public partial class Usuarios : System.Web.UI.Page
     {
         public List<Modelo.Usuario> users { get; set; } 
+
         public DAL.DALUsers daluser { get; set; }
         
         public List<Modelo.Icone> icones { get; set; }

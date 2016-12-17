@@ -58,9 +58,8 @@
 						<p><%= IGames.Metodos.getJogoPelaCategoria(cate.id).descricao ?? "" %></p>
 					</div>
 				</div>
-                <% }
-                   } %> 
-                <%--<% for(int i = 0; i <= 3; i++) {
+                <% } %> 
+                <% for(int i = 0; i <= 3; i++) {
                        if(jogos[i].id == jogoscategorias[i].Jogo_id && cate.id == jogoscategorias[i].Categoria_id) { %>
 				<div class="col l3 s6">
 					<div class="card">
@@ -71,11 +70,11 @@
 				</div>
                 <% jogos.Remove(jogos[i]);
                     } 
-                   } %>--%>
+                   } %>
 			</div>
 		  </div>
 		</li>
-              <%--<% } %>--%>
+              <% } %>
         </ul>
     </div>
 </main>

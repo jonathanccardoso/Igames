@@ -63,13 +63,15 @@
 <div class="row">
 <div class="col l10 offset-l1">
 <div class="file-field input-field">
-<div class="btn">
-<span>Jogo</span>
-<asp:FileUpload ID="UploadGame" runat="server" AllowMultiple="True" webkitdirectory mozdirectory directory/>
+<div class="input-field">
+<!---span>Jogo</span>-->
+<%--<asp:FileUpload ID="UploadGame" runat="server" AllowMultiple="True" webkitdirectory mozdirectory directory/>--%>
+<asp:TextBox ID="JogoUrl" runat="server"></asp:TextBox>
+<label for="ContentPlaceholder2_TextBox1">Url do Jogo</label>
 </div>
-<div class="file-path-wrapper">
+<%--<div class="file-path-wrapper">
 <input class="file-path validate" type="text">
-</div>
+</div>--%>
 </div>
 <div class="input-field">
 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>

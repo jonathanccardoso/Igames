@@ -21,7 +21,7 @@ namespace IGames.User
         public Modelo.Favorito fav { get; set; }
 
         public Modelo.Jogo jogo { get; set; }
-
+    
         //avaliacao
         private bool avaliacao = false;
 
@@ -33,14 +33,17 @@ namespace IGames.User
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            getRecomendado();
+            getJogo();
             initPage();
         }
 
         protected void initPage()
         {
-            this.jogo = DAL.DALGames.Select(DAL.DALGames.SelectByName(Request.QueryString["jogo"]).id);
-            getRecomendado();
-            pegarAvaliacao();
+          //  this.jogo = DAL.DALGames.Select(DAL.DALGames.SelectByName(Request.QueryString["jogo"]).id);
+            //getRecomendado();
+            //pegarAvaliacao();
+            this.recomendado = Metodos.getJogosRecomendados();
             if (Session["id"] != null)
             {
                 if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
@@ -141,7 +144,6 @@ namespace IGames.User
                 this.avaliacao = true;
             }
         }
-
         protected void Estrela2_Click(object sender, EventArgs e)
         {
             DAL.DALRates dalaval = new DAL.DALRates();
@@ -252,16 +254,31 @@ namespace IGames.User
 
         protected void AddFavorito_Click(object sender, EventArgs e)
         {
-            this.favorito = new Modelo.Favorito(user.id, jogo.id);
-            DAL.DALFavorites.Insert(favorito);
-            if (DAL.DALFavorites.SelectByUser(user.id) != null)
+            if (favoritos.Text == "favorite_border")
             {
-                Request.Form["favorito"] = "favorite_border";
+                this.favorito = new Modelo.Favorito(user.id, jogo.id);
+                DAL.DALFavorites.Insert(favorito);
+                favoritos.Text = "favorite";
             }
-            else if (DAL.DALFavorites.SelectByUser(user.id) == null)
-            {
-                Request.Form["favorito"] = "favorite";
+            else {
+                //this.favorito = new Modelo.Favorito(user.id, jogo.id);
+                DAL.DALFavorites daluser = new DAL.DALFavorites();
+                Modelo.Favorito favorito = DAL.DALFavorites.SelectByUser(user.id);
+                DAL.DALFavorites.DeleteByUser(favorito);
+                favoritos.Text = "favorite_border";
             }
+            
+            //if (DAL.DALFavorites.SelectByUser(user.id) != null)
+            //{
+            //    Request.Form["favorito"] = "favorite_border";
+            //    favoritos.Text = "favorite_border";
+            //}
+            //else if (DAL.DALFavorites.SelectByUser(user.id) == null)
+            //{
+            //    conexao somente leitura
+            //    favoritos.Text = "favorite";
+            //    Request.Form["favorito"] = "favorite";
+            //}
         }
 
         protected void getRecomendado()
@@ -270,6 +287,12 @@ namespace IGames.User
             {
                 this.destaque = DAL.DALGames.SelectRandom();
             }
+        }
+
+        protected void getJogo()
+        {
+            this.jogo = DAL.DALGames.SelectByName(Request.QueryString["jogo"]);
+
         }
 
         protected void Sair()

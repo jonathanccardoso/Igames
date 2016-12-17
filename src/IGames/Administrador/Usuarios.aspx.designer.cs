@@ -22,15 +22,6 @@ namespace IGames.Administrador {
         protected global::System.Web.UI.HtmlControls.HtmlForm usuarios;
         
         /// <summary>
-        /// Delete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Delete;
-        
-        /// <summary>
         /// delUser control.
         /// </summary>
         /// <remarks>

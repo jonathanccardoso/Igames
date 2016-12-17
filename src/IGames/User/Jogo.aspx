@@ -58,13 +58,13 @@
 </nav>
 <main>
 <form id="Form1" runat="server">
-<h3><asp:Label ID="NomeJogo" runat="server" Text="<%=  %>">"></asp:Label></h3>
+<h3 class="center-align"><%= jogo.nome %></h3>
     <div class="row center-align">
             <div class="col l6 offset-l3 s5 offset-s3 m7 offset-m3 center-align">
-              <div class=" card from">
+              <div class=" card from" style="height: inherit">
                   <div class="left-align">
                         <aside>
-                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#favorito"><i class="material-icons" name="favorito">favorite_border</i></a><br />
+                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#favorito"><i class="material-icons" name="favorito"><asp:Label ID="favoritos" runat="server" Text="favorite_border"></asp:Label></i></a><br />
                          <a class="waves-effect waves-teal btn-flat modal-trigger" href="#infoJogo"><i class="material-icons" name="informacoes">info</i></a><br /><br /><br /><br /><br /><br />
                           <div id="help" class="modal">
                             <div class="modal-content">
@@ -102,16 +102,17 @@
                         <asp:ImageButton ID="Estrela4" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela4_Click" />
                         <asp:ImageButton ID="Estrela5" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela5_Click" />
                    </div><br /><br />
-                  <iframe id="Iframe1" src="http://browserquest.mozilla.org/" width="620px" height="400px" scrolling="no" frameborder="0"></iframe> 
+<%--                  <iframe id="Iframe1" src="http://2048game.com/pt/" width="620px" height="400px" scrolling="no" frameborder="0"></iframe> --%>
+                  <iframe id="frame"  src="http://2048game.com/pt/" width="420px" height="450px" scrolling="no" frameborder="0"></iframe><br />
               </div>
             </div>
         </div>
      <h3 Class="center-align"><asp:Label ID="Label3" runat="server" Text="Relacionados"></asp:Label></h3>
-      <div id="recomendado">
+      <div id="recomendado" class="row">
         <% for(int i = 0; i <= 3; i++) { %>
             <div class="col l3 s6">
-            <div class="card">
-            <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="<%= recomendado[i].imagemUrl %>"> <br>
+            <div class="card center-align">
+            <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" width="100px" height="100px" src="../<%= recomendado[i].imagemUrl %>"> <br>
             <b><%= recomendado[i].nome %></b></a>
             <p><%= recomendado[i].descricao %></p>
             </div>
