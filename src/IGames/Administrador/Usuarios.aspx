@@ -84,8 +84,12 @@
 						<div class="">
                             <b><%= usuario.nome %></b><br />	
                             <b><%= usuario.email %></b><br />
-                            <% usuari.nome = usuario.nome; %>
-                            <a class="col l1 s10 btn modal-jogo" href="#modalDelete">Deletar</a>
+                            <% usuari = usuario; %>
+                            <asp:HiddenField ID="HiddenField1" runat="server" Value=" usuario.nome"></asp:HiddenField>
+                            
+                            <%--<a class="col l1 s10 btn modal-jogo" href="#modalDelete" onclick="">Deletar</a>--%>
+                            <a class="col l1 s10 btn modal-jogo" href="?delete=<%= usuario.id %>" onclick="<% Delete(); %>">Deletar</a>
+
                             <%--<asp:HyperLink ID="Delete" runat="server">Deletar</asp:HyperLink>--%>					
                         </div>
                        </div>

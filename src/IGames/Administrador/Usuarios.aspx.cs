@@ -53,13 +53,26 @@ namespace IGames.Administrador
 
         protected void DelUser_Click(object sender, EventArgs e)
         {
-            usuari.nome = HiddenField1.Value;
+            /*Error 
+             * 
+            //usuari.nome = HiddenField1.Value;
             //int id = int.Parse(listCatDel.SelectedItem.Value);
             string nomeUser = delUser.Text;
             //Modelo.Usuario user = DAL.DALUsers.Select(nomeUser);
             Modelo.Usuario user = DAL.DALUsers.Select(usuari.nome);
             DAL.DALUsers.Delete(user);
-            Response.Redirect("~/Administrador/Usuarios.aspx");
+            */
+        }
+
+        protected void Delete()
+        {
+            if (Request.QueryString["delete"] != null)
+            {
+                string id = Request.QueryString["delete"].ToString();
+                this.user = DAL.DALUsers.Select(id.ToString());
+                DAL.DALUsers.Delete(user);
+                Response.Redirect("~/Administrador/Usuarios.aspx");
+            }
         }
 
         protected void Sair()
