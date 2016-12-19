@@ -10,6 +10,8 @@ namespace IGames.Administrador
 {
     public partial class Download : System.Web.UI.Page
     {
+        public Modelo.JogoCategoria jogocategoria { get; set; }
+
         public DAL.DALUsers daluser { get; set; }
 
         public Modelo.Usuario user { get; set; }
@@ -45,6 +47,9 @@ namespace IGames.Administrador
             uploadImage();
             Modelo.Jogo jog = new Modelo.Jogo("Download/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text);
             DAL.DALGames.Insert(jog);
+
+            this.jogocategoria = new Modelo.JogoCategoria(jog.id, DAL.DALCategories.SelectByDescription("Download").id);
+            DAL.DALGamesCategories.Insert(this.jogocategoria);
 
             Response.Redirect("~/Administrador/Index.aspx");
         }

@@ -84,6 +84,7 @@
 						<div class="">
                             <b><%= usuario.nome %></b><br />	
                             <b><%= usuario.email %></b><br />
+                            <% usuari.nome = usuario.nome; %>
                             <a class="col l1 s10 btn modal-jogo" href="#modalDelete">Deletar</a>
                             <%--<asp:HyperLink ID="Delete" runat="server">Deletar</asp:HyperLink>--%>					
                         </div>
@@ -91,16 +92,15 @@
 				</div>
                 <% } 
                   }
-                } %>
+                   string naama = usuario.nome; %>
+                  <asp:TextBox ID="delUser" runat="server" Visible="False" Text="<%= usuario.nome %>"></asp:TextBox>
+                <% } %>
                </div>
     
     <div id="modalDelete" class="modal">
                 <div class="modal-content">
                     <h4 class="center-align">Excluir usuario?</h4>
-                         <div class="input-field">
-                             <!---usuario esta null-->
-                             <asp:TextBox ID="delUser" runat="server" Visible="False" Text="<%= usuario.nome %>"></asp:TextBox><!--NÃO PODE APARECE-->
-                         </div>
+                    <asp:Label ID="Label1" runat="server" Text="<%= usuario.nome %>"></asp:Label>
                  </div>
                  <div class="modal-footer center-align">
                          <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button3" runat="server" OnClick="DelUser_Click" Text="Confirmar" />

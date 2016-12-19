@@ -38,15 +38,18 @@ namespace IGames.Administrador
                 {
                     this.user = Metodos.getUser(Session["id"].ToString());
                     this.icon = Metodos.getIcone(this.user.Icone_id);
-                    Response.Redirect("~/" + (user.administrador ? "Administrador" : "User") + "/Index.aspx");
                 }
+            }
+            else
+            {
+                Response.Redirect("~/Public/Login.aspx");
             }
         }
 
         protected void Confirmar_Click(object sender, EventArgs e)
         {
-            //erro no online.Checked
-            //Response.Redirect("~/Administrador/" + (online.Checked ? "Online" : ((download.Checked) ? "Download" : "Index")) + ".aspx");
+           
+            Response.Redirect("~/Administrador/" + (online.Checked ? "Online" : ((download.Checked) ? "Download" : "Index")) + ".aspx");
         }
 
         protected void Sair()

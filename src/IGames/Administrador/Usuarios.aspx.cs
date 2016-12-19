@@ -9,6 +9,8 @@ namespace IGames.Administrador
 {
     public partial class Usuarios : System.Web.UI.Page
     {
+        public Modelo.Usuario usuari { get; set; }
+
         public List<Modelo.Usuario> users { get; set; } 
 
         public DAL.DALUsers daluser { get; set; }
@@ -32,6 +34,7 @@ namespace IGames.Administrador
 
         protected void initPage()
         {
+//            delUser
             this.users = DAL.DALUsers.SelectAll();
             this.icones = DAL.DALIcons.SelectAll();
             if (Session["id"] != null)
@@ -50,9 +53,11 @@ namespace IGames.Administrador
 
         protected void DelUser_Click(object sender, EventArgs e)
         {
-            // int id = int.Parse(listCatDel.SelectedItem.Value);
+            usuari.nome = HiddenField1.Value;
+            //int id = int.Parse(listCatDel.SelectedItem.Value);
             string nomeUser = delUser.Text;
-            Modelo.Usuario user = DAL.DALUsers.Select(nomeUser);
+            //Modelo.Usuario user = DAL.DALUsers.Select(nomeUser);
+            Modelo.Usuario user = DAL.DALUsers.Select(usuari.nome);
             DAL.DALUsers.Delete(user);
             Response.Redirect("~/Administrador/Usuarios.aspx");
         }
