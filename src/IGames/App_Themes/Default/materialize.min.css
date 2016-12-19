@@ -5041,6 +5041,7 @@ button.btn-floating {
 
 ul.dropdown-content {
   background-color: #fff;
+  color: #FF6F00;
   margin: 0;
   display: none;
   min-width: 100px;
@@ -5061,6 +5062,11 @@ ul.dropdown-content {
   width: 100%;
   text-align: left;
   text-transform: none;
+  color: #FF6F00;
+}
+
+.dropdown-content li a {
+  color: #FF6F00;
 }
 
 .dropdown-content li:hover, .dropdown-content li.active, .dropdown-content li.selected {
@@ -5079,14 +5085,14 @@ ul.dropdown-content {
 
 .dropdown-content li > a, .dropdown-content li > button, .dropdown-content li > span {
   font-size: 16px;
-  color: #FF6F00;
+  color: #FF6F00 !important;
   display: block;
   line-height: 22px;
   padding: 14px 16px;
 }
 
 .dropdown-content li > a:hover, .dropdown-content li > button:hover{
-  color: white;
+  color: white !important;
 }
 
 .dropdown-content li > button {
