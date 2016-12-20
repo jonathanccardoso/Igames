@@ -20,12 +20,10 @@
 <li><a href="Forum.aspx">Fórum</a></li>
 <li>
 <a class="dropdown-button" data-activates="dropdown1">
-<img src="<%= icone.iconeUrl %>" class="circle usericon"/>
-<label><%= user.nome %></label>
+<img src="<%= icon.iconeUrl %>" class="circle usericon"/>
 </a>
 <ul id="dropdown1" class="dropdown-content">
-<li><a href="Pefil.aspx">Perfil</a></li>
-<li><a href="Favoritos.aspx">Favoritos</a></li>
+<li><a href="Perfil.aspx">Perfil</a></li>
 <li><a href="?exit=1" onclick="<% Sair(); %>">Sair</a></li>
 </ul>
 </li>
@@ -34,7 +32,7 @@
 <li>
 <div class="toolbar">
 <a href="Perfil.aspx" class="perfil-mobile">
-<img src="../<%= icone.iconeUrl %>" class="circle usericon"/>
+<img src="<%= icon.iconeUrl %>" class="circle usericon"/>
 </a>
 </div>
 </li>
@@ -51,7 +49,6 @@
 <li><a href="Categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
 <li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="Perfil.aspx"><i class="material-icons left">account_circle</i>Perfil</a></li>
-<li><a href="Favoritos.aspx"><i class="material-icons left">favorite</i>Favoritos</a></li>
 <li><a href="?exit=1" onclick="<% Sair(); %>"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
 <a href="Index.aspx" class="brand-logo">IGames</a>
@@ -60,17 +57,17 @@
 <main>
     <h3 class="center-align">Icones</h3><br>
     <div class="row">
-    <% foreach(IGames.Modelo.Icone icon in icones) { %>
+    <% foreach(IGames.Modelo.Icone iconesDel in icones) { %>
     <div class="col l1 s6">
     <div class="card">
-    <div class="card-close">
-    <a class="btn btn-flat" href="?delete=<%= icon.id %>" onclick="<% Delete(); %>">
+    <div class="card-close"> 
+    <a class="btn btn-flat" href="?delete=<%= iconesDel.id %>" onclick="<% Delete(); %>">
     <i class="material-icons">close</i>
-    </a>
+    </a> 
     </div>
     <div class="card-image">
-    <img src="<%= icon.iconeUrl %>" class="responsive-img"/>
-    </div>
+    <img src="<%= iconesDel.iconeUrl %>" class="responsive-img"/>
+    </div> 
     </div>
     </div>
     <% } %>

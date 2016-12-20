@@ -14,8 +14,12 @@ namespace IGames.Administrador
         public Modelo.Icone icone { get; set; }
 
         public Modelo.Icone ico { get; set; }
+        
+        public List<Modelo.Usuario> users { get; set; } 
 
         public List<Modelo.Icone> icones { get; set; }
+
+        public Modelo.Icone icon { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,12 +32,14 @@ namespace IGames.Administrador
 
         protected void initPage()
         {
+            this.users = DAL.DALUsers.SelectAll();
+            this.icones = DAL.DALIcons.SelectAll();
             if (Session["id"] != null)
             {
                 if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
                 {
                     this.user = Metodos.getUser(Session["id"].ToString());
-                    this.ico = Metodos.getIcone(this.user.Icone_id);
+                    this.icon = Metodos.getIcone(this.user.Icone_id);
                 }
             }
             else

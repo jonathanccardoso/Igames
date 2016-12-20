@@ -33,8 +33,7 @@ namespace IGames.Administrador
         }
 
         protected void initPage()
-        {
-//            delUser
+        { 
             this.users = DAL.DALUsers.SelectAll();
             this.icones = DAL.DALIcons.SelectAll();
             if (Session["id"] != null)
