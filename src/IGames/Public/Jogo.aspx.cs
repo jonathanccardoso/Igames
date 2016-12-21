@@ -16,7 +16,7 @@ namespace IGames.Public
         public DAL.DALGames daljogo { get; set; } 
 
         public Modelo.Jogo jogo { get; set; }
-
+        //recomendados
         public List<Modelo.Jogo> destaque { get; set; }
 
         public List<Modelo.Jogo> recomendado { get; set; }

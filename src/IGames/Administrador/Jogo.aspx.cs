@@ -33,7 +33,7 @@ namespace IGames.Administrador
         public DAL.DALRates dalaval { get; set; }
 
         public Modelo.Avaliacao avali { get; set; }
-
+        //recomendados
         public List<Modelo.Jogo> destaque { get; set; }
 
         public List<Modelo.Jogo> recomendado { get; set; }
@@ -45,6 +45,14 @@ namespace IGames.Administrador
             getRecomendado();
 
             pegarAvaliacao();
+        }
+
+        protected void getRecomendado()
+        {
+            if (!Page.IsPostBack)
+            {
+                this.destaque = DAL.DALGames.SelectRandom();
+            }
         }
 
         protected void initPage()
@@ -113,8 +121,7 @@ namespace IGames.Administrador
             this.favorito = new Modelo.Favorito(user.id,jogo.id);
             DAL.DALFavorites.Insert(favorito);
         }
-
-        //estrelas
+        #region"pegarAvaliacao"
         protected void pegarAvaliacao()
         {
             if (!Page.IsPostBack)
@@ -170,7 +177,9 @@ namespace IGames.Administrador
 
             }
         }
+        #endregion
 
+        #region"estrelas"
         protected void Estrela1_Click(object sender, EventArgs e)
         {
             this.dalaval = new DAL.DALRates();
@@ -306,14 +315,7 @@ namespace IGames.Administrador
                 this.avaliacao = true;
             }
         }
-        protected void getRecomendado()
-        {
-            if (!Page.IsPostBack)
-            {
-                this.destaque = DAL.DALGames.SelectRandom();
-            }
-        }
 
-        
+#endregion
     }
 }

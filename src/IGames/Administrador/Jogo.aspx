@@ -113,18 +113,18 @@
               </div>
             </div>
         </div>
-     <h3 Class="center-align"><asp:Label ID="Label3" runat="server" Text="Relacionados"></asp:Label></h3>
-     <div id="recomendado">
-        <% for(int i = 0; i <= 3; i++) { %>
-            <div class="col l3 s6">
+     <h3 Class="center-align"><asp:Label ID="Label1" runat="server" Text="Relacionados"></asp:Label></h3>
+      <div id="recomendado" class="row">
+        <% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
+            <div class="col l3 s6" >
             <div class="card">
-            <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="<%= recomendado[i].imagemUrl %>"> <br>
+            <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="../<%= recomendado[i].imagemUrl %>" width="100px" height="100px"><br>
             <b><%= recomendado[i].nome %></b></a>
             <p><%= recomendado[i].descricao %></p>
             </div>
             </div>
         <% } %>
-    </div>
+       </div>
 
     <%--<h3><asp:Label ID="NomeJogo" runat="server" Text="Nome do Jogo"></asp:Label></h3>
     <div class="row center-align">
