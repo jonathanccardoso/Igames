@@ -88,6 +88,10 @@ aside {
 .pic {
     position: relative;
     margin: 0;
+    padding: 0 !important;
+}
+.pic > img {
+    width: 100px !important;
 }
 .like {
     vertical-align:bottom;

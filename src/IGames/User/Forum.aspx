@@ -71,7 +71,7 @@
     <b><%= usuario.nome %></b>
     </aside>
     <div class="col l11 s6 offset-s3 left-align">
-    <h6><%= foru.data %> &nbsp;&nbsp; <%= foru.hora %></h6><br />
+    <h6><%= foru.data %> &nbsp;&nbsp; <%= foru.hora %></h6>
     <h6 class="message"><%= foru.descricao %></h6>
     <a class="waves-effect center-align btn-flat left" href="?forum=<%= foru.id %>"><i class="material-icons chat">chat_bubble</i>Comentar</a>
     </div>
