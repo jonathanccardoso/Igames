@@ -58,6 +58,44 @@
 </nav>
 <main>
  <h1 class="center-align">Categorias</h1><br>
+    <<div class="center-align">
+		  <ul class="collapsible popout" data-collapsible="accordion">
+              <% foreach(IGames.Modelo.Categoria cate in cats) { %>
+		<li> 
+		  <div class="collapsible-header"><%= cate.descricao %></div>
+		  <div class="collapsible-body">
+			<div class="row">
+                <%--<% for(int i = 0; i <= 3; i++) { %>
+                <div class="col l3 s6">
+					<div class="card">
+						<a href="Jogo.aspx?jogo=<%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).nome %>"><br>
+						<b><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).nome %></b></a>
+						<p><%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id)).descricao %></p>
+					</div>
+		        </div>--%>
+
+               <div id="recomendado" class="row">
+                <% for(int i = 0; i <= 3; i++) { %>
+                    <div class="col l3 s6">   
+                    <div class="card center-align">
+                    <%--<a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" width="100px" height="100px" src="../<%= recomendado[i].imagemUrl %>"> <br>--%>
+                    <a href="Jogo.aspx?jogo=<%= getJogo(IGames.DAL.DALGamesCategories.SelectByCategory(cate.id).nome) %>">
+                      <%--<img class="responsive-img" width="100px" height="100px" src="../<%= recomendado[i].imagemUrl %>"> <br>--%>
+                   <%-- <b><%= recomendado[i].nome %></b></a>
+                    <p><%= recomendado[i].descricao %></p>--%>
+                    </div>
+                    </div>  
+                <% } %>
+                </div>
+
+                <% } %>              
+			</div>
+		  </div>
+		</li>
+        </ul>
+    </div>
+    <!--<main>
+ <h1 class="center-align">Categorias</h1><br>
     <div class="center-align">
 		  <ul class="collapsible popout" data-collapsible="accordion">
               <% foreach(IGames.Modelo.Categoria cate in cats) { %>
@@ -74,6 +112,7 @@
 					</div>
 				</div>
                 <% } %>
+
                 <%--<% for(int i = 0; i <= 3; i++) {
                        if(jogos[i].id == jogoscategorias[i].Jogo_id && cate.id == jogoscategorias[i].Categoria_id) { %>
 				<div class="col l3 s6">
@@ -92,5 +131,7 @@
               <% } %>
         </ul>
     </div>
+</main>--->
+
 </main>
 </asp:Content>

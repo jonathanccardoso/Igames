@@ -61,14 +61,13 @@
     <div class="row">
         <div class="col l10 offset-l1 s12 m10 offset-m1">
           <div class="card white">
-               <div class="card-content">
+               <div class="card-content" style="display: table-caption;">
                     <% foreach (IGames.Modelo.Favorito favorito in favoritos){
                            if(favorito.Usuario_id == user.id) { %>
                     <div class="col l1 s6"> 
                     <div class="card">
                     <div class="card-image">
-                        <!--ERRO no href do favorito-->
-                        <a href="Jogo.aspx?jogo=IGames.DAL.DALGames.Select(favorito.Jogo_id).nome">
+                    <a href="Jogo.aspx?jogo=<%= IGames.DAL.DALGames.Select(favorito.Jogo_id).nome %>">
                         <img width="100px" height="100px" src="../<%= IGames.DAL.DALGames.Select(favorito.Jogo_id).imagemUrl %>" class="responsive-img"/>
                     </a>
                     </div>

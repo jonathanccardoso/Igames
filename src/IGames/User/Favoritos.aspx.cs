@@ -25,6 +25,11 @@ namespace IGames.User
          
         public List<Modelo.Jogo> jogos { get; set; }
 
+        //
+        public List<Modelo.Jogo> online { get; set; }
+
+        public List<Modelo.Jogo> recomendado { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             initPage();
@@ -34,6 +39,8 @@ namespace IGames.User
 
         protected void initPage()
         {
+            this.online = Metodos.getJogos();
+            this.recomendado = Metodos.getJogosRecomendados();
             if (Session["id"] != null)
             {
                 if (!Metodos.hasUser(Session["id"].ToString() ?? ""))

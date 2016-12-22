@@ -15,17 +15,26 @@ namespace IGames.User
 
         public List<Modelo.Categoria> cats { get; set; }
 
+        public DAL.DALGames daljogo { get; set; }
+
         public List<Modelo.Jogo> jogos { get; set; }
+
+        public List<Modelo.Jogo> online { get; set; }
 
         public List<Modelo.JogoCategoria> jogoscategorias { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             initPage();
+            if (!Page.IsPostBack)
+            { 
+                getCategories(); 
+            }
         }
 
         protected void initPage()
         {
+            this.online = Metodos.getJogos();
             if (Session["id"] != null)
             {
                 if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
@@ -37,6 +46,20 @@ namespace IGames.User
             else
             {
                 Response.Redirect("~/Public/Login.aspx");
+            }
+        }
+
+        protected void getCategories()
+        {
+            this.cats = DAL.DALCategories.SelectAll();
+        }
+
+        protected void getCategoria() 
+        { 
+            if (!Page.IsPostBack)
+            {
+                //ou DAL.DALjogocat
+                this.cats = DAL.DALCategories.SelectAll();
             }
         }
 
