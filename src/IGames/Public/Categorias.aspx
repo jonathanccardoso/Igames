@@ -60,7 +60,7 @@
 				</div>
                 <% } %> 
                 <% for(int i = 0; i <= 3; i++) {
-                       if(jogos[i].id == jogoscategorias[i].Jogo_id && cate.id == jogoscategorias[i].Categoria_id) { %>
+                       //if(jogos[i].id == jogoscategorias[i].Jogo_id && cate.id == jogoscategorias[i].Categoria_id) { %>
 				<div class="col l3 s6">
 					<div class="card">
 						<a href="Jogo.aspx?jogo=<%= jogos[i].nome %>"><br>

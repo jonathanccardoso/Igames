@@ -56,10 +56,10 @@
 </nav>
 <main>
 <form id="Form1" runat="server">
-<h3><asp:Label ID="NomeJogo" runat="server" Text="Nome do Jogo"></asp:Label></h3>
+<h3 class="center-align"><%= jogo.nome %></h3>
     <div class="row center-align">
             <div class="col l6 offset-l3 s5 offset-s3 m7 offset-m3 center-align">
-              <div class=" card from">
+              <div class=" card from" style="height: inherit">
                   <div class="left-align">
                         <aside>
                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#infoJogo"><i class="material-icons">info</i></a><br /><br /><br /><br /><br /><br />
@@ -109,56 +109,22 @@
                         <asp:ImageButton ID="Estrela4" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela4_Click" />
                         <asp:ImageButton ID="Estrela5" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela5_Click" />
                    </div><br /><br />
-                  <iframe id="Iframe1" src="http://browserquest.mozilla.org/" width="620px" height="400px" scrolling="no" frameborder="0"></iframe> 
+                  <iframe id="frame"  src="http://2048game.com/pt/" width="420px" height="450px" scrolling="no" frameborder="0"></iframe><br />
               </div>
             </div>
         </div>
      <h3 Class="center-align"><asp:Label ID="Label1" runat="server" Text="Relacionados"></asp:Label></h3>
-      <div id="recomendado" class="row">
+      <div id="recomendado" class="row"> 
         <% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
-            <div class="col l3 s6" >
-            <div class="card">
-            <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" src="../<%= recomendado[i].imagemUrl %>" width="100px" height="100px"><br>
-            <b><%= recomendado[i].nome %></b></a>
-            <p><%= recomendado[i].descricao %></p>
-            </div>
-            </div>
+        <div class="col l3 s6">
+        <div class="card">
+        <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img"  width="100px" height="100px"  src="../<%= recomendado[i].imagemUrl %>"><br>
+        <b><%= recomendado[i].nome %></b></a>
+        <p><%= recomendado[i].descricao %></p>
+        </div>
+        </div>
         <% } %>
-       </div>
-
-    <%--<h3><asp:Label ID="NomeJogo" runat="server" Text="Nome do Jogo"></asp:Label></h3>
-    <div class="row center-align">
-    <div class="col l6 offset-l3 s5 offset-s3 m7 offset-m3">
-    <div class="card white">
-    <div class="left-align">
-    <aside>
-    <i class="material-icons">favorite</i><br />
-    <i class="material-icons">info</i><br />
-    <i class="material-icons">help</i><br /><br /><br /><br />
-    <a class="waves-effect waves-teal btn-flat modal-trigger" href="#modal"><i class="material-icons">delete</i></a>
-              <div id="modal" class="modal">
-                <div class="modal-content">
-                  <h4 class="center-align">Excluir Jogo?</h4>
-                </div>
-                <div class="modal-footer center-align">
-                    <%--<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Confirmar</a>
-                    <form runat="server">
-                        <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button1" runat="server" OnClick="Confirmar_Click" Text="Confirmar" /><%--OnClick="Confirmar_Click" PRECISA
-                     </form>
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-                </div>
-              </div>
-    </aside>
-    </div>
-    <div class="center-align">
-    <i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><i class="material-icons">grade</i><br />
-    </div>
-    <iframe id="frame" src="http://browserquest.mozilla.org/" width="620" height="400" scrolling="no" frameborder="0"></iframe> 
-    </div>
-    </div>
-    </div>
-    <h3 Class="center-align"><asp:Label ID="Label1" runat="server" Text="Relacionados"></asp:Label></h3>
-    <h3 Class="center-align"><asp:Label ID="Label2"  runat="server" Text="Comentarios"></asp:Label></h3>--%>
+        </div>
 </form>
 </main>
 </asp:Content>

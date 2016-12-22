@@ -41,10 +41,14 @@ namespace IGames.Administrador
         protected void Page_Load(object sender, EventArgs e)
         {
             initPage();
-
             getRecomendado();
-
+            getJogo();
             pegarAvaliacao();
+        }
+        protected void getJogo()
+        {
+            this.jogo = DAL.DALGames.SelectByName(Request.QueryString["jogo"]);
+
         }
 
         protected void getRecomendado()
@@ -57,6 +61,7 @@ namespace IGames.Administrador
 
         protected void initPage()
         {
+            this.recomendado = Metodos.getJogosRecomendados();
             if (Session["id"] != null)
             {
                 if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
