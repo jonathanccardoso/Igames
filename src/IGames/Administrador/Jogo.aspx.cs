@@ -26,7 +26,6 @@ namespace IGames.Administrador
         public DAL.DALGames daljogo { get; set; }
 
         public Modelo.Jogo jogo { get; set; }
-
         //avaliacao
         private bool avaliacao = false;
 
@@ -48,7 +47,6 @@ namespace IGames.Administrador
         protected void getJogo()
         {
             this.jogo = DAL.DALGames.SelectByName(Request.QueryString["jogo"]);
-
         }
 
         protected void getRecomendado()
@@ -76,15 +74,15 @@ namespace IGames.Administrador
             }
         }
 
+        //excluir jogo
         protected void Confirmar_Click(object sender, EventArgs e)
         {
-            string JogoUrl = "";//QUERYSTRING
-            string descricao = "";
-            string imagemUrl = "";
-            string nome = "";
-           //int? AvaliaçãoId = null;
-           //int? ComentarioId = null;
-
+            string JogoUrl = this.jogo.jogoUrl;
+            string descricao = this.jogo.descricao;
+            string imagemUrl = this.jogo.imagemUrl;
+            string nome = this.jogo.nome;
+            //int? AvaliaçãoId = null;
+            //int? ComentarioId = null; 
             DAL.DALGames daljogo = new DAL.DALGames();
             Modelo.Jogo jogo = new Modelo.Jogo(JogoUrl, descricao, imagemUrl, nome);
             DAL.DALGames.Delete(jogo);
@@ -120,12 +118,6 @@ namespace IGames.Administrador
             }
         }
 
-        protected void AddFavorito_Click(object sender, EventArgs e)
-        {
-            //não esta pegando
-            this.favorito = new Modelo.Favorito(user.id,jogo.id);
-            DAL.DALFavorites.Insert(favorito);
-        }
         #region"pegarAvaliacao"
         protected void pegarAvaliacao()
         {

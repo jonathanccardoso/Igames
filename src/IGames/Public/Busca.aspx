@@ -47,7 +47,7 @@
 foreach(IGames.Modelo.Jogo jogo in jogos) {%>
 <div class="col l4 s6">
 <div class="jogos">
-<img src="<%= jogo.imagemUrl %>" class="responsive-img"/>
+<img class="responsive-img" width="100px" height="100px" src="../<%= jogo.imagemUrl %>"/>
 <div>
 <b><%= jogo.descricao %></b><br />
 <b><%= IGames.Metodos.getCategoriaPeloJogo(jogo.id).descricao ?? "" %></b><br />

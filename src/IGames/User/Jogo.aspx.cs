@@ -36,6 +36,8 @@ namespace IGames.User
             getRecomendado();
             getJogo();
             initPage();
+            pegarAvaliacao();
+            pegarFavorito();
         }
 
         protected void initPage()
@@ -267,18 +269,6 @@ namespace IGames.User
                 DAL.DALFavorites.DeleteByUser(favorito);
                 favoritos.Text = "favorite_border";
             }
-            
-            //if (DAL.DALFavorites.SelectByUser(user.id) != null)
-            //{
-            //    Request.Form["favorito"] = "favorite_border";
-            //    favoritos.Text = "favorite_border";
-            //}
-            //else if (DAL.DALFavorites.SelectByUser(user.id) == null)
-            //{
-            //    conexao somente leitura
-            //    favoritos.Text = "favorite";
-            //    Request.Form["favorito"] = "favorite";
-            //}
         }
 
         protected void getRecomendado()

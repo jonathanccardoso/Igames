@@ -91,15 +91,6 @@
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
                             </div>
                          </div>
-                        <div id="favorito" class="modal">
-                            <div class="modal-content">
-                              <h4 class="center-align">Adicionar esse jogo aos favoritos ?</h4>
-                            </div>
-                            <div class="modal-footer center-align">
-                                <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button4" runat="server" onClick="AddFavorito_Click" Text="Confirmar" />
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-                            </div>
-                         </div>
                         </aside>
                     </div>
                   <div class="center-align">

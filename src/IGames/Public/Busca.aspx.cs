@@ -31,7 +31,8 @@ namespace IGames.Public
 
         protected void getPesquisaJog() {
             if (!Page.IsPostBack) {
-                string connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
+                //string connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
+                string connectionString = ConfigurationManager.ConnectionStrings["2016TiiGrupo5ConnectionString"].ConnectionString;
                 SqlConnection connection = new SqlConnection(connectionString);
                 connection.Open();
                 string a = Request.Form["search"];
@@ -48,14 +49,19 @@ namespace IGames.Public
                         jogos.Add(jog);
                     }
                 }
+                else
+                {
+                    Response.Redirect("~/Public/Busca.aspx?");
+                }
                 connection.Close();
-            }
+             }
         }
         protected void getPesquisaCat()
         {
             if (!Page.IsPostBack)
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
+                //string connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
+                string connectionString = ConfigurationManager.ConnectionStrings["2016TiiGrupo5ConnectionString"].ConnectionString;
                 SqlConnection connection = new SqlConnection(connectionString);
                 connection.Open();
                 string a = Request.Form["search"];
