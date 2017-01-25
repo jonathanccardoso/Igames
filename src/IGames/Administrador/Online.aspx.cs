@@ -58,6 +58,8 @@ namespace IGames.Administrador
                     DAL.DALGames.Insert(jog);
                     this.jogocategoria = new Modelo.JogoCategoria(jog.id, int.Parse(Categorias.SelectedItem.Value));
                     DAL.DALGamesCategories.Insert(this.jogocategoria);
+
+                    Response.Redirect("~/Administrador/Index.aspx");
                 }
                 Response.Redirect("~/Administrador/Index.aspx");
         }

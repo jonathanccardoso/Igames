@@ -70,7 +70,7 @@ namespace IGames.Administrador
                 string id = Request.QueryString["delete"].ToString();
                 this.user = DAL.DALUsers.Select(id.ToString());
                 DAL.DALUsers.Delete(user);
-                Response.Redirect("~/Administrador/Usuarios.aspx");
+                Response.Redirect("~/Administrador/Index.aspx");
             }
         }
 

@@ -107,7 +107,7 @@
 <% for(int i = 0; i <= jogonline.Count - 1; i++) { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="Jogo.aspx?jogo=<%= jogonline[i].nome %>"><img class="responsive-img"  width="100px" height="100px"  src="../<%= jogonline[i].imagemUrl %>"> <br>
+<a href="Jogo.aspx?jogo=<%= jogonline[i].nome %>"><img class="responsive-img"  width="100px" height="100px"  src="../GitHub/Igames/src/IGames/Images <%= jogonline[i].imagemUrl %>"> <br>
 <b><%= jogonline[i].nome %></b></a>
 <p><%= jogonline[i].descricao %></p>
 </div>

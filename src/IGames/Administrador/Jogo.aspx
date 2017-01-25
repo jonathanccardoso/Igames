@@ -73,15 +73,6 @@
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
                             </div>
                           </div>
-                          <div id="help" class="modal">
-                            <div class="modal-content">
-                              <h4 class="center-align">Como jogar ?</h4>
-                            </div>
-                            <div class="modal-footer center-align">
-                                <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button2" runat="server" Text="Confirmar" />
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-                            </div>
-                          </div>
                         <div id="infoJogo" class="modal">
                             <div class="modal-content">
                               <h4 class="center-align">Descrições</h4>

@@ -86,6 +86,8 @@ namespace IGames.Administrador
             DAL.DALGames daljogo = new DAL.DALGames();
             Modelo.Jogo jogo = new Modelo.Jogo(JogoUrl, descricao, imagemUrl, nome);
             DAL.DALGames.Delete(jogo);
+
+            Response.Redirect("~/Administrador/Index.aspx");
         }
         protected void hasUser()
         {

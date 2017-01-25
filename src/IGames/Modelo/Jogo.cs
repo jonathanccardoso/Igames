@@ -44,6 +44,7 @@ namespace IGames.Modelo
             this.descricao = descricao;
             this.imagem = imagem;
             this.nome = nome;
+            this.imagemUrl = nomeImagem;
             InsertImage(imagem, nomeImagem);
         }
 
@@ -51,8 +52,7 @@ namespace IGames.Modelo
         {
             Bitmap imgBitmap = new Bitmap(image);
             string path = HttpContext.Current.Request.PhysicalApplicationPath + "Images\\";
-            this.imagemUrl = path + nome;
-            imgBitmap.Save(imagemUrl);
+            imgBitmap.Save(path + nome);
         }
     }
 }
