@@ -57,7 +57,7 @@ namespace IGames
         #region usuario
         public static bool hasUser(string id)
         {
-            return id == null ? true : false;
+            return id != null ? true : false;
         }
 
         public static Modelo.Usuario getUser(string id)
