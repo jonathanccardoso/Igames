@@ -107,7 +107,7 @@
 <b><%= destaque[i].nome %></b></a>
 <p><%= destaque[i].descricao %></p>
 </div>
-</div>B
+</div>
 <% } %>
 </div>
 <div id="recomendado">

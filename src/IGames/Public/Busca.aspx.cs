@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
+using System.Linq; 
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -31,8 +31,8 @@ namespace IGames.Public
 
         protected void getPesquisaJog() {
             if (!Page.IsPostBack) {
-                string connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
-                //string connectionString = ConfigurationManager.ConnectionStrings["2016TiiGrupo5ConnectionString"].ConnectionString;
+                //string connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
+                string connectionString = ConfigurationManager.ConnectionStrings["2016TiiGrupo5ConnectionString"].ConnectionString;
                 SqlConnection connection = new SqlConnection(connectionString);
                 connection.Open();
                 string a = Request.Form["search"];
@@ -60,8 +60,8 @@ namespace IGames.Public
         {
             if (!Page.IsPostBack)
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
-                //string connectionString = ConfigurationManager.ConnectionStrings["2016TiiGrupo5ConnectionString"].ConnectionString;
+                //string connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
+                string connectionString = ConfigurationManager.ConnectionStrings["2016TiiGrupo5ConnectionString"].ConnectionString;
                 SqlConnection connection = new SqlConnection(connectionString);
                 connection.Open();
                 string a = Request.Form["search"];

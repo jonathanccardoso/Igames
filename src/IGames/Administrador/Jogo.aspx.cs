@@ -89,6 +89,7 @@ namespace IGames.Administrador
 
             Response.Redirect("~/Administrador/Index.aspx");
         }
+
         protected void hasUser()
         {
             if (!Page.IsPostBack)
