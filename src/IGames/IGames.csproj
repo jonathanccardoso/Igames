@@ -105,7 +105,6 @@
     <Content Include="Public\Busca.aspx" />
     <Content Include="Public\Cadastro.aspx" />
     <Content Include="Public\Categorias.aspx" />
-    <Content Include="Public\FaleConosco.aspx" />
     <Content Include="Public\Forum.aspx" />
     <Content Include="Public\Index.aspx" />
     <Content Include="Public\Jogo.aspx" />
@@ -235,13 +234,6 @@
     </Compile>
     <Compile Include="Public\Categorias.aspx.designer.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Public\FaleConosco.aspx.cs">
-      <DependentUpon>FaleConosco.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Public\FaleConosco.aspx.designer.cs">
-      <DependentUpon>FaleConosco.aspx</DependentUpon>
     </Compile>
     <Compile Include="Public\Forum.aspx.cs">
       <DependentUpon>Forum.aspx</DependentUpon>
