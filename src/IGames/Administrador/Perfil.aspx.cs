@@ -125,13 +125,10 @@ namespace IGames.Administrador
             }
         }*/
 
-        protected void Sair()
+        protected void Sair(object sender, EventArgs e)
         {
-            if (Request.QueryString["exit"] != null)
-            {
-                Session.Contents.RemoveAll();
-                Response.Redirect("~/Public/Index.aspx");
-            }
+            Session.Contents.RemoveAll();
+            Response.Redirect("~/Public/Login.aspx");
         }
     }
 }

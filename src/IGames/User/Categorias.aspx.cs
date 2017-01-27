@@ -68,12 +68,10 @@ namespace IGames.User
             return DAL.DALGames.Select(jogo_id);
         }
 
-        protected void Sair()
+        protected void Sair(object sender, EventArgs e)
         {
-            if (Request.QueryString["exit"] != null)
-            {
-                Session.Contents.RemoveAll();
-            }
+            Session.Contents.RemoveAll();
+            Response.Redirect("~/Public/Login.aspx");
         }
     }
 }

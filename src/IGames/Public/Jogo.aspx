@@ -3,11 +3,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <nav>
-<div class="nav-wrapper">  
-<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+<div class="nav-wrapper">
+<% if(!Request.Browser.IsMobileDevice) { %>
 <ul class="right hide-on-med-and-down">
-<li><a class="show-search"><i class="material-icons">search</i></a></li>
-<li> 
+<li class="li-trigger"><a class="show-search"><i class="material-icons">search</i></a></li>
+<li>
 <form action="Busca.aspx" method="post"> 
 <div class="input-field search-desktop">
 <input id="search" type="search" name="search">
@@ -20,6 +20,8 @@
 <li><a href="Forum.aspx">Fórum</a></li>
 <li><a href="Login.aspx">Login</a></li>
 </ul>
+<% } else { %>
+<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="side-nav" id="mobile-demo">
 <li>
 <div class="card grey lighten-1 search-mobile">
@@ -36,7 +38,8 @@
 <li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="login.aspx"><i class="material-icons left">fingerprint</i>Login</a></li>
 </ul>
-<a href="index.aspx" class="brand-logo">IGames</a>
+<% } %>
+<a href="index.aspx" class="brand-logo">Igames</a>
 </div>
 </nav>
 <main>

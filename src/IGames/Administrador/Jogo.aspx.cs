@@ -113,12 +113,10 @@ namespace IGames.Administrador
              this.icon = DAL.DALIcons.Select(this.user.Icone_id);
         }
 
-        protected void Sair()
+        protected void Sair(object sender, EventArgs e)
         {
-            if (Request.QueryString["exit"] != null)
-            {
-                Session.Contents.RemoveAll();
-            }
+            Session.Contents.RemoveAll();
+            Response.Redirect("~/Public/Login.aspx");
         }
 
         #region"pegarAvaliacao"

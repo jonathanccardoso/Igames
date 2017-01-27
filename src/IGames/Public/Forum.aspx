@@ -4,9 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <nav>
 <div class="nav-wrapper">
-<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+<% if(!Request.Browser.IsMobileDevice) { %>
 <ul class="right hide-on-med-and-down">
-<li><a class="show-search"><i class="material-icons">search</i></a></li>
+<li class="li-trigger"><a class="show-search"><i class="material-icons">search</i></a></li>
 <li>
 <form action="Busca.aspx" method="post"> 
 <div class="input-field search-desktop">
@@ -16,10 +16,12 @@
 <button class="busca" type="submit" name="action"></button>
 </form>
 </li>
-<li><a href="categorias.aspx">Categorias</a></li>
-<li><a href="forum.aspx">Fórum</a></li>
-<li><a href="login.aspx">Login</a></li>
+<li><a href="Categorias.aspx">Categorias</a></li>
+<li><a href="Forum.aspx">Fórum</a></li>
+<li><a href="Login.aspx">Login</a></li>
 </ul>
+<% } else { %>
+<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="side-nav" id="mobile-demo">
 <li>
 <div class="card grey lighten-1 search-mobile">
@@ -34,9 +36,10 @@
 </li>
 <li><a href="categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
 <li><a href="forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
-<li><a href="login.aspx"><i class="material-icons left">account_circle</i>Login</a></li>
+<li><a href="login.aspx"><i class="material-icons left">fingerprint</i>Login</a></li>
 </ul>
-<a href="index.aspx" class="brand-logo">IGames</a>
+<% } %>
+<a href="index.aspx" class="brand-logo">Igames</a>
 </div>
 </nav>
 <main>

@@ -52,12 +52,10 @@ namespace IGames.Administrador
             Response.Redirect("~/Administrador/" + (online.Checked ? "Online" : ((download.Checked) ? "Download" : "Index")) + ".aspx");
         }
 
-        protected void Sair()
+        protected void Sair(object sender, EventArgs e)
         {
-            if (Request.QueryString["exit"] != null)
-            {
-                Session.Contents.RemoveAll();
-            }
+            Session.Contents.RemoveAll();
+            Response.Redirect("~/Public/Login.aspx");
         }
 
         protected void getOnline()
