@@ -62,7 +62,7 @@ namespace IGames.Administrador
             this.recomendado = Metodos.getJogosRecomendados();
             if (Session["id"] != null)
             {
-                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                if (Metodos.hasUser(Session["id"].ToString() ?? ""))
                 {
                     this.user = Metodos.getUser(Session["id"].ToString());
                     this.icon = Metodos.getIcone(this.user.Icone_id);
@@ -88,6 +88,19 @@ namespace IGames.Administrador
             DAL.DALGames.Delete(jogo);
 
             Response.Redirect("~/Administrador/Index.aspx");
+        }
+        //excluir jogo NEW
+        protected void Delete()
+        {
+            if (Request.QueryString["delete"] != null)
+            {
+                string id = Request.QueryString["delete"].ToString();
+                //this.user = DAL.DALUsers.Select(id.ToString());
+                //DAL.DALUsers.Delete(user);
+                this.jogo = DAL.DALGames.SelectByName(id.ToString());
+                DAL.DALGames.Delete(jogo);
+                Response.Redirect("~/Administrador/Index.aspx");
+            }
         }
 
         protected void hasUser()

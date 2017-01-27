@@ -56,7 +56,7 @@ namespace IGames.Administrador
         {
             if (Session["id"] != null)
             {
-                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                if (Metodos.hasUser(Session["id"].ToString() ?? ""))
                 {
                     this.user = Metodos.getUser(Session["id"].ToString());
                     this.icon = Metodos.getIcone(this.user.Icone_id);

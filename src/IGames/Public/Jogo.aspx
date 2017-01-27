@@ -61,8 +61,8 @@
                          </div>
                         </aside>
                     </div>
-                  <br /><br /><%-- <!--src="<%= jogo.jogoUrl%>"-->" tamanho:  width="550px" height="450px"  ---%>
-                       <iframe id="frame"  src="http://2048game.com/pt/" width="420px" height="450px" scrolling="no" frameborder="0"></iframe><br />
+                  <br /><br />
+                    <iframe id="frame"  src="<%= jogo.jogoUrl %>" width="420px" height="450px" scrolling="no" frameborder="0"></iframe><br />
               </div>
             </div>
         </div>

@@ -48,7 +48,7 @@ namespace IGames.User
             this.recomendado = Metodos.getJogosRecomendados();
             if (Session["id"] != null)
             {
-                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                if (Metodos.hasUser(Session["id"].ToString() ?? ""))
                 {
                     this.user = Metodos.getUser(Session["id"].ToString());
                     this.icon = Metodos.getIcone(this.user.Icone_id);
@@ -62,7 +62,7 @@ namespace IGames.User
 
         protected void pegarAvaliacao() {
             if (!Page.IsPostBack) {
-                this.avali = DAL.DALRates.Select(DAL.DALGames.SelectByName("2048").id, user.id);
+                this.avali = DAL.DALRates.Select(DAL.DALGames.SelectByName(jogo.nome).id, user.id);
                 if (DAL.DALRates.SelectByUser(user.id) != null)
                 {
                     if (avali.numeroEstrelas == 1)

@@ -34,7 +34,7 @@ namespace IGames.Administrador
         {
             if (Session["id"] != null)
             {
-                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                if (Metodos.hasUser(Session["id"].ToString() ?? ""))
                 {
                     this.user = Metodos.getUser(Session["id"].ToString());
                     this.icon = Metodos.getIcone(this.user.Icone_id);
@@ -54,7 +54,7 @@ namespace IGames.Administrador
                     uploadImage();
                     DAL.DALGames jogo = new DAL.DALGames();
                     //Modelo.Jogo jog = new Modelo.Jogo("Online/" + UploadGame.FileName, TextBox1.Text, this.imagem, TextBox2.Text, UploadImage.FileName);
-                    Modelo.Jogo jog = new Modelo.Jogo("Online/" + JogoUrl.Text, TextBox1.Text, this.imagem, TextBox2.Text, UploadImage.FileName);
+                    Modelo.Jogo jog = new Modelo.Jogo(JogoUrl.Text, TextBox1.Text, this.imagem, TextBox2.Text, UploadImage.FileName);
                     DAL.DALGames.Insert(jog);
                     this.jogocategoria = new Modelo.JogoCategoria(jog.id, int.Parse(Categorias.SelectedItem.Value));
                     DAL.DALGamesCategories.Insert(this.jogocategoria);

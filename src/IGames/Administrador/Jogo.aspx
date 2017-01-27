@@ -82,7 +82,8 @@
                               <h4 class="center-align">Excluir Jogo?</h4>
                             </div>
                             <div class="modal-footer center-align">
-                                <asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button1" runat="server" OnClick="Confirmar_Click" Text="Confirmar" />
+                                <%--<asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button1" runat="server" OnClick="Confirmar_Click" Text="Confirmar" />--%>
+                                <a class="col l1 s10 btn modal-jogo" href="?delete=<%= jogo.id %>" onclick="<% Delete(); %>">Confirmar</a>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
                             </div>
                           </div>
