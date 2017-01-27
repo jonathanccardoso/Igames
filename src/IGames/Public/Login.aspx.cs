@@ -10,9 +10,9 @@ namespace IGames.Public
 {
     public partial class Login : System.Web.UI.Page
     {
-        public string email { get; set; }
+        public string email { get { return Request.Form["email"]; } }
 
-        public string senha { get; set; }
+        public string senha { get { return Request.Form["senha"]; } }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,13 +21,10 @@ namespace IGames.Public
 
         protected void login()
         {
-            this.email = Request.Form["email"];
-            this.senha = Request.Form["senha"];
             if (Page.IsPostBack)
             {
                 if (this.email != "" && this.senha != "")
                 {
-                    DAL.DALUsers daluser = new DAL.DALUsers();
                     Modelo.Usuario user = DAL.DALUsers.Select(Membership.GetUser(Membership.GetUserNameByEmail(email)).ProviderUserKey.ToString());
                     if (this.email == user.email && this.senha == user.senha)
                     {
