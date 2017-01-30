@@ -15,15 +15,15 @@ namespace IGames.User
 
         public Modelo.Forum forum { get; set; }
 
-        public List<Modelo.Postagem> postagens { get { return DAL.DALPosts.SelectAll(); } set; }
+        public List<Modelo.Postagem> postagens { get { return DAL.DALPosts.SelectAll(); } }
 
         public Modelo.Postagem postagem { get; set; }
 
-        public List<Modelo.Usuario> users { get { return DAL.DALUsers.SelectAll(); } set; }
+        public List<Modelo.Usuario> users { get { return DAL.DALUsers.SelectAll(); } }
 
         public Modelo.Usuario user { get; set; }
 
-        public List<Modelo.Icone> icons { get { return this.icons = DAL.DALIcons.SelectAll(); } set; }
+        public List<Modelo.Icone> icons { get { return DAL.DALIcons.SelectAll(); } }
 
         public Modelo.Icone icon { get; set; }
 
