@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="Download" Language="C#" MasterPageFile="~/General.Master" AutoEventWireup="true" CodeBehind="Download.aspx.cs" Inherits="IGames.Administrador.Download" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <nav>
-<div class="nav-wrapper">
+        <%--<div class="nav-wrapper">
 <% if(!Request.Browser.IsMobileDevice) { %>
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
@@ -65,7 +66,7 @@
 </ul>
 <% } %>
 <a href="Index.aspx" class="brand-logo">IGames</a>
-</div>
+</div>--%>
 </nav>
 <main>
 <form id="Form1" runat="server">
@@ -78,7 +79,7 @@
 <div class="file-field input-field">
 <div class="btn">
 <span>Jogo</span>
-<asp:FileUpload ID="UploadGame" runat="server" AllowMultiple="True" webkitdirectory mozdirectory directory/>
+<asp:FileUpload ID="UploadGame" runat="server" AllowMultiple="True"/>
 </div>
 <div class="file-path-wrapper">
 <input class="file-path validate" type="text">

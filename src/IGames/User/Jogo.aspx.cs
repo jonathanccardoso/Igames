@@ -21,7 +21,7 @@ namespace IGames.User
         public Modelo.Favorito fav { get; set; }
 
         public Modelo.Jogo jogo { get; set; }
-    
+
         //avaliacao
         private bool avaliacao = false;
 
@@ -42,7 +42,7 @@ namespace IGames.User
 
         protected void initPage()
         {
-          //  this.jogo = DAL.DALGames.Select(DAL.DALGames.SelectByName(Request.QueryString["jogo"]).id);
+            //  this.jogo = DAL.DALGames.Select(DAL.DALGames.SelectByName(Request.QueryString["jogo"]).id);
             //getRecomendado();
             //pegarAvaliacao();
             this.recomendado = Metodos.getJogosRecomendados();
@@ -60,8 +60,10 @@ namespace IGames.User
             }
         }
 
-        protected void pegarAvaliacao() {
-            if (!Page.IsPostBack) {
+        protected void pegarAvaliacao()
+        {
+            if (!Page.IsPostBack)
+            {
                 this.avali = DAL.DALRates.Select(DAL.DALGames.SelectByName(jogo.nome).id, user.id);
                 if (DAL.DALRates.SelectByUser(user.id) != null)
                 {
@@ -107,7 +109,7 @@ namespace IGames.User
                     }
                     avaliacao = true;
                 }
-                
+
             }
         }
 
@@ -124,8 +126,8 @@ namespace IGames.User
 
         protected void Estrela1_Click(object sender, EventArgs e)
         {
-            Modelo.Avaliacao ava = new Modelo.Avaliacao(1, DAL.DALGames.SelectByName("2048").id, Session["id"].ToString());
-            if (DAL.DALRates.Select(DAL.DALGames.SelectByName("2048").id, Session["id"].ToString()) != null)
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(1, DAL.DALGames.SelectByName(jogo.nome).id, Session["id"].ToString());
+            if (DAL.DALRates.Select(DAL.DALGames.SelectByName(jogo.nome).id, Session["id"].ToString()) != null)
             {
                 Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela2.ImageUrl = "~/Images/EstrelaApagada.png";
@@ -136,7 +138,8 @@ namespace IGames.User
                 DAL.DALRates.Insert(ava);
                 this.avaliacao = false;
             }
-            else {
+            else
+            {
                 Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela2.ImageUrl = "~/Images/EstrelaApagada.png";
                 Estrela3.ImageUrl = "~/Images/EstrelaApagada.png";
@@ -150,8 +153,8 @@ namespace IGames.User
         {
             DAL.DALRates dalaval = new DAL.DALRates();
             DAL.DALGames daljogo = new DAL.DALGames();
-            Modelo.Avaliacao ava = new Modelo.Avaliacao(2, DAL.DALGames.SelectByName("2048").id, Session["id"].ToString());
-            if (DAL.DALRates.Select(DAL.DALGames.SelectByName("2048").id, Session["id"].ToString()) != null)
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(2, DAL.DALGames.SelectByName(jogo.nome).id, Session["id"].ToString());
+            if (DAL.DALRates.Select(DAL.DALGames.SelectByName(jogo.nome).id, Session["id"].ToString()) != null)
             {
                 Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
@@ -177,8 +180,8 @@ namespace IGames.User
         {
             DAL.DALRates dalaval = new DAL.DALRates();
             DAL.DALGames daljogo = new DAL.DALGames();
-            Modelo.Avaliacao ava = new Modelo.Avaliacao(3, DAL.DALGames.SelectByName("2048").id, Session["id"].ToString());
-            if (DAL.DALRates.Select(DAL.DALGames.SelectByName("2048").id, Session["id"].ToString()) != null)
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(3, DAL.DALGames.SelectByName(jogo.nome).id, Session["id"].ToString());
+            if (DAL.DALRates.Select(DAL.DALGames.SelectByName(jogo.nome).id, Session["id"].ToString()) != null)
             {
                 Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
@@ -204,8 +207,8 @@ namespace IGames.User
         {
             DAL.DALRates dalaval = new DAL.DALRates();
             DAL.DALGames daljogo = new DAL.DALGames();
-            Modelo.Avaliacao ava = new Modelo.Avaliacao(4, DAL.DALGames.SelectByName("2048").id, Session["id"].ToString());
-            if (DAL.DALRates.Select(DAL.DALGames.SelectByName("2048").id, Session["id"].ToString()) != null)
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(4, DAL.DALGames.SelectByName(jogo.nome).id, Session["id"].ToString());
+            if (DAL.DALRates.Select(DAL.DALGames.SelectByName(jogo.nome).id, Session["id"].ToString()) != null)
             {
                 Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
@@ -230,8 +233,8 @@ namespace IGames.User
         protected void Estrela5_Click(object sender, EventArgs e)
         {
             DAL.DALRates dalaval = new DAL.DALRates();
-            Modelo.Avaliacao ava = new Modelo.Avaliacao(5, DAL.DALGames.SelectByName("2048").id, Session["id"].ToString());
-            if (DAL.DALRates.Select(DAL.DALGames.SelectByName("2048").id, Session["id"].ToString()) != null)
+            Modelo.Avaliacao ava = new Modelo.Avaliacao(5, DAL.DALGames.SelectByName(jogo.nome).id, Session["id"].ToString());
+            if (DAL.DALRates.Select(DAL.DALGames.SelectByName(jogo.nome).id, Session["id"].ToString()) != null)
             {
                 Estrela1.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela2.ImageUrl = "~/Images/EstrelaAcesa.png";
@@ -262,7 +265,8 @@ namespace IGames.User
                 DAL.DALFavorites.Insert(favorito);
                 favoritos.Text = "favorite";
             }
-            else {
+            else
+            {
                 //this.favorito = new Modelo.Favorito(user.id, jogo.id);
                 DAL.DALFavorites daluser = new DAL.DALFavorites();
                 Modelo.Favorito favorito = DAL.DALFavorites.SelectByUser(user.id);
@@ -285,10 +289,16 @@ namespace IGames.User
 
         }
 
-        protected void Sair(object sender, EventArgs e)
+        protected void Sair()
         {
-            Session.Contents.RemoveAll();
-            Response.Redirect("~/Public/Login.aspx");
+            if (Page.IsPostBack)
+            {
+                if (Session["sair"].ToString() == "1")
+                {
+                    Session.Contents.RemoveAll();
+                    Response.Redirect("~/Public/Login.aspx");
+                }
+            }
         }
     }
 }

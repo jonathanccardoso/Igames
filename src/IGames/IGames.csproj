@@ -185,6 +185,7 @@
       <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\DAL.cs" />
+    <Compile Include="DAL\DALBusca.cs" />
     <Compile Include="DAL\DALCategories.cs" />
     <Compile Include="DAL\DALComments.cs" />
     <Compile Include="DAL\DALFavorites.cs" />

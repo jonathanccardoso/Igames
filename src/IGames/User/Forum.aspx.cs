@@ -50,7 +50,7 @@ namespace IGames.User
 
         protected void Send_Click(object sender, EventArgs e)
         {
-            if (Request.QueryString["forum"] != null && Request.QueryString["postagem"] != null)
+            if (Request.QueryString["forum"] == null && Request.QueryString["postagem"] == null)
             {
                 this.forum = new Modelo.Forum(TextArea.Text, DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString(), DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute, user.id);
                 DAL.DALForum.Insert(forum);

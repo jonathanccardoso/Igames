@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <nav>
-<div class="nav-wrapper">
+<%--<div class="nav-wrapper">
 <% if(!Request.Browser.IsMobileDevice) { %>
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
@@ -65,7 +65,7 @@
 </ul>
 <% } %>
 <a href="Index.aspx" class="brand-logo">IGames</a>
-</div>
+</div>--%>
 </nav>
 <main>
 <h3 class="center-align">Jogos Online</h3>
@@ -117,37 +117,45 @@
 </ul>
 <!---MENU JOGOS-->
 <div id="nalinha">
-<% for(int i = 0; i <= jogonline.Count - 1; i++) { %>
+<% for(int i = 0; i <= jogonline.Count - 1; i++) {
+       if(IGames.DAL.DALGamesCategories.Select(jogonline[i].id).Categoria_id != 15) { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="Jogo.aspx?jogo=<%= jogonline[i].nome %>"><img class="responsive-img"  width="100px" height="100px"  src="../GitHub/Igames/src/IGames/Images <%= jogonline[i].imagemUrl %>"> <br>
+<a href="Jogo.aspx?jogo=<%= jogonline[i].nome %>"><img class="responsive-img"  width="100px" height="100px"  src="../Images/<%= jogonline[i].imagemUrl %>"> <br>
 <b><%= jogonline[i].nome %></b></a>
 <p><%= jogonline[i].descricao %></p>
 </div>
 </div>
-<% } %>
+<% } 
+   } %>
 </div>
 <div id="destaque">
-<% for (int i = 0; i <= destaque.Count - 1; i++) { %>
+<% for (int i = 0; i <= destaque.Count - 1; i++) { 
+        if(IGames.DAL.DALGamesCategories.Select(destaque[i].id).Categoria_id != 15) { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="Jogo.aspx?jogo=<%= destaque[i].nome %>"><img class="responsive-img"  width="100px" height="100px"  src="../<%= destaque[i].imagemUrl %>"> <br>
+<a href="Jogo.aspx?jogo=<%= destaque[i].nome %>"><img class="responsive-img"  width="100px" height="100px"  src="../Images/<%= destaque[i].imagemUrl %>"> <br>
 <b><%= destaque[i].nome %></b></a>
 <p><%= destaque[i].descricao %></p>
 </div>
 </div>B
-<% } %>
+<% }
+  } %>
 </div>
 <div id="recomendado">
-<% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
+<% for (int i = 0; i <= recomendado.Count - 1; i++)
+   {
+       if (IGames.DAL.DALGamesCategories.Select(recomendado[i].id).Categoria_id != 15)
+       { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img"  width="100px" height="100px"  src="../<%= recomendado[i].imagemUrl %>"><br>
-<b><%= recomendado[i].nome %></b></a>
-<p><%= recomendado[i].descricao %></p>
+<a href="Jogo.aspx?jogo=<%= recomendado[i].nome%>"><img class="responsive-img"  width="100px" height="100px"  src="../Images/<%= recomendado[i].imagemUrl%>"><br>
+<b><%= recomendado[i].nome%></b></a>
+<p><%= recomendado[i].descricao%></p>
 </div>
 </div>
-<% } %>
+<% }
+ } %>
 </div>
 </div>
 </div>

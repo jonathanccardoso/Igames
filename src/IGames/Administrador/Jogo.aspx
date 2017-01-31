@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <nav>
-<div class="nav-wrapper">
+<%--<div class="nav-wrapper">
 <% if(!Request.Browser.IsMobileDevice) { %>
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
@@ -65,7 +65,7 @@
 </ul>
 <% } %>
 <a href="Index.aspx" class="brand-logo">IGames</a>
-</div>
+</div>--%>
 </nav>
 <main>
 <form id="Form1" runat="server">
@@ -83,7 +83,7 @@
                             </div>
                             <div class="modal-footer center-align">
                                 <%--<asp:Button CssClass=" modal-action modal-close waves-effect waves-green btn-flat" ID="Button1" runat="server" OnClick="Confirmar_Click" Text="Confirmar" />--%>
-                                <a class="col l1 s10 btn modal-jogo" href="?delete=<%= jogo.id %>" onclick="<% Delete(); %>">Confirmar</a>
+                                <a class="col l1 s10 btn modal-jogo" href="<% Response.Write(Request.RawUrl); %>&delete=<%= jogo.id %>" onclick="<% Delete(); %>">Confirmar</a>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
                             </div>
                           </div>
@@ -105,7 +105,7 @@
                         <asp:ImageButton ID="Estrela4" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela4_Click" />
                         <asp:ImageButton ID="Estrela5" runat="server" ImageUrl="~/Images/EstrelaApagada.png" Width="30px" OnClick="Estrela5_Click" />
                    </div><br /><br />
-                  <iframe id="frame"  src="http://2048game.com/pt/" width="420px" height="450px" scrolling="no" frameborder="0"></iframe><br />
+                  <iframe id="frame"  src="<%= jogo.jogoUrl %>" width="420px" height="450px" scrolling="no" frameborder="0"></iframe><br />
               </div>
             </div>
         </div>

@@ -53,10 +53,9 @@ namespace IGames.Administrador
                     //uploadGame();
                     uploadImage();
                     DAL.DALGames jogo = new DAL.DALGames();
-                    //Modelo.Jogo jog = new Modelo.Jogo("Online/" + UploadGame.FileName, TextBox1.Text, this.imagem, TextBox2.Text, UploadImage.FileName);
-                    Modelo.Jogo jog = new Modelo.Jogo(JogoUrl.Text, TextBox1.Text, this.imagem, TextBox2.Text, /*"..\\Images\\" +*/ UploadImage.FileName);
+                    Modelo.Jogo jog = new Modelo.Jogo(JogoUrl.Text, TextBox1.Text, this.imagem, TextBox2.Text, "..\\Images\\" + UploadImage.FileName);
                     DAL.DALGames.Insert(jog);
-                    this.jogocategoria = new Modelo.JogoCategoria(jog.id, int.Parse(Categorias.SelectedItem.Value));
+                    this.jogocategoria = new Modelo.JogoCategoria(DAL.DALGames.SelectByName(jog.nome).id, int.Parse(Categorias.SelectedItem.Value));
                     DAL.DALGamesCategories.Insert(this.jogocategoria);
 
                     Response.Redirect("~/Administrador/Index.aspx");

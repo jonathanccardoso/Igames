@@ -45,10 +45,10 @@ namespace IGames.Administrador
         {
             uploadGame();
             uploadImage();
-            Modelo.Jogo jog = new Modelo.Jogo("Download/" + UploadGame.FileName, TextBox1.Text, "Images/" + UploadImage.FileName, TextBox2.Text);
+            Modelo.Jogo jog = new Modelo.Jogo("..\\Download\\" + UploadGame.FileName, TextBox1.Text, "..\\Images\\" + UploadImage.FileName, TextBox2.Text);
             DAL.DALGames.Insert(jog);
 
-            this.jogocategoria = new Modelo.JogoCategoria(jog.id, DAL.DALCategories.SelectByDescription("Download").id);
+            this.jogocategoria = new Modelo.JogoCategoria(DAL.DALGames.SelectByName(jog.nome).id, DAL.DALCategories.SelectByDescription("Download").id);
             DAL.DALGamesCategories.Insert(this.jogocategoria);
 
             Response.Redirect("~/Administrador/Index.aspx");
@@ -57,7 +57,7 @@ namespace IGames.Administrador
 
         protected void uploadGame()
         {
-            string path = Server.MapPath("~") + "Download/" + TextBox2.Text;
+            string path = Server.MapPath("~") + "Download\\" + TextBox2.Text;
             if (UploadGame.HasFile)
             {
                 if (!Directory.Exists(path))
@@ -66,7 +66,7 @@ namespace IGames.Administrador
                 }
                 foreach (HttpPostedFile file in UploadGame.PostedFiles)
                 {
-                    file.SaveAs(Server.MapPath("~") + "Download/" + file.FileName);
+                    file.SaveAs(Server.MapPath("~") + "Download\\" + file.FileName);
                 }
             }
         }
@@ -75,7 +75,7 @@ namespace IGames.Administrador
         {
             if (UploadImage.HasFile)
             {
-                UploadImage.PostedFile.SaveAs(Server.MapPath("~") + "Images/" + UploadImage.FileName);
+                UploadImage.PostedFile.SaveAs(Server.MapPath("~") + "Images\\" + UploadImage.FileName);
             }
         }
 

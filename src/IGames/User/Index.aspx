@@ -117,29 +117,38 @@
 </ul>
 <!---MENU JOGOS-->
 <div id="nalinha">
-<% for(int i = 0; i <= online.Count - 1; i++) { %>
+<% for (int i = 0; i <= online.Count - 1; i++)
+   {
+       if (IGames.DAL.DALGamesCategories.Select(online[i].id).Categoria_id != 15)
+       { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="Jogo.aspx?jogo=<%= online[i].nome %>"><img class="responsive-img" width="100px" height="100px"  src="..\Images\<%= online[i].imagemUrl %>"> <br>
-<b><%= online[i].nome %></b></a>
-<p><%= online[i].descricao %></p>
+<a href="Jogo.aspx?jogo=<%= online[i].nome%>"><img class="responsive-img" width="100px" height="100px"  src="..\Images\<%= online[i].imagemUrl%>"> <br>
+<b><%= online[i].nome%></b></a>
+<p><%= online[i].descricao%></p>
 </div>
 </div>
-<% } %>
+<% }
+  } %>
 </div>
 <div id="destaque">
-<% for (int i = 0; i <= destaque.Count - 1; i++) { %>
+<% for (int i = 0; i <= destaque.Count - 1; i++)
+   {
+       if (IGames.DAL.DALGamesCategories.Select(destaque[i].id).Categoria_id != 15)
+       { %>
 <div class="col l3 s6">
 <div class="card">
-<a href="Jogo.aspx?jogo=<%= destaque[i].nome %>"><img class="responsive-img" width="100px" height="100px"  src="..\Images\<%= destaque[i].imagemUrl %>"> <br>
-<b><%= destaque[i].nome %></b></a>
-<p><%= destaque[i].descricao %></p>
+<a href="Jogo.aspx?jogo=<%= destaque[i].nome%>"><img class="responsive-img" width="100px" height="100px"  src="..\Images\<%= destaque[i].imagemUrl%>"> <br>
+<b><%= destaque[i].nome%></b></a>
+<p><%= destaque[i].descricao%></p>
 </div>
 </div>B
-<% } %>
+<% }
+  } %>
 </div>
 <div id="recomendado">
-<% for(int i = 0; i <=  recomendado.Count - 1; i++) { %>
+<% for(int i = 0; i <=  recomendado.Count - 1; i++) { 
+        if(IGames.DAL.DALGamesCategories.Select(recomendado[i].id).Categoria_id != 15) { %>
 <div class="col l3 s6">
 <div class="card">
 <a href="Jogo.aspx?jogo=<%= recomendado[i].nome %>"><img class="responsive-img" width="100px" height="100px"  src="..\Images\<%= recomendado[i].imagemUrl %>"><br>
@@ -147,7 +156,8 @@
 <p><%= recomendado[i].descricao %></p>
 </div>
 </div>
-<% } %>
+<% }
+  } %>
 </div>
 </div>
 </div>

@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <nav>
-<div class="nav-wrapper">
+<%--<div class="nav-wrapper">
 <% if(!Request.Browser.IsMobileDevice) { %>
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
@@ -74,7 +74,7 @@
 </ul>
 <% } %>
 <a href="Index.aspx" class="brand-logo">IGames</a>
-</div>
+</div>--%>
 </nav>
 <main>
 <form runat="server">
@@ -91,7 +91,7 @@
     <b><%= usuario.nome %></b>
     </aside>
     <div class="col l11 s6 offset-s3 left-align">
-    <h6><%= foru.data %> &nbsp;&nbsp; <%= foru.hora %></h6>
+    <h6><%= (foru.data.Day < 10 ? "0" : "") + foru.data.Day + "/" + foru.data.Month + "/" + foru.data.Year %> &nbsp;&nbsp; <%= foru.hora.Hour + ":" + foru.hora.Minute + (foru.hora.Second != 0 ? ":" + foru.hora.Second : "") %></h6>
     <h6 class="message"><%= foru.descricao %></h6>
     <a class="waves-effect center-align btn-flat left" href="?forum=<%= foru.id %>"><i class="material-icons chat">chat_bubble</i>Comentar</a>
     </div>

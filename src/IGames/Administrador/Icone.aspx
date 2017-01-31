@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <nav>
-<div class="nav-wrapper">
+<%--<div class="nav-wrapper">
 <% if(!Request.Browser.IsMobileDevice) { %>
 <ul class="right hide-on-med-and-down">
 <li><a class="show-search"><i class="material-icons">search</i></a></li>
@@ -65,7 +65,7 @@
 </ul>
 <% } %>
 <a href="Index.aspx" class="brand-logo">IGames</a>
-</div>
+</div>--%>
 </nav>
 <main>
     <h3 class="center-align">Icones</h3><br>
