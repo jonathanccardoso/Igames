@@ -46,20 +46,25 @@
 <h3>Resultados da pesquisa "<%= Request.QueryString["nome"] %>"</h3>
 <div class="card">
 <div class="row">
-<% if(jogos != null) {
-foreach(IGames.Modelo.Jogo jogo in jogos) {%>
+<% if (jogos != null && categoria != null)
+   {
+       foreach (IGames.Modelo.Jogo jogo in jogos)
+       {
+           foreach (IGames.Modelo.Categoria cat in categorias)
+           {%>
 <div class="col l4 s6">
 <div class="jogos">
-<a href="Jogo.aspx?jogo=<%= jogo.nome %>"><img class="responsive-img" width="100px" height="100px" src="../<%= jogo.imagemUrl %>"/>
+<a href="Jogo.aspx?jogo=<%= jogo.nome %>"><img class="responsive-img" width="100px" height="100px" src="../<%= jogo.imagemUrl%>"/>
 <div>
-<b><%= jogo.descricao %></b><br /></a>
+<b><%= jogo.descricao%></b><br /></a>
+<a href="Jogo.aspx?jogo=<%= cat.descricao %>"></a>
 <b><%= IGames.Metodos.getCategoriaPeloJogo(jogo.id).descricao ?? "" %></b><br />
 </div>
 </div>
 </div>
 <% }
+       }
    }%>
-</div>
 </div>
 </main>
 </asp:Content>

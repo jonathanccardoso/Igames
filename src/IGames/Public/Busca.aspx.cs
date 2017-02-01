@@ -39,7 +39,7 @@ namespace IGames.Public
                 string sqlBusca = "SELECT * FROM dbo.fn_Busca ("+ a +")";
                 SqlCommand cmdBusca = new SqlCommand(sqlBusca, connection);
                 SqlDataReader drBusca = cmdBusca.ExecuteReader();
-                if (drBusca.HasRows) 
+                if (drBusca.HasRows)
                 {
                     while (drBusca.Read())
                     {

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Drawing;
 
 namespace IGames.User
 {
@@ -36,13 +37,14 @@ namespace IGames.User
             getRecomendado();
             getJogo();
             initPage();
+          
             pegarAvaliacao();
             pegarFavorito();
         }
 
         protected void initPage()
         {
-            //  this.jogo = DAL.DALGames.Select(DAL.DALGames.SelectByName(Request.QueryString["jogo"]).id);
+            //this.jogo = DAL.DALGames.Select(DAL.DALGames.SelectByName(Request.QueryString["jogo"]).id);
             //getRecomendado();
             //pegarAvaliacao();
             this.recomendado = Metodos.getJogosRecomendados();
@@ -119,7 +121,8 @@ namespace IGames.User
             {
                 if (DAL.DALFavorites.SelectByUser(user.id) != null)
                 {
-                    Request.Form["favorito"] = "favorite";
+                    //erro de selecao
+                    //Request.Form["favorito"] = "favorite";
                 }
             }
         }
@@ -299,6 +302,11 @@ namespace IGames.User
                     Response.Redirect("~/Public/Login.aspx");
                 }
             }
+        }
+
+        protected void favoritos_PreRender(object sender, EventArgs e)
+        {
+            favoritos.BackColor = Color.Cyan;
         }
     }
 }

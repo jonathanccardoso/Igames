@@ -76,7 +76,7 @@
               <div class=" card from" style="height: inherit">
                   <div class="left-align">
                         <aside>
-                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#favorito"><i class="material-icons" name="favorito"><asp:Label ID="favoritos" runat="server" Text="favorite_border"></asp:Label></i></a><br />
+                         <a class="waves-effect waves-teal btn-flat modal-trigger" href="#favorito"><i class="material-icons" name="favorito"><asp:Label ID="favoritos" runat="server" Text="favorite_border" OnPreRender="favoritos_PreRender"></asp:Label></i></a><br />
                          <a class="waves-effect waves-teal btn-flat modal-trigger" href="#infoJogo"><i class="material-icons" name="informacoes">info</i></a><br /><br /><br /><br /><br /><br />
                           <div id="help" class="modal">
                             <div class="modal-content">
