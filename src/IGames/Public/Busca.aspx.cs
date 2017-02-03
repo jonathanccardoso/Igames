@@ -11,7 +11,7 @@ namespace IGames.Public
 {
     public partial class Busca : System.Web.UI.Page
     {
-        public List<Modelo.Jogo> jogos { get { return Metodos.getBuscaJogo(Request.Form["search"]); } set; }
+        public List<Modelo.Jogo> jogos { get { return Metodos.getBuscaJogo(Request.Form["search"]); } }
 
         protected void Page_Load(object sender, EventArgs e)
         {
