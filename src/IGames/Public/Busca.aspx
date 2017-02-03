@@ -46,7 +46,7 @@
 <h3>Resultados da pesquisa "<%= Request.QueryString["nome"] %>"</h3>
 <div class="card">
 <div class="row">
-<% if (jogos != null && categoria != null)
+<% if (jogos != null)
    {
        foreach (IGames.Modelo.Jogo jogo in jogos)
        { %>

@@ -1,64 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
 namespace IGames.DAL
 {
-    public class DALBusca
+    public class DALBusca : DAL
     {
-    //    protected void getPesquisaJog()
-    //    {
-    //        if (!Page.IsPostBack)
-    //        {
-    //            string connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
-    //            //string connectionString = ConfigurationManager.ConnectionStrings["2016TiiGrupo5ConnectionString"].ConnectionString;
-    //            SqlConnection connection = new SqlConnection(connectionString);
-    //            connection.Open();
-    //            string a = Request.Form["search"];
-    //            string sqlBusca = "SELECT * FROM dbo.fn_Busca (" + a + ")";
-    //            SqlCommand cmdBusca = new SqlCommand(sqlBusca, connection);
-    //            SqlDataReader drBusca = cmdBusca.ExecuteReader();
-    //            if (drBusca.HasRows)
-    //            {
-    //                while (drBusca.Read())
-    //                {
-    //                    jogos = new List<Modelo.Jogo>();
-    //                    string nome = (string)drBusca["nome"];
-    //                    jog = DAL.DALGames.SelectByName(nome);
-    //                    jogos.Add(jog);
-    //                }
-    //            }
-    //            else
-    //            {
-    //                Response.Redirect("~/Public/Busca.aspx?");
-    //            }
-    //            connection.Close();
-    //        }
-    //    }
-    //    protected void getPesquisaCat()
-    //    {
-    //        if (!Page.IsPostBack)
-    //        {
-    //            string connectionString = ConfigurationManager.ConnectionStrings["iGamesConnectionString"].ConnectionString;
-    //            //string connectionString = ConfigurationManager.ConnectionStrings["2016TiiGrupo5ConnectionString"].ConnectionString;
-    //            SqlConnection connection = new SqlConnection(connectionString);
-    //            connection.Open();
-    //            string a = Request.Form["search"];
-    //            string sqlBusca = "SELECT * FROM dbo.fn_BuscaCat (" + a + ")";
-    //            SqlCommand cmdBusca = new SqlCommand(sqlBusca, connection);
-    //            SqlDataReader drBusca = cmdBusca.ExecuteReader();
-    //            if (drBusca.HasRows)
-    //            {
-    //                while (drBusca.Read())
-    //                {
-    //                    string descricao = (string)drBusca["descricao"];
-    //                    categoria = DAL.DALCategories.SelectByDescription(descricao);
-    //                    categorias.Add(categoria);
-    //                }
-    //            }
-    //            connection.Close();
-    //        }
-    //    }
+
+        public DALBusca() : base() { }
+
+        //Método SelectBusca
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Modelo.Jogo> SelectBusca(string busca)
+        {
+            
+            Modelo.Jogo jogo;
+            List<Modelo.Jogo> jogos = new List<Modelo.Jogo>();
+            
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlBusca = "SELECT * FROM dbo.fn_Busca (" + busca + ")";
+                    SqlCommand cmdBusca = new SqlCommand(sqlBusca, connection);
+                    SqlDataReader drBusca;
+
+                    using (drBusca = cmdBusca.ExecuteReader())
+                    {
+                        if (drBusca.HasRows)
+                        {
+                            while (drBusca.Read())
+                            {
+                                string nome = (string)drBusca["nome"];
+                                jogo = DALGames.SelectByName(nome);
+                                jogos.Add(jogo);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return jogos;
+        }
     }
 }

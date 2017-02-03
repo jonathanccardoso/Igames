@@ -65,5 +65,10 @@ namespace IGames
             return DAL.DALUsers.Select(id);
         }
         #endregion
+        #region busca
+        public static List<Modelo.Jogo> getBuscaJogo(string busca) {
+            return DAL.DALBusca.SelectBusca(busca);
+        }
+        #endregion
     }
 }
