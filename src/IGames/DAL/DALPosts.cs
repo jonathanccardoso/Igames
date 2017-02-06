@@ -35,7 +35,7 @@ namespace IGames.DAL
                             {
                                 int idPostagem = (int)drPostagens["id"];
                                 string Texto = (string)drPostagens["texto"];
-                                string Data = (string)drPostagens["data"];
+                                string Data = (string)((DateTime)drPostagens["data"]).ToString("d");
                                 string Hora = (string)drPostagens["hora"];
                                 string UsuarioId = (string)drPostagens["Usuario_id"];
                                 int PostagemCitada = (int)drPostagens["PostagemCitada"];
@@ -115,7 +115,7 @@ namespace IGames.DAL
                         cmdPostagem.Parameters.AddWithValue("@data", postagem.data);
                         cmdPostagem.Parameters.AddWithValue("@hora", postagem.hora);
                         cmdPostagem.Parameters.AddWithValue("@UsuarioId", postagem.Usuario_id);
-                        cmdPostagem.Parameters.AddWithValue("@Postagem_id", postagem.Postagem_id);
+                        cmdPostagem.Parameters.AddWithValue("@Postagem_id", postagem.Postagem_id ?? null);
                         cmdPostagem.Parameters.AddWithValue("@ForumId", postagem.Forum_id);
                         cmdPostagem.ExecuteNonQuery();
                     }
