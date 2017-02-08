@@ -19,12 +19,10 @@ namespace IGames.User
 
         public Modelo.Favorito favorito { get; set; }
 
-        public Modelo.Favorito fav { get; set; }
-
         public Modelo.Jogo jogo { get; set; }
 
         //avaliacao
-        private bool avaliacao = false;
+        private bool fav;
 
         public Modelo.Avaliacao avali { get; set; }
 
@@ -109,7 +107,6 @@ namespace IGames.User
                         Estrela4.ImageUrl = "~/Images/EstrelaAcesa.png";
                         Estrela5.ImageUrl = "~/Images/EstrelaAcesa.png";
                     }
-                    avaliacao = true;
                 }
 
             }
@@ -119,10 +116,17 @@ namespace IGames.User
         {
             if (!Page.IsPostBack)
             {
-                if (DAL.DALFavorites.SelectByUser(user.id) != null)
+                if (DAL.DALFavorites.SelectByUser(user.id) != null && DAL.DALFavorites.SelectByGame(this.jogo.id) != null)
                 {
-                    //erro de selecao
-                    //Request.Form["favorito"] = "favorite";
+                    fav = true;
+                    if (favoritos.Text == "favorite_border")
+                    {
+                        favoritos.Text = "favorite";
+                    }
+                    else
+                    {
+                        favoritos.Text = "favorite_border";
+                    }
                 }
             }
         }
@@ -139,7 +143,6 @@ namespace IGames.User
                 Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
                 DAL.DALRates.Delete(ava);
                 DAL.DALRates.Insert(ava);
-                this.avaliacao = false;
             }
             else
             {
@@ -149,7 +152,6 @@ namespace IGames.User
                 Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
                 Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
                 DAL.DALRates.Insert(ava);
-                this.avaliacao = true;
             }
         }
         protected void Estrela2_Click(object sender, EventArgs e)
@@ -166,7 +168,6 @@ namespace IGames.User
                 Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
                 DAL.DALRates.Delete(ava);
                 DAL.DALRates.Insert(ava);
-                this.avaliacao = false;
             }
             else
             {
@@ -175,14 +176,11 @@ namespace IGames.User
                 Estrela3.ImageUrl = "~/Images/EstrelaApagada.png";
                 Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
                 Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
-                DAL.DALRates.Insert(ava);
-                this.avaliacao = true;
+                DAL.DALRates.Insert(ava);                
             }
         }
         protected void Estrela3_Click(object sender, EventArgs e)
         {
-            DAL.DALRates dalaval = new DAL.DALRates();
-            DAL.DALGames daljogo = new DAL.DALGames();
             Modelo.Avaliacao ava = new Modelo.Avaliacao(3, DAL.DALGames.SelectByName(jogo.nome).id, Session["id"].ToString());
             if (DAL.DALRates.Select(DAL.DALGames.SelectByName(jogo.nome).id, Session["id"].ToString()) != null)
             {
@@ -192,8 +190,7 @@ namespace IGames.User
                 Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
                 Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
                 DAL.DALRates.Delete(ava);
-                DAL.DALRates.Insert(ava);
-                this.avaliacao = false;
+                DAL.DALRates.Insert(ava);                
             }
             else
             {
@@ -202,8 +199,7 @@ namespace IGames.User
                 Estrela3.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela4.ImageUrl = "~/Images/EstrelaApagada.png";
                 Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
-                DAL.DALRates.Insert(ava);
-                this.avaliacao = true;
+                DAL.DALRates.Insert(ava);                
             }
         }
         protected void Estrela4_Click(object sender, EventArgs e)
@@ -219,8 +215,7 @@ namespace IGames.User
                 Estrela4.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
                 DAL.DALRates.Delete(ava);
-                DAL.DALRates.Insert(ava);
-                this.avaliacao = false;
+                DAL.DALRates.Insert(ava);                
             }
             else
             {
@@ -229,8 +224,7 @@ namespace IGames.User
                 Estrela3.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela4.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela5.ImageUrl = "~/Images/EstrelaApagada.png";
-                DAL.DALRates.Insert(ava);
-                this.avaliacao = true;
+                DAL.DALRates.Insert(ava);                
             }
         }
         protected void Estrela5_Click(object sender, EventArgs e)
@@ -245,8 +239,7 @@ namespace IGames.User
                 Estrela4.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela5.ImageUrl = "~/Images/EstrelaAcesa.png";
                 DAL.DALRates.Delete(ava);
-                DAL.DALRates.Insert(ava);
-                this.avaliacao = false;
+                DAL.DALRates.Insert(ava);                
             }
             else
             {
@@ -255,8 +248,7 @@ namespace IGames.User
                 Estrela3.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela4.ImageUrl = "~/Images/EstrelaAcesa.png";
                 Estrela5.ImageUrl = "~/Images/EstrelaAcesa.png";
-                DAL.DALRates.Insert(ava);
-                this.avaliacao = true;
+                DAL.DALRates.Insert(ava);                
             }
         }
 
@@ -302,11 +294,6 @@ namespace IGames.User
                     Response.Redirect("~/Public/Login.aspx");
                 }
             }
-        }
-
-        protected void favoritos_PreRender(object sender, EventArgs e)
-        {
-            favoritos.BackColor = Color.Cyan;
         }
     }
 }

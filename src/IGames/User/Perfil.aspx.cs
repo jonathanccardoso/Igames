@@ -12,15 +12,9 @@ namespace IGames.User
     {
         public string nomeAtual = "", emailAtual = "";
 
-        public DAL.DALUsers daluser { get; set; }
-
         public Modelo.Usuario user { get; set; }
 
-        public DAL.DALIcons dalicon { get; set; }
-
         public Modelo.Icone icon { get; set; }
-
-        public DAL.DALRates dalrates { get; set; }
 
         public Modelo.Avaliacao avaliacao { get; set; }
 
@@ -28,11 +22,11 @@ namespace IGames.User
          
         protected void Page_Load(object sender, EventArgs e)
         {
-            initPage();
             if (!Page.IsPostBack)
             {
-                Nome_user.Text = user.nome;
-                email_user.Text = user.email;
+                initPage();
+                //Nome_user.Text = user.nome;
+                //email_user.Text = user.email;
             }
             nomeAtual = Metodos.getUser(Session["id"].ToString()).nome;
             emailAtual = Metodos.getUser(Session["id"].ToString()).email;
@@ -42,7 +36,7 @@ namespace IGames.User
         {
             if (Session["id"] != null)
             {
-                if (!Metodos.hasUser(Session["id"].ToString() ?? ""))
+                if (Metodos.hasUser(Session["id"].ToString() ?? ""))
                 {
                     this.user = Metodos.getUser(Session["id"].ToString());
                     this.icon = Metodos.getIcone(this.user.Icone_id);
@@ -77,11 +71,11 @@ namespace IGames.User
             //jeito novo
             string novoNome = "", novoEmail = "";
 
-            if (Nome_user.Text == "") novoNome = nomeAtual;
-            else novoNome = Nome_user.Text;
+            //if (Nome_user.Text == "") novoNome = nomeAtual;
+            //else novoNome = Nome_user.Text;
 
-            if (email_user.Text == "") novoEmail = emailAtual;
-            else novoEmail = email_user.Text;
+            //if (email_user.Text == "") novoEmail = emailAtual;
+            //else novoEmail = email_user.Text;
 
             //editar
             //erro user está nulo resolve 
@@ -117,13 +111,7 @@ namespace IGames.User
                     Response.Redirect("~/Public/Index.aspx");
                 }
             }
-        }   
-        /*protected void Editar() {
-            if (Page.IsPostBack)
-            {
-                this.daluser.Update(this.user);
-            }
-        }*/
+        }
 
         protected void Sair(object sender, EventArgs e)
         {
