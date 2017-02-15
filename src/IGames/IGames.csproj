@@ -109,6 +109,7 @@
     <Content Include="Public\Index.aspx" />
     <Content Include="Public\Jogo.aspx" />
     <Content Include="Public\Login.aspx" />
+    <Content Include="Sair.aspx" />
     <Content Include="User\Busca.aspx" />
     <Content Include="User\Categorias.aspx" />
     <Content Include="User\Favoritos.aspx" />
@@ -263,6 +264,13 @@
     </Compile>
     <Compile Include="Public\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sair.aspx.cs">
+      <DependentUpon>Sair.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sair.aspx.designer.cs">
+      <DependentUpon>Sair.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Busca.aspx.cs">
       <DependentUpon>Busca.aspx</DependentUpon>

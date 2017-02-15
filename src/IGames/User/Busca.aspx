@@ -22,15 +22,11 @@
 <a class="dropdown-button" data-activates="dropdown1">
 <img src="<%= icon.iconeUrl %>" class="circle usericon"/>
 </a>
-<form id="Form3" runat="server">
 <ul id="dropdown1" class="dropdown-content">
 <li><a href="Perfil.aspx">Perfil</a></li>
 <li><a href="Favoritos.aspx">Favoritos</a></li>
-<li>
-<asp:LinkButton ID="LinkButton1" runat="server" OnClick="Sair">Sair</asp:LinkButton>
-</li>
+<li><a href="../Sair.aspx">Sair</a></li>
 </ul>
-</form>
 </li>
 </ul>
 <% } else { %>
@@ -49,11 +45,7 @@
 </li>
 <li><a href="Categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
 <li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
-<li>
-<form id="Form2" runat="server">
-<asp:LinkButton ID="LinkButton2" runat="server" OnClick="Sair"><i class="material-icons left">exit_to_app</i>Sair</asp:LinkButton>
-</form>
-</li>
+<li><a href="../Sair.aspx">Sair</a></li>
 </ul>
 <% } %>
 <a href="index.aspx" class="brand-logo">IGames</a>

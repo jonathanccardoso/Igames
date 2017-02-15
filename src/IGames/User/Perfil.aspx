@@ -22,15 +22,11 @@
 <a class="dropdown-button" data-activates="dropdown1">
 <img src="<%= icon.iconeUrl %>" class="circle usericon"/>
 </a>
-<form id="Form1" runat="server">
 <ul id="dropdown1" class="dropdown-content">
 <li><a href="Perfil.aspx">Perfil</a></li>
 <li><a href="Favoritos.aspx">Favoritos</a></li>
-<li>
-<asp:LinkButton ID="LinkButton1" runat="server" OnClick="Sair">Sair</asp:LinkButton>
-</li>
+<li><a href="../Sair.aspx">Sair</a></li>
 </ul>
-</form>
 </li>
 </ul>
 <% } else { %>
@@ -57,11 +53,7 @@
 <li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="Perfil.aspx"><i class="material-icons left">account_circle</i>Perfil</a></li>
 <li><a href="Favoritos.aspx"><i class="material-icons left">favorite</i>Favoritos</a></li>
-<li>
-<form id="Form2" runat="server">
-<asp:LinkButton ID="LinkButton2" runat="server" OnClick="Sair"><i class="material-icons left">exit_to_app</i>Sair</asp:LinkButton>
-</form>
-</li>
+<li><a href="../Sair.aspx">Sair</a></li>
 </ul>
 <% } %>
 <a href="Index.aspx" class="brand-logo">IGames</a>
@@ -73,12 +65,12 @@
         <div class="col l6 offset-l3 s12 m10 offset-m1">
           <div class="card white">
                <div class="card-content">
-                    <%--<form runat="server">   
+                    <form runat="server">   
                         Nome:<asp:TextBox ID="Nome_user" runat="server" Text="<%= user.nome %>"></asp:TextBox><br />
                         E-mail:<asp:TextBox ID="email_user" runat="server" Text="<%= user.email %>"></asp:TextBox><br />
                         <asp:Button ID="EditarPerfil" runat="server" Text="Editar" CssClass="waves-effect waves-light btn green darken-1" OnClick="EditarPerfil_Click"></asp:Button><br />
                         <a class="waves-effect waves-light btn green darken-1" href="?delete=1" onclick="<% Excluir(); %>">Excluir Conta</a><br /><br />
-                    </form>--%>
+                    </form>
                 </div>
             </div> 
           </div>
