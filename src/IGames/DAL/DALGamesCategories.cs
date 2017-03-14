@@ -49,6 +49,84 @@ namespace IGames.DAL
             return jogosCategorias;
         }
 
+        //Método SelectAllByCategory
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Modelo.JogoCategoria> SelectAllByCategory(int Categoria_id)
+        {
+            Modelo.JogoCategoria jogocategoria;
+            List<Modelo.JogoCategoria> jogosCategorias = new List<Modelo.JogoCategoria>();
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlJogocategoria = "SELECT * FROM JogoCategoria WHERE Categoria_id = @Categoria_id";
+                    SqlCommand cmdJogocategoria = new SqlCommand(sqlJogocategoria, connection);
+                    cmdJogoCategoria.Parameters.AddWithValue("@Categoria_id", Categoria_id);
+                    SqlDataReader drJogocategoria;
+
+                    using (drJogocategoria = cmdJogocategoria.ExecuteReader())
+                    {
+                        if (drJogocategoria.HasRows)
+                        {
+                            while (drJogocategoria.Read())
+                            {
+                                int idJogoCategoria = (int)drJogocategoria["Jogo_id"];
+                                int categoriaJogoCategoria = (int)drJogocategoria["Categoria_id"];
+                                 
+                                jogocategoria = new Modelo.JogoCategoria(idJogoCategoria, categoriaJogoCategoria);
+                                jogosCategorias.Add(jogocategoria); 
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return jogosCategorias;
+        }
+
+        //Método SelectAllByGame
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Modelo.JogoCategoria> SelectAllByGame(int Jogo_id)
+        {
+            Modelo.JogoCategoria jogocategoria;
+            List<Modelo.JogoCategoria> jogosCategorias = new List<Modelo.JogoCategoria>();
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlJogocategoria = "SELECT * FROM JogoCategoria WHERE Jogo_id = @Jogo_id";
+                    SqlCommand cmdJogocategoria = new SqlCommand(sqlJogocategoria, connection);
+                    cmdJogoCategoria.Parameters.AddWithValue("@Jogo_id", Jogo_id);
+                    SqlDataReader drJogocategoria;
+
+                    using (drJogocategoria = cmdJogocategoria.ExecuteReader())
+                    {
+                        if (drJogocategoria.HasRows)
+                        {
+                            while (drJogocategoria.Read())
+                            {
+                                int idJogoCategoria = (int)drJogocategoria["Jogo_id"];
+                                int categoriaJogoCategoria = (int)drJogocategoria["Categoria_id"];
+                                 
+                                jogocategoria = new Modelo.JogoCategoria(idJogoCategoria, categoriaJogoCategoria);
+                                jogosCategorias.Add(jogocategoria); 
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return jogosCategorias;
+        }
+
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Modelo.JogoCategoria Select(int Jogo_id) 

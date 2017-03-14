@@ -53,6 +53,48 @@ namespace IGames.DAL
             return foruns;
         }
 
+        //Método SelectAllByUser
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Modelo.Forum> SelectAllByUser(string Usuario_id)
+        {
+            Modelo.Forum forum;
+            List<Modelo.Forum> foruns = new List<Modelo.Forum>();
+
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlForuns = "SELECT * FROM Forum WHERE Usuario_id = @Usuario_id";
+                    SqlCommand cmdForuns = new SqlCommand(sqlForuns, connection);
+                    cmdForum.Parameters.AddWithValue("@Usuario_id", Usuario_id);
+                    SqlDataReader drForuns;
+
+                    using (drForuns = cmdForuns.ExecuteReader())
+                    {
+                        if (drForuns.HasRows)
+                        {
+                            while (drForuns.Read())
+                            {
+                                int idForum = Convert.ToInt32(drForuns["id"]);
+                                string descricao = Convert.ToString(drForuns["descricao"]);
+                                string data = Convert.ToString(drForuns["data"]);
+                                string hora = Convert.ToString(drForuns["hora"]);
+                                string usuarioId = Convert.ToString(drForuns["Usuario_id"]);
+                                forum = new Modelo.Forum(idForum, descricao, data, hora, usuarioId);
+                                foruns.Add(forum);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return foruns;
+        }
+
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Modelo.Forum Select(int forum_id)

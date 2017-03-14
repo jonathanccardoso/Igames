@@ -28,7 +28,6 @@ namespace IGames.Administrador
                 getJogos();
                 getCategories();
                 getJogosCategorias();
-
                 getCategoriasUpd();
                 getCategoriasDel();
             }
@@ -85,11 +84,6 @@ namespace IGames.Administrador
         {
             return DAL.DALGames.Select(jogo_id);
         }
-
-        protected void getJogosCategorias()
-        {
-            this.jogos = DAL.DALGames.SelectAll();
-        }
         protected void AddCategoria_Click(object sender, EventArgs e)
         {
             string descricao = InstCategoria.Text;
@@ -113,8 +107,11 @@ namespace IGames.Administrador
             if (listCatDel.SelectedItem.Value != "Escolha uma categoria")
             {
                 int id = int.Parse(listCatDel.SelectedItem.Value);
-                Modelo.Categoria cat = DAL.DALCategories.Select(id);
-                DAL.DALCategories.Delete(cat);
+                foreach (Modelo.JogoCategoria jg in DAL.DALGamesCategories.SelectAllByCategory(id)) {
+                    DAL.DALGamesCategories.Delete(jg);
+                    DAL.DALGames.Delete(new Modelo.Jogo(jg.Jogo_id, "", "", "", ""));
+                }
+                DAL.DALCategories.Delete(new Modelo.Categoria(DAL.DALCategories.Select(id)));
             }
             Response.Redirect("~/Administrador/Categorias.aspx");
         }

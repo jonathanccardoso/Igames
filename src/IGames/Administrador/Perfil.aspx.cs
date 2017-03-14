@@ -102,15 +102,23 @@ namespace IGames.Administrador
                 if (int.Parse(Request.QueryString["delete"].ToString()) == 1)
                 {
                     string id = Session["id"].ToString();
-                    List<Modelo.Avaliacao> avaliacoes = DAL.DALRates.SelectAllByUser(id);//SelectByUser
-                    foreach (Modelo.Avaliacao avaliar in avaliacoes)
-                    {
-                        DAL.DALRates.Delete(avaliar);
+                    foreach (Modelo.Favorito fav in DAL.DALFavorites.SelectAllByUser(id)) {
+                        DAL.DALFavorites.DeleteByUser(fav);
                     }
-                    DAL.DALUsers daluser = new DAL.DALUsers();
-                    Modelo.Usuario user = DAL.DALUsers.Select(id);
-                    DAL.DALUsers.Delete(user);
-                    Roles.RemoveUserFromRole(user.nome, (user.administrador) ? "Administrador" : "Usuario");
+                    foreach (Modelo.Avaliacao ava in DAL.DALRates.SelectAllByUser(id))
+                    {
+                        DAL.DALRates.Delete(ava);
+                    }
+                    foreach (Modelo.Forum fr in DAL.DALForum.SelectAllByUser(id))
+                    {
+                        DAL.DALForum.Delete(fr);
+                    }
+                    foreach (Modelo.Postagem pos in DAL.DALPosts.SelectAllByUser(id))
+                    {
+                        DAL.DALPosts.Delete(pos);
+                    }
+                    DAL.DALUsers.Delete(DAL.DALUsers.Select(id));
+                    Roles.RemoveUserFromRole(DAL.DALUsers.Select(id).nome, (user.administrador) ? "Administrador" : "Usuario");
                     Membership.DeleteUser(user.nome);
                     Session["id"] = null;
                     Session["email"] = null;

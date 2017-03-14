@@ -126,6 +126,44 @@ namespace IGames.DAL
             return avaliacoes;
         }
 
+        //Metodo SelectAllByGame
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Modelo.Avaliacao> SelectAllByGame(int Jogo_id) 
+        {
+            Modelo.Avaliacao avaliacao = null;
+            List<Modelo.Avaliacao> avaliacoes = new List<Modelo.Avaliacao>();
+            try
+            { 
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlAvaliacoes = "SELECT * FROM Avaliacao where Jogo_id = @Jogo_id";
+                    SqlCommand cmdAvaliacoes = new SqlCommand(sqlAvaliacoes, connection);
+                    cmdAvaliacoes.Parameters.AddWithValue("@Jogo_id", Jogo_id);
+                    SqlDataReader drAvaliacoes;
+
+                    using (drAvaliacoes = cmdAvaliacoes.ExecuteReader())
+                    {
+                        if (drAvaliacoes.HasRows)
+                        {
+                            while (drAvaliacoes.Read())
+                            {
+                                int NumeroEstrelas = (int)drAvaliacoes["numeroEstrelas"];
+                                string UsuarioId = drAvaliacoes["Usuario_id"].ToString();
+                                int JogoId = (int)drAvaliacoes["Jogo_id"];
+                                avaliacao = new Modelo.Avaliacao(NumeroEstrelas, JogoId, UsuarioId);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return avaliacoes;
+        }
+
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Modelo.Avaliacao Select(int jogo_id, string usuario_id)

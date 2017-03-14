@@ -81,24 +81,28 @@ namespace IGames.Administrador
             string descricao = this.jogo.descricao;
             string imagemUrl = this.jogo.imagemUrl;
             string nome = this.jogo.nome;
-            //int? AvaliaçãoId = null;
-            //int? ComentarioId = null; 
             DAL.DALGames daljogo = new DAL.DALGames();
             Modelo.Jogo jogo = new Modelo.Jogo(JogoUrl, descricao, imagemUrl, nome);
             DAL.DALGames.Delete(jogo);
 
             Response.Redirect("~/Administrador/Index.aspx");
         }
-        //excluir jogo NEW
+
         protected void Delete()
         {
             if (Request.QueryString["delete"] != null)
             {
-                string id = Request.QueryString["delete"].ToString();
-                //this.user = DAL.DALUsers.Select(id.ToString());
-                //DAL.DALUsers.Delete(user);
-                this.jogo = DAL.DALGames.Select(int.Parse(id));
-                DAL.DALGames.Delete(jogo);
+                int id = int.Parse(Request.QueryString["delete"].ToString());
+                foreach (Modelo.JogoCategoria jg in DAL.DALGamesCategories.SelectAllByGame(id)) {
+                    DAL.DALGamesCategories.Delete(jg);
+                }
+                foreach (Modelo.Avaliacao a in DAL.DALRates.SelectAllByGame(id)) {
+                    DAL.DALRates.Delete(a);
+                }
+                foreach (Modelo.Favorito f in DAL.DALFavorites.SelectAllByGame(id)) {
+                    DAL.DALFavorites.DeleteByUser(f);
+                }
+                DAL.DALGames.Delete(new Modelo.Jogo(id, "", "", "", ""));
                 Response.Redirect("~/Administrador/Index.aspx");
             }
         }

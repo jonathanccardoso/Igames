@@ -55,6 +55,51 @@ namespace IGames.DAL
             return postagens;
         }
 
+        //Método SelectAllByUser
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Modelo.Postagem> SelectAllByUser(string Usuario_id)
+        {
+            Modelo.Postagem postagem;
+            List<Modelo.Postagem> postagens = new List<Modelo.Postagem>();
+
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlPostagens = "SELECT * FROM Postagem WHERE Usuario_id = @Usuario_id";
+                    SqlCommand cmdPostagens = new SqlCommand(sqlPostagens, connection);
+                    cmdPostagem.Parameters.AddWithValue("@Usuario_id", Usuario_id);
+                    SqlDataReader drPostagens;
+
+                    using (drPostagens = cmdPostagens.ExecuteReader())
+                    {
+                        if (drPostagens.HasRows)
+                        {
+                            while (drPostagens.Read())
+                            {
+                                int idPostagem = (int)drPostagens["id"];
+                                string Texto = (string)drPostagens["texto"];
+                                string Data = (string)((DateTime)drPostagens["data"]).ToString("d");
+                                string Hora = (string)drPostagens["hora"];
+                                string UsuarioId = (string)drPostagens["Usuario_id"];
+                                int PostagemCitada = (int)drPostagens["PostagemCitada"];
+                                int idForum = (int)drPostagens["Forum_id"];
+                                postagem = new Modelo.Postagem(idPostagem, Texto, Data, Hora, UsuarioId, PostagemCitada, idForum);
+                                postagens.Add(postagem);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+
+            return postagens;
+        }
+
         //Método Select
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Modelo.Postagem Select(int postagem_id)

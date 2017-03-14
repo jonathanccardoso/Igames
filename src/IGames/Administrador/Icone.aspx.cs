@@ -80,7 +80,9 @@ namespace IGames.Administrador
             {
                 int id = int.Parse(Request.QueryString["delete"].ToString());
                 this.ico = DAL.DALIcons.Select(id);
-                DAL.DALIcons.Delete(ico);
+                if (!DAL.DALUsers.SelectAll.Contains(id)){
+                    DAL.DALIcons.Delete(ico);    
+                }
                 Response.Redirect("~/Administrador/Icone.aspx");
             }
         }

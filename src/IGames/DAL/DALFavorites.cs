@@ -49,6 +49,86 @@ namespace IGames.DAL
 
             return favoritos;
         }
+
+        //Método SelectAllUser 
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Modelo.Favorito> SelectAllByUser(int Usuario_id)
+        {
+            Modelo.Favorito favorito; 
+            List<Modelo.Favorito> favoritos = new List<Modelo.Favorito>();
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlFavoritos = "SELECT * FROM Favorito WHERE Usuario_id = @Usuario_id";
+                    SqlCommand cmdFavoritos = new SqlCommand(sqlFavoritos, connection);
+                    cmdFavorito.Parameters.AddWithValue("@Usuario_id", Usuario_id);
+                    SqlDataReader drFavoritos;   
+
+                    using (drFavoritos = cmdFavoritos.ExecuteReader())
+                    {
+                        if (drFavoritos.HasRows)
+                        {
+                            while (drFavoritos.Read())
+                            {
+                                string Usuario_id = drFavoritos["Usuario_id"].ToString();
+                                int Jogo_id = (int)drFavoritos["Jogo_id"];
+
+                                favorito = new Modelo.Favorito(Usuario_id, Jogo_id);
+                                favoritos.Add(favorito); 
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+
+            return favoritos;
+        }
+
+        //Método SelectAllByGame 
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Modelo.Favorito> SelectAllByGame(int Jogo_id)
+        {
+            Modelo.Favorito favorito; 
+            List<Modelo.Favorito> favoritos = new List<Modelo.Favorito>();
+            try
+            {
+                using (connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string sqlFavoritos = "SELECT * FROM Favorito WHERE Jogo_id = @Jogo_id";
+                    SqlCommand cmdFavoritos = new SqlCommand(sqlFavoritos, connection);
+                    cmdFavorito.Parameters.AddWithValue("@Jogo_id", Jogo_id);
+                    SqlDataReader drFavoritos;   
+
+                    using (drFavoritos = cmdFavoritos.ExecuteReader())
+                    {
+                        if (drFavoritos.HasRows)
+                        {
+                            while (drFavoritos.Read())
+                            {
+                                string Usuario_id = drFavoritos["Usuario_id"].ToString();
+                                int Jogo_id = (int)drFavoritos["Jogo_id"];
+
+                                favorito = new Modelo.Favorito(Usuario_id, Jogo_id);
+                                favoritos.Add(favorito); 
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+
+            return favoritos;
+        }
  
          //Método SelectByUser
         [DataObjectMethod(DataObjectMethodType.Select)]
