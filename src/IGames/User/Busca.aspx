@@ -45,7 +45,7 @@
 </li>
 <li><a href="Categorias.aspx"><i class="material-icons left">clear_all</i>Categorias</a></li>
 <li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
-<li><a href="../Sair.aspx">Sair</a></li>
+<li><a href="../Sair.aspx"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
 <% } %>
 <a href="index.aspx" class="brand-logo">IGames</a>

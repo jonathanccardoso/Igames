@@ -62,7 +62,7 @@
 <li><a href="Forum.aspx"><i class="material-icons left">question_answer</i>Fórum</a></li>
 <li><a href="Perfil.aspx"><i class="material-icons left">account_circle</i>Perfil</a></li>
 <li><a href="Favoritos.aspx"><i class="material-icons left">favorite</i>Favoritos</a></li>
-<li><a href="../Sair.aspx">Sair</a></li>
+<li><a href="../Sair.aspx"><i class="material-icons left">exit_to_app</i>Sair</a></li>
 </ul>
 <% } %>
 <a href="Index.aspx" class="brand-logo">IGames</a>
